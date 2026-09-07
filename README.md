@@ -1,2 +1,3 @@
 # CapySR
-A re-implementation of a game server with stars and rails.
+
+Work In Progress, will be release soon.
