@@ -10,10 +10,6 @@ logs/
 data/
 freesr-data.json
 
-# game data and reference servers are separate checkouts, not part of CapySR
-turnbasedgamedata/
-March7thHoney-OpenSource/
-pearl-sr/
-reference-robinsr/
-reference-himeko-nova-sr/
-TurnBaseGameProto/
+
+stuff/
+FetchHotfix/

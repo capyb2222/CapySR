@@ -121,8 +121,8 @@ public sealed class DataConfig
 
     private static readonly string[] DefaultSources =
     [
-        "turnbasedgamedata/ExcelOutput",
-        "pearl-sr/resources",
+        "stuff/turnbasedgamedata/ExcelOutput",
+        "stuff/pearl-sr/resources",
     ];
 
     public IEnumerable<string> ResolvedSources => (Sources.Count > 0 ? Sources : DefaultSources.ToList())

@@ -1,7 +1,7 @@
 # CapySR
 
 A Honkai: Star Rail server reimplementation rewritten in C#.
-Current version: `CNBETAWin4.5.52`
+Current version: `CNBETAWin4.5.53`
 
 Goals: a full combat system including combat events, and
 [srtools](https://srtools.neonteam.dev/) support. Currency Wars and Divergent Universe might be focused on in the far future.
@@ -10,6 +10,11 @@ Goals: a full combat system including combat events, and
 
 - .NET 10 SDK
 - `protoc` (only to regenerate the protocol)
+
+Everything the server reads but does not own lives in `stuff/` and is not tracked here: the
+game data it merges (`stuff/turnbasedgamedata/ExcelOutput` from Dimbreath and
+`stuff/pearl-sr/resources` for the beta overlay), the proto dump, and the reference servers.
+`Data.Sources` in `config/config.json` points at the first two, in priority order.
 
 ## Running
 
@@ -71,6 +76,17 @@ rotation. Challenges always play their own stage.
 
 ### Hotfix URLs
 
+Unknown versions are fetched from the official dispatch once and cached in
+`config/versions.json`. A beta dispatch stops answering as soon as its window closes, so a
+client newer than anything cached cannot be looked up by anyone any more. When that happens
+the closest older build of the same channel is lent out, which keeps a packaged client
+booting: an empty `ex_resource_url` hangs it at about 99% before it ever reaches the game
+server. Turn `Hotfix.EnableDesignDataUpdate` off while a version is running on borrowed urls,
+or it will try to download design data that does not match its build.
+
+The version a client will ask for, and its dispatch seed, are in
+`StarRail_Data/StreamingAssets/BinaryVersion.bytes`.
+
 For OS:
 ```json
 {
@@ -99,11 +115,9 @@ dotnet run --project tools/CapySR.ProtoGen
 ```
 
 The generated protocol is committed, so this is only needed after a proto dump changes. Clone
-[TurnBaseGameProto](https://github.com/Mar7thLover/TurnBaseGameProto) next to the solution first;
-game data (`turnbasedgamedata`, `pearl-sr/resources`) and the reference servers are separate
-checkouts too and are not tracked here.
+[TurnBaseGameProto](https://github.com/Mar7thLover/TurnBaseGameProto) into `stuff/` first.
 
-Reads `TurnBaseGameProto/Raw/StarRail.proto`, resolves the 11 duplicate type names the dump's
+Reads `stuff/TurnBaseGameProto/Raw/StarRail.proto`, resolves the 11 duplicate type names the dump's
 translation pass produces, runs protoc, and writes `CmdId.g.cs` / `CmdIdTable.g.cs`. Duplicate
 resolution is scored against the `CmdXxxType` service enums and `packetIds.txt`; deliberate calls
 live in `DuplicateResolver.Overrides`.

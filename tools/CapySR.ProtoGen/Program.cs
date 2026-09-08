@@ -12,8 +12,8 @@ if (repoRoot is null)
     return 1;
 }
 
-var sourceProto = Path.Combine(repoRoot, "TurnBaseGameProto", "Raw", "StarRail.proto");
-var packetIds = Path.Combine(repoRoot, "TurnBaseGameProto", "Raw", "packetIds.txt");
+var sourceProto = Path.Combine(repoRoot, "stuff", "TurnBaseGameProto", "Raw", "StarRail.proto");
+var packetIds = Path.Combine(repoRoot, "stuff", "TurnBaseGameProto", "Raw", "packetIds.txt");
 var protocolProject = Path.Combine(repoRoot, "src", "CapySR.Protocol");
 var cleanedProtoDir = Path.Combine(protocolProject, "Proto");
 var cleanedProto = Path.Combine(cleanedProtoDir, "StarRail.proto");

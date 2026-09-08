@@ -38,6 +38,9 @@ public sealed class HotfixCache
     private readonly SemaphoreSlim _lock = new(1, 1);
     private readonly string _path;
 
+    // versions already told about, so a borrowed hotfix is reported once and not per request
+    private readonly HashSet<string> _borrowed = new(StringComparer.OrdinalIgnoreCase);
+
     private Dictionary<string, VersionHotfix> _versions = new(StringComparer.OrdinalIgnoreCase);
 
     public HotfixCache(HotfixConfig config, ILogger<HotfixCache> logger)
@@ -90,34 +93,57 @@ public sealed class HotfixCache
             return cached;
         }
 
-        if (!_config.AutoFetch)
+        if (_config.AutoFetch)
         {
-            return cached;
-        }
+            await _lock.WaitAsync();
 
-        await _lock.WaitAsync();
-
-        try
-        {
-            if (_versions.TryGetValue(version, out cached) && cached.IsUsable)
+            try
             {
-                return cached;
-            }
+                if (_versions.TryGetValue(version, out cached) && cached.IsUsable)
+                {
+                    return cached;
+                }
 
-            var fetched = await FetchAsync(version, dispatchSeed);
-            if (fetched is null)
+                var fetched = await FetchAsync(version, dispatchSeed);
+
+                if (fetched is not null)
+                {
+                    _versions[version] = fetched;
+                    Save();
+                    return fetched;
+                }
+            }
+            finally
             {
-                return cached;
+                _lock.Release();
             }
+        }
 
-            _versions[version] = fetched;
-            Save();
-            return fetched;
-        }
-        finally
+        return cached is { IsUsable: true } ? cached : Nearest(version);
+    }
+
+    // A beta dispatch stops answering once its window closes, so a client on a build newer
+    // than anything cached can never be looked up. Packaged clients ship their own resources
+    // and only need the urls to be present, so lend them the closest build's.
+    public VersionHotfix? Nearest(string version)
+    {
+        var usable = _versions.Where(v => v.Value.IsUsable).Select(v => v.Key);
+
+        if (!GameVersion.TryFindNearest(usable, version, out var fallback))
         {
-            _lock.Release();
+            return null;
         }
+
+        if (_borrowed.Add(version))
+        {
+            _logger.LogWarning(
+                "no hotfix for {Version} and upstream will not serve it; lending {Fallback}'s urls. " +
+                "add the real ones to {Path}, or keep Hotfix:EnableDesignDataUpdate off so the " +
+                "client boots on the resources it shipped with",
+                version, fallback, _path);
+        }
+
+        return _versions[fallback];
     }
 
     private async Task<VersionHotfix?> FetchAsync(string version, string dispatchSeed)

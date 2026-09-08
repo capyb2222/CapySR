@@ -36,8 +36,8 @@
   },
   "Data": {
     "Sources": [
-      "turnbasedgamedata/ExcelOutput",
-      "pearl-sr/resources"
+      "stuff/turnbasedgamedata/ExcelOutput",
+      "stuff/pearl-sr/resources"
     ]
   },
   "Client": {

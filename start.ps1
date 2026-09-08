@@ -90,7 +90,7 @@ if (-not $clientDir -or -not (Test-Path $clientDir)) {
 
 $launcher = Join-Path $clientDir 'launcher.exe'
 $dll      = Join-Path $clientDir 'hkrpg.dll'
-$patch    = Join-Path $root 'pearl-sr\launcher'
+$patch    = Join-Path $root 'stuff\pearl-sr\launcher'
 
 # keep the injector in step with the copy in pearl-sr
 foreach ($file in 'launcher.exe', 'hkrpg.dll') {
