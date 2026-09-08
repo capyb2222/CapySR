@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CapySR.Common/CapySR.Common.csproj" />
+    <Project Path="src/CapySR.Data/CapySR.Data.csproj" />
+    <Project Path="src/CapySR.GameServer/CapySR.GameServer.csproj" />
+    <Project Path="src/CapySR.Kcp/CapySR.Kcp.csproj" />
+    <Project Path="src/CapySR.Protocol/CapySR.Protocol.csproj" />
+    <Project Path="src/CapySR.SdkServer/CapySR.SdkServer.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CapySR.Tests/CapySR.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/CapySR.ProtoGen/CapySR.ProtoGen.csproj" />
+  </Folder>
+</Solution>

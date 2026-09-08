@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- The generated protobuf surface is ~4.7k message types; nobody is reading its docs. -->
+    <NoWarn>$(NoWarn);CS0612;CS0618;CS1591;CS8981</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.33.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Proto\StarRail.proto" />
+  </ItemGroup>
+
+</Project>
