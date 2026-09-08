@@ -134,12 +134,15 @@ public sealed partial class GameData
     {
         log ??= _ => { };
 
-        var roots = sources.Where(Directory.Exists).ToArray();
+        var wanted = sources.ToArray();
+        var roots = wanted.Where(Directory.Exists).ToArray();
+
         if (roots.Length == 0)
         {
             throw new DirectoryNotFoundException(
-                "no game data sources found. Clone Dimbreath/turnbasedgamedata and point " +
-                "Data:Sources at its ExcelOutput folder.");
+                "no game data sources found. Clone Dimbreath/turnbasedgamedata and set Data:Sources " +
+                "in config/config.json to its ExcelOutput folder. Looked in: " +
+                (wanted.Length > 0 ? string.Join(", ", wanted) : "nowhere, Data:Sources is empty"));
         }
 
         var data = new GameData(roots);
