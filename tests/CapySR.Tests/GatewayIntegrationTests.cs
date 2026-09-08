@@ -12,12 +12,16 @@ namespace CapySR.Tests;
 public class GatewayIntegrationTests
 {
     // one world for the whole class; loading the tables is the slow part
-    private static readonly GameWorld World =
-        new(new ServerConfig(), NullLogger.Instance);
+    private static GameWorld World => TestWorld.Current;
 
     [Fact]
     public async Task ClientCompletesHandshakeAndLogin()
     {
+        if (!TestWorld.Available)
+        {
+            return;
+        }
+
         var port = FreeUdpPort();
         // Persist off: a test must not read or write the machine's saved profile
         var config = new ServerConfig { GameServer = { Host = "127.0.0.1", Port = port, Nickname = "Capybara", Persist = false } };
@@ -54,6 +58,11 @@ public class GatewayIntegrationTests
     [Fact]
     public async Task UnmodelledRequestStillGetsAnswered()
     {
+        if (!TestWorld.Available)
+        {
+            return;
+        }
+
         var port = FreeUdpPort();
         var config = new ServerConfig { GameServer = { Host = "127.0.0.1", Port = port, Persist = false } };
         var handlers = HandlerRegistry.Build(NullLogger.Instance);

@@ -13,7 +13,7 @@ namespace CapySR.Tests;
 // the whole pipeline through a real gateway: login, teams, overworld fights, a MOC floor
 public class FlowTests(ITestOutputHelper output)
 {
-    private static readonly GameWorld World = new(TestConfig(), NullLogger.Instance);
+    private static GameWorld World => TestWorld.Current;
 
     // the default harness plays real stages so an assertion about a fight is about the data,
     // not about whatever freesr-data.json happens to hold
@@ -66,7 +66,7 @@ public class FlowTests(ITestOutputHelper output)
         }
     }
 
-    private static bool HasData => new DataConfig().ResolvedSources.Any(Directory.Exists);
+    private static bool HasData => TestWorld.Available;
 
     [Fact]
     public async Task RosterAndTeamsLoad()
@@ -283,9 +283,14 @@ public class FlowTests(ITestOutputHelper output)
     [Fact]
     public async Task CalyxPlaysTheConfiguredBattle()
     {
+        if (!HasData)
+        {
+            return;
+        }
+
         var configured = World.Player.BattleConfig;
 
-        if (!HasData || configured.StageId == 0)
+        if (configured.StageId == 0)
         {
             output.WriteLine("no srtools battle_config; skipping");
             return;
@@ -484,6 +489,11 @@ public class FlowTests(ITestOutputHelper output)
     [Fact]
     public async Task MemoryOfChaosRunsBothNodesAndSettles()
     {
+        if (!HasData)
+        {
+            return;
+        }
+
         if (!HasData)
         {
             return;
