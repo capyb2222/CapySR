@@ -175,6 +175,13 @@ public sealed class TutorialGuideGroupExcel
     public uint GroupID { get; set; }
 }
 
+public sealed class GachaCeilingExcel
+{
+    public string GachaType { get; set; } = string.Empty;
+
+    public List<uint> CeilingItemList { get; set; } = [];
+}
+
 // maps an item id to its main/sub type. the client NPEs on an item it cannot type.
 public sealed class ItemConfigExcel
 {

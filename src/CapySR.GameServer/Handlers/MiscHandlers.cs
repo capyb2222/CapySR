@@ -8,6 +8,8 @@ namespace CapySR.GameServer.Handlers;
 [Handlers]
 public static class MiscHandlers
 {
+    private const uint StandardBannerId = 1001;
+
     // client settings the game stores server side (auto battle, speed, ...)
     public static Task OnGetAllServerPrefsData(PlayerSession session, GetAllServerPrefsDataCsReq request)
     {
@@ -63,8 +65,29 @@ public static class MiscHandlers
     public static Task OnGetVideoVersionKey(PlayerSession session, GetVideoVersionKeyCsReq request) =>
         session.SendAsync(new GetVideoVersionKeyScRsp { Retcode = 0 });
 
-    public static Task OnGetGachaInfo(PlayerSession session, GetGachaInfoCsReq request) =>
-        session.SendAsync(new GetGachaInfoScRsp { Retcode = 0 });
+    // an empty list leaves the gacha red-dot filter indexing nil every UI tick, which throws
+    // out of UIManager.Tick every frame. hand it the standard banner and nothing else.
+    public static Task OnGetGachaInfo(PlayerSession session, GetGachaInfoCsReq request)
+    {
+        var ceiling = new GachaCeiling { CeilingNum = 300, IsClaimed = false };
+
+        foreach (var avatarId in session.World.Data.GachaCeilingAvatars)
+        {
+            ceiling.AvatarList.Add(new GachaCeilingAvatar { AvatarId = avatarId, RepeatedCnt = 300 });
+        }
+
+        var response = new GetGachaInfoScRsp { Retcode = 0, GachaRandom = 0 };
+
+        response.GachaInfoList.Add(new GachaInfo
+        {
+            GachaId = StandardBannerId,
+            GachaCeiling = ceiling,
+            BeginTime = 0,
+            EndTime = 2524608000,
+        });
+
+        return session.SendAsync(response);
+    }
 
     public static Task OnGetDailyActiveInfo(PlayerSession session, GetDailyActiveInfoCsReq request) =>
         session.SendAsync(new GetDailyActiveInfoScRsp { Retcode = 0 });

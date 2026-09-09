@@ -114,4 +114,9 @@ public sealed partial class GameData
         row.TryGetPropertyValue(name, out var node) && node is not null && node.GetValueKind() is JsonValueKind.Number
             ? node.GetValue<uint>()
             : null;
+
+    private static string? Str(JsonObject row, string name) =>
+        row.TryGetPropertyValue(name, out var node) && node is not null && node.GetValueKind() is JsonValueKind.String
+            ? node.GetValue<string>()
+            : null;
 }

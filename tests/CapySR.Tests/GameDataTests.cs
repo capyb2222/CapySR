@@ -36,6 +36,20 @@ public class GameDataTests(ITestOutputHelper output)
         Assert.NotEmpty(data.Equipment);
     }
 
+    // an empty banner leaves the client's gacha red dot throwing once a frame
+    [Fact]
+    public void ReadsStandardBannerCeiling()
+    {
+        var data = TryLoad(output);
+        if (data is null)
+        {
+            return;
+        }
+
+        Assert.NotEmpty(data.GachaCeilingAvatars);
+        Assert.Contains(1003u, data.GachaCeilingAvatars);
+    }
+
     [Fact]
     public void ParsesMarch7th()
     {

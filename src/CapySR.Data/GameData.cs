@@ -120,6 +120,9 @@ public sealed partial class GameData
 
     public IReadOnlyList<uint> TutorialGuideIds { get; private set; } = [];
 
+    // the standard banner's guaranteed 5* pool
+    public IReadOnlyList<uint> GachaCeilingAvatars { get; private set; } = [];
+
     // every relic / lightcone id the client can resolve a type for
     public IReadOnlySet<uint> KnownRelicIds { get; private set; } = new HashSet<uint>();
 
@@ -207,6 +210,9 @@ public sealed partial class GameData
         data.MainMissions = data.Merge<MainMissionExcel>("MainMission.json", r => UInt(r, "MainMissionID"), required: false);
         data.TutorialIds = [.. data.Merge<TutorialExcel>("TutorialData.json", r => UInt(r, "TutorialID"), required: false).Keys];
         data.TutorialGuideIds = [.. data.Merge<TutorialGuideGroupExcel>("TutorialGuideGroup.json", r => UInt(r, "GroupID"), required: false).Keys];
+        data.GachaCeilingAvatars = [.. data
+            .Merge<GachaCeilingExcel>("GachaCeiling.json", r => Str(r, "GachaType") == "Normal" ? 0u : null, required: false)
+            .Values.SelectMany(r => r.CeilingItemList)];
         data.KnownRelicIds = data.Merge<ItemConfigExcel>("ItemConfigRelic.json", r => UInt(r, "ID"), required: false).Keys.ToHashSet();
         data.KnownLightconeIds = data.Merge<ItemConfigExcel>("ItemConfigEquipment.json", r => UInt(r, "ID"), required: false).Keys.ToHashSet();
 
