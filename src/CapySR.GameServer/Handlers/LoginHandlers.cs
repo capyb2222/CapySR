@@ -60,6 +60,8 @@ public static class LoginHandlers
             IsGenderSet = true,
             Gender = (uint)session.Player.Gender,
             CurDay = 1,
+            // PlayerModule dereferences this one without checking
+            PlayerSettingInfo = new PlayerSettingInfo(),
         });
 
     public static Task OnHeartBeat(PlayerSession session, PlayerHeartBeatCsReq request) =>

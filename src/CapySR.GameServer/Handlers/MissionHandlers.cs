@@ -29,6 +29,16 @@ public static class MissionHandlers
             response.CurversionFinishedMainMissionIdList.Add(id);
         }
 
+        // same story as GetMainMissionCustomValue: the ids asked about need a row each
+        foreach (var id in request.MainMissionIdList)
+        {
+            response.MainMissionMcvList.Add(new MainMissionCustomValue
+            {
+                MainMissionId = id,
+                CustomValueList = new ONHKODAFEMH(),
+            });
+        }
+
         session.Logger.LogInformation(
             "missions: {Sub} sub finished, {Main} main finished",
             response.SubMissionStatusList.Count, response.FinishedMainMissionIdList.Count);
@@ -36,8 +46,24 @@ public static class MissionHandlers
         return session.SendAsync(response);
     }
 
-    public static Task OnGetMainMissionCustomValue(PlayerSession session, GetMainMissionCustomValueCsReq request) =>
-        session.SendAsync(new GetMainMissionCustomValueScRsp { Retcode = 0 });
+    // an entry has to come back for every id asked about. the client indexes the result by
+    // mission id while it activates the map's hoyo groups, and a miss throws inside
+    // AdventureModule.EnterMap - the map never finishes entering and the load screen stays up.
+    public static Task OnGetMainMissionCustomValue(PlayerSession session, GetMainMissionCustomValueCsReq request)
+    {
+        var response = new GetMainMissionCustomValueScRsp { Retcode = 0 };
+
+        foreach (var id in request.MainMissionIdList)
+        {
+            response.MainMissionList.Add(new MainMission
+            {
+                Id = id,
+                Status = MissionStatus.MissionFinish,
+            });
+        }
+
+        return session.SendAsync(response);
+    }
 
     // report every tutorial already finished. an empty list makes the client try to unlock
     // them one at a time, forever, and it never leaves the loading screen.
