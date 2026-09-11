@@ -38,5 +38,13 @@
         "ifix_version": "0",
         "lua_url": "https://autopatchcn.bhsr.com/lua/BetaLive/output_16475505_fcd1e79987c2_dedcc3e216e164",
         "lua_version": ""
+    },
+    "OSBETAWin4.5.54": {
+        "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_16470326_3d7642f3b95a_aa4f3c605159e6",
+        "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_16468722_9a3bb59a4d54_713cca5abd78aa",
+        "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4",
+        "ifix_version": "0",
+        "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_16475505_fcd1e79987c2_c073523a9e914a",
+        "lua_version": ""
     }
 }
