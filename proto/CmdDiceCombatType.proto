@@ -1,0 +1,176 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AddItemRsp {
+	ItemList reward = 1; // offset: 24
+	int64 unlock_time = 7; // offset: 48
+	oneof FJIANHMABAB {
+		uint32 avatar_id = 2; // offset: 32
+		uint32 CLEKAKLPNBP = 10; // offset: 32
+	}
+}
+
+message BLBHACNKKFC {
+	uint32 LEHIGGFKPMN = 2; // offset: 36
+	int32 GALOHJONKCG = 3; // offset: 24
+	uint32 EECIJBLGLNG = 5; // offset: 32
+	bool is_win = 12; // offset: 28
+	bool is_friend = 15; // offset: 29
+}
+
+message BPNGPLHJHBE {
+	uint32 retcode = 8; // offset: 24
+}
+
+message BuyShopGoodCsReq {
+	uint32 KDMNGCLJDOM = 4; // offset: 24
+	uint32 MCDNNFACGPE = 6; // offset: 28
+}
+
+message BuyShopGoodScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated NJEBDKOJNGA OPNFOBJOPCB = 12; // offset: 24
+}
+
+message CMKMOIGANHN {
+	uint32 stage_id = 6; // offset: 24
+	uint32 FPJMKDNDENK = 14; // offset: 28
+}
+
+enum CmdDiceCombatType {
+	CmdDiceCombatType_NLCDGIPGFDJ = 0;
+	CmdDiceCombatType_V2FinishPveStageCsReq = 9265;
+	CmdDiceCombatType_BuyShopGoodCsReq = 9298;
+	CmdDiceCombatType_NPANIDLBFNM = 9276;
+	CmdDiceCombatType_ModifyAvatarDiceRsp = 9264;
+	CmdDiceCombatType_FinishPveStageScRsp = 9271;
+	CmdDiceCombatType_AGEOJALCOOC = 9295;
+	CmdDiceCombatType_DiceCombatMainPageRollDiceCsReq = 9262;
+	CmdDiceCombatType_GetShopDataScRsp = 9283;
+	CmdDiceCombatType_DiceCombatModifyAvatarDiceCsReq = 9286;
+	CmdDiceCombatType_GetSystemDataRsp = 9266;
+	CmdDiceCombatType_GetDiceCombatSystemDataCsReq = 9294;
+	CmdDiceCombatType_GetDiceCombatShopDataCsReq = 9279;
+	CmdDiceCombatType_DiceCombatFinishPveStageCsReq = 9293;
+	CmdDiceCombatType_JNPCPMEDCML = 9275;
+	CmdDiceCombatType_UpgradeAvatarRsp = 9267;
+	CmdDiceCombatType_DiceCombatUpgradeAvatarCsReq = 9292;
+	CmdDiceCombatType_AddItemRsp = 9268;
+	CmdDiceCombatType_V2FinishPveStageScRsp = 9273;
+	CmdDiceCombatType_BuyShopGoodScRsp = 9280;
+}
+
+message DDKNIMHHNPA {
+	repeated EHMEPOMCGNG LMPLLJFMFEC = 1; // offset: 24
+	repeated LPGJPLMHKFL JDGMEHCPGLL = 5; // offset: 32
+	bool is_win = 7; // offset: 44
+	uint32 stage_id = 12; // offset: 40
+	uint32 total_score = 13; // offset: 48
+}
+
+message DiceCombatFinishPveStageCsReq {
+	bool is_win = 1; // offset: 24
+	bool AINKFEINNAK = 2; // offset: 25
+	uint32 IMKHIDEBGEB = 4; // offset: 28
+	uint32 MPDHNFNCIEA = 10; // offset: 32
+}
+
+message DiceCombatMainPageRollDiceCsReq {
+}
+
+message DiceCombatModifyAvatarDiceCsReq {
+	uint32 LLPCNBJIMCN = 8; // offset: 24
+	uint32 avatar_id = 15; // offset: 28
+}
+
+message DiceCombatUpgradeAvatarCsReq {
+	uint32 KOEOEHIMOEI = 13; // offset: 24
+}
+
+message EHMEPOMCGNG {
+	uint32 DBLJFJAAPAN = 1; // offset: 32
+	repeated uint32 KBHCLLJLFHH = 2; // offset: 16
+}
+
+message FLDKOELBPGA {
+	bool DOFNEAPHMKH = 3; // offset: 32
+	uint32 item_id = 5; // offset: 40
+	ItemCostData cost = 9; // offset: 16
+	uint32 KDMNGCLJDOM = 14; // offset: 36
+}
+
+message FinishPveStageScRsp {
+	uint32 retcode = 5; // offset: 36
+	ItemList reward = 8; // offset: 16
+	bool is_win = 9; // offset: 32
+	uint32 MPDHNFNCIEA = 14; // offset: 40
+}
+
+message GetDiceCombatShopDataCsReq {
+}
+
+message GetDiceCombatSystemDataCsReq {
+}
+
+message GetShopDataScRsp {
+	uint32 retcode = 1; // offset: 32
+	repeated NJEBDKOJNGA OPNFOBJOPCB = 12; // offset: 16
+}
+
+message GetSystemDataRsp {
+	repeated DiceCombatAvatar avatar_list = 2; // offset: 48
+	repeated uint32 OHFIIBEIPJE = 3; // offset: 40
+	uint32 retcode = 10; // offset: 56
+	repeated PKENAGKIECB KCNEKEGGAGG = 11; // offset: 16
+	PDEIEDGCOBA DGFNLDBFLAJ = 14; // offset: 32
+}
+
+message LPGJPLMHKFL {
+	uint32 MDKFLGDEJCN = 1; // offset: 36
+	repeated uint32 NJIFEDNDMFO = 2; // offset: 24
+	uint32 DHJANOFGDNP = 3; // offset: 32
+}
+
+message ModifyAvatarDiceRsp {
+	uint32 retcode = 7; // offset: 32
+	DiceCombatAvatar avatar = 13; // offset: 16
+}
+
+message NJEBDKOJNGA {
+	uint32 shop_id = 3; // offset: 32
+	repeated FLDKOELBPGA CNFFGBMPCHD = 4; // offset: 24
+}
+
+message PDEIEDGCOBA {
+	repeated CMKMOIGANHN LNPPFHHACPF = 2; // offset: 24
+	repeated uint32 GNNBMNHOIFG = 10; // offset: 16
+}
+
+message PKENAGKIECB {
+	uint32 CLEKAKLPNBP = 7; // offset: 24
+	int64 unlock_time = 12; // offset: 32
+}
+
+message UpgradeAvatarRsp {
+	DiceCombatAvatar avatar = 10; // offset: 16
+	uint32 retcode = 11; // offset: 32
+}
+
+message V2FinishPveStageCsReq {
+	bool AINKFEINNAK = 4; // offset: 40
+	bool is_win = 6; // offset: 41
+	uint32 AELAEGOOBMB = 8; // offset: 36
+	uint32 EOILKCCLEIF = 11; // offset: 44
+	uint32 MPDHNFNCIEA = 12; // offset: 32
+	uint32 FGBIJPLPOBI = 13; // offset: 28
+	uint32 KGHBJELHOBA = 14; // offset: 24
+}
+
+message V2FinishPveStageScRsp {
+	uint32 retcode = 2; // offset: 40
+	ItemList reward = 3; // offset: 24
+	bool is_win = 9; // offset: 36
+	uint32 MPDHNFNCIEA = 10; // offset: 32
+}

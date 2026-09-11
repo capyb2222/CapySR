@@ -1,0 +1,195 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ALNGMGOJDOA {
+	map<uint32, uint32> GMONIMLFKFC = 2; // offset: 16
+	repeated MLHLIMIJHDD DBINCLPHEFN = 6; // offset: 24
+	repeated HPIEHAMDJAP MJNNNJPDKDI = 7; // offset: 48
+	map<uint32, uint32> AEOMEFEMBJI = 9; // offset: 40
+}
+
+enum CmdMatchThreeModuleType {
+	CmdMatchThreeModuleType_NLCDGIPGFDJ = 0;
+	CmdMatchThreeModuleType_MatchThreeGetDataDataScRsp = 7406;
+	CmdMatchThreeModuleType_MatchThreeLevelEndCsReq = 7420;
+	CmdMatchThreeModuleType_IDOCIKIILOL = 7411;
+	CmdMatchThreeModuleType_MatchThreeV2PvpFinishScNotify = 7423;
+	CmdMatchThreeModuleType_MatchThreeSetBirdPosCsReq = 7432;
+	CmdMatchThreeModuleType_MatchThreeLevelEndScRsp = 7431;
+	CmdMatchThreeModuleType_MatchThreeV2LevelEndCsReq = 7414;
+	CmdMatchThreeModuleType_MatchThreeSetBirdPosScRsp = 7416;
+	CmdMatchThreeModuleType_MatchThreeV2SetBirdPosCsReq = 7408;
+	CmdMatchThreeModuleType_MatchThreeV2BattleItemLevelUpCsReq = 7404;
+	CmdMatchThreeModuleType_MatchThreeV2SetBirdPosScRsp = 7447;
+	CmdMatchThreeModuleType_MatchThreeSyncDataScNotify = 7429;
+	CmdMatchThreeModuleType_MatchThreeV2LevelEndScRsp = 7440;
+	CmdMatchThreeModuleType_MatchThreeV2ScNotify = 7425;
+	CmdMatchThreeModuleType_MatchThreeV2BattleItemLevelUpScRsp = 7448;
+	CmdMatchThreeModuleType_FJDEJHJABEH = 7426;
+	CmdMatchThreeModuleType_MatchThreeRoyaleFinishScNotify = 7402;
+	CmdMatchThreeModuleType_OBNKGECIBOP = 7434;
+}
+
+message DHFGMHFEHEB {
+	uint32 IMCGJPMBPPJ = 1; // offset: 72
+	HDIOKENOFNJ HFPGDCJMNIK = 2; // offset: 96
+	uint32 MMFKMEGECOI = 3; // offset: 56
+	repeated ONNMLLIEENI CMBJOLCGMAI = 4; // offset: 40
+	uint32 JIDBIMNMLJP = 5; // offset: 100
+	uint32 retcode = 6; // offset: 88
+	uint32 HCENDLKKHOC = 8; // offset: 104
+	uint32 FBNEKMPIAKD = 9; // offset: 80
+	repeated GADFFIFFNHM JCOAGOJEAPB = 10; // offset: 16
+	uint32 PIGPKIDNMDH = 11; // offset: 64
+	GCFGCHAMNOL lineup = 12; // offset: 48
+	repeated uint32 ICBIMKIEOEP = 13; // offset: 24
+	uint32 IOMEILDMBNE = 14; // offset: 60
+	uint32 finish_work_cnt = 15; // offset: 84
+	uint32 KCCACINBEEA = 287; // offset: 92
+	uint32 GGPKMPBBENP = 593; // offset: 76
+	uint32 NMPCJAOIOHJ = 1221; // offset: 108
+	uint32 ENMLPFBMPNI = 1386; // offset: 68
+}
+
+message HDKJPKPEJFO {
+	repeated uint32 GKCABEGBOCG = 8; // offset: 16
+	uint32 level_id = 10; // offset: 32
+}
+
+message HPIEHAMDJAP {
+	uint32 KKHPKMAHDMK = 11; // offset: 24
+	uint32 level_id = 12; // offset: 28
+}
+
+message JKEBEAKOHJJ {
+	uint32 EECIJBLGLNG = 1; // offset: 68
+	repeated KVP KIOIBLGKFCJ = 2; // offset: 16
+	repeated KVP GOBIPJPDBFG = 6; // offset: 40
+	uint32 JNAOKJKFLHL = 8; // offset: 64
+	repeated KPCHPLEJCKC DBINCLPHEFN = 11; // offset: 48
+	repeated KVP BFCMLMLIHHM = 12; // offset: 56
+	repeated HDKJPKPEJFO NKHIIMHCLCD = 14; // offset: 32
+}
+
+message JPDGPEOBBNJ {
+}
+
+message KPCHPLEJCKC {
+	uint32 count = 3; // offset: 32
+	uint32 LALGADHLMCB = 10; // offset: 24
+	uint32 HBONKLEOEEI = 12; // offset: 28
+	uint32 pos = 14; // offset: 36
+}
+
+message MLHLIMIJHDD {
+	uint32 count = 8; // offset: 36
+	uint32 pos = 9; // offset: 24
+	uint32 LALGADHLMCB = 13; // offset: 32
+	uint32 HBONKLEOEEI = 14; // offset: 28
+}
+
+message MatchThreeGetDataDataScRsp {
+	uint32 retcode = 2; // offset: 32
+	ALNGMGOJDOA GJFKKFFJDAH = 6; // offset: 24
+}
+
+message MatchThreeLevelEndCsReq {
+	uint32 HBONKLEOEEI = 2; // offset: 52
+	uint32 LALGADHLMCB = 4; // offset: 40
+	map<uint32, uint32> GMONIMLFKFC = 6; // offset: 24
+	uint32 KKHPKMAHDMK = 8; // offset: 48
+	uint32 level_id = 14; // offset: 44
+	string uuid = 15; // offset: 16
+}
+
+message MatchThreeLevelEndScRsp {
+	uint32 level_id = 1; // offset: 28
+	uint32 retcode = 11; // offset: 32
+	uint32 KKHPKMAHDMK = 12; // offset: 24
+}
+
+message MatchThreeRoyaleFinishScNotify {
+	uint32 BCAKPNCHIIJ = 3; // offset: 36
+	FightGameMode game_mode = 5; // offset: 44
+	NPPEMMILLCO reason = 7; // offset: 40
+	LAJGLHCCNED JDFPKAMFHAP = 10; // offset: 24
+	int32 OJNGBIBGHBL = 15; // offset: 32
+}
+
+message MatchThreeSetBirdPosCsReq {
+	uint32 HBONKLEOEEI = 4; // offset: 28
+	uint32 pos = 10; // offset: 24
+}
+
+message MatchThreeSetBirdPosScRsp {
+	uint32 retcode = 9; // offset: 24
+	uint32 pos = 13; // offset: 32
+	uint32 HBONKLEOEEI = 14; // offset: 28
+}
+
+message MatchThreeSyncDataScNotify {
+	ALNGMGOJDOA GJFKKFFJDAH = 10; // offset: 24
+}
+
+message MatchThreeV2BattleItemLevelUpCsReq {
+	uint32 IGOOJKMPMDC = 3; // offset: 24
+	uint32 FMEHKPKHGJA = 13; // offset: 28
+}
+
+message MatchThreeV2BattleItemLevelUpScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 FMEHKPKHGJA = 6; // offset: 28
+	uint32 IGOOJKMPMDC = 12; // offset: 24
+}
+
+message MatchThreeV2LevelEndCsReq {
+	uint32 level_id = 1; // offset: 64
+	string uuid = 2; // offset: 16
+	uint32 EOHGLCJAMKN = 4; // offset: 52
+	uint32 JGIFDFLDBPB = 5; // offset: 48
+	uint32 GFBAHEODFNA = 6; // offset: 56
+	repeated uint32 EEDLBJGGLKD = 8; // offset: 24
+	repeated KVP MONKDLNMMBK = 10; // offset: 32
+	uint32 HBONKLEOEEI = 12; // offset: 60
+}
+
+message MatchThreeV2LevelEndScRsp {
+	HDKJPKPEJFO OEIBHLMDJKA = 2; // offset: 48
+	uint32 JNAOKJKFLHL = 4; // offset: 60
+	uint32 AFLCNNAJAGB = 5; // offset: 64
+	uint32 level_id = 6; // offset: 56
+	KPCHPLEJCKC IEGCHPIHPJN = 7; // offset: 24
+	repeated ItemList DOBNEFKPMPB = 9; // offset: 40
+	uint32 retcode = 12; // offset: 68
+	ItemList DBDIGIEPMBB = 13; // offset: 16
+}
+
+message MatchThreeV2PvpFinishScNotify {
+	uint32 OJNGBIBGHBL = 4; // offset: 48
+	uint32 BCAKPNCHIIJ = 7; // offset: 40
+	NPPEMMILLCO reason = 11; // offset: 44
+	FightGameMode game_mode = 13; // offset: 52
+	LAJGLHCCNED JDFPKAMFHAP = 14; // offset: 32
+	JKEBEAKOHJJ BJBJLBIOPKA = 15; // offset: 16
+}
+
+message MatchThreeV2ScNotify {
+	JKEBEAKOHJJ BJBJLBIOPKA = 3; // offset: 24
+}
+
+message MatchThreeV2SetBirdPosCsReq {
+	uint32 pos = 3; // offset: 24
+	uint32 HBONKLEOEEI = 15; // offset: 28
+}
+
+message MatchThreeV2SetBirdPosScRsp {
+	uint32 LIDGCJIKIEG = 6; // offset: 28
+	uint32 retcode = 9; // offset: 32
+	uint32 HBONKLEOEEI = 12; // offset: 36
+	uint32 pos = 14; // offset: 24
+}
+
+message PBDKDFCOAPB {
+}

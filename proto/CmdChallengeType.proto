@@ -1,0 +1,271 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message Challenge {
+	uint32 star = 3; // offset: 32
+	uint32 score_id = 4; // offset: 36
+	ChallengeStageInfo stage_info = 5; // offset: 16
+	uint32 record_id = 6; // offset: 44
+	bool HGPKMHFPMBJ = 7; // offset: 52
+	uint32 score_two = 11; // offset: 40
+	uint32 taken_reward = 12; // offset: 56
+	uint32 challenge_id = 14; // offset: 48
+}
+
+message ChallengeBossBuffInfo {
+	uint32 buff_one = 1; // offset: 28
+	uint32 buff_two = 5; // offset: 24
+}
+
+message ChallengeBossBuffList {
+	repeated uint32 buff_list = 8; // offset: 24
+	uint32 challenge_boss_const = 15; // offset: 32
+}
+
+message ChallengeBossInfo {
+	ChallengeBossSingleNodeInfo first_node = 2; // offset: 16
+	map<uint32, ChallengeBossAvatarRelicInfo> challenge_avatar_relic_map = 5; // offset: 40
+	repeated AvatarIdentifier avatar_lineup_second = 6; // offset: 24
+	bool unk1 = 7; // offset: 72
+	ChallengeBossSingleNodeInfo second_node = 9; // offset: 64
+	repeated AvatarIdentifier avatar_lineup_first = 11; // offset: 32
+	map<uint32, ChallengeBossEquipmentInfo> challenge_avatar_equipment_map = 13; // offset: 48
+}
+
+message ChallengeBossPhaseSettleNotify {
+	uint32 challenge_id = 1; // offset: 52
+	bool is_second_half = 2; // offset: 34
+	repeated BattleTarget battle_target_list = 4; // offset: 24
+	bool AGAEPDNHPJC = 6; // offset: 35
+	uint32 star = 7; // offset: 40
+	uint32 challenge_score = 8; // offset: 44
+	uint32 phase = 9; // offset: 36
+	uint32 score_two = 10; // offset: 48
+	uint32 page_type = 11; // offset: 56
+	bool is_win = 12; // offset: 33
+	bool is_reward = 14; // offset: 32
+}
+
+message ChallengeBossSingleNodeInfo {
+	bool is_win = 1; // offset: 32
+	uint32 buff_id = 6; // offset: 28
+	bool MBHCJPONJOM = 11; // offset: 33
+	uint32 max_score = 13; // offset: 24
+}
+
+message ChallengeBuffInfo {
+	oneof KKNBOACNCON {
+		ChallengeStoryBuffInfo story_info = 13; // offset: 24
+		ChallengeBossBuffInfo boss_info = 5; // offset: 24
+	}
+}
+
+message ChallengeCurBuffInfo {
+	oneof KKNBOACNCON {
+		ChallengeStoryBuffList cur_story_buffs = 12; // offset: 16
+		ChallengeBossBuffList cur_boss_buffs = 5; // offset: 16
+	}
+}
+
+message ChallengeGroup {
+	uint64 taken_stars_count_reward = 3; // offset: 32
+	uint32 group_id = 15; // offset: 24
+}
+
+message ChallengeHistoryMaxLevel {
+	uint32 level = 3; // offset: 32
+	bool HNHCFJJNJCE = 4; // offset: 24
+	uint32 reward_display_type = 6; // offset: 28
+}
+
+message ChallengeLineupNotify {
+	ExtraLineupType extra_lineup_type = 12; // offset: 24
+}
+
+message ChallengeSettleNotify {
+	CurChallenge cur_challenge = 1; // offset: 48
+	ItemList reward = 2; // offset: 16
+	uint32 score_two = 3; // offset: 60
+	uint32 challenge_score = 4; // offset: 68
+	uint32 star = 5; // offset: 56
+	repeated uint32 KDIDCCOOJJC = 7; // offset: 24
+	uint32 challenge_id = 8; // offset: 72
+	bool is_win = 10; // offset: 64
+	ChallengeHistoryMaxLevel max_level = 11; // offset: 40
+}
+
+message ChallengeStageInfo {
+	oneof KKNBOACNCON {
+		ChallengeBossInfo boss_info = 4; // offset: 24
+	}
+}
+
+enum ChallengeStatus {
+	CHALLENGE_UNKNOWN = 0;
+	CHALLENGE_DOING = 1;
+	CHALLENGE_FINISH = 2;
+	CHALLENGE_FAILED = 3;
+}
+
+message ChallengeStoryBuffInfo {
+	uint32 buff_one = 7; // offset: 28
+	uint32 buff_two = 13; // offset: 24
+}
+
+message ChallengeStoryBuffList {
+	repeated uint32 buff_list = 3; // offset: 16
+}
+
+enum CmdChallengeType {
+	CmdChallengeType_NLCDGIPGFDJ = 0;
+	CmdChallengeType_TakeChallengeRewardScRsp = 1764;
+	CmdChallengeType_GetChallengeCsReq = 1734;
+	CmdChallengeType_ChallengeSettleNotify = 1758;
+	CmdChallengeType_ChallengeLineupNotify = 1739;
+	CmdChallengeType_EnterChallengeNextPhaseScRsp = 1785;
+	CmdChallengeType_StartChallengeScRsp = 1775;
+	CmdChallengeType_StartPartialChallengeScRsp = 1717;
+	CmdChallengeType_GetCurChallengeScRsp = 1742;
+	CmdChallengeType_RestartChallengePhaseCsReq = 1778;
+	CmdChallengeType_GetChallengeGroupStatisticsScRsp = 1712;
+	CmdChallengeType_TakeChallengeRewardCsReq = 1768;
+	CmdChallengeType_LeaveChallengeScRsp = 1716;
+	CmdChallengeType_GetCurChallengeCsReq = 1715;
+	CmdChallengeType_GetChallengeGroupStatisticsCsReq = 1721;
+	CmdChallengeType_GetChallengeScRsp = 1725;
+	CmdChallengeType_EnterChallengeNextPhaseCsReq = 1719;
+	CmdChallengeType_ChallengeBossPhaseSettleNotify = 1707;
+	CmdChallengeType_StartChallengeCsReq = 1705;
+	CmdChallengeType_RestartChallengePhaseScRsp = 1704;
+	CmdChallengeType_StartPartialChallengeCsReq = 1711;
+	CmdChallengeType_LeaveChallengeCsReq = 1760;
+}
+
+message CurChallenge {
+	ChallengeStatus status = 3; // offset: 64
+	uint32 round_count = 5; // offset: 52
+	uint32 score_id = 6; // offset: 60
+	ChallengeCurBuffInfo stage_info = 9; // offset: 16
+	uint32 dead_avatar_num = 10; // offset: 56
+	repeated KillMonster kill_monster_list = 12; // offset: 32
+	uint32 challenge_id = 13; // offset: 40
+	ExtraLineupType extra_lineup_type = 14; // offset: 48
+	uint32 score_two = 15; // offset: 44
+}
+
+message EnterChallengeNextPhaseCsReq {
+}
+
+message EnterChallengeNextPhaseScRsp {
+	uint32 retcode = 1; // offset: 32
+	SceneInfo scene = 3; // offset: 16
+}
+
+message FMDAAIKLAJA {
+	uint32 group_id = 1; // offset: 28
+	bool JFKMNBHOBCL = 2; // offset: 25
+	bool EGLLMGLLHDL = 3; // offset: 24
+}
+
+message GetChallengeCsReq {
+}
+
+message GetChallengeGroupStatisticsCsReq {
+	uint32 group_id = 13; // offset: 24
+}
+
+message GetChallengeGroupStatisticsScRsp {
+	uint32 group_id = 9; // offset: 48
+	uint32 retcode = 11; // offset: 44
+	PlayerChallengeTierceRecord MEGBIPBAFBP = 75; // offset: 24
+	oneof EDKOHAAMONH {
+		ChallengeStatistics challenge_default = 13; // offset: 16
+		ChallengeStoryStatistics challenge_story = 1; // offset: 16
+		ChallengeBossStatistics challenge_boss = 8; // offset: 16
+	}
+}
+
+message GetChallengeScRsp {
+	repeated Challenge challenge_list = 1; // offset: 40
+	repeated ChallengeGroup challenge_group_list = 4; // offset: 24
+	repeated FMDAAIKLAJA KKIAFPFKLGE = 7; // offset: 16
+	uint32 retcode = 10; // offset: 56
+	repeated ChallengeHistoryMaxLevel max_level_list = 14; // offset: 48
+}
+
+message GetCurChallengeCsReq {
+}
+
+message GetCurChallengeScRsp {
+	CurChallenge cur_challenge = 11; // offset: 32
+	uint32 retcode = 13; // offset: 40
+	repeated LineupInfo lineup_list = 14; // offset: 16
+}
+
+message KillMonster {
+	uint32 kill_num = 9; // offset: 24
+	uint32 monster_id = 11; // offset: 28
+}
+
+message LeaveChallengeCsReq {
+}
+
+message LeaveChallengeScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message RestartChallengePhaseCsReq {
+}
+
+message RestartChallengePhaseScRsp {
+	SceneInfo scene = 3; // offset: 24
+	uint32 retcode = 7; // offset: 32
+}
+
+message StartChallengeCsReq {
+	uint32 challenge_id = 3; // offset: 64
+	repeated uint32 first_lineup = 5; // offset: 56
+	repeated AvatarIdentifier avatar_lineup_second = 8; // offset: 32
+	repeated AvatarIdentifier avatar_lineup_first = 11; // offset: 24
+	repeated uint32 second_lineup = 12; // offset: 48
+	ChallengeBuffInfo stage_info = 14; // offset: 16
+}
+
+message StartChallengeScRsp {
+	repeated LineupInfo lineup_list = 3; // offset: 48
+	uint32 retcode = 7; // offset: 56
+	ChallengeStageInfo stage_info = 13; // offset: 40
+	CurChallenge cur_challenge = 14; // offset: 32
+	SceneInfo scene = 15; // offset: 24
+}
+
+message StartPartialChallengeCsReq {
+	uint32 challenge_id = 3; // offset: 32
+	bool is_first_half = 14; // offset: 28
+	uint32 buff_id = 15; // offset: 24
+}
+
+message StartPartialChallengeScRsp {
+	SceneInfo scene = 7; // offset: 24
+	LineupInfo lineup = 10; // offset: 32
+	CurChallenge cur_challenge = 12; // offset: 40
+	uint32 retcode = 13; // offset: 48
+}
+
+message TakeChallengeRewardCsReq {
+	uint32 group_id = 9; // offset: 24
+}
+
+message TakeChallengeRewardScRsp {
+	uint32 group_id = 2; // offset: 40
+	ItemList OAKNHADPLJD = 9; // offset: 16
+	uint32 retcode = 13; // offset: 44
+	repeated TakenChallengeRewardInfo taken_reward_list = 15; // offset: 24
+}
+
+message TakenChallengeRewardInfo {
+	uint32 star_count = 9; // offset: 32
+	ItemList reward = 11; // offset: 24
+}

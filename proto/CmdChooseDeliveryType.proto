@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ChooseDeliveryCsReq {
+	uint32 group_id = 11; // offset: 28
+	uint32 IHFNFDKLFIC = 15; // offset: 24
+}
+
+message ChooseDeliveryGetDataCsReq {
+}
+
+message ChooseDeliveryGetDataScRsp {
+	repeated uint32 PCOJLMKPAEL = 1; // offset: 24
+	uint32 retcode = 9; // offset: 32
+}
+
+message ChooseDeliveryScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 group_id = 4; // offset: 36
+	uint32 IHFNFDKLFIC = 10; // offset: 40
+	repeated ItemList DJOBNPIAEJP = 13; // offset: 24
+}
+
+enum CmdChooseDeliveryType {
+	CmdChooseDeliveryType_NLCDGIPGFDJ = 0;
+	CmdChooseDeliveryType_ChooseDeliveryGetDataCsReq = 9490;
+	CmdChooseDeliveryType_ChooseDeliveryScRsp = 9488;
+	CmdChooseDeliveryType_ChooseDeliveryGetDataScRsp = 9496;
+	CmdChooseDeliveryType_ChooseDeliveryCsReq = 9497;
+}

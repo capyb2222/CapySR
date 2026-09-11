@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdStrongChallengeActivityType {
+	CmdStrongChallengeActivityType_NLCDGIPGFDJ = 0;
+	CmdStrongChallengeActivityType_StrongChallengeActivityBattleEndScNotify = 6660;
+	CmdStrongChallengeActivityType_EnterStrongChallengeActivityStageCsReq = 6605;
+	CmdStrongChallengeActivityType_EnterStrongChallengeActivityStageScRsp = 6675;
+	CmdStrongChallengeActivityType_GetStrongChallengeActivityDataCsReq = 6634;
+	CmdStrongChallengeActivityType_GetStrongChallengeActivityDataScRsp = 6625;
+}
+
+message DKOPOIIBDGJ {
+	map<uint32, MKGHJJCPBLP> MBDBADFENPL = 13; // offset: 24
+}
+
+message EnterStrongChallengeActivityStageCsReq {
+	repeated uint32 buff_list = 3; // offset: 32
+	repeated StrongChallengeAvatar avatar_list = 8; // offset: 24
+	uint32 stage_id = 10; // offset: 40
+}
+
+message EnterStrongChallengeActivityStageScRsp {
+	SceneBattleInfo battle_info = 4; // offset: 24
+	uint32 retcode = 7; // offset: 36
+	uint32 stage_id = 10; // offset: 32
+}
+
+message GetStrongChallengeActivityDataCsReq {
+}
+
+message GetStrongChallengeActivityDataScRsp {
+	uint32 retcode = 3; // offset: 32
+	DKOPOIIBDGJ OCLJEAKLFBH = 6; // offset: 16
+}
+
+message MKGHJJCPBLP {
+	NAFMBLMMAAG LMDGHCEHJCG = 6; // offset: 16
+	uint32 panel_id = 10; // offset: 44
+	uint32 max_score = 12; // offset: 40
+	uint32 CNBCDMMBCKI = 14; // offset: 32
+	uint32 stage_id = 15; // offset: 36
+}
+
+message NAFMBLMMAAG {
+	repeated StrongChallengeAvatar avatar_list = 4; // offset: 24
+	repeated uint32 buff_list = 7; // offset: 16
+}
+
+message StrongChallengeActivityBattleEndScNotify {
+	uint32 stage_id = 2; // offset: 36
+	uint32 IMCJFGIPIFI = 5; // offset: 32
+	BattleEndStatus JPPKLEIPKAN = 6; // offset: 44
+	uint32 IMPIAHHCOLI = 7; // offset: 24
+	uint32 total_damage = 8; // offset: 40
+	uint32 BMAHOGKMPDJ = 10; // offset: 48
+	uint32 damage_score = 14; // offset: 28
+	uint32 score = 15; // offset: 52
+}
+
+message StrongChallengeAvatar {
+	uint32 avatar_id = 1; // offset: 24
+	AvatarType avatar_type = 9; // offset: 28
+}

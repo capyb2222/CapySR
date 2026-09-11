@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdMessageType {
+	CmdMessageType_NLCDGIPGFDJ = 0;
+	CmdMessageType_FinishMultiPerformSectionIdScRsp = 2708;
+	CmdMessageType_FinishMultiPerformSectionIdCsReq = 2761;
+	CmdMessageType_GetNpcStatusCsReq = 2705;
+	CmdMessageType_GetMissionMessageScRsp = 2739;
+	CmdMessageType_GetNpcMessageGroupCsReq = 2734;
+	CmdMessageType_FinishSectionIdScRsp = 2756;
+	CmdMessageType_FinishSectionIdCsReq = 2758;
+	CmdMessageType_GetNpcStatusScRsp = 2775;
+	CmdMessageType_GetMissionMessageCsReq = 2742;
+	CmdMessageType_FinishItemIdCsReq = 2760;
+	CmdMessageType_GetNpcMessageGroupScRsp = 2725;
+	CmdMessageType_FinishPerformSectionIdScRsp = 2715;
+	CmdMessageType_FinishPerformSectionIdCsReq = 2783;
+	CmdMessageType_FinishItemIdScRsp = 2716;
+}
+
+message FPDBFGBJOFD {
+	uint32 MGPGDLIJKLM = 2; // offset: 32
+	repeated MessageItem DPPAFBAHEFH = 8; // offset: 24
+}
+
+message FinishItemIdCsReq {
+	uint32 item_id = 6; // offset: 28
+	uint32 text_id = 11; // offset: 24
+}
+
+message FinishItemIdScRsp {
+	uint32 item_id = 6; // offset: 32
+	uint32 text_id = 7; // offset: 28
+	uint32 retcode = 8; // offset: 24
+}
+
+message FinishMultiPerformSectionIdCsReq {
+	repeated FPDBFGBJOFD CGKBNIMCFKH = 15; // offset: 24
+}
+
+message FinishMultiPerformSectionIdScRsp {
+	repeated LGMDACIPFHL JCALNIODLLN = 2; // offset: 24
+	uint32 PLDKENJLKME = 6; // offset: 32
+}
+
+message FinishPerformSectionIdCsReq {
+	FPDBFGBJOFD HBMLBLAJKKL = 12; // offset: 24
+}
+
+message FinishPerformSectionIdScRsp {
+	uint32 retcode = 9; // offset: 32
+	LGMDACIPFHL MIINDKFMBBM = 15; // offset: 16
+}
+
+message FinishSectionIdCsReq {
+	uint32 section_id = 12; // offset: 24
+}
+
+message FinishSectionIdScRsp {
+	ItemList reward = 1; // offset: 16
+	uint32 retcode = 3; // offset: 32
+	uint32 section_id = 5; // offset: 36
+}
+
+message GetMissionMessageCsReq {
+}
+
+message GetMissionMessageScRsp {
+	map<uint32, uint32> PFMHKKKAGCD = 1; // offset: 32
+	repeated uint32 HNIPIODEBNN = 7; // offset: 24
+	uint32 retcode = 11; // offset: 40
+}
+
+message GetNpcMessageGroupCsReq {
+	repeated uint32 BJIPBBFIBPD = 12; // offset: 16
+}
+
+message GetNpcMessageGroupScRsp {
+	uint32 retcode = 6; // offset: 32
+	repeated MessageGroup message_group_list = 13; // offset: 24
+}
+
+message GetNpcStatusCsReq {
+}
+
+message GetNpcStatusScRsp {
+	repeated NpcStatus npc_status_list = 1; // offset: 24
+	uint32 retcode = 4; // offset: 32
+}
+
+message LGMDACIPFHL {
+	uint32 MGPGDLIJKLM = 8; // offset: 40
+	ItemList EBMIJAAKMMH = 9; // offset: 24
+	repeated MessageItem DPPAFBAHEFH = 14; // offset: 16
+}
+
+message MessageGroup {
+	MessageGroupStatus status = 1; // offset: 32
+	int64 refresh_time = 4; // offset: 48
+	uint32 id = 6; // offset: 36
+	uint32 message_section_id = 8; // offset: 40
+	repeated MessageSection message_section_list = 11; // offset: 24
+}
+
+message MessageItem {
+	uint32 item_id = 4; // offset: 28
+	uint32 text_id = 8; // offset: 24
+}
+
+message MessageSection {
+	uint32 frozen_item_id = 3; // offset: 48
+	repeated MessageItem item_list = 4; // offset: 24
+	repeated uint32 message_item_list = 8; // offset: 32
+	MessageSectionStatus status = 9; // offset: 44
+	uint32 id = 13; // offset: 40
+}
+
+message NpcStatus {
+	bool is_finish = 3; // offset: 28
+	uint32 npc_id = 4; // offset: 24
+}

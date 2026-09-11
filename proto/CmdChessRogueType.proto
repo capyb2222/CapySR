@@ -1,0 +1,778 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AACJBNFGABA {
+	repeated BPONKBLGNNL EMAGFIBLNCJ = 3; // offset: 24
+}
+
+message AEMAPGKPPJA {
+	FJKGDHKKDFF FDEEBBFMBLB = 4; // offset: 40
+	int32 FJCIKNAKJOG = 9; // offset: 52
+	repeated uint32 OPAEGCBNACJ = 12; // offset: 32
+	LMNCBIDKHLF OLJCAJMFJPO = 13; // offset: 16
+	uint32 JPPAGGPJOMO = 14; // offset: 48
+}
+
+enum AIMCAMJABNA {
+	AIMCAMJABNA_NLCDGIPGFDJ = 0;
+	AIMCAMJABNA_ILIIOLJMKME = 1;
+}
+
+message BEAFKDMJNLO {
+	uint32 IKCGEKBLABP = 8; // offset: 32
+	repeated uint32 NOEPBNMJFGL = 11; // offset: 24
+}
+
+message BKJCADFCHAB {
+	uint32 HONCDMKPBEG = 5; // offset: 24
+}
+
+message BPONKBLGNNL {
+	uint32 buff_id = 10; // offset: 32
+	ItemCostData cost_data = 14; // offset: 16
+}
+
+message CGMCMAKMJDK {
+	uint32 id = 1; // offset: 60
+	MCDONFNGMJE stage_info = 2; // offset: 24
+	bool LDDHLGINDIJ = 3; // offset: 40
+	ChessRogueCellSpecialType KFEMJMKMGIJ = 4; // offset: 32
+	uint32 PDKOHKKMKLF = 5; // offset: 48
+	ChessRogueBoardCellStatus EJEDLGNLOHB = 6; // offset: 44
+	uint32 CFGEJHAOKED = 7; // offset: 52
+	bool is_unlock = 9; // offset: 41
+	uint32 room_id = 10; // offset: 64
+	uint32 HLALFNEDFED = 13; // offset: 56
+	uint32 JMPMDGJLIPF = 14; // offset: 36
+}
+
+message CHHBLFHDFEK {
+	uint32 KPDLMKFLJAI = 4; // offset: 24
+	uint32 BMGCCEONICH = 14; // offset: 28
+}
+
+enum ChessRogueBoardCellStatus {
+	ChessRogueBoardCellStatus_Idle = 0;
+	ChessRogueBoardCellStatus_Selected = 1;
+	ChessRogueBoardCellStatus_Processing = 2;
+	ChessRogueBoardCellStatus_Finish = 3;
+}
+
+enum ChessRogueCellSpecialType {
+	ChessRogueCellSpecialType_None = 0;
+	ChessRogueCellSpecialType_Locked = 1;
+	ChessRogueCellSpecialType_Replicate = 2;
+	ChessRogueCellSpecialType_Protected = 3;
+	ChessRogueCellSpecialType_Seed = 4;
+	ChessRogueCellSpecialType_Stamp = 5;
+}
+
+message ChessRogueCellUpdateNotify {
+	uint32 AIHCKNAMPBP = 1; // offset: 40
+	RogueModifierSourceType CFAOFCGJBMA = 4; // offset: 32
+	repeated CGMCMAKMJDK CPPCIGMJALM = 7; // offset: 24
+	AIMCAMJABNA reason = 15; // offset: 36
+}
+
+message ChessRogueChangeAeonDimensionNotify {
+	DMGODFDFPEI info = 3; // offset: 16
+}
+
+message ChessRogueCheatRollCsReq {
+	uint32 AMPFBGKHJBF = 6; // offset: 24
+	uint32 MMNMIFAAHOF = 13; // offset: 28
+}
+
+message ChessRogueCheatRollScRsp {
+	KFACLOGFNJF POHEPEEFBOA = 2; // offset: 24
+	uint32 retcode = 8; // offset: 32
+}
+
+message ChessRogueConfirmRollCsReq {
+}
+
+message ChessRogueConfirmRollScRsp {
+	uint32 retcode = 12; // offset: 32
+	KFACLOGFNJF POHEPEEFBOA = 15; // offset: 24
+}
+
+enum ChessRogueDiceStatus {
+	ChessRogueDiceStatus_ChessRogueDiceIdle = 0;
+	ChessRogueDiceStatus_ChessRogueDiceRolled = 1;
+	ChessRogueDiceStatus_ChessRogueDiceConfirmed = 2;
+	ChessRogueDiceStatus_ChessRogueDiceGiveup = 3;
+}
+
+enum ChessRogueDiceType {
+	ChessRogueDiceType_ChessRogueDiceFixed = 0;
+	ChessRogueDiceType_ChessRogueDiceEditable = 1;
+}
+
+message ChessRogueEnterCellCsReq {
+	uint32 IHAOMLEPHOM = 13; // offset: 28
+	uint32 LOFMJHJOELO = 15; // offset: 24
+}
+
+message ChessRogueEnterCellScRsp {
+	uint32 retcode = 2; // offset: 40
+	MANINNKMFHG stage_info = 8; // offset: 32
+	DJEKEGMEHLK info = 12; // offset: 24
+}
+
+message ChessRogueEnterCsReq {
+	uint32 id = 8; // offset: 24
+}
+
+message ChessRogueEnterNextLayerCsReq {
+}
+
+message ChessRogueEnterNextLayerScRsp {
+	uint32 retcode = 4; // offset: 48
+	MANINNKMFHG stage_info = 8; // offset: 16
+	DJEKEGMEHLK rogue_game_info = 11; // offset: 24
+	OFGJFLCBBJP HPHKDGJHIJL = 15; // offset: 32
+}
+
+message ChessRogueEnterScRsp {
+	DJEKEGMEHLK info = 3; // offset: 32
+	MANINNKMFHG stage_info = 6; // offset: 24
+	uint32 retcode = 8; // offset: 40
+	uint32 id = 10; // offset: 44
+}
+
+message ChessRogueGiveUpCsReq {
+}
+
+message ChessRogueGiveUpScRsp {
+	AEMAPGKPPJA AEFMMOHKCHJ = 4; // offset: 16
+	PPAGCEGGCAK LFLCDNGALME = 6; // offset: 40
+	HIMJKAMHLMJ IHNENEGKEPO = 7; // offset: 56
+	OGHPKFMNNHL MINFCKLKLNJ = 8; // offset: 24
+	MANINNKMFHG stage_info = 9; // offset: 48
+	uint32 retcode = 14; // offset: 64
+}
+
+message ChessRogueLayerSettlement {
+	OGHPKFMNNHL MINFCKLKLNJ = 6; // offset: 24
+	uint32 difficulty = 9; // offset: 32
+}
+
+message ChessRogueLeaveCsReq {
+}
+
+message ChessRogueLeaveScRsp {
+	uint32 retcode = 4; // offset: 56
+	AEMAPGKPPJA AEFMMOHKCHJ = 6; // offset: 16
+	PPAGCEGGCAK LFLCDNGALME = 11; // offset: 48
+	HIMJKAMHLMJ IHNENEGKEPO = 12; // offset: 40
+	MANINNKMFHG stage_info = 14; // offset: 24
+}
+
+message ChessRogueNousDiceSurfaceUnlockNotify {
+	uint32 HBKEEBKFBFI = 13; // offset: 24
+}
+
+message ChessRogueNousDiceUpdateNotify {
+	MOOKMKEKMKC DDHKAGCLBLH = 2; // offset: 24
+}
+
+message ChessRogueNousEditDiceScRsp {
+	uint32 retcode = 10; // offset: 32
+	HGCIAPKELAF IOCCACNJIGD = 12; // offset: 16
+}
+
+message ChessRogueNousEnableRogueTalentCsReq {
+	uint32 CKHCLKOALKE = 1; // offset: 24
+}
+
+message ChessRogueNousEnableRogueTalentScRsp {
+	uint32 FPCCPKAOGKG = 9; // offset: 36
+	uint32 retcode = 10; // offset: 32
+	FDBDLBAPDBE JCOBJAMPOAL = 14; // offset: 24
+}
+
+message ChessRogueNousGetRogueTalentInfoCsReq {
+}
+
+message ChessRogueNousGetRogueTalentInfoScRsp {
+	uint32 retcode = 6; // offset: 32
+	FDBDLBAPDBE JCOBJAMPOAL = 12; // offset: 16
+	uint32 FPCCPKAOGKG = 15; // offset: 36
+}
+
+message ChessRogueQueryCsReq {
+}
+
+message ChessRogueQueryScRsp {
+	OGHPKFMNNHL MINFCKLKLNJ = 2; // offset: 40
+	PPAGCEGGCAK LFLCDNGALME = 6; // offset: 48
+	DJEKEGMEHLK info = 8; // offset: 16
+	HIMJKAMHLMJ IHNENEGKEPO = 10; // offset: 32
+	uint32 retcode = 12; // offset: 56
+}
+
+message ChessRogueQuestFinishNotify {
+	uint32 PEGKFPIKPKP = 9; // offset: 24
+}
+
+message ChessRogueQuitCsReq {
+}
+
+message ChessRogueQuitScRsp {
+	OGHPKFMNNHL MINFCKLKLNJ = 4; // offset: 16
+	HIMJKAMHLMJ IHNENEGKEPO = 6; // offset: 48
+	AEMAPGKPPJA AEFMMOHKCHJ = 7; // offset: 40
+	LKPCDHCKHKP OEIBHLMDJKA = 8; // offset: 24
+	uint32 retcode = 10; // offset: 72
+	MANINNKMFHG stage_info = 11; // offset: 56
+	PPAGCEGGCAK LFLCDNGALME = 13; // offset: 64
+}
+
+message ChessRogueReRollDiceCsReq {
+	uint32 MMNMIFAAHOF = 14; // offset: 24
+}
+
+message ChessRogueReRollDiceScRsp {
+	uint32 retcode = 9; // offset: 32
+	KFACLOGFNJF POHEPEEFBOA = 12; // offset: 24
+}
+
+message ChessRogueRollDiceCsReq {
+	uint32 MMNMIFAAHOF = 12; // offset: 24
+}
+
+message ChessRogueRollDiceScRsp {
+	KFACLOGFNJF POHEPEEFBOA = 9; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message ChessRogueSelectCellCsReq {
+	uint32 IHAOMLEPHOM = 2; // offset: 24
+}
+
+message ChessRogueSelectCellScRsp {
+	NAPFNBJDIOO EEGHDAJOHJO = 1; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message ChessRogueSkipTeachingLevelCsReq {
+}
+
+message ChessRogueSkipTeachingLevelScRsp {
+	ItemList PDJCAHBPKLK = 6; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message ChessRogueStartCsReq {
+	uint32 PDFAHEKNHNJ = 1; // offset: 60
+	repeated uint32 JKPIPNMGGOA = 4; // offset: 16
+	repeated uint32 NOEPBNMJFGL = 7; // offset: 24
+	uint32 AFEMBLFCCCH = 9; // offset: 56
+	uint32 id = 13; // offset: 64
+	repeated uint32 unfinished_story_line_id_list = 14; // offset: 48
+	repeated uint32 OCEGEKKFLAL = 15; // offset: 32
+}
+
+message ChessRogueStartScRsp {
+	uint32 retcode = 2; // offset: 48
+	MANINNKMFHG stage_info = 7; // offset: 24
+	OFGJFLCBBJP HPHKDGJHIJL = 10; // offset: 40
+	DJEKEGMEHLK info = 13; // offset: 32
+}
+
+message ChessRogueUpdateActionPointScNotify {
+	int32 EABEFBDOJEO = 13; // offset: 24
+}
+
+message ChessRogueUpdateAeonModifierValueScNotify {
+	uint32 AFEMBLFCCCH = 9; // offset: 28
+	int32 FJCIKNAKJOG = 15; // offset: 24
+}
+
+message ChessRogueUpdateAllowedSelectCellScNotify {
+	uint32 AIHCKNAMPBP = 4; // offset: 32
+	repeated uint32 AADAFLKEJGD = 9; // offset: 16
+}
+
+message ChessRogueUpdateDiceInfoScNotify {
+	KFACLOGFNJF POHEPEEFBOA = 14; // offset: 24
+}
+
+message ChessRogueUpdateDicePassiveAccumulateValueScNotify {
+	int32 CGPHGIBCNOH = 8; // offset: 24
+}
+
+message ChessRogueUpdateLevelBaseInfoScNotify {
+	GDHLDNFLOOF GKDCPNLOLNF = 2; // offset: 28
+	IOJJCDAPLAJ reason = 11; // offset: 24
+}
+
+message ChessRogueUpdateMoneyInfoScNotify {
+	AGEOGDOGDMM DHEKLJDBNNP = 14; // offset: 16
+}
+
+message ChessRogueUpdateReviveInfoScNotify {
+	GAJDPEBBFMG MFEODNJNGDP = 13; // offset: 16
+}
+
+message ChessRogueUpdateUnlockLevelScNotify {
+	repeated uint32 HKCDKHJCNDC = 6; // offset: 24
+}
+
+enum CmdChessRogueType {
+	CmdChessRogueType_NLCDGIPGFDJ = 0;
+	CmdChessRogueType_GetChessRogueStoryInfoCsReq = 5407;
+	CmdChessRogueType_FinishChessRogueSubStoryScRsp = 5549;
+	CmdChessRogueType_ChessRogueUpdateAllowedSelectCellScNotify = 5551;
+	CmdChessRogueType_ChessRogueNousEnableRogueTalentCsReq = 5553;
+	CmdChessRogueType_ChessRogueQueryScRsp = 5435;
+	CmdChessRogueType_SyncChessRogueNousSubStoryScNotify = 5499;
+	CmdChessRogueType_ChessRogueReRollDiceCsReq = 5476;
+	CmdChessRogueType_GetChessRogueNousStoryInfoCsReq = 5489;
+	CmdChessRogueType_SyncChessRogueNousValueScNotify = 5451;
+	CmdChessRogueType_ChessRogueStartCsReq = 5426;
+	CmdChessRogueType_ChessRogueGiveUpScRsp = 5514;
+	CmdChessRogueType_BBJHOEONOJJ = 5449;
+	CmdChessRogueType_ChessRogueRollDiceCsReq = 5564;
+	CmdChessRogueType_ChessRogueNousEditDiceScRsp = 5600;
+	CmdChessRogueType_GetChessRogueNousStoryInfoScRsp = 5523;
+	CmdChessRogueType_ChessRogueConfirmRollScRsp = 5432;
+	CmdChessRogueType_ChessRogueQuitCsReq = 5464;
+	CmdChessRogueType_ChessRogueReRollDiceScRsp = 5453;
+	CmdChessRogueType_ChessRogueEnterScRsp = 5483;
+	CmdChessRogueType_ChessRogueUpdateDiceInfoScNotify = 5493;
+	CmdChessRogueType_ChessRogueNousEnableRogueTalentScRsp = 5557;
+	CmdChessRogueType_GNIDKFANIGF = 5487;
+	CmdChessRogueType_ChessRogueStartScRsp = 5471;
+	CmdChessRogueType_ChessRogueCellUpdateNotify = 5580;
+	CmdChessRogueType_AOACLOOJNLP = 5474;
+	CmdChessRogueType_GOHNEBADJNM = 5452;
+	CmdChessRogueType_ChessRogueRollDiceScRsp = 5535;
+	CmdChessRogueType_ChessRogueEnterCellScRsp = 5536;
+	CmdChessRogueType_EnterChessRogueAeonRoomCsReq = 5433;
+	CmdChessRogueType_ChessRogueUpdateUnlockLevelScNotify = 5501;
+	CmdChessRogueType_GetChessRogueStoryAeonTalkInfoCsReq = 5599;
+	CmdChessRogueType_ChessRogueLeaveScRsp = 5419;
+	CmdChessRogueType_ChessRogueUpdateAeonModifierValueScNotify = 5573;
+	CmdChessRogueType_EnterChessRogueAeonRoomScRsp = 5525;
+	CmdChessRogueType_ChessRogueNousGetRogueTalentInfoScRsp = 5454;
+	CmdChessRogueType_ChessRogueGiveUpCsReq = 5561;
+	CmdChessRogueType_ChessRogueQuitScRsp = 5472;
+	CmdChessRogueType_ChessRogueUpdateDicePassiveAccumulateValueScNotify = 5477;
+	CmdChessRogueType_ChessRogueUpdateReviveInfoScNotify = 5569;
+	CmdChessRogueType_GetChessRogueStoryInfoScRsp = 5416;
+	CmdChessRogueType_ChessRogueQuestFinishNotify = 5513;
+	CmdChessRogueType_EJFJAINAICB = 5554;
+	CmdChessRogueType_ChessRogueCheatRollCsReq = 5533;
+	CmdChessRogueType_SyncChessRogueNousMainStoryScNotify = 5526;
+	CmdChessRogueType_ChessRogueEnterCellCsReq = 5468;
+	CmdChessRogueType_ChessRogueChangeAeonDimensionNotify = 5410;
+	CmdChessRogueType_ChessRogueCheatRollScRsp = 5415;
+	CmdChessRogueType_SyncChessRogueMainStoryFinishScNotify = 5589;
+	CmdChessRogueType_NLHKGMGLBOD = 5578;
+	CmdChessRogueType_ChessRogueSelectCellScRsp = 5491;
+	CmdChessRogueType_ChessRogueSkipTeachingLevelCsReq = 5427;
+	CmdChessRogueType_ChessRogueEnterNextLayerScRsp = 5422;
+	CmdChessRogueType_ChessRogueNousDiceUpdateNotify = 5505;
+	CmdChessRogueType_SelectChessRogueSubStoryCsReq = 5423;
+	CmdChessRogueType_ChessRogueConfirmRollCsReq = 5552;
+	CmdChessRogueType_ChessRogueNousGetRogueTalentInfoCsReq = 5417;
+	CmdChessRogueType_EnhanceRogueBuffCsReq = 5484;
+	CmdChessRogueType_ChessRogueQueryCsReq = 5547;
+	CmdChessRogueType_GetChessRogueStoryAeonTalkInfoScRsp = 5511;
+	CmdChessRogueType_SelectChessRogueSubStoryScRsp = 5516;
+	CmdChessRogueType_FinishChessRogueSubStoryCsReq = 5485;
+	CmdChessRogueType_ChessRogueUpdateMoneyInfoScNotify = 5424;
+	CmdChessRogueType_ChessRogueUpdateActionPointScNotify = 5510;
+	CmdChessRogueType_IANLHKCHNIH = 5503;
+	CmdChessRogueType_ChessRogueLeaveCsReq = 5462;
+	CmdChessRogueType_ChessRogueEnterNextLayerCsReq = 5447;
+	CmdChessRogueType_ChessRogueLayerSettlement = 5540;
+	CmdChessRogueType_EnhanceRogueBuffScRsp = 5469;
+	CmdChessRogueType_ChessRogueUpdateLevelBaseInfoScNotify = 5598;
+	CmdChessRogueType_ChessRogueNousDiceSurfaceUnlockNotify = 5438;
+	CmdChessRogueType_ChessRogueSkipTeachingLevelScRsp = 5488;
+	CmdChessRogueType_ChessRogueSelectCellCsReq = 5534;
+	CmdChessRogueType_ChessRogueEnterCsReq = 5437;
+}
+
+message DDAFEPBGOHK {
+	uint32 FPCCPKAOGKG = 8; // offset: 32
+	FDBDLBAPDBE GMILDFJFOGD = 9; // offset: 16
+}
+
+message DECHJACNLGP {
+	uint32 BJBALPKFELE = 5; // offset: 24
+	uint32 monster_id = 7; // offset: 28
+}
+
+message DFKMNLIJMFB {
+	uint32 POFBAHEECGB = 5; // offset: 36
+	repeated DECHJACNLGP GEJNMNBLFLG = 8; // offset: 24
+	bool is_selected = 12; // offset: 32
+}
+
+message DJEKEGMEHLK {
+	AEMAPGKPPJA AEFMMOHKCHJ = 1; // offset: 32
+	LKPCDHCKHKP OEIBHLMDJKA = 2; // offset: 80
+	NHLBNBBDHMI DNPCCFFFBHN = 3; // offset: 72
+	KFACLOGFNJF POHEPEEFBOA = 4; // offset: 56
+	EPDDOMFGIMK AJPMADHMGML = 6; // offset: 40
+	KCHPLCFMGLF EIOHFJMFOKF = 7; // offset: 48
+	MOIOKCDLNHE AFHEGGDHAOC = 8; // offset: 16
+	DLCNDCKCIPC story_info = 9; // offset: 96
+	AGEOGDOGDMM DHEKLJDBNNP = 10; // offset: 88
+	INHBMHCJJCN FMIGOKIDKJL = 13; // offset: 104
+	uint32 DLOJFEEHLIJ = 14; // offset: 120
+	EGLAPJGFKPN HABJHGPFGEB = 15; // offset: 64
+	NEGNNJGLFJP EIIHJJEBKOE = 1140; // offset: 112
+}
+
+message DJHNHHCMKMF {
+	uint32 retcode = 7; // offset: 32
+	repeated uint32 NOEPBNMJFGL = 13; // offset: 24
+}
+
+message DLCNDCKCIPC {
+	uint32 HGKBJIAAFPC = 1; // offset: 40
+	repeated uint32 AAFIFEGKACO = 2; // offset: 24
+	bool HIFMFMBCODL = 5; // offset: 32
+	uint32 JGCCIMMEDIJ = 11; // offset: 36
+}
+
+message DMGODFDFPEI {
+	uint32 MNMJCNOLIII = 6; // offset: 24
+	uint32 AFEMBLFCCCH = 15; // offset: 28
+}
+
+enum DPBCJGCPMLE {
+	DPBCJGCPMLE_PMJGFDCJKML = 0;
+	DPBCJGCPMLE_BPGDELOMEKH = 1;
+	DPBCJGCPMLE_DNOMGJBOGAD = 2;
+	DPBCJGCPMLE_PEIIMIHPEMG = 3;
+	DPBCJGCPMLE_KILLHJLIFJD = 4;
+	DPBCJGCPMLE_MFDBGOABEKJ = 5;
+}
+
+message DPELLHBJGML {
+	uint32 EPOHKNLFEAB = 5; // offset: 60
+	uint32 AAKGDLDFIIE = 8; // offset: 56
+	IKCONCOKNAN ONKBPKPOHEC = 9; // offset: 32
+	repeated GKDJBPJOGPO AGIJECGIBGJ = 10; // offset: 48
+	EJHDHGGMILA BAGNPGNGLOJ = 13; // offset: 16
+	repeated uint32 AADAFLKEJGD = 15; // offset: 40
+}
+
+message EHKDAJFLIEI {
+	uint32 HHFKOOJBOBF = 9; // offset: 24
+	uint32 JAAIADKFPCL = 15; // offset: 28
+}
+
+message EJHDHGGMILA {
+	uint32 LGPJLJAMJFJ = 1; // offset: 32
+	LMNCBIDKHLF OLJCAJMFJPO = 9; // offset: 16
+}
+
+message EPDDOMFGIMK {
+	int32 OPKEHOLONMJ = 9; // offset: 24
+}
+
+message EPHFHKDJKMD {
+	uint32 JGCCIMMEDIJ = 13; // offset: 24
+	uint32 APHIOEALOGI = 15; // offset: 28
+}
+
+message EditChessRogueNousBranchSurfaceCsReq {
+	uint32 slot_id = 3; // offset: 28
+	uint32 AMPFBGKHJBF = 14; // offset: 24
+}
+
+message EnterChessRogueAeonRoomCsReq {
+}
+
+message EnterChessRogueAeonRoomScRsp {
+	MANINNKMFHG stage_info = 7; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}
+
+enum FILMJJMEBJA {
+	FILMJJMEBJA_NLCDGIPGFDJ = 0;
+	FILMJJMEBJA_BFADFAELKLJ = 1;
+	FILMJJMEBJA_CIHFGJDCHIA = 2;
+	FILMJJMEBJA_GMCLFNKAHIM = 3;
+}
+
+message FJKGDHKKDFF {
+	repeated DMGODFDFPEI JHBFEGDPLJN = 13; // offset: 16
+}
+
+message FOAGKOAJEMD {
+}
+
+message FinishChessRogueSubStoryCsReq {
+	uint32 HONCDMKPBEG = 2; // offset: 24
+}
+
+message FinishChessRogueSubStoryScRsp {
+	uint32 HONCDMKPBEG = 5; // offset: 32
+	uint32 retcode = 7; // offset: 28
+	uint32 KPDLMKFLJAI = 11; // offset: 24
+}
+
+message GAJDPEBBFMG {
+	ItemCostData LNIEFKBMIPD = 12; // offset: 16
+}
+
+message GBDPDGAHPNK {
+	AACJBNFGABA ILMAMLBLIDL = 3; // offset: 24
+	uint32 retcode = 7; // offset: 32
+}
+
+enum GDHLDNFLOOF {
+	GDHLDNFLOOF_ADHGHGEFMLG = 0;
+	GDHLDNFLOOF_BHOGGJNMHPK = 1;
+	GDHLDNFLOOF_HDMDBOMJDDI = 2;
+	GDHLDNFLOOF_IGDHFMCJMIL = 3;
+	GDHLDNFLOOF_EMJFLBCFONO = 4;
+	GDHLDNFLOOF_EHMMIFPLLHM = 5;
+}
+
+message GKDJBPJOGPO {
+	uint32 IHAOMLEPHOM = 2; // offset: 24
+}
+
+message GetChessRogueNousStoryInfoCsReq {
+}
+
+message GetChessRogueNousStoryInfoScRsp {
+	uint32 retcode = 4; // offset: 40
+	repeated BKJCADFCHAB POABJDELNGH = 7; // offset: 32
+	repeated PJBODOPJFGA FNKLMMACCMJ = 12; // offset: 16
+}
+
+message GetChessRogueStoryAeonTalkInfoCsReq {
+	uint32 OEANPIHCHHF = 2; // offset: 24
+}
+
+message GetChessRogueStoryAeonTalkInfoScRsp {
+	map<uint32, uint32> LDPAJKIEPIP = 2; // offset: 24
+	uint32 OEANPIHCHHF = 14; // offset: 32
+	uint32 retcode = 15; // offset: 36
+}
+
+message GetChessRogueStoryInfoCsReq {
+}
+
+message GetChessRogueStoryInfoScRsp {
+	repeated CHHBLFHDFEK FNKLMMACCMJ = 1; // offset: 24
+	repeated EPHFHKDJKMD POABJDELNGH = 6; // offset: 16
+	uint32 retcode = 13; // offset: 40
+}
+
+message HGCIAPKELAF {
+	uint32 PDFAHEKNHNJ = 2; // offset: 36
+	uint32 MABFMAFCEOA = 7; // offset: 32
+	repeated EditChessRogueNousBranchSurfaceCsReq LFLFEKEAOCL = 11; // offset: 16
+	uint32 AHNGMINODKG = 15; // offset: 40
+}
+
+message HIMJKAMHLMJ {
+	LPCINMGGCNI EIIHJJEBKOE = 6; // offset: 16
+	FJKGDHKKDFF FDEEBBFMBLB = 8; // offset: 56
+	MOOKMKEKMKC IOCCACNJIGD = 9; // offset: 64
+	repeated uint32 FEBKOJODAAM = 10; // offset: 40
+	repeated uint32 HKCDKHJCNDC = 11; // offset: 32
+	DDAFEPBGOHK JCOBJAMPOAL = 12; // offset: 48
+}
+
+message IACEIJKMLLN {
+	HGCIAPKELAF JPJPDLBENDH = 11; // offset: 24
+}
+
+message IFFEHFHAKCB {
+	uint32 avatar_id = 4; // offset: 24
+}
+
+message IKCONCOKNAN {
+	uint32 ABOHPPHHPEI = 3; // offset: 32
+	uint32 GHKDAJNDBBA = 4; // offset: 44
+	repeated CGMCMAKMJDK CPPCIGMJALM = 7; // offset: 24
+	uint32 height = 9; // offset: 36
+	uint32 width = 15; // offset: 40
+}
+
+message IOHKFHBGICD {
+	ItemList item_list = 12; // offset: 16
+}
+
+enum IOJJCDAPLAJ {
+	IOJJCDAPLAJ_OLBIJIJCONK = 0;
+	IOJJCDAPLAJ_HCFMGBEFBGD = 1;
+}
+
+message JECIOGKPHFN {
+	repeated uint32 JJHFHLAHLGP = 14; // offset: 16
+}
+
+message JKLCLLAFHOC {
+	DFKMNLIJMFB MGACFLNJLCK = 6; // offset: 32
+	JECIOGKPHFN MKMLKGOOAMK = 11; // offset: 24
+}
+
+message KCHPLCFMGLF {
+	repeated IFFEHFHAKCB JOLEGACINNK = 11; // offset: 24
+	GAJDPEBBFMG MFEODNJNGDP = 15; // offset: 32
+}
+
+message KFACLOGFNJF {
+	ChessRogueDiceStatus OACDALINONI = 2; // offset: 96
+	uint32 ONCIOGBKPPI = 3; // offset: 64
+	uint32 DGHEPBKLKDP = 4; // offset: 56
+	uint32 JDLKMDFFMGP = 5; // offset: 60
+	ChessRogueDiceType CEBDDDJMJIJ = 7; // offset: 80
+	uint32 DGLIOIEKGNP = 9; // offset: 88
+	uint32 FLADMNIKGEI = 11; // offset: 84
+	uint32 BMLMHPPLDDE = 12; // offset: 68
+	uint32 EFDMLFGILKK = 13; // offset: 76
+	bool BGDHHJLICFA = 14; // offset: 92
+	int32 CMDDPMHCALK = 464; // offset: 72
+	HGCIAPKELAF GMDKBGODBCB = 631; // offset: 48
+	LMNCBIDKHLF BOPGHOPCFHF = 942; // offset: 40
+	BMCNDLNONMO OBLADGDFCCN = 997; // offset: 32
+	repeated uint32 BDGMPDLBDGN = 1793; // offset: 24
+	bool IHCAMLMFAOH = 1814; // offset: 93
+}
+
+message LKPCDHCKHKP {
+	uint32 GKDCPNLOLNF = 1; // offset: 48
+	DPELLHBJGML board = 2; // offset: 24
+	int32 EABEFBDOJEO = 4; // offset: 40
+	uint32 id = 9; // offset: 32
+	uint32 MLLDCLNMIOG = 11; // offset: 44
+	uint32 MDAIAMFJNHM = 12; // offset: 36
+}
+
+message LMNCBIDKHLF {
+	repeated BMCNDLNONMO HDLGLFGKONC = 12; // offset: 16
+}
+
+message LOINLLCCNBD {
+	repeated uint32 NOEPBNMJFGL = 3; // offset: 24
+	uint32 DCABCEOHHNN = 6; // offset: 32
+}
+
+message LPCINMGGCNI {
+	repeated uint32 KHCANAKMBDJ = 9; // offset: 24
+}
+
+message MANINNKMFHG {
+	LineupInfo lineup = 2; // offset: 32
+	SceneInfo scene = 14; // offset: 16
+}
+
+message MCDONFNGMJE {
+	oneof CGIFMOFGECO {
+		DFKMNLIJMFB MGACFLNJLCK = 10; // offset: 24
+		JECIOGKPHFN MKMLKGOOAMK = 7; // offset: 24
+		JKLCLLAFHOC LPAAMNFFAIB = 8; // offset: 24
+	}
+}
+
+message MOIOKCDLNHE {
+	bool HIFMFMBCODL = 1; // offset: 48
+	repeated uint32 IDCJMPMJHGC = 3; // offset: 32
+	bool LKDOGPNPGPF = 4; // offset: 49
+	uint32 KPDLMKFLJAI = 9; // offset: 56
+	repeated uint32 GBLLJKFOIDK = 11; // offset: 16
+	repeated uint32 EKNOAJJDPMM = 12; // offset: 40
+	uint32 HONCDMKPBEG = 14; // offset: 52
+}
+
+message MOOKMKEKMKC {
+	repeated uint32 ADLKMLFOFPF = 3; // offset: 40
+	map<uint32, bool> PEGDMOMCFAD = 9; // offset: 32
+	repeated HGCIAPKELAF BILCGENIGJM = 10; // offset: 16
+}
+
+message NAPFNBJDIOO {
+	IOHKFHBGICD reward_item = 5; // offset: 24
+	EHKDAJFLIEI MCGGEAAHBPD = 11; // offset: 32
+}
+
+message NEGNNJGLFJP {
+	repeated uint32 KEHKLHMEABI = 10; // offset: 24
+}
+
+message OFGJFLCBBJP {
+	uint32 EIMFLPNFPGM = 6; // offset: 32
+	repeated CGMCMAKMJDK CPPCIGMJALM = 15; // offset: 16
+}
+
+message OGHPKFMNNHL {
+	uint32 KPDLMKFLJAI = 1; // offset: 108
+	bool is_finish = 2; // offset: 104
+	uint32 OBBGJAFECBE = 3; // offset: 88
+	LineupInfo BJDLGBBPFCK = 4; // offset: 56
+	GMIJHCONFIH DNPCCFFFBHN = 5; // offset: 48
+	APNCCNFJBKO HABJHGPFGEB = 6; // offset: 64
+	uint32 MMIDEAMEANB = 7; // offset: 120
+	DPBCJGCPMLE HCPBMIEGDON = 8; // offset: 92
+	uint32 difficulty = 9; // offset: 80
+	uint32 HLOCCOOMBGG = 10; // offset: 76
+	uint32 ADMADHCDHJE = 12; // offset: 96
+	ItemList DAKEDPKJMLB = 14; // offset: 16
+	repeated uint32 AFGFOBPLFIL = 15; // offset: 40
+	uint32 OLMLOEHHFCG = 216; // offset: 112
+	uint32 DLOJFEEHLIJ = 666; // offset: 100
+	MOIOKCDLNHE AFHEGGDHAOC = 1010; // offset: 24
+	uint32 score_id = 1039; // offset: 84
+	uint32 OEGLLHMMBEM = 1301; // offset: 72
+	uint32 INNAPIIHJFK = 1857; // offset: 116
+}
+
+message OKMIJLHMGCD {
+	GAJDPEBBFMG MFEODNJNGDP = 7; // offset: 16
+	uint32 retcode = 11; // offset: 32
+}
+
+message PJBODOPJFGA {
+	FILMJJMEBJA status = 1; // offset: 28
+	uint32 KPDLMKFLJAI = 3; // offset: 24
+}
+
+message PPAGCEGGCAK {
+	repeated uint32 FEBKOJODAAM = 4; // offset: 32
+	repeated uint32 HKCDKHJCNDC = 6; // offset: 56
+	LPCINMGGCNI EIIHJJEBKOE = 7; // offset: 16
+	MOOKMKEKMKC IOCCACNJIGD = 9; // offset: 48
+	FJKGDHKKDFF FDEEBBFMBLB = 12; // offset: 64
+	DDAFEPBGOHK JCOBJAMPOAL = 15; // offset: 40
+}
+
+message SelectChessRogueSubStoryCsReq {
+	uint32 rogue_dialogue_event_id = 9; // offset: 24
+	uint32 HONCDMKPBEG = 14; // offset: 28
+}
+
+message SelectChessRogueSubStoryScRsp {
+	uint32 rogue_dialogue_event_id = 2; // offset: 24
+	uint32 retcode = 4; // offset: 28
+}
+
+message SyncChessRogueMainStoryFinishScNotify {
+	uint32 KPDLMKFLJAI = 1; // offset: 24
+}
+
+message SyncChessRogueNousMainStoryScNotify {
+	repeated PJBODOPJFGA FNKLMMACCMJ = 13; // offset: 24
+}
+
+message SyncChessRogueNousSubStoryScNotify {
+	uint32 HONCDMKPBEG = 8; // offset: 24
+}
+
+message SyncChessRogueNousValueScNotify {
+	EPDDOMFGIMK AJPMADHMGML = 3; // offset: 24
+}

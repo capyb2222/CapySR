@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdSwitchHandType {
+	CmdSwitchHandType_NLCDGIPGFDJ = 0;
+	CmdSwitchHandType_GetSwitchHandDataScRsp = 8116;
+	CmdSwitchHandType_GetSwitchHandResetHandPosCsReq = 8107;
+	CmdSwitchHandType_SwitchHandStartCsReq = 8117;
+	CmdSwitchHandType_GetSwitchHandUpdateScRsp = 8105;
+	CmdSwitchHandType_SwitchHandFinishCsReq = 8104;
+	CmdSwitchHandType_SwitchHandCoinUpdateScRsp = 8109;
+	CmdSwitchHandType_GetSwitchHandResetGameScRsp = 8119;
+	CmdSwitchHandType_SwitchHandFinishScRsp = 8113;
+	CmdSwitchHandType_SwitchHandResetGameCsReq = 8103;
+	CmdSwitchHandType_SwitchHandStartScRsp = 8108;
+	CmdSwitchHandType_SwitchHandCoinUpdateCsReq = 8112;
+	CmdSwitchHandType_GetSwitchHandResetHandPosScRsp = 8106;
+	CmdSwitchHandType_SwitchHandUpdateCsReq = 8120;
+	CmdSwitchHandType_SwitchHandDataCsReq = 8110;
+}
+
+enum DDNJKAMIHHI {
+	DDNJKAMIHHI_NLCDGIPGFDJ = 0;
+	DDNJKAMIHHI_LJHJNDHCHJF = 1;
+	DDNJKAMIHHI_HOKACNFCJAI = 2;
+}
+
+message ENHOPAHGCMA {
+	uint32 config_id = 2; // offset: 40
+	uint32 EKHEAFBKDFP = 10; // offset: 44
+	MotionInfo IFPFJIIFALA = 11; // offset: 24
+	bytes DNOBAJNIGAC = 13; // offset: 16
+	uint32 LNGJODEPCDN = 15; // offset: 48
+}
+
+message GetSwitchHandDataScRsp {
+	uint32 MHKAPGBGFNO = 1; // offset: 32
+	uint32 EBNGHIMCAPK = 3; // offset: 36
+	uint32 retcode = 7; // offset: 40
+	repeated ENHOPAHGCMA BEADAHPGGAF = 9; // offset: 24
+}
+
+message GetSwitchHandResetGameScRsp {
+	ENHOPAHGCMA BEADAHPGGAF = 7; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}
+
+message GetSwitchHandResetHandPosCsReq {
+	MotionInfo IFPFJIIFALA = 8; // offset: 16
+	uint32 config_id = 12; // offset: 32
+}
+
+message GetSwitchHandResetHandPosScRsp {
+	ENHOPAHGCMA BEADAHPGGAF = 5; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message GetSwitchHandUpdateScRsp {
+	uint32 retcode = 3; // offset: 40
+	OENDLKLJHPF NCADGIPIALO = 7; // offset: 16
+	ENHOPAHGCMA BDEDDAHODII = 15; // offset: 32
+}
+
+message OENDLKLJHPF {
+	uint32 group_id = 2; // offset: 36
+	DDNJKAMIHHI op_type = 5; // offset: 32
+	uint32 LKJHCMMPBDL = 13; // offset: 28
+	uint32 IIIMCOINAOG = 15; // offset: 24
+}
+
+message SwitchHandCoinUpdateCsReq {
+	uint32 LNGJODEPCDN = 8; // offset: 24
+}
+
+message SwitchHandCoinUpdateScRsp {
+	uint32 LNGJODEPCDN = 9; // offset: 28
+	uint32 retcode = 12; // offset: 24
+}
+
+message SwitchHandDataCsReq {
+	uint32 NOBLDDEFEKI = 6; // offset: 24
+}
+
+message SwitchHandFinishCsReq {
+}
+
+message SwitchHandFinishScRsp {
+	ENHOPAHGCMA BDEDDAHODII = 12; // offset: 16
+	uint32 retcode = 14; // offset: 32
+}
+
+message SwitchHandResetGameCsReq {
+	ENHOPAHGCMA JCELIFCHCEF = 2; // offset: 24
+}
+
+message SwitchHandStartCsReq {
+	uint32 config_id = 15; // offset: 24
+}
+
+message SwitchHandStartScRsp {
+	uint32 config_id = 6; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+message SwitchHandUpdateCsReq {
+	ENHOPAHGCMA IINKHPOJOGP = 1; // offset: 16
+	OENDLKLJHPF NCADGIPIALO = 3; // offset: 32
+}

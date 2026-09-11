@@ -1,0 +1,156 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdDrinkMakerType {
+	CmdDrinkMakerType_NLCDGIPGFDJ = 0;
+	CmdDrinkMakerType_DrinkMakerChallengeScRsp = 6987;
+	CmdDrinkMakerType_GetDrinkMakerDayEndScNotify = 6992;
+	CmdDrinkMakerType_MakeDrinkCsReq = 6997;
+	CmdDrinkMakerType_DrinkMakerCheersEnterNextGroupCsReq = 6994;
+	CmdDrinkMakerType_DrinkMakerCheersGetDataCsReq = 6983;
+	CmdDrinkMakerType_DrinkMakerCheersMakeDrinkCsReq = 6998;
+	CmdDrinkMakerType_DrinkMakerUpdateTipsNotify = 6986;
+	CmdDrinkMakerType_EndDrinkMakerSequenceCsReq = 6984;
+	CmdDrinkMakerType_GetDrinkMakerDataCsReq = 6990;
+	CmdDrinkMakerType_MakeDrinkScRsp = 6988;
+	CmdDrinkMakerType_EndDrinkMakerSequenceScRsp = 6993;
+	CmdDrinkMakerType_DrinkMakerCheersGetDataScRsp = 6999;
+	CmdDrinkMakerType_MakeMissionDrinkScRsp = 6985;
+	CmdDrinkMakerType_MakeMissionDrinkCsReq = 7000;
+	CmdDrinkMakerType_DrinkMakerCheersEnterNextGroupScRsp = 6995;
+	CmdDrinkMakerType_DrinkMakerChallengeCsReq = 6989;
+	CmdDrinkMakerType_DrinkMakerCheersMakeDrinkScRsp = 6982;
+	CmdDrinkMakerType_GetDrinkMakerDataScRsp = 6996;
+}
+
+message DFJPGILAAON {
+	repeated uint32 ECIOKDDBEPN = 2; // offset: 16
+	uint32 PDHDOHAIJKD = 12; // offset: 32
+	uint32 HCCKHLMLENE = 13; // offset: 44
+	uint32 KMADACHJHJC = 14; // offset: 40
+	uint32 DALCMIELFDD = 15; // offset: 36
+}
+
+message DrinkMakerChallengeCsReq {
+	uint32 challenge_id = 7; // offset: 32
+	DFJPGILAAON AGCBLNPHFCI = 10; // offset: 16
+}
+
+message DrinkMakerChallengeScRsp {
+	uint32 challenge_id = 1; // offset: 40
+	ItemList reward = 2; // offset: 24
+	uint32 retcode = 11; // offset: 32
+	bool KGKEJAKKLDP = 14; // offset: 36
+}
+
+message DrinkMakerCheersEnterNextGroupCsReq {
+}
+
+message DrinkMakerCheersEnterNextGroupScRsp {
+	uint32 retcode = 5; // offset: 28
+	uint32 OLKJPIIKCKP = 10; // offset: 24
+}
+
+message DrinkMakerCheersGetDataCsReq {
+}
+
+message DrinkMakerCheersGetDataScRsp {
+	uint32 LFNJKNCGNEE = 5; // offset: 40
+	uint32 retcode = 9; // offset: 32
+	repeated LEFIDLICEMH NHFMCMGHADE = 12; // offset: 16
+	uint32 OLKJPIIKCKP = 14; // offset: 36
+}
+
+message DrinkMakerCheersMakeDrinkCsReq {
+	uint32 MJJMPMCCNJH = 4; // offset: 32
+	DFJPGILAAON AGCBLNPHFCI = 5; // offset: 24
+	bool PCPIHPDOIGI = 10; // offset: 40
+	uint32 group_id = 11; // offset: 36
+}
+
+message DrinkMakerCheersMakeDrinkScRsp {
+	uint32 retcode = 1; // offset: 32
+	LEFIDLICEMH GKBFMPCFFOE = 11; // offset: 16
+}
+
+message DrinkMakerUpdateTipsNotify {
+	uint32 tips = 4; // offset: 24
+}
+
+message EndDrinkMakerSequenceCsReq {
+}
+
+message EndDrinkMakerSequenceScRsp {
+	uint32 FHPKJONKHAC = 1; // offset: 48
+	ItemList reward = 2; // offset: 32
+	repeated NACEGIAMJMG ADNJJHNMAAJ = 5; // offset: 24
+	uint32 exp = 6; // offset: 52
+	uint32 retcode = 7; // offset: 56
+	uint32 level = 10; // offset: 60
+	KKIACMJGIKN guest = 11; // offset: 40
+	uint32 BFHGACCOGJD = 15; // offset: 64
+}
+
+message GetDrinkMakerDataCsReq {
+}
+
+message GetDrinkMakerDataScRsp {
+	uint32 FHPKJONKHAC = 1; // offset: 68
+	uint32 exp = 2; // offset: 72
+	DFJPGILAAON LMOGDPMLKFH = 3; // offset: 24
+	uint32 day = 4; // offset: 48
+	repeated KKIACMJGIKN ONFNEDNFOLL = 5; // offset: 16
+	uint32 EMIAIOMOLPO = 6; // offset: 56
+	uint32 FGBELHJAKCC = 7; // offset: 64
+	uint32 retcode = 8; // offset: 52
+	repeated uint32 CJKAGEDKAFL = 12; // offset: 32
+	uint32 level = 14; // offset: 60
+}
+
+message GetDrinkMakerDayEndScNotify {
+	uint32 HBJIJHHMEGO = 6; // offset: 24
+}
+
+message KKIACMJGIKN {
+	repeated uint32 OBJOLNOJIKC = 2; // offset: 24
+	uint32 JOIKIENJNJI = 6; // offset: 36
+	uint32 OHPIDOOJDHJ = 14; // offset: 32
+}
+
+message LEFIDLICEMH {
+	DFJPGILAAON AGCBLNPHFCI = 3; // offset: 24
+	repeated uint32 LNCKEHDMHLD = 6; // offset: 32
+	uint32 MJJMPMCCNJH = 9; // offset: 40
+	bool MHNDLPIDJIE = 10; // offset: 44
+}
+
+message MakeDrinkCsReq {
+	DFJPGILAAON AGCBLNPHFCI = 2; // offset: 16
+	uint32 FGBELHJAKCC = 12; // offset: 32
+}
+
+message MakeDrinkScRsp {
+	uint32 retcode = 7; // offset: 24
+	bool KGKEJAKKLDP = 8; // offset: 28
+	uint32 LEJDBHMPBBG = 11; // offset: 32
+}
+
+message MakeMissionDrinkCsReq {
+	DFJPGILAAON AGCBLNPHFCI = 3; // offset: 16
+	uint32 CJGGHHCILMD = 5; // offset: 32
+	bool is_save = 12; // offset: 36
+}
+
+message MakeMissionDrinkScRsp {
+	bool KGKEJAKKLDP = 1; // offset: 32
+	uint32 retcode = 6; // offset: 36
+	DFJPGILAAON LMOGDPMLKFH = 7; // offset: 16
+	bool is_save = 13; // offset: 33
+}
+
+message NACEGIAMJMG {
+	uint32 CJGGHHCILMD = 4; // offset: 28
+	bool KGKEJAKKLDP = 12; // offset: 24
+}

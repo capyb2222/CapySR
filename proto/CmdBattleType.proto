@@ -1,0 +1,744 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ABDOKOFEHMH {
+	int32 BCJLNFOMEAG = 1; // offset: 24
+}
+
+message ABFLKIBIFDM {
+	uint32 JEOFBDLFCOL = 1; // offset: 40
+	double HIFNHNLNDPN = 2; // offset: 24
+	double JGFKNDMDHHP = 3; // offset: 48
+	uint32 wave = 4; // offset: 56
+	uint32 IBNLKOLLPJH = 5; // offset: 44
+	double AEPMEGILLOJ = 6; // offset: 32
+	double MINCPOKEPDP = 7; // offset: 64
+}
+
+message AFGMNFFBBIG {
+	uint32 BKPDKFLDLDD = 1; // offset: 44
+	uint32 monster_id = 2; // offset: 48
+	repeated GHCDMMNHNHO OFHCHNKEFMD = 3; // offset: 32
+	uint32 delay = 4; // offset: 40
+	repeated GANDCEDCLDL JNFCFEIAABH = 5; // offset: 24
+}
+
+message AttackDamageProperty {
+	string attack_type = 1; // offset: 24
+	double damage = 2; // offset: 32
+}
+
+message AvatarBattleInfo {
+	AvatarType avatar_type = 1; // offset: 360
+	uint32 id = 2; // offset: 212
+	uint32 avatar_level = 3; // offset: 136
+	uint32 avatar_rank = 4; // offset: 208
+	uint32 avatar_promotion = 5; // offset: 184
+	AvatarProperty avatar_status = 6; // offset: 24
+	repeated AvatarSkillTree avatar_skill = 7; // offset: 72
+	repeated EquipmentProperty avatar_equipment = 8; // offset: 64
+	uint32 total_turns = 9; // offset: 156
+	double total_damage = 10; // offset: 432
+	double total_heal = 11; // offset: 344
+	double total_damage_taken = 12; // offset: 296
+	double total_hp_recover = 13; // offset: 312
+	double total_sp_cost = 14; // offset: 328
+	uint32 stage_id = 15; // offset: 260
+	uint32 stage_type = 16; // offset: 144
+	double total_break_damage = 17; // offset: 424
+	repeated AttackDamageProperty attack_type_damage = 18; // offset: 96
+	repeated AttackDamageProperty attack_type_break_damage = 19; // offset: 128
+	repeated AttackDamageProperty attack_type_max_damage = 20; // offset: 32
+	repeated SkillUseProperty skill_times = 21; // offset: 40
+	double delay_cumulate = 22; // offset: 216
+	uint32 total_sp_add = 23; // offset: 364
+	repeated SpAddSource sp_add_source = 24; // offset: 16
+	uint32 total_bp_cost = 25; // offset: 376
+	uint32 die_times = 26; // offset: 232
+	uint32 revive_times = 27; // offset: 256
+	uint32 break_times = 28; // offset: 416
+	uint32 extra_turns = 29; // offset: 236
+	double total_shield = 30; // offset: 168
+	double total_shield_taken = 31; // offset: 176
+	double total_shield_damage = 32; // offset: 240
+	AvatarProperty initial_status = 33; // offset: 56
+	repeated BattleRelic relics = 34; // offset: 104
+	uint32 assist_uid = 35; // offset: 412
+	repeated AttackDamageProperty NOGHNMCDDAI = 36; // offset: 120
+	double DEICGFKIMMO = 37; // offset: 352
+	double GPLELDEIEKO = 38; // offset: 440
+	double CNEMKKIBFEA = 39; // offset: 280
+	double EEOGKOKOPNB = 40; // offset: 392
+	repeated EPNAONKOHBO ALJIJBKEFDD = 41; // offset: 80
+	uint32 CNLEPLAEEHF = 42; // offset: 152
+	uint32 JDHDJFCKBGD = 43; // offset: 148
+	double DIALJMAHFBO = 44; // offset: 248
+	double LAOEEGEELDK = 45; // offset: 200
+	double LFLKOGDPLKD = 46; // offset: 400
+	double EBMFCBKHIEH = 47; // offset: 384
+	double DBLABFODNMJ = 48; // offset: 160
+	uint32 FJNKOPMOLDE = 49; // offset: 188
+	uint32 FLKCFJBCIOM = 50; // offset: 276
+	uint32 PNJDPNHNBDA = 51; // offset: 264
+	double NEDCAKEMHLF = 52; // offset: 224
+	uint32 NBCDOMJBAFM = 53; // offset: 272
+	uint32 PECMOGDLCDC = 54; // offset: 268
+	uint32 enhanced_id = 55; // offset: 140
+	uint32 MEBKILMPMGA = 56; // offset: 380
+	CFDHDBNIHPL FDMEEDEJCCP = 57; // offset: 88
+	ABDOKOFEHMH GEHEJPPCBLK = 58; // offset: 48
+	uint32 OKMHKBOJBOB = 59; // offset: 408
+	double NEMOMKPCCMG = 60; // offset: 304
+	double LIOCBCEJAIF = 61; // offset: 368
+	double PCDGLDDDKEC = 62; // offset: 336
+	double LPNGINGOEDF = 63; // offset: 288
+	double DFLFMCIIGPK = 64; // offset: 320
+	double EDIODPKDIHP = 65; // offset: 192
+}
+
+message AvatarProperty {
+	double max_hp = 1; // offset: 64
+	double attack = 2; // offset: 48
+	double defence = 3; // offset: 40
+	double speed = 4; // offset: 56
+	double left_hp = 5; // offset: 24
+	double left_sp = 6; // offset: 72
+	double max_sp = 7; // offset: 32
+}
+
+message BJOFJDKIOPG {
+	uint32 OEBAIDCOPLC = 1; // offset: 32
+	uint32 IBHKMLKHKJB = 2; // offset: 36
+	uint32 JBFEPAFJNCL = 3; // offset: 40
+	repeated LGOKJFKMCBE EGHJFEIMHBB = 4; // offset: 24
+}
+
+message BMKIIODBMJF {
+	uint32 wave = 1; // offset: 60
+	double PCKECKCNHCE = 2; // offset: 48
+	double EOKEFIAOFPN = 3; // offset: 24
+	uint32 HEKPNDDKKMM = 4; // offset: 44
+	uint32 INOIOGNMBMM = 5; // offset: 32
+	uint32 status = 6; // offset: 56
+	uint32 PKDANDJFAON = 7; // offset: 36
+	uint32 HHOPLLPEKKE = 8; // offset: 40
+}
+
+message BattleAvatarGlobalBuffInfo {
+	uint32 avatar_id = 1; // offset: 24
+	uint32 maze_buff_id = 2; // offset: 32
+	uint32 DLMBCCCPCKJ = 3; // offset: 28
+}
+
+message BattleAvatarServantInfo {
+	uint32 avatar_id = 1; // offset: 116
+	uint32 KAAHKLDJPJE = 2; // offset: 128
+	uint32 total_turns = 3; // offset: 140
+	double DBJOLLGOGOL = 4; // offset: 168
+	repeated SkillUseProperty skill_times = 5; // offset: 16
+	double total_damage = 6; // offset: 176
+	double total_break_damage = 7; // offset: 152
+	repeated AttackDamageProperty attack_type_damage = 8; // offset: 32
+	repeated AttackDamageProperty attack_type_break_damage = 9; // offset: 24
+	repeated AttackDamageProperty attack_type_max_damage = 10; // offset: 48
+	double total_damage_taken = 11; // offset: 88
+	double total_heal = 12; // offset: 64
+	double total_hp_recover = 13; // offset: 96
+	double total_shield = 14; // offset: 192
+	double total_shield_taken = 15; // offset: 160
+	double total_shield_damage = 16; // offset: 144
+	uint32 break_times = 17; // offset: 112
+	uint32 NFELHIGFIOM = 18; // offset: 56
+	uint32 CNLEPLAEEHF = 19; // offset: 84
+	uint32 JDHDJFCKBGD = 20; // offset: 136
+	double DIALJMAHFBO = 21; // offset: 200
+	uint32 entity_id = 22; // offset: 80
+	uint32 MEBKILMPMGA = 23; // offset: 132
+	double GPLELDEIEKO = 24; // offset: 120
+	double NEMOMKPCCMG = 25; // offset: 184
+	double LIOCBCEJAIF = 26; // offset: 104
+	double DFLFMCIIGPK = 27; // offset: 72
+}
+
+enum BattleEndReason {
+	BATTLE_END_REASON_NONE = 0;
+	BATTLE_END_REASON_ALL_DIE = 1;
+	BATTLE_END_REASON_TURN_LIMIT = 2;
+}
+
+message BattleOp {
+	uint32 turn_counter = 1; // offset: 36
+	uint32 state = 2; // offset: 48
+	uint32 action_entity_id = 3; // offset: 56
+	uint32 target_entity_id = 4; // offset: 32
+	uint32 op_type = 5; // offset: 40
+	uint32 skill_index = 6; // offset: 52
+	uint32 operation_counter = 7; // offset: 44
+	string LOMLIPOLBKM = 8; // offset: 16
+}
+
+message BattleReplayScNotify {
+	uint32 stage_id = 5; // offset: 36
+	bytes NOJCNDGGLBC = 8; // offset: 24
+	uint32 battle_id = 15; // offset: 32
+}
+
+enum BattleStaticticEventType {
+	BATTLE_STATICTIC_EVENT_NONE = 0;
+	BATTLE_STATICTIC_EVENT_TREASURE_DUNGEON_ADD_EXPLORE = 1;
+	BATTLE_STATICTIC_EVENT_TREASURE_DUNGEON_OPEN_GRID = 2;
+	BATTLE_STATICTIC_EVENT_TREASURE_DUNGEON_PICKUP_ITEM = 3;
+	BATTLE_STATICTIC_EVENT_TREASURE_DUNGEON_USE_BUFF = 4;
+	BATTLE_STATICTIC_EVENT_TELEVISION_ACTIVITY_UPDATE_MAZE_BUFF_LAYER = 5;
+	BATTLE_STATICTIC_EVENT_ROGUE_TOURN_TITAN_EXTRA_COIN = 6;
+	BATTLE_STATICTIC_EVENT_ROGUE_TOURN_TITAN_EXTRA_COIN_TIMES = 7;
+}
+
+message BattleStatistics {
+	uint32 total_battle_turns = 1; // offset: 288
+	uint32 total_auto_turns = 2; // offset: 292
+	repeated uint32 avatar_id_list = 3; // offset: 248
+	uint32 ultra_cnt = 4; // offset: 324
+	double total_delay_cumulate = 5; // offset: 256
+	double cost_time = 6; // offset: 304
+	repeated AvatarBattleInfo battle_avatar_list = 7; // offset: 160
+	repeated MonsterBattleInfo monster_list = 8; // offset: 112
+	uint32 round_cnt = 9; // offset: 280
+	uint32 cocoon_dead_wave = 10; // offset: 276
+	uint32 avatar_battle_turns = 11; // offset: 296
+	uint32 monster_battle_turns = 12; // offset: 284
+	map<string, float> custom_values = 13; // offset: 120
+	uint32 challenge_score = 14; // offset: 316
+	repeated BattleEventBattleInfo BDCHEJKPOAF = 16; // offset: 224
+	BattleEndReason end_reason = 19; // offset: 320
+	repeated HDKEPPDIDIH OKFALMGFHMA = 21; // offset: 56
+	repeated int32 AKFFKEMDPLG = 22; // offset: 200
+	repeated AFGMNFFBBIG ENPBMPKGLOM = 23; // offset: 240
+	repeated StatisticEvent EIPBMOMKJDO = 26; // offset: 48
+	repeated CDMPJODLBEE ECFFMBFGPOJ = 27; // offset: 80
+	map<uint32, BattleTargetList> battle_target_info = 28; // offset: 40
+	repeated MKICACCMBOF LGKAKIEEOMG = 29; // offset: 208
+	BattleGridFightSpecialBattleInfo battle_evolve_build_data = 30; // offset: 32
+	OJEANLINGCJ DOAFGHLAICM = 31; // offset: 216
+	bool ADGBAKBCOKF = 32; // offset: 268
+	repeated BMKIIODBMJF DCMAHKHAFEH = 33; // offset: 184
+	repeated NHPAECJCOCG AIOKGNBLMDI = 34; // offset: 88
+	uint32 NPFDEJPPPLI = 35; // offset: 272
+	EANJJJPKIPJ DBKFEPMIMFF = 36; // offset: 16
+	GBJMLKNLEPD MHPDKEDHELL = 37; // offset: 192
+	BJOFJDKIOPG BCCIIEGCFAA = 38; // offset: 232
+	OHDHNDMJFAP IAGKLJEKAOL = 39; // offset: 144
+	FMEKABDGCEC OFMIGBJPKMH = 40; // offset: 176
+	uint32 IEOGEFBLNEL = 41; // offset: 264
+	repeated BattleAvatarGlobalBuffInfo MHLCFDEGOGN = 42; // offset: 24
+	GridFightBattleResultStatistics grid_fight_statistics = 43; // offset: 128
+	repeated uint32 GBLEKIOCFMA = 44; // offset: 152
+	repeated uint32 MEBKILMPMGA = 45; // offset: 104
+	KNBMAPNNDJL KFPEKBCKKPM = 46; // offset: 64
+	CKOKAGGLKHG ILNNGPJAEGH = 47; // offset: 72
+	FAHGFCIJHFK MFOJKJGKDGD = 48; // offset: 96
+	uint32 JFFBHFJMIOK = 49; // offset: 312
+	repeated uint32 OJMNOMDEECI = 50; // offset: 136
+}
+
+message CDMPJODLBEE {
+	AABGIFAEEEK type = 1; // offset: 36
+	uint32 id = 2; // offset: 32
+	SpBarInfo sp_bar = 3; // offset: 16
+}
+
+message CFDHDBNIHPL {
+	double GNHLKBINIEF = 1; // offset: 32
+	repeated uint32 NGIJFAEONCK = 2; // offset: 24
+}
+
+message CKCDIAAFICJ {
+	uint32 BKPDKFLDLDD = 1; // offset: 32
+	double IFMOHNAAAMC = 2; // offset: 24
+	uint32 MMPHFLDBEKB = 3; // offset: 36
+	uint32 break_times = 4; // offset: 40
+}
+
+message CKOKAGGLKHG {
+	uint32 HFLPDCJDIAC = 1; // offset: 40
+	repeated NLAPCKJBJNB avatar_list = 2; // offset: 24
+	double FBNBPPHOGLI = 3; // offset: 32
+}
+
+message CMIKEILGNGK {
+	uint32 GCAHKLNGFCK = 1; // offset: 28
+	uint32 level = 2; // offset: 24
+	double total_damage = 3; // offset: 32
+}
+
+enum CmdBattleType {
+	CmdBattleType_NLCDGIPGFDJ = 0;
+	CmdBattleType_SyncClientResVersionScRsp = 156;
+	CmdBattleType_QuitBattleScNotify = 183;
+	CmdBattleType_QuitBattleScRsp = 175;
+	CmdBattleType_PVEBattleResultScRsp = 125;
+	CmdBattleType_GetCurBattleInfoScRsp = 116;
+	CmdBattleType_BattleReplayScNotify = 168;
+	CmdBattleType_PVEBattleResultCsReq = 134;
+	CmdBattleType_GetCurBattleInfoCsReq = 160;
+	CmdBattleType_RebattleByClientCsNotify = 108;
+	CmdBattleType_QuitBattleCsReq = 105;
+	CmdBattleType_SyncClientResVersionCsReq = 158;
+}
+
+message DFDPLINPMJF {
+	uint32 INGDHDPEGOK = 1; // offset: 32
+	uint32 IGPNFJDACIE = 2; // offset: 36
+	repeated CMIKEILGNGK KGIELMEOPEH = 3; // offset: 24
+}
+
+message EANJJJPKIPJ {
+	DFDPLINPMJF EBIJFLILKFP = 1; // offset: 32
+	NKKADHADOLO GEOOCJBAKFI = 2; // offset: 16
+}
+
+message EPNAONKOHBO {
+	string ability_name = 1; // offset: 24
+	uint32 count = 2; // offset: 32
+	double total_damage = 3; // offset: 40
+}
+
+message EquipmentProperty {
+	uint32 id = 1; // offset: 32
+	uint32 rank = 2; // offset: 24
+	uint32 promotion = 3; // offset: 28
+	uint32 level = 4; // offset: 36
+}
+
+message FAHGFCIJHFK {
+	uint32 round_cnt = 1; // offset: 48
+	uint32 FHPMEIECKLG = 2; // offset: 52
+	uint32 HOIOBLJHJHJ = 3; // offset: 36
+	uint32 total_bp_cost = 4; // offset: 32
+	double total_damage = 5; // offset: 56
+	double total_damage_taken = 6; // offset: 40
+	double total_hp_recover = 7; // offset: 64
+	double total_shield_taken = 8; // offset: 72
+	repeated PMPCIBGILIE INBNCAKGDPJ = 9; // offset: 16
+}
+
+message FHKKPNDLLLO {
+	uint32 portal_buff_id = 1; // offset: 24
+}
+
+message FIMBJCONBAE {
+	uint32 DAEKFCNBCFC = 1; // offset: 44
+	uint32 AMKBLKMNKFE = 2; // offset: 48
+	uint32 MOLFOOGCBKE = 3; // offset: 40
+	repeated uint32 CDJABFHCNFF = 4; // offset: 16
+	repeated FMNPJNPAMOA CMAOCGLKFAE = 5; // offset: 24
+	uint32 ACGIEKABIFK = 6; // offset: 56
+	uint32 DAEBGDENDNN = 7; // offset: 52
+}
+
+message FMEKABDGCEC {
+	NEJMJMJAMMA GIOJALJAIIF = 1; // offset: 24
+	repeated NIFPICHIDLJ message_datas = 2; // offset: 32
+}
+
+message FMNPJNPAMOA {
+	uint32 avatar_id = 1; // offset: 24
+	uint32 JAEGABGPEDI = 2; // offset: 28
+}
+
+message GANDCEDCLDL {
+	uint32 KAAHKLDJPJE = 1; // offset: 28
+	uint32 FHPMEIECKLG = 2; // offset: 32
+	uint32 entity_id = 3; // offset: 24
+}
+
+message GBJMLKNLEPD {
+	HPHJPOIBGLC LNJMOALDPJD = 1; // offset: 48
+	JIONEELJGCC BNMBHFMHGLH = 2; // offset: 32
+	JGOFJDOCOMK KIABIIOENOK = 3; // offset: 24
+	GECCJHDOCKH FIIGOHIOINP = 4; // offset: 16
+	KJFAEHKEFCD PAGHAJCPEBI = 5; // offset: 56
+}
+
+message GECCJHDOCKH {
+	uint32 DLGPBFDGEGJ = 1; // offset: 28
+	uint32 BJLGFCKBPPJ = 2; // offset: 24
+}
+
+message GHCDMMNHNHO {
+	uint32 avatar_id = 1; // offset: 28
+	int32 GCABCJKCAOE = 2; // offset: 32
+	uint32 enhanced_id = 3; // offset: 24
+}
+
+message GetCurBattleInfoCsReq {
+}
+
+message GetCurBattleInfoScRsp {
+	AetherDivideBattleInfo HIDIEJALFIE = 2; // offset: 24
+	uint32 retcode = 3; // offset: 44
+	BattleEndStatus last_end_status = 9; // offset: 48
+	SceneBattleInfo battle_info = 13; // offset: 16
+	uint32 KDJGDHKJAGE = 15; // offset: 40
+}
+
+message GridFightAugmentBattleStatistics {
+	uint32 augment_id = 1; // offset: 24
+	double damage = 3; // offset: 32
+	double secondary_damage = 4; // offset: 40
+}
+
+message GridFightBattleResultStatistics {
+	uint32 progress_percent = 1; // offset: 120
+	uint32 NBPFMFMKJHI = 2; // offset: 112
+	repeated GridFightTraitBattleStatistics trait_statistics = 3; // offset: 16
+	repeated GridFightAugmentBattleStatistics augment_statistics = 4; // offset: 24
+	repeated GridFightDropEntry ODMCMPIDJNH = 5; // offset: 80
+	repeated GridFightWaveKilledMonsterInfo wave_killed_monster_info_list = 6; // offset: 40
+	repeated GridFightRoleBattleStatistics role_statistics = 8; // offset: 64
+	uint32 dead_line_percent = 9; // offset: 124
+	repeated FHKKPNDLLLO JHBJNKCJINO = 10; // offset: 72
+	double NDKJJIFIFNJ = 11; // offset: 96
+	double FLFEAJFNPAP = 12; // offset: 88
+	double COCOMFHNEHF = 13; // offset: 104
+	uint32 FKMINAMFFAN = 14; // offset: 116
+	repeated JPHFANMNHJP OPJPKFEFPKA = 15; // offset: 32
+	map<string, uint32> POCKGKDFLKK = 16; // offset: 48
+}
+
+message GridFightKilledMonsterInfo {
+	uint32 monster_index = 1; // offset: 28
+	uint32 monster_id = 2; // offset: 24
+}
+
+message GridFightRoleBattleStatistics {
+	uint32 role_id = 1; // offset: 56
+	double damage = 2; // offset: 40
+	double secondary_damage = 5; // offset: 48
+	map<uint32, double> ICECCHMAGNO = 6; // offset: 16
+	uint32 CAKAOJGILMG = 7; // offset: 32
+	uint32 OKMHKBOJBOB = 8; // offset: 60
+}
+
+message GridFightTraitBattleStatistics {
+	uint32 trait_id = 1; // offset: 32
+	repeated OBIMHNFFLEM MFJCLCJNAFO = 2; // offset: 24
+	double damage = 3; // offset: 40
+	double secondary_damage = 4; // offset: 48
+}
+
+message GridFightWaveKilledMonsterInfo {
+	uint32 wave_index = 1; // offset: 32
+	repeated GridFightKilledMonsterInfo kill_monster_list = 2; // offset: 16
+}
+
+enum HDFAPKLGEFM {
+	HDFAPKLGEFM_LCOKOJCGKHP = 0;
+	HDFAPKLGEFM_NMDOPKBENEA = 1;
+}
+
+message HDKEPPDIDIH {
+	uint32 avatar_id = 1; // offset: 68
+	repeated uint32 EJDDMNAODEN = 2; // offset: 32
+	uint32 source = 3; // offset: 64
+	double damage = 4; // offset: 72
+	repeated uint32 JNDBCDAIIDD = 5; // offset: 24
+	int32 AFPKBFAPOAH = 6; // offset: 60
+	double OELDAKBOPJA = 7; // offset: 40
+	uint32 CNGEOGOMPOP = 8; // offset: 56
+	uint32 wave = 9; // offset: 48
+	uint32 enhanced_id = 10; // offset: 52
+}
+
+message HFFAFBIGNKP {
+	uint32 monster_id = 1; // offset: 36
+	uint32 IBNLKOLLPJH = 2; // offset: 32
+	uint32 HEKPNDDKKMM = 3; // offset: 28
+	uint32 INOIOGNMBMM = 4; // offset: 24
+}
+
+message HNDAOBACJOA {
+	string phase = 1; // offset: 32
+	float MINGOICONIF = 2; // offset: 72
+	float EEFMGKOFOBH = 3; // offset: 56
+	uint32 DLHCMNIACBO = 4; // offset: 64
+	uint32 JMCFEEHBDDH = 5; // offset: 60
+	uint32 ENCAECIICBP = 6; // offset: 68
+	uint32 GOEEJIAAEKB = 7; // offset: 52
+	uint32 HDGBKHPHKMO = 8; // offset: 48
+	repeated uint32 DJOFHLGLDGB = 9; // offset: 16
+	repeated uint32 NCDMFFBBBDP = 10; // offset: 40
+}
+
+message HPHJPOIBGLC {
+	repeated HFFAFBIGNKP CDFPLJDJDEP = 1; // offset: 32
+	repeated ABFLKIBIFDM EGHJFEIMHBB = 2; // offset: 40
+	repeated JPKJNNKMIGJ DKOCKKCPGDK = 3; // offset: 24
+}
+
+message IGMOKOENLDK {
+	double max_hp = 1; // offset: 48
+	double attack = 2; // offset: 40
+	double defence = 3; // offset: 64
+	double OFMLLDLAOCC = 4; // offset: 24
+	double speed = 5; // offset: 32
+	double left_hp = 6; // offset: 72
+	double GENCOBDFKLA = 7; // offset: 56
+}
+
+message JGOFJDOCOMK {
+	uint32 progress = 1; // offset: 24
+}
+
+message JIONEELJGCC {
+	FIMBJCONBAE IPDCLDBKIBI = 1; // offset: 16
+}
+
+message JPAIOFMJEPM {
+	uint32 BBHBAKJCGLC = 1; // offset: 24
+}
+
+message JPHFANMNHJP {
+	oneof KKNBOACNCON {
+		JPAIOFMJEPM FECDNCFJGFK = 1; // offset: 16
+	}
+}
+
+message JPKJNNKMIGJ {
+	uint32 GDLJHBLJODK = 1; // offset: 40
+	uint32 DFBHOJANGCF = 2; // offset: 28
+	double CJKMCOMGJCL = 3; // offset: 32
+	uint32 wave = 4; // offset: 44
+	uint32 IBNLKOLLPJH = 5; // offset: 24
+}
+
+message KJFAEHKEFCD {
+	double PKOMDIOOHLN = 1; // offset: 32
+	uint32 AHOFEKHKMCP = 2; // offset: 24
+	uint32 NOOOCKKAPGI = 3; // offset: 28
+}
+
+message KNBMAPNNDJL {
+	int32 OLLPHBPPEHG = 1; // offset: 24
+	int32 NONACGPCEKE = 2; // offset: 32
+	int32 BCJLNFOMEAG = 3; // offset: 28
+}
+
+enum KPOIEOPCEJL {
+	KPOIEOPCEJL_PJAAADFOKKC = 0;
+	KPOIEOPCEJL_LMGJEFFHBHF = 1;
+	KPOIEOPCEJL_JBGODLOEOPF = 2;
+	KPOIEOPCEJL_DOGMHOAOJFD = 3;
+}
+
+message LGOKJFKMCBE {
+	uint32 KJGDBFEFHPJ = 1; // offset: 88
+	double HIFNHNLNDPN = 2; // offset: 72
+	double JGFKNDMDHHP = 3; // offset: 48
+	uint32 IBOPDGOFDOD = 4; // offset: 44
+	uint32 NBKOOPBPNPL = 5; // offset: 32
+	uint32 GMJGPDKJAEE = 6; // offset: 36
+	uint32 HKAENABCBHL = 7; // offset: 80
+	double AEPMEGILLOJ = 8; // offset: 56
+	uint32 BJGOOFNOGMJ = 9; // offset: 84
+	uint32 OLPDBDEDCOG = 10; // offset: 28
+	double MINCPOKEPDP = 11; // offset: 64
+	uint32 OEBAIDCOPLC = 12; // offset: 40
+	uint32 IBHKMLKHKJB = 13; // offset: 24
+}
+
+message MKICACCMBOF {
+	uint32 DMKHKEMIKKH = 1; // offset: 28
+	uint32 CIHMKAEKGFL = 2; // offset: 24
+}
+
+message MonsterBattleInfo {
+	uint32 entity_id = 1; // offset: 188
+	uint32 monster_id = 2; // offset: 80
+	uint32 PKFMOFPMBBJ = 3; // offset: 136
+	uint32 NCKAICABJIK = 4; // offset: 200
+	IGMOKOENLDK CIHAPGPNCMI = 5; // offset: 16
+	uint32 total_turns = 6; // offset: 184
+	double total_damage = 7; // offset: 216
+	double total_heal = 8; // offset: 64
+	double total_damage_taken = 9; // offset: 96
+	double total_hp_recover = 11; // offset: 208
+	uint32 stage_id = 12; // offset: 116
+	uint32 KPMIIFGAMFA = 14; // offset: 84
+	repeated AttackDamageProperty attack_type_damage = 15; // offset: 32
+	repeated SkillUseProperty skill_times = 16; // offset: 24
+	uint32 stage_type = 17; // offset: 204
+	double MBDMCJLFJOO = 18; // offset: 128
+	double delay_cumulate = 19; // offset: 88
+	KPOIEOPCEJL death_source = 20; // offset: 140
+	uint32 wave = 21; // offset: 144
+	int32 JFDOMCHHBIF = 22; // offset: 148
+	uint32 phase = 23; // offset: 120
+	uint32 max_phase = 24; // offset: 236
+	HDFAPKLGEFM GCAEPLJHCFE = 25; // offset: 156
+	repeated AOFMDLLDIHG skill_info = 26; // offset: 40
+	uint32 CBMLFOBDNCO = 27; // offset: 232
+	repeated CKCDIAAFICJ AKGJOPBLPNE = 28; // offset: 56
+	double NCDGNNJABJJ = 29; // offset: 168
+	double IBENGEOJFOJ = 30; // offset: 176
+	NLNEBDEEONP AHKJLOJDNIC = 31; // offset: 152
+	bool BNGNPNPOGOO = 32; // offset: 112
+	uint32 JFFBHFJMIOK = 33; // offset: 124
+	double NEMOMKPCCMG = 34; // offset: 192
+	double BPGHHDNMHKM = 35; // offset: 104
+	double PPOINPPCJLE = 36; // offset: 72
+	double JLHEPCCCCEH = 37; // offset: 224
+	double CFGOFGLKEOF = 38; // offset: 160
+}
+
+message NEJMJMJAMMA {
+	uint32 NCDBCLLAHPP = 1; // offset: 28
+	uint32 JJDEEHAMHGF = 2; // offset: 24
+	uint32 GCNMKIHOFGG = 3; // offset: 32
+}
+
+message NHPAECJCOCG {
+	string key = 1; // offset: 24
+	double value = 2; // offset: 32
+}
+
+message NKKADHADOLO {
+	OKLPMDCIEIG FMNIHGEJKED = 1; // offset: 24
+}
+
+message NLAPCKJBJNB {
+	uint32 avatar_id = 1; // offset: 32
+	map<uint32, double> DMLCLKHGEFE = 2; // offset: 24
+}
+
+enum NLNEBDEEONP {
+	NLNEBDEEONP_HHDDIFHGNHD = 0;
+	NLNEBDEEONP_LDANCJMPNMB = 1;
+}
+
+message OBIMHNFFLEM {
+	uint32 effect_id = 1; // offset: 40
+	repeated uint32 switch_list = 2; // offset: 16
+	map<uint32, GridFightDropInfo> trait_effect_level_reward = 5; // offset: 24
+}
+
+message OHDHNDMJFAP {
+	repeated BattleAvatarServantInfo GFOAHHHNBJC = 1; // offset: 24
+	uint32 GNMMFALALLD = 2; // offset: 32
+	uint32 BOBELCJDDOA = 3; // offset: 36
+}
+
+message OJEANLINGCJ {
+	uint32 EAAAEJLJDDE = 1; // offset: 60
+	uint32 NCJOBKNJFPN = 2; // offset: 40
+	uint32 OEBAIDCOPLC = 3; // offset: 52
+	uint32 PLJCEFDPCIO = 4; // offset: 44
+	uint32 IBHKMLKHKJB = 5; // offset: 48
+	uint32 KOBJCPABKAA = 6; // offset: 56
+	repeated uint32 boss_info = 7; // offset: 16
+	repeated HNDAOBACJOA GDFAMBOOFJO = 8; // offset: 24
+}
+
+message OKLPMDCIEIG {
+	uint32 IPLNNHLGDJK = 1; // offset: 44
+	uint32 JOHMBBFODBB = 2; // offset: 40
+	double ADNKLLMHLCJ = 3; // offset: 32
+	double GADGHAGGBNO = 4; // offset: 24
+}
+
+message PMPCIBGILIE {
+	uint32 avatar_id = 1; // offset: 24
+	double damage = 2; // offset: 32
+	uint32 OKMHKBOJBOB = 3; // offset: 28
+}
+
+message PVEBattleResultCsReq {
+	repeated BattleOp op_list = 1; // offset: 16
+	bool LGJMMJEFGNK = 2; // offset: 89
+	string debug_extra_info = 3; // offset: 40
+	uint32 battle_id = 4; // offset: 80
+	bool NNGDLOHALCN = 5; // offset: 90
+	uint32 cost_time = 6; // offset: 84
+	uint32 NIBMFCFBHEP = 7; // offset: 92
+	BattleStatistics stt = 8; // offset: 24
+	BattleEndStatus end_status = 9; // offset: 72
+	bytes turn_snapshot_hash = 10; // offset: 32
+	uint32 client_res_version = 11; // offset: 68
+	uint32 stage_id = 12; // offset: 76
+	uint32 LGOJDHLMGEN = 13; // offset: 64
+	bool DKIDHMAOMJB = 14; // offset: 88
+	map<string, uint32> LJJEOOJCEOG = 15; // offset: 56
+}
+
+message PVEBattleResultScRsp {
+	uint32 LEMGICCOKBK = 1; // offset: 104
+	ItemList multiple_drop_data = 2; // offset: 16
+	ItemList drop_data = 3; // offset: 24
+	uint32 event_id = 4; // offset: 88
+	uint32 battle_id = 5; // offset: 120
+	string DIMHPKFPPKA = 6; // offset: 32
+	uint32 AKDGBBDFDHA = 7; // offset: 92
+	BattleEndStatus end_status = 8; // offset: 96
+	uint32 retcode = 9; // offset: 100
+	uint32 EAHGEKNLHPN = 10; // offset: 112
+	bool check_identical = 11; // offset: 117
+	repeated BattleAvatar battle_avatar_list = 12; // offset: 56
+	string DPHOLBABAOL = 13; // offset: 64
+	ItemList item_list_unk2 = 14; // offset: 48
+	uint32 stage_id = 15; // offset: 108
+	LMDPKOELKFL ABEMLCJBIEF = 1424; // offset: 72
+	bool OPDKJBHLOJM = 1674; // offset: 116
+	ItemList item_list_unk1 = 1716; // offset: 80
+}
+
+message QuitBattleCsReq {
+	BattleStatistics stt = 8; // offset: 24
+	RebattleType NKDAAAGPCDB = 15; // offset: 32
+}
+
+message QuitBattleScNotify {
+}
+
+message QuitBattleScRsp {
+	uint32 retcode = 3; // offset: 24
+}
+
+message RebattleByClientCsNotify {
+	RebattleType NKDAAAGPCDB = 5; // offset: 32
+	BattleStatistics stt = 6; // offset: 24
+}
+
+message SkillUseProperty {
+	uint32 skill_id = 1; // offset: 40
+	string skill_type = 2; // offset: 24
+	uint32 skill_level = 3; // offset: 60
+	uint32 skill_use_count = 4; // offset: 56
+	double HLJOEGHJNLA = 5; // offset: 32
+	double CIDJHAOBNMF = 6; // offset: 80
+	double CFFFAPJGGCB = 7; // offset: 72
+	uint32 GGDBMJGBDMA = 8; // offset: 64
+	uint32 BJGNKIPLNBA = 9; // offset: 68
+	double LIDFGAEGJIK = 10; // offset: 48
+}
+
+message SpAddSource {
+	string source = 1; // offset: 16
+	uint32 sp_add = 2; // offset: 32
+}
+
+message StatisticEvent {
+	BattleStaticticEventType type = 1; // offset: 24
+	uint32 LMMDHGCIHBL = 2; // offset: 32
+	uint32 param = 3; // offset: 28
+}
+
+message SyncClientResVersionCsReq {
+	uint32 client_res_version = 5; // offset: 24
+}
+
+message SyncClientResVersionScRsp {
+	uint32 retcode = 3; // offset: 28
+	uint32 client_res_version = 11; // offset: 24
+}

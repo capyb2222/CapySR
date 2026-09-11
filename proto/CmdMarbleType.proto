@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+
+enum CmdMarbleType {
+	CmdMarbleType_NLCDGIPGFDJ = 0;
+	CmdMarbleType_MarblePvpDataUpdateScNotify = 8275;
+	CmdMarbleType_MarbleShopBuyScRsp = 8283;
+	CmdMarbleType_MarbleLevelFinishScRsp = 8278;
+	CmdMarbleType_MarbleUnlockSealScNotify = 8290;
+	CmdMarbleType_MarbleGetDataCsReq = 8280;
+	CmdMarbleType_MarbleUpdateShownSealScRsp = 8279;
+	CmdMarbleType_MarbleUpdateShownSealCsReq = 8282;
+	CmdMarbleType_MarbleLevelFinishCsReq = 8287;
+	CmdMarbleType_MarbleShopBuyCsReq = 8274;
+	CmdMarbleType_MarbleGetDataScRsp = 8286;
+}
+
+message MarbleGetDataCsReq {
+}
+
+message MarbleGetDataScRsp {
+	uint32 retcode = 7; // offset: 48
+	repeated uint32 IKGIIIJLLBL = 10; // offset: 16
+	int32 score_id = 11; // offset: 52
+	repeated uint32 LHDIMCDHCEO = 13; // offset: 24
+	repeated uint32 KJJCIMANKOA = 15; // offset: 40
+}
+
+message MarbleLevelFinishCsReq {
+	uint32 match_id = 5; // offset: 32
+	repeated uint32 EGCLLKDHIAE = 10; // offset: 16
+}
+
+message MarbleLevelFinishScRsp {
+	uint32 match_id = 5; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}
+
+message MarblePvpDataUpdateScNotify {
+	int32 score_id = 15; // offset: 24
+}
+
+message MarbleShopBuyCsReq {
+	repeated uint32 EGCLLKDHIAE = 4; // offset: 24
+}
+
+message MarbleShopBuyScRsp {
+	uint32 retcode = 13; // offset: 32
+	repeated uint32 EGCLLKDHIAE = 15; // offset: 16
+}
+
+message MarbleUnlockSealScNotify {
+	repeated uint32 EGCLLKDHIAE = 4; // offset: 16
+}
+
+message MarbleUpdateShownSealCsReq {
+	repeated uint32 GFADCIHMDNN = 12; // offset: 24
+}
+
+message MarbleUpdateShownSealScRsp {
+	uint32 retcode = 13; // offset: 32
+	repeated uint32 GFADCIHMDNN = 14; // offset: 16
+}

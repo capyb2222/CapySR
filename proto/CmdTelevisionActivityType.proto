@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CBIKIIMGKHH {
+	AvatarType avatar_type = 5; // offset: 28
+	uint32 avatar_id = 11; // offset: 24
+}
+
+enum CmdTelevisionActivityType {
+	CmdTelevisionActivityType_NLCDGIPGFDJ = 0;
+	CmdTelevisionActivityType_EnterTelevisionActivityStageScRsp = 6964;
+	CmdTelevisionActivityType_GetTelevisionActivityDataCsReq = 6970;
+	CmdTelevisionActivityType_GetTelevisionActivityDataScRsp = 6976;
+	CmdTelevisionActivityType_EnterTelevisionActivityStageCsReq = 6968;
+	CmdTelevisionActivityType_TelevisionActivityBattleEndScNotify = 6973;
+}
+
+message EnterTelevisionActivityStageCsReq {
+	uint32 KKNGIFOJLGJ = 8; // offset: 40
+	repeated uint32 buff_list = 12; // offset: 16
+	repeated CBIKIIMGKHH avatar_list = 13; // offset: 32
+}
+
+message EnterTelevisionActivityStageScRsp {
+	uint32 retcode = 3; // offset: 32
+	uint32 KKNGIFOJLGJ = 5; // offset: 36
+	SceneBattleInfo battle_info = 13; // offset: 16
+}
+
+message GetTelevisionActivityDataCsReq {
+}
+
+message GetTelevisionActivityDataScRsp {
+	repeated PAAIMLDHJCI AKDFABDHHIO = 12; // offset: 24
+	uint32 retcode = 13; // offset: 32
+}
+
+message PAAIMLDHJCI {
+	uint32 NELOAKJAABI = 7; // offset: 28
+	uint32 max_score = 10; // offset: 24
+	uint32 KKNGIFOJLGJ = 15; // offset: 32
+}
+
+message TelevisionActivityBattleEndScNotify {
+	uint32 total_score = 1; // offset: 32
+	uint32 turn_left = 3; // offset: 44
+	uint32 AAJFIPMBMHC = 4; // offset: 36
+	PAAIMLDHJCI GBHAIBBFPHJ = 11; // offset: 16
+	uint32 round_score = 12; // offset: 40
+}

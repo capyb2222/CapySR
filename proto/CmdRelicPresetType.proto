@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+
+enum CmdRelicPresetType {
+	CmdRelicPresetType_NLCDGIPGFDJ = 0;
+	CmdRelicPresetType_RelicPresetUpdatePlanCsReq = 9860;
+	CmdRelicPresetType_BJGKLFMLMAF = 9849;
+	CmdRelicPresetType_RelicPresetAddPlanCsReq = 9857;
+	CmdRelicPresetType_RelicPresetDeletePlanScRsp = 9853;
+	CmdRelicPresetType_RelicPresetDeletePlanCsReq = 9844;
+	CmdRelicPresetType_PKLFCJBCOLE = 9852;
+	CmdRelicPresetType_RelicPresetAddPlanScRsp = 9848;
+	CmdRelicPresetType_RelicPresetUpdatePlanScRsp = 9845;
+	CmdRelicPresetType_RelicPresetGetPlanCsReq = 9850;
+	CmdRelicPresetType_RelicPresetGetPlanScRsp = 9856;
+}
+
+message EGGOCLKIAME {
+	uint32 unique_id = 1; // offset: 24
+}
+
+message EJILGJGLKIO {
+	PFCKBFLDHNI relic_plan = 13; // offset: 24
+}
+
+enum FDJKLJGDCID {
+	FDJKLJGDCID_NLCDGIPGFDJ = 0;
+	FDJKLJGDCID_DCGAPNGCCEH = 1;
+	FDJKLJGDCID_BMHMMIMOAIJ = 2;
+	FDJKLJGDCID_JPDBDLEEHGK = 3;
+	FDJKLJGDCID_OGPNODHENKN = 4;
+	FDJKLJGDCID_PICLIGEAJFN = 5;
+	FDJKLJGDCID_FHCEFAOHJJJ = 6;
+}
+
+message HPPOINFLEPJ {
+	repeated uint32 relic_ids = 6; // offset: 24
+	RelicPresetPlanSourceType source_type = 10; // offset: 36
+	FDJKLJGDCID LLJJCOOKANH = 12; // offset: 32
+}
+
+message PFCKBFLDHNI {
+	repeated uint32 relic_ids = 4; // offset: 24
+	uint32 unique_id = 7; // offset: 48
+	string name = 8; // offset: 32
+	uint32 avatar_id = 9; // offset: 44
+	RelicPresetPlanSourceType source_type = 12; // offset: 40
+}
+
+message RelicPresetAddPlanCsReq {
+	repeated uint32 relic_ids = 1; // offset: 24
+	FDJKLJGDCID LLJJCOOKANH = 6; // offset: 44
+	uint32 avatar_id = 7; // offset: 40
+	string name = 11; // offset: 16
+	RelicPresetPlanSourceType source_type = 14; // offset: 48
+}
+
+message RelicPresetAddPlanScRsp {
+	uint32 retcode = 2; // offset: 32
+	PFCKBFLDHNI relic_plan = 10; // offset: 16
+}
+
+message RelicPresetDeletePlanCsReq {
+	uint32 ONIAFLNBNPN = 8; // offset: 24
+}
+
+message RelicPresetDeletePlanScRsp {
+	uint32 retcode = 9; // offset: 24
+	uint32 unique_id = 14; // offset: 28
+}
+
+message RelicPresetGetPlanCsReq {
+	uint32 avatar_id = 12; // offset: 24
+}
+
+message RelicPresetGetPlanScRsp {
+	uint32 avatar_id = 7; // offset: 32
+	repeated PFCKBFLDHNI relic_plan_list = 10; // offset: 16
+	uint32 retcode = 15; // offset: 36
+}
+
+enum RelicPresetPlanSourceType {
+	RelicPresetPlanSourceType_None = 0;
+	RelicPresetPlanSourceType_Mine = 1;
+	RelicPresetPlanSourceType_SmartCustom = 2;
+	RelicPresetPlanSourceType_SmartBigData = 3;
+	RelicPresetPlanSourceType_SmartSystem = 4;
+	RelicPresetPlanSourceType_FromScratch = 5;
+	RelicPresetPlanSourceType_Platform = 6;
+}
+
+message RelicPresetUpdatePlanCsReq {
+	uint32 unique_id = 13; // offset: 32
+	oneof KKNBOACNCON {
+		HPPOINFLEPJ relic_list = 4; // offset: 16
+		string name = 8; // offset: 16
+	}
+}
+
+message RelicPresetUpdatePlanScRsp {
+	uint32 retcode = 5; // offset: 40
+	uint32 unique_id = 14; // offset: 36
+	oneof KKNBOACNCON {
+		HPPOINFLEPJ relic_list = 3; // offset: 24
+		string name = 2; // offset: 24
+	}
+}

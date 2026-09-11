@@ -1,0 +1,210 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ActivityScheduleData {
+	uint32 panel_id = 1; // offset: 28
+	int64 end_time = 2; // offset: 40
+	int64 begin_time = 3; // offset: 32
+	uint32 activity_id = 11; // offset: 24
+}
+
+message ChooseAvatarCsReq {
+	uint32 KOEOEHIMOEI = 15; // offset: 24
+}
+
+message ChooseAvatarScRsp {
+	uint32 retcode = 5; // offset: 28
+	uint32 avatar_id = 13; // offset: 24
+}
+
+enum CmdActivityType {
+	CmdActivityType_NLCDGIPGFDJ = 0;
+	CmdActivityType_GetTrialActivityDataScRsp = 2623;
+	CmdActivityType_GetLoginActivityScRsp = 2625;
+	CmdActivityType_GetActivityScheduleConfigScRsp = 2616;
+	CmdActivityType_TrialActivityDataChangeScNotify = 2676;
+	CmdActivityType_TakeRewardScRsp = 2627;
+	CmdActivityType_GetMaterialSubmitActivityDataCsReq = 2621;
+	CmdActivityType_EnterTrialActivityStageScRsp = 2697;
+	CmdActivityType_LeaveTrialActivityScRsp = 2677;
+	CmdActivityType_TakeLoginActivityRewardScRsp = 2675;
+	CmdActivityType_TakeTrialActivityRewardCsReq = 2653;
+	CmdActivityType_LeaveTrialActivityCsReq = 2636;
+	CmdActivityType_GetTrialActivityDataCsReq = 2613;
+	CmdActivityType_StartTrialActivityCsReq = 2662;
+	CmdActivityType_TakeMaterialSubmitActivityRewardScRsp = 2678;
+	CmdActivityType_CurTrialActivityScNotify = 2646;
+	CmdActivityType_TakeMaterialSubmitActivityRewardCsReq = 2638;
+	CmdActivityType_ChooseAvatarScRsp = 2663;
+	CmdActivityType_GetLoginActivityCsReq = 2634;
+	CmdActivityType_EnterTrialActivityStageCsReq = 2657;
+	CmdActivityType_TakeLoginActivityRewardCsReq = 2605;
+	CmdActivityType_StartTrialActivityScRsp = 2614;
+	CmdActivityType_GetActivityScheduleConfigCsReq = 2660;
+	CmdActivityType_ABFLHPOGADD = 2691;
+	CmdActivityType_SubmitMaterialSubmitActivityMaterialScRsp = 2617;
+	CmdActivityType_SubmitMaterialSubmitActivityMaterialCsReq = 2611;
+	CmdActivityType_TakeTrialActivityRewardScRsp = 2644;
+	CmdActivityType_GetDataCsReq = 2631;
+	CmdActivityType_DJEMPPHBABJ = 2609;
+	CmdActivityType_ChooseAvatarCsReq = 2687;
+	CmdActivityType_GetMaterialSubmitActivityDataScRsp = 2612;
+}
+
+message CurTrialActivityScNotify {
+	uint32 activity_stage_id = 1; // offset: 24
+	TrialActivityStatus status = 10; // offset: 28
+}
+
+message EnterTrialActivityStageCsReq {
+	uint32 IEIFMNNMINA = 11; // offset: 24
+}
+
+message EnterTrialActivityStageScRsp {
+	uint32 retcode = 10; // offset: 32
+	SceneBattleInfo battle_info = 15; // offset: 24
+}
+
+message GetActivityScheduleConfigCsReq {
+}
+
+message GetActivityScheduleConfigScRsp {
+	uint32 retcode = 10; // offset: 32
+	repeated ActivityScheduleData schedule_data = 12; // offset: 16
+}
+
+message GetLoginActivityCsReq {
+}
+
+message GetLoginActivityScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated LoginActivityData login_activity_list = 12; // offset: 24
+}
+
+message GetMaterialSubmitActivityDataCsReq {
+}
+
+message GetMaterialSubmitActivityDataScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated KPMAKCHCDMH JJNFLKKAOFI = 8; // offset: 24
+}
+
+message GetTrialActivityDataCsReq {
+}
+
+message GetTrialActivityDataScRsp {
+	uint32 activity_stage_id = 4; // offset: 40
+	uint32 retcode = 7; // offset: 44
+	repeated TrialActivityInfo trial_activity_info_list = 8; // offset: 16
+	repeated PAALDKHKOLE OBOPMFBGBAE = 11; // offset: 32
+}
+
+message KJPLKPNPFBE {
+}
+
+message KPMAKCHCDMH {
+	bool BAONIPOKCPL = 8; // offset: 28
+	uint32 panel_id = 9; // offset: 24
+	bool is_taken_reward = 13; // offset: 29
+	uint32 LNOCOOCMNCI = 15; // offset: 32
+}
+
+message LeaveTrialActivityCsReq {
+	uint32 stage_id = 12; // offset: 24
+}
+
+message LeaveTrialActivityScRsp {
+	uint32 stage_id = 5; // offset: 28
+	uint32 retcode = 9; // offset: 24
+}
+
+message LoginActivityData {
+	uint32 id = 2; // offset: 36
+	uint32 panel_id = 7; // offset: 40
+	uint32 login_days = 11; // offset: 32
+	repeated uint32 MOIAHCMHNEO = 15; // offset: 24
+}
+
+message PAALDKHKOLE {
+	uint32 avatar_id = 7; // offset: 28
+	uint32 enhanced_id = 11; // offset: 24
+}
+
+message PILLGGGIPAF {
+	uint32 retcode = 5; // offset: 32
+	uint32 avatar_id = 6; // offset: 28
+	bool GFHEFFGFJJL = 12; // offset: 24
+}
+
+message StartTrialActivityCsReq {
+	uint32 stage_id = 1; // offset: 24
+}
+
+message StartTrialActivityScRsp {
+	uint32 stage_id = 5; // offset: 24
+	uint32 retcode = 11; // offset: 28
+}
+
+message SubmitMaterialSubmitActivityMaterialCsReq {
+	uint32 LNOCOOCMNCI = 8; // offset: 24
+}
+
+message SubmitMaterialSubmitActivityMaterialScRsp {
+	uint32 retcode = 6; // offset: 32
+	KPMAKCHCDMH MEAEIKFLBPJ = 8; // offset: 16
+}
+
+message TakeLoginActivityRewardCsReq {
+	uint32 take_days = 6; // offset: 24
+	uint32 id = 8; // offset: 28
+}
+
+message TakeLoginActivityRewardScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 id = 3; // offset: 44
+	uint32 take_days = 5; // offset: 36
+	uint32 panel_id = 8; // offset: 40
+	ItemList reward = 10; // offset: 24
+}
+
+message TakeMaterialSubmitActivityRewardCsReq {
+	uint32 LNOCOOCMNCI = 7; // offset: 24
+}
+
+message TakeMaterialSubmitActivityRewardScRsp {
+	uint32 LNOCOOCMNCI = 3; // offset: 32
+	uint32 retcode = 7; // offset: 36
+	ItemList reward = 15; // offset: 24
+}
+
+message TakeRewardScRsp {
+	ItemList reward = 3; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message TakeTrialActivityRewardCsReq {
+	uint32 stage_id = 8; // offset: 24
+}
+
+message TakeTrialActivityRewardScRsp {
+	uint32 retcode = 1; // offset: 36
+	uint32 stage_id = 3; // offset: 32
+	ItemList reward = 12; // offset: 16
+}
+
+message TrialActivityDataChangeScNotify {
+	repeated PAALDKHKOLE OBOPMFBGBAE = 5; // offset: 24
+	TrialActivityInfo trial_activity_info = 6; // offset: 16
+}
+
+message TrialActivityInfo {
+	bool taken_reward = 1; // offset: 24
+	uint32 stage_id = 14; // offset: 28
+}
+
+enum TrialActivityStatus {
+	TRIAL_ACTIVITY_STATUS_NONE = 0;
+	TRIAL_ACTIVITY_STATUS_FINISH = 1;
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+
+enum ChangeStoryLineAction {
+	ChangeStoryLineAction_None = 0;
+	ChangeStoryLineAction_FinishAction = 1;
+	ChangeStoryLineAction_Client = 2;
+	ChangeStoryLineAction_CustomOP = 3;
+	ChangeStoryLineAction_Raid = 4;
+	ChangeStoryLineAction_HKFKAFPAJCO = 5;
+}
+
+message ChangeStoryLineFinishScNotify {
+	bool HBFDGEPBLNP = 4; // offset: 28
+	uint32 ONBMNAMBIGE = 8; // offset: 32
+	ChangeStoryLineAction action = 11; // offset: 24
+	uint32 cur_story_line_id = 15; // offset: 36
+}
+
+enum CmdStoryLineType {
+	CmdStoryLineType_NLCDGIPGFDJ = 0;
+	CmdStoryLineType_GetStoryLineInfoCsReq = 6234;
+	CmdStoryLineType_StoryLineTrialAvatarChangeScNotify = 6258;
+	CmdStoryLineType_StoryLineInfoScNotify = 6205;
+	CmdStoryLineType_GetStoryLineInfoScRsp = 6225;
+	CmdStoryLineType_ChangeStoryLineFinishScNotify = 6216;
+}
+
+message GetStoryLineInfoCsReq {
+}
+
+message GetStoryLineInfoScRsp {
+	uint32 retcode = 4; // offset: 40
+	repeated uint32 trial_avatar_id_list = 7; // offset: 16
+	uint32 cur_story_line_id = 8; // offset: 44
+	repeated uint32 unfinished_story_line_id_list = 14; // offset: 32
+}
+
+message StoryLineInfoScNotify {
+	repeated uint32 trial_avatar_id_list = 3; // offset: 32
+	uint32 FDFLHKEDPGC = 8; // offset: 44
+	uint32 cur_story_line_id = 9; // offset: 40
+	repeated uint32 unfinished_story_line_id_list = 11; // offset: 24
+}
+
+message StoryLineTrialAvatarChangeScNotify {
+	repeated uint32 EDBMIFNEHHH = 2; // offset: 32
+	bool OLPNMKAPDLP = 14; // offset: 40
+	repeated uint32 ILIDIIGALKD = 15; // offset: 16
+}

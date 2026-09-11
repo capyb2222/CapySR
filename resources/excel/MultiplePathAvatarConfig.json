@@ -1,0 +1,185 @@
+[
+  {
+    "AvatarID": 8001,
+    "Gender": "GENDER_MAN",
+    "UnlockConditions": [],
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 12336609480192427249
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerBoy_00_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8002,
+    "Gender": "GENDER_WOMAN",
+    "UnlockConditions": [],
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 6772270010029804272
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerGirl_00_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8003,
+    "Gender": "GENDER_MAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishMainMission",
+        "Param": "1011403"
+      }
+    ],
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 419917219514486189
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerBoy_10_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8004,
+    "Gender": "GENDER_WOMAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishMainMission",
+        "Param": "1011403"
+      }
+    ],
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 16651427233618117721
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerGirl_10_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8005,
+    "Gender": "GENDER_MAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "103280102"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "AllowRepeatUnlockReward": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 11504203961595947035
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerBoy_20_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8006,
+    "Gender": "GENDER_WOMAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "103280102"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "AllowRepeatUnlockReward": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 2976415279877148957
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerGirl_20_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8007,
+    "Gender": "GENDER_MAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "104010640"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 13857136883777988881
+    },
+    "UnlockToast": {
+      "Hash": 9099329756437925997
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerBoy_30_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8008,
+    "Gender": "GENDER_WOMAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "104010640"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 17312018575143561737
+    },
+    "UnlockToast": {
+      "Hash": 16565936212762231780
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerGirl_30_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8009,
+    "Gender": "GENDER_MAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "105421203"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 15178466620978372661
+    },
+    "UnlockToast": {
+      "Hash": 12784501311347839836
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerBoy_40_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 8010,
+    "Gender": "GENDER_WOMAN",
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "105421203"
+      }
+    ],
+    "IsEarlyUnlock": true,
+    "BaseAvatarID": 8001,
+    "Desc": {
+      "Hash": 11197508274849190603
+    },
+    "UnlockToast": {
+      "Hash": 17200387817820528811
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_PlayerGirl_40_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 1001,
+    "UnlockConditions": [],
+    "BaseAvatarID": 1001,
+    "Desc": {
+      "Hash": 18244176707869243035
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_Mar_7th_00_AvatarPathChangeConfig.json"
+  },
+  {
+    "AvatarID": 1224,
+    "UnlockConditions": [
+      {
+        "Type": "FinishSubMission",
+        "Param": "202210108"
+      }
+    ],
+    "BaseAvatarID": 1001,
+    "Desc": {
+      "Hash": 6176885001076348527
+    },
+    "ChangeConfigPath": "Config/ConfigAvatarPathChange/Avatar_Mar_7th_10_AvatarPathChangeConfig.json"
+  }
+]

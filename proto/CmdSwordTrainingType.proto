@@ -1,0 +1,411 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AKFBNFPFKJJ {
+}
+
+message BCPMPHNADMN {
+	repeated uint32 PGBJIJPACCE = 4; // offset: 16
+	uint32 LMEDKDNNNKL = 12; // offset: 32
+	uint32 GMANNHPPFPK = 13; // offset: 36
+}
+
+enum BHJOFLJGNKN {
+	BHJOFLJGNKN_NLCDGIPGFDJ = 0;
+	BHJOFLJGNKN_LENEGHPPELE = 1;
+	BHJOFLJGNKN_LIDKLOCCDGI = 2;
+	BHJOFLJGNKN_action = 3;
+	BHJOFLJGNKN_OFPLODJBGMG = 4;
+	BHJOFLJGNKN_DDGDJCKKHPH = 5;
+	BHJOFLJGNKN_DDBIJDILDJL = 6;
+	BHJOFLJGNKN_NCLBFAALLFJ = 7;
+}
+
+message BJKPJIBNPHC {
+	uint32 HFNNNGHBHGG = 2; // offset: 24
+	EJCBOKGJFHE EGBFNFCEPHD = 10; // offset: 28
+	uint32 DCPDNBALDOA = 15; // offset: 32
+}
+
+message BLJHLKBNGEC {
+}
+
+enum CmdSwordTrainingType {
+	CmdSwordTrainingType_NLCDGIPGFDJ = 0;
+	CmdSwordTrainingType_GetSwordTrainingDataCsReq = 7456;
+	CmdSwordTrainingType_SwordTrainingGiveUpGameScRsp = 7492;
+	CmdSwordTrainingType_GetSwordTrainingDataScRsp = 7470;
+	CmdSwordTrainingType_SwordTrainingSelectEndingCsReq = 7465;
+	CmdSwordTrainingType_SwordTrainingStoryBattleScRsp = 7477;
+	CmdSwordTrainingType_SwordTrainingStoryBattleCsReq = 7453;
+	CmdSwordTrainingType_SwordTrainingUnlockSyncScNotify = 7462;
+	CmdSwordTrainingType_SwordTrainingMarkEndingViewedCsReq = 7494;
+	CmdSwordTrainingType_SwordTrainingMarkEndingViewedScRsp = 7499;
+	CmdSwordTrainingType_SwordTrainingStoryConfirmCsReq = 7488;
+	CmdSwordTrainingType_SwordTrainingSetSkillTraceScRsp = 7472;
+	CmdSwordTrainingType_SwordTrainingLearnSkillScRsp = 7473;
+	CmdSwordTrainingType_SwordTrainingExamResultConfirmScRsp = 7474;
+	CmdSwordTrainingType_SwordTrainingDialogueSelectOptionScRsp = 7476;
+	CmdSwordTrainingType_SwordTrainingTurnActionCsReq = 7481;
+	CmdSwordTrainingType_EnterSwordTrainingExamCsReq = 7458;
+	CmdSwordTrainingType_SwordTrainingSetSkillTraceCsReq = 7451;
+	CmdSwordTrainingType_SwordTrainingDialogueSelectOptionCsReq = 7461;
+	CmdSwordTrainingType_SwordTrainingGiveUpGameCsReq = 7469;
+	CmdSwordTrainingType_SwordTrainingStartGameScRsp = 7468;
+	CmdSwordTrainingType_SwordTrainingStartGameCsReq = 7452;
+	CmdSwordTrainingType_SwordTrainingGameSyncChangeScNotify = 7484;
+	CmdSwordTrainingType_SwordTrainingLearnSkillCsReq = 7475;
+	CmdSwordTrainingType_SwordTrainingActionTurnSettleScNotify = 7483;
+	CmdSwordTrainingType_SwordTrainingResumeGameScRsp = 7487;
+	CmdSwordTrainingType_SwordTrainingResumeGameCsReq = 7486;
+	CmdSwordTrainingType_SwordTrainingSelectEndingScRsp = 7459;
+	CmdSwordTrainingType_SwordTrainingExamResultConfirmCsReq = 7478;
+	CmdSwordTrainingType_SwordTrainingTurnActionScRsp = 7479;
+	CmdSwordTrainingType_SwordTrainingGameSettleScNotify = 7471;
+	CmdSwordTrainingType_SwordTrainingDailyPhaseConfirmCsReq = 7482;
+	CmdSwordTrainingType_EnterSwordTrainingExamScRsp = 7497;
+	CmdSwordTrainingType_SwordTrainingRestoreGameCsReq = 7485;
+	CmdSwordTrainingType_SwordTrainingStoryConfirmScRsp = 7457;
+	CmdSwordTrainingType_SwordTrainingRestoreGameScRsp = 7493;
+	CmdSwordTrainingType_SwordTrainingDailyPhaseConfirmScRsp = 7466;
+}
+
+message DAEDLFEEGIB {
+	uint32 dialogue_id = 10; // offset: 24
+}
+
+message ECPHOKOPKBP {
+	uint32 LNAHJENGELA = 1; // offset: 28
+	bool IJJEGKDGKCJ = 6; // offset: 24
+}
+
+message EINKHFKDCCD {
+	HFMLKIIOGBP CLKDEHDODBB = 2; // offset: 16
+	HFKKEDPMKKF DOBHAEAGEDG = 3; // offset: 64
+	uint32 IMGDMDDKHDL = 6; // offset: 80
+	LBBNBAEKGCJ GFAANLGDEOB = 8; // offset: 24
+	BCPMPHNADMN skill_info = 9; // offset: 32
+	NPGJDCIBFDD FMIGOKIDKJL = 12; // offset: 40
+	repeated uint32 MDBAEBENFBA = 13; // offset: 72
+	HCHNKKNDJCN HCEAHMKBFFK = 14; // offset: 56
+}
+
+enum EJCBOKGJFHE {
+	EJCBOKGJFHE_NLCDGIPGFDJ = 0;
+	EJCBOKGJFHE_GLANPLEGMPG = 1;
+	EJCBOKGJFHE_CIGHHAKHHMN = 2;
+	EJCBOKGJFHE_GAMNPOMOAIG = 3;
+	EJCBOKGJFHE_KIKADFCIPJO = 4;
+	EJCBOKGJFHE_NKAACMGNNPK = 5;
+}
+
+message EnterSwordTrainingExamCsReq {
+}
+
+message EnterSwordTrainingExamScRsp {
+	SceneBattleInfo battle_info = 5; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}
+
+message FBKIJNOFIAH {
+	uint32 DCPDNBALDOA = 1; // offset: 28
+	uint32 HFNNNGHBHGG = 6; // offset: 24
+}
+
+message FDANEJNFABF {
+	uint32 id = 12; // offset: 24
+	uint32 progress = 15; // offset: 28
+}
+
+message GELEHDAJMED {
+	uint32 dialogue_id = 5; // offset: 24
+}
+
+message GFFDDJHNJPN {
+	uint32 level = 5; // offset: 28
+	uint32 queue_position = 8; // offset: 24
+}
+
+message GIHLNOIACIH {
+	repeated uint32 MNIIFCOOOML = 1; // offset: 32
+	repeated FDANEJNFABF KFOFAKDPGJC = 12; // offset: 24
+}
+
+message GIJKCHKMPJG {
+	LJGKNFCFLLB detail = 14; // offset: 24
+	BHJOFLJGNKN source = 15; // offset: 32
+}
+
+message GIJLACBOPEE {
+	uint32 level = 11; // offset: 32
+	uint32 HJMEJNMAILK = 12; // offset: 28
+	uint32 queue_position = 14; // offset: 24
+}
+
+message GOCNLGIDBLM {
+	uint32 AMNDNDNPLCA = 5; // offset: 28
+	uint32 JALHKMEOOPN = 12; // offset: 24
+}
+
+message GetSwordTrainingDataCsReq {
+}
+
+message GetSwordTrainingDataScRsp {
+	GIHLNOIACIH BBEKBJPHEJK = 1; // offset: 40
+	repeated uint32 JBJNHJNMPAP = 3; // offset: 56
+	bool GPGIMFMGGKG = 5; // offset: 72
+	EINKHFKDCCD AJGOEJHKOKE = 6; // offset: 24
+	uint32 retcode = 8; // offset: 64
+	repeated uint32 CICCAIENFGA = 9; // offset: 32
+	repeated uint32 IEPANMCFKJL = 11; // offset: 48
+	uint32 PABJCCKBGEB = 12; // offset: 68
+}
+
+message HCHNKKNDJCN {
+	uint32 mood = 4; // offset: 32
+	repeated LBBGLAHFJKN status_list = 9; // offset: 16
+	uint32 KPJHKDOMEMJ = 11; // offset: 36
+}
+
+message HFKKEDPMKKF {
+	uint32 game_story_line_id = 5; // offset: 32
+	repeated uint32 JBJNHJNMPAP = 10; // offset: 24
+}
+
+message HFMLKIIOGBP {
+	repeated GFFDDJHNJPN BELEDENKGGI = 14; // offset: 16
+}
+
+message IEALCLFLDMP {
+	SwordTrainingDailyPhaseType cur_phase = 1; // offset: 40
+	repeated uint32 JAJNHOKCAHH = 7; // offset: 16
+	repeated GOCNLGIDBLM COOMKNFDNLH = 9; // offset: 24
+}
+
+message IKGLCLFLAKO {
+}
+
+enum IPPKHOFKMHM {
+	IPPKHOFKMHM_KLHMFENBDID = 0;
+	IPPKHOFKMHM_JKGEFNAIMFK = 1;
+	IPPKHOFKMHM_CJOADAMKIFC = 2;
+	IPPKHOFKMHM_FBHDMJMLBIC = 3;
+	IPPKHOFKMHM_OKCNPPPLAHM = 4;
+	IPPKHOFKMHM_KPOMIPJOKND = 5;
+}
+
+message JADFEJKNOCO {
+	bool JBJIKKOCNLP = 12; // offset: 24
+	uint32 LNAHJENGELA = 14; // offset: 28
+}
+
+message KLNGFBHIADA {
+	uint32 DGONPFLCOMO = 14; // offset: 24
+}
+
+message LBBGLAHFJKN {
+	EJCBOKGJFHE EGBFNFCEPHD = 13; // offset: 28
+	uint32 value = 15; // offset: 24
+}
+
+message LBBNBAEKGCJ {
+	uint32 AFPHLNMGPHK = 350; // offset: 36
+	oneof KKNBOACNCON {
+		IEALCLFLDMP NMIJKPKNPLE = 13; // offset: 16
+		KLNGFBHIADA FKPDOHGKJJK = 3; // offset: 16
+	}
+}
+
+message LJGKNFCFLLB {
+	oneof KKNBOACNCON {
+		BJKPJIBNPHC DEIMCENJPKP = 2; // offset: 16
+		FBKIJNOFIAH FNONLFCKDIL = 5; // offset: 16
+		FBKIJNOFIAH CIDOEGFPHEN = 1; // offset: 16
+		GIJLACBOPEE HANCFMMMFNF = 14; // offset: 16
+		MCECLBDBENF LMAGJOOLKII = 3; // offset: 16
+		JADFEJKNOCO GOLOGIHJOPF = 10; // offset: 16
+		DAEDLFEEGIB FOGBMALOAOK = 12; // offset: 16
+		uint32 MIFOJPGIFDD = 13; // offset: 16
+		uint32 KPJHKDOMEMJ = 1695; // offset: 16
+		ECPHOKOPKBP KJOAIOHFFMK = 1377; // offset: 16
+		OKOJCBKENEJ GBNOIFNDPJB = 1564; // offset: 16
+		uint32 KGKJHCBMEFI = 1832; // offset: 16
+	}
+}
+
+message MCECLBDBENF {
+	uint32 IMGDMDDKHDL = 2; // offset: 32
+	LBBNBAEKGCJ turn = 15; // offset: 24
+}
+
+message NPGJDCIBFDD {
+	oneof KKNBOACNCON {
+		BLJHLKBNGEC NGOCELLBHCF = 13; // offset: 16
+		PJKNNJGEEBJ KNDKCOGGEKL = 3; // offset: 16
+		GELEHDAJMED NCLBFAALLFJ = 11; // offset: 16
+		AKFBNFPFKJJ DOCGLPKMHDM = 12; // offset: 16
+		JADFEJKNOCO KGPMPPHJHLD = 15; // offset: 16
+		OKOJCBKENEJ OLHMHOOMGCK = 9; // offset: 16
+		IKGLCLFLAKO MHLPJEDILFJ = 7; // offset: 16
+		ECPHOKOPKBP GJNINFABDBN = 10; // offset: 16
+	}
+}
+
+message OKOJCBKENEJ {
+}
+
+message PJKNNJGEEBJ {
+}
+
+message SwordTrainingActionTurnSettleScNotify {
+	uint32 GEAJILJKBIK = 6; // offset: 32
+	repeated LBBGLAHFJKN BINKDPMJLFG = 10; // offset: 16
+}
+
+message SwordTrainingDailyPhaseConfirmCsReq {
+	SwordTrainingDailyPhaseType GCBHFKKGPHC = 12; // offset: 24
+}
+
+message SwordTrainingDailyPhaseConfirmScRsp {
+	uint32 retcode = 2; // offset: 28
+	bool KPMJOKEFLJO = 8; // offset: 24
+}
+
+enum SwordTrainingDailyPhaseType {
+	SwordTrainingDailyPhaseType_None = 0;
+	SwordTrainingDailyPhaseType_Morning = 1;
+	SwordTrainingDailyPhaseType_Noon = 2;
+	SwordTrainingDailyPhaseType_Afternoon = 3;
+	SwordTrainingDailyPhaseType_Evening = 4;
+}
+
+message SwordTrainingDialogueSelectOptionCsReq {
+	uint32 HAFOKMHCGFM = 4; // offset: 24
+}
+
+message SwordTrainingDialogueSelectOptionScRsp {
+	uint32 retcode = 10; // offset: 24
+}
+
+message SwordTrainingExamResultConfirmCsReq {
+}
+
+message SwordTrainingExamResultConfirmScRsp {
+	uint32 retcode = 3; // offset: 24
+}
+
+message SwordTrainingGameSettleScNotify {
+	repeated uint32 KACAMGJNOOB = 1; // offset: 24
+	IPPKHOFKMHM reason = 2; // offset: 52
+	repeated uint32 BHFHFONGHML = 3; // offset: 32
+	uint32 turn = 4; // offset: 48
+	uint32 game_story_line_id = 5; // offset: 64
+	ItemList reward = 6; // offset: 16
+	uint32 CDBGPMABMGM = 7; // offset: 56
+	uint32 LBNLIJBPKHI = 8; // offset: 60
+}
+
+message SwordTrainingGameSyncChangeScNotify {
+	repeated GIJKCHKMPJG DGNGMJMPFGK = 14; // offset: 24
+}
+
+message SwordTrainingGiveUpGameCsReq {
+}
+
+message SwordTrainingGiveUpGameScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message SwordTrainingLearnSkillCsReq {
+	uint32 skill_id = 11; // offset: 24
+}
+
+message SwordTrainingLearnSkillScRsp {
+	uint32 retcode = 1; // offset: 28
+	uint32 skill_id = 9; // offset: 24
+}
+
+message SwordTrainingMarkEndingViewedCsReq {
+}
+
+message SwordTrainingMarkEndingViewedScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message SwordTrainingRestoreGameCsReq {
+}
+
+message SwordTrainingRestoreGameScRsp {
+	uint32 retcode = 4; // offset: 32
+	EINKHFKDCCD AJGOEJHKOKE = 7; // offset: 16
+}
+
+message SwordTrainingResumeGameCsReq {
+	uint32 game_story_line_id = 11; // offset: 24
+}
+
+message SwordTrainingResumeGameScRsp {
+	uint32 retcode = 11; // offset: 32
+	EINKHFKDCCD AJGOEJHKOKE = 12; // offset: 16
+}
+
+message SwordTrainingSelectEndingCsReq {
+	uint32 PFOLEGLCLFE = 10; // offset: 24
+}
+
+message SwordTrainingSelectEndingScRsp {
+	uint32 retcode = 5; // offset: 28
+	uint32 PFOLEGLCLFE = 15; // offset: 24
+}
+
+message SwordTrainingSetSkillTraceCsReq {
+	uint32 skill_id = 1; // offset: 24
+}
+
+message SwordTrainingSetSkillTraceScRsp {
+	uint32 skill_id = 3; // offset: 24
+	uint32 retcode = 6; // offset: 28
+}
+
+message SwordTrainingStartGameCsReq {
+	uint32 game_story_line_id = 10; // offset: 24
+}
+
+message SwordTrainingStartGameScRsp {
+	EINKHFKDCCD AJGOEJHKOKE = 1; // offset: 16
+	uint32 retcode = 4; // offset: 32
+}
+
+message SwordTrainingStoryBattleCsReq {
+}
+
+message SwordTrainingStoryBattleScRsp {
+	uint32 retcode = 2; // offset: 32
+	SceneBattleInfo battle_info = 10; // offset: 16
+}
+
+message SwordTrainingStoryConfirmCsReq {
+	uint32 LNAHJENGELA = 13; // offset: 24
+}
+
+message SwordTrainingStoryConfirmScRsp {
+	uint32 retcode = 7; // offset: 28
+	uint32 LNAHJENGELA = 14; // offset: 24
+}
+
+message SwordTrainingTurnActionCsReq {
+	repeated uint32 CCPADEMEHBA = 1; // offset: 32
+	repeated uint32 GJEPAKHPFCG = 9; // offset: 16
+}
+
+message SwordTrainingTurnActionScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated uint32 CCPADEMEHBA = 5; // offset: 24
+}
+
+message SwordTrainingUnlockSyncScNotify {
+	repeated uint32 MNIIFCOOOML = 4; // offset: 24
+	repeated FDANEJNFABF KFOFAKDPGJC = 11; // offset: 16
+}

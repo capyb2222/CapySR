@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum BGLIMCBGLAJ {
+	BGLIMCBGLAJ_PICLIGEAJFN = 0;
+	BGLIMCBGLAJ_OGPNODHENKN = 1;
+	BGLIMCBGLAJ_JPDBDLEEHGK = 2;
+	BGLIMCBGLAJ_BMHMMIMOAIJ = 3;
+	BGLIMCBGLAJ_DCGAPNGCCEH = 4;
+}
+
+enum CmdFightFestType {
+	CmdFightFestType_NLCDGIPGFDJ = 0;
+	CmdFightFestType_StartFightFestScRsp = 7281;
+	CmdFightFestType_StartFightFestCsReq = 7270;
+	CmdFightFestType_FightFestUpdateChallengeRecordNotify = 7266;
+	CmdFightFestType_FightFestScoreUpdateNotify = 7279;
+	CmdFightFestType_FightFestUnlockSkillNotify = 7282;
+	CmdFightFestType_FightFestUpdateCoinNotify = 7261;
+	CmdFightFestType_GetFightFestDataCsReq = 7284;
+	CmdFightFestType_GetFightFestDataScRsp = 7256;
+}
+
+message EPCNGNEEMBI {
+	uint32 id = 6; // offset: 28
+	AvatarType avatar_type = 7; // offset: 24
+}
+
+message FightFestScoreUpdateNotify {
+	uint32 JODNMFEFPFD = 4; // offset: 24
+	uint32 score_id = 7; // offset: 28
+}
+
+enum FightFestType {
+	FightFestType_None = 0;
+	FightFestType_Main = 1;
+	FightFestType_Score = 2;
+	FightFestType_Challenge = 3;
+	FightFestType_Teach = 4;
+}
+
+message FightFestUnlockSkillNotify {
+	uint32 AMAGKDCBFGL = 7; // offset: 24
+}
+
+message FightFestUpdateChallengeRecordNotify {
+	BGLIMCBGLAJ HMBBBNKAILD = 3; // offset: 24
+	uint32 turn_left = 4; // offset: 28
+	uint32 challenge_id = 5; // offset: 32
+	uint32 DJFGDMIDEHJ = 10; // offset: 40
+	BGLIMCBGLAJ rank = 15; // offset: 36
+}
+
+message FightFestUpdateCoinNotify {
+	uint32 coin = 7; // offset: 24
+}
+
+message GetFightFestDataCsReq {
+}
+
+message GetFightFestDataScRsp {
+	uint32 score_id = 3; // offset: 48
+	repeated uint32 GILJLEOAOMA = 9; // offset: 16
+	uint32 retcode = 10; // offset: 44
+	uint32 item_value = 11; // offset: 40
+	repeated LPJOINCGBBP challenge_list = 14; // offset: 32
+}
+
+message LPJOINCGBBP {
+	uint32 challenge_id = 2; // offset: 32
+	BGLIMCBGLAJ OINGNAJMFNL = 9; // offset: 24
+	uint32 DJFGDMIDEHJ = 10; // offset: 28
+}
+
+message StartFightFestCsReq {
+	repeated EPCNGNEEMBI avatar_list = 1; // offset: 24
+	uint32 event_id = 2; // offset: 40
+	FightFestType type = 3; // offset: 44
+	repeated uint32 GILJLEOAOMA = 4; // offset: 16
+	uint32 id = 13; // offset: 48
+}
+
+message StartFightFestScRsp {
+	uint32 retcode = 3; // offset: 36
+	SceneBattleInfo battle_info = 9; // offset: 24
+	uint32 id = 10; // offset: 32
+	FightFestType type = 12; // offset: 44
+	uint32 event_id = 14; // offset: 40
+}

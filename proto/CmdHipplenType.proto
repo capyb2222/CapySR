@@ -1,0 +1,246 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AFEDHCKDDFA {
+	NAOCMAOJECF type = 3; // offset: 32
+	uint32 id = 8; // offset: 24
+	bool AAGAFBJHOKK = 14; // offset: 28
+}
+
+message ANHJKLLEKKB {
+	int32 value = 6; // offset: 24
+	uint32 type = 15; // offset: 28
+}
+
+message BNJAIHINJIK {
+	uint32 OBGKOOAPCEM = 1; // offset: 56
+	PJOHABIOPPI GMMPIDODKKD = 3; // offset: 24
+	HINIJKGDDBI FBECMPGLPKK = 5; // offset: 16
+	uint32 ODPELJAIPHL = 8; // offset: 52
+	GEFEDOAOKNO IPDLBJHAJOO = 11; // offset: 32
+	uint32 GNAHDKMEDEP = 14; // offset: 48
+}
+
+enum CmdHipplenType {
+	CmdHipplenType_NLCDGIPGFDJ = 0;
+	CmdHipplenType_SetHipplenOutfitCsReq = 9040;
+	CmdHipplenType_SetHipplenOutfitScRsp = 9008;
+	CmdHipplenType_OpenHipplenCycleScRsp = 9014;
+	CmdHipplenType_GetHipplenInheritScRsp = 9031;
+	CmdHipplenType_SetHipplenAgendaScRsp = 9032;
+	CmdHipplenType_SettleHipplenWorkCsReq = 9016;
+	CmdHipplenType_HipplenChangeScNotify = 9038;
+	CmdHipplenType_TakeHipplenEndingRewardScRsp = 9018;
+	CmdHipplenType_HipplenTraitUnlockScNotify = 9023;
+	CmdHipplenType_HipplenCycleResultScNotify = 9004;
+	CmdHipplenType_SetHipplenAgendaCsReq = 9029;
+	CmdHipplenType_GetHipplenInheritCsReq = 9020;
+	CmdHipplenType_GetHipplenDataScRsp = 9006;
+	CmdHipplenType_OpenHipplenCycleCsReq = 9048;
+	CmdHipplenType_SettleHipplenWorkScRsp = 9011;
+	CmdHipplenType_HipplenAgendaResultScNotify = 9026;
+	CmdHipplenType_TakeHipplenEndingRewardCsReq = 9002;
+	CmdHipplenType_GetHipplenDataCsReq = 9034;
+}
+
+message DMLACLLDCCE {
+	int32 CBPGJAFAHFC = 1; // offset: 28
+	uint32 AJAFEEAOBLC = 3; // offset: 36
+	uint32 MNCFOGJECMF = 5; // offset: 24
+	uint32 GNAHDKMEDEP = 10; // offset: 32
+}
+
+message DPGGADJHCBG {
+	uint32 IMIBAAPJGEJ = 13; // offset: 24
+}
+
+message ELOFLNEAHPD {
+	repeated ENIDJAFECBD BPFJDLHFEKG = 5; // offset: 32
+	repeated uint32 grid_fight_trait_info = 9; // offset: 24
+}
+
+message ENIDJAFECBD {
+	uint32 BKFICFMMGIN = 7; // offset: 28
+	bool is_taken_reward = 11; // offset: 24
+}
+
+message FCOBIMJMLIF {
+	uint32 type = 3; // offset: 24
+	uint32 value = 10; // offset: 28
+}
+
+message FEDNIHCAHGP {
+	repeated uint32 GEMHKFCFCCC = 1; // offset: 24
+	repeated uint32 FCOKODHGEKO = 4; // offset: 16
+}
+
+message GCNJGJMPLHM {
+}
+
+message GEFEDOAOKNO {
+	repeated FCOBIMJMLIF MONKDLNMMBK = 2; // offset: 24
+}
+
+message GetHipplenDataCsReq {
+}
+
+message GetHipplenDataScRsp {
+	uint32 JFLAEGMBMAK = 2; // offset: 56
+	bool HPKECDINMCE = 5; // offset: 48
+	uint32 retcode = 10; // offset: 52
+	ELOFLNEAHPD ACOLLHOFKGL = 11; // offset: 16
+	FEDNIHCAHGP KJDEEJNBLHK = 14; // offset: 40
+	BNJAIHINJIK HIGHKDBJNIM = 15; // offset: 24
+}
+
+message GetHipplenInheritCsReq {
+}
+
+message GetHipplenInheritScRsp {
+	uint32 retcode = 1; // offset: 32
+	repeated uint32 grid_fight_trait_info = 14; // offset: 24
+}
+
+message HBMGNLFKMMK {
+	uint32 MNCFOGJECMF = 11; // offset: 24
+}
+
+message HGDHJFGCEJF {
+	oneof KKNBOACNCON {
+		DPGGADJHCBG MDFCELGPPHM = 5; // offset: 24
+		NOPCFDDLPNN HNLMBGIBEBN = 14; // offset: 24
+	}
+}
+
+message HINIJKGDDBI {
+	repeated uint32 grid_fight_trait_info = 9; // offset: 16
+}
+
+message HipplenAgendaResultScNotify {
+	repeated uint32 GPDEDJIHMGB = 4; // offset: 40
+	repeated uint32 grid_fight_trait_info = 5; // offset: 24
+	LKFFMLJMGOB FEJPEALIKHE = 7; // offset: 56
+	GEFEDOAOKNO JMKHOIMEFFM = 11; // offset: 32
+	bool CPFFAGAHJMH = 12; // offset: 72
+	BNJAIHINJIK HIGHKDBJNIM = 14; // offset: 48
+	repeated AFEDHCKDDFA NEMFNENACNB = 15; // offset: 64
+}
+
+message HipplenChangeScNotify {
+	repeated HGDHJFGCEJF DGNGMJMPFGK = 2; // offset: 16
+}
+
+message HipplenCycleResultScNotify {
+	repeated JHBOOCGAKCM FJFJMOGILBM = 2; // offset: 56
+	repeated JHBOOCGAKCM IHLCDDOMPKD = 5; // offset: 48
+	repeated uint32 FCOKODHGEKO = 8; // offset: 24
+	uint32 BKFICFMMGIN = 11; // offset: 64
+	uint32 JFLAEGMBMAK = 12; // offset: 68
+	repeated uint32 grid_fight_trait_info = 13; // offset: 32
+	GEFEDOAOKNO GNBKDCHLDGL = 15; // offset: 40
+}
+
+message HipplenTraitUnlockScNotify {
+	repeated uint32 grid_fight_trait_info = 3; // offset: 16
+}
+
+message JHBOOCGAKCM {
+	uint32 LDMHLKGILOD = 1; // offset: 24
+	uint32 FFKDFODDBDN = 12; // offset: 28
+}
+
+message LKFFMLJMGOB {
+	uint32 AJAFEEAOBLC = 6; // offset: 24
+	uint32 MNCFOGJECMF = 10; // offset: 32
+	int32 CBPGJAFAHFC = 12; // offset: 28
+}
+
+message LODMLDKMPPL {
+	uint32 id = 6; // offset: 24
+}
+
+enum NAOCMAOJECF {
+	NAOCMAOJECF_NLCDGIPGFDJ = 0;
+	NAOCMAOJECF_CNMBIADBFNG = 1;
+	NAOCMAOJECF_ENCBGPOIFCM = 2;
+	NAOCMAOJECF_ECKIMBNDOME = 3;
+	NAOCMAOJECF_LONKNKFDPII = 4;
+	NAOCMAOJECF_MLLNOGKNHNL = 5;
+}
+
+message NOPCFDDLPNN {
+	uint32 BKFICFMMGIN = 8; // offset: 24
+}
+
+message OHHHCKCFPIG {
+	repeated uint32 DPOKBJGLKNN = 13; // offset: 24
+}
+
+message OpenHipplenCycleCsReq {
+	uint32 trait_id = 10; // offset: 24
+}
+
+message OpenHipplenCycleScRsp {
+	uint32 retcode = 2; // offset: 32
+	BNJAIHINJIK HIGHKDBJNIM = 9; // offset: 16
+	uint32 JFLAEGMBMAK = 15; // offset: 36
+}
+
+message PJOHABIOPPI {
+	uint32 JEEELNEHDCD = 2; // offset: 56
+	repeated AFEDHCKDDFA NEMFNENACNB = 4; // offset: 24
+	uint32 MBHJONMGDOO = 9; // offset: 48
+	uint32 DOHNBOCBOGJ = 10; // offset: 52
+	repeated uint32 OGDLPFOJMHI = 12; // offset: 32
+	AFEDHCKDDFA LAJOGEKPHOP = 15; // offset: 16
+}
+
+message SetHipplenAgendaCsReq {
+	repeated uint32 NIEBGNHGDIH = 14; // offset: 24
+}
+
+message SetHipplenAgendaScRsp {
+	repeated AFEDHCKDDFA NEMFNENACNB = 9; // offset: 24
+	uint32 retcode = 13; // offset: 32
+}
+
+message SetHipplenOutfitCsReq {
+	uint32 IMIBAAPJGEJ = 9; // offset: 24
+}
+
+message SetHipplenOutfitScRsp {
+	repeated uint32 GEMHKFCFCCC = 1; // offset: 16
+	uint32 retcode = 13; // offset: 32
+}
+
+message SettleHipplenWorkCsReq {
+	oneof NEBNJDMFELO {
+		HBMGNLFKMMK HBGCOIAGDIG = 14; // offset: 16
+		LODMLDKMPPL ENCBGPOIFCM = 11; // offset: 16
+		OHHHCKCFPIG ECKIMBNDOME = 12; // offset: 16
+		GCNJGJMPLHM MLLNOGKNHNL = 5; // offset: 16
+	}
+}
+
+message SettleHipplenWorkScRsp {
+	repeated ANHJKLLEKKB BNIFMIPPIMA = 3; // offset: 48
+	repeated AFEDHCKDDFA NEMFNENACNB = 5; // offset: 16
+	GEFEDOAOKNO IPDLBJHAJOO = 7; // offset: 40
+	uint32 retcode = 13; // offset: 60
+	oneof MEJDDIPIEKK {
+		DMLACLLDCCE HBGCOIAGDIG = 8; // offset: 24
+		LKFFMLJMGOB LONKNKFDPII = 14; // offset: 24
+	}
+}
+
+message TakeHipplenEndingRewardCsReq {
+	uint32 BKFICFMMGIN = 6; // offset: 24
+}
+
+message TakeHipplenEndingRewardScRsp {
+	ItemList reward_list = 3; // offset: 16
+	uint32 BKFICFMMGIN = 5; // offset: 32
+	uint32 retcode = 14; // offset: 36
+}

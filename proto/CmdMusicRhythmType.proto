@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+
+enum CmdMusicRhythmType {
+	CmdMusicRhythmType_NLCDGIPGFDJ = 0;
+	CmdMusicRhythmType_MusicRhythmFinishLevelScRsp = 7577;
+	CmdMusicRhythmType_MusicRhythmUnlockSongSfxScNotify = 7586;
+	CmdMusicRhythmType_MusicRhythmStartLevelScRsp = 7573;
+	CmdMusicRhythmType_MusicRhythmSaveSongConfigDataScRsp = 7598;
+	CmdMusicRhythmType_MusicRhythmSaveSongConfigDataCsReq = 7580;
+	CmdMusicRhythmType_MusicRhythmDataCsReq = 7578;
+	CmdMusicRhythmType_MusicRhythmStartLevelCsReq = 7583;
+	CmdMusicRhythmType_MusicRhythmUnlockTrackScNotify = 7574;
+	CmdMusicRhythmType_MusicRhythmMaxDifficultyLevelsUnlockNotify = 7587;
+	CmdMusicRhythmType_MusicRhythmFinishLevelCsReq = 7590;
+	CmdMusicRhythmType_MusicRhythmDataScRsp = 7599;
+	CmdMusicRhythmType_MusicRhythmUnlockSongNotify = 7597;
+}
+
+message MusicRhythmDataCsReq {
+}
+
+message MusicRhythmDataScRsp {
+	uint32 retcode = 3; // offset: 76
+	bool show_hint = 4; // offset: 64
+	repeated MusicRhythmLevel level_data_list = 8; // offset: 16
+	repeated uint32 unlock_song_list = 9; // offset: 56
+	repeated MusicRhythmGroup music_group = 11; // offset: 48
+	uint32 cur_song_id = 12; // offset: 72
+	uint32 cur_level_id = 13; // offset: 68
+	repeated uint32 unlock_track_list = 14; // offset: 24
+	repeated uint32 unlock_phase_list = 15; // offset: 40
+}
+
+message MusicRhythmFinishLevelCsReq {
+	uint32 role_star = 1; // offset: 24
+	uint32 score_id = 3; // offset: 28
+	bool full_combo = 7; // offset: 32
+}
+
+message MusicRhythmFinishLevelScRsp {
+	uint32 level_id = 10; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}
+
+message MusicRhythmGroup {
+	repeated uint32 BBINFDHMGII = 2; // offset: 16
+	repeated uint32 EOHMNCBOALC = 13; // offset: 24
+	uint32 music_group_id = 14; // offset: 40
+	uint32 music_group_phase = 15; // offset: 44
+}
+
+message MusicRhythmLevel {
+	bool full_combo = 4; // offset: 32
+	uint32 level_id = 6; // offset: 28
+	uint32 unlock_level = 14; // offset: 24
+}
+
+message MusicRhythmMaxDifficultyLevelsUnlockNotify {
+}
+
+message MusicRhythmSaveSongConfigDataCsReq {
+	MusicRhythmGroup BENAFNHLCEO = 14; // offset: 24
+}
+
+message MusicRhythmSaveSongConfigDataScRsp {
+	uint32 retcode = 1; // offset: 24
+	uint32 EFEGLAOAJDA = 2; // offset: 28
+	uint32 cur_song_id = 14; // offset: 32
+}
+
+message MusicRhythmStartLevelCsReq {
+	uint32 level_id = 6; // offset: 24
+}
+
+message MusicRhythmStartLevelScRsp {
+	string trans_no = 2; // offset: 24
+	uint32 level_id = 7; // offset: 36
+	uint32 retcode = 14; // offset: 32
+}
+
+message MusicRhythmUnlockSongNotify {
+	repeated uint32 PHCHFKMHDMA = 3; // offset: 16
+}
+
+message MusicRhythmUnlockSongSfxScNotify {
+	repeated uint32 PHCHFKMHDMA = 10; // offset: 16
+}
+
+message MusicRhythmUnlockTrackScNotify {
+	repeated uint32 PFHNONKNHAC = 13; // offset: 16
+}

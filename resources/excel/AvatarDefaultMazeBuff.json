@@ -1,0 +1,650 @@
+[
+  {
+    "ID": 1001,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100101
+    ]
+  },
+  {
+    "ID": 1002,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100201
+    ]
+  },
+  {
+    "ID": 1003,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100301
+    ]
+  },
+  {
+    "ID": 1004,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100401
+    ]
+  },
+  {
+    "ID": 1005,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100501
+    ]
+  },
+  {
+    "ID": 1006,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100601
+    ]
+  },
+  {
+    "ID": 1008,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100801
+    ]
+  },
+  {
+    "ID": 1009,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      100901
+    ]
+  },
+  {
+    "ID": 1013,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      101301
+    ]
+  },
+  {
+    "ID": 1101,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110101
+    ]
+  },
+  {
+    "ID": 1102,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      110201
+    ]
+  },
+  {
+    "ID": 1103,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110301
+    ]
+  },
+  {
+    "ID": 1104,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110401
+    ]
+  },
+  {
+    "ID": 1105,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110501
+    ]
+  },
+  {
+    "ID": 1106,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110601
+    ]
+  },
+  {
+    "ID": 1107,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110701
+    ]
+  },
+  {
+    "ID": 1108,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110801
+    ]
+  },
+  {
+    "ID": 1109,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      110901
+    ]
+  },
+  {
+    "ID": 1110,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      111001
+    ]
+  },
+  {
+    "ID": 1111,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      111101
+    ]
+  },
+  {
+    "ID": 1112,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      111201
+    ]
+  },
+  {
+    "ID": 1201,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120101
+    ]
+  },
+  {
+    "ID": 1202,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": []
+  },
+  {
+    "ID": 1203,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120301
+    ]
+  },
+  {
+    "ID": 1204,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120401
+    ]
+  },
+  {
+    "ID": 1205,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120501
+    ]
+  },
+  {
+    "ID": 1206,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120601
+    ]
+  },
+  {
+    "ID": 1207,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      120701
+    ]
+  },
+  {
+    "ID": 1208,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120802
+    ]
+  },
+  {
+    "ID": 1209,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      120901
+    ]
+  },
+  {
+    "ID": 1210,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121001
+    ]
+  },
+  {
+    "ID": 1211,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121101
+    ]
+  },
+  {
+    "ID": 1212,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121201
+    ]
+  },
+  {
+    "ID": 1213,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      121301
+    ]
+  },
+  {
+    "ID": 1214,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121401
+    ]
+  },
+  {
+    "ID": 1215,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121501
+    ]
+  },
+  {
+    "ID": 1217,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121701
+    ]
+  },
+  {
+    "ID": 1218,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      121801
+    ]
+  },
+  {
+    "ID": 1220,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      122002
+    ]
+  },
+  {
+    "ID": 1221,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      122101
+    ]
+  },
+  {
+    "ID": 1222,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      122201
+    ]
+  },
+  {
+    "ID": 1223,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      122301
+    ]
+  },
+  {
+    "ID": 1224,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      122402
+    ]
+  },
+  {
+    "ID": 1225,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      122501
+    ]
+  },
+  {
+    "ID": 1301,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130101
+    ]
+  },
+  {
+    "ID": 1302,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130201
+    ]
+  },
+  {
+    "ID": 1303,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130301
+    ]
+  },
+  {
+    "ID": 1304,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130403
+    ]
+  },
+  {
+    "ID": 1305,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130501
+    ]
+  },
+  {
+    "ID": 1306,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130602
+    ]
+  },
+  {
+    "ID": 1307,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130701
+    ]
+  },
+  {
+    "ID": 1308,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130803
+    ]
+  },
+  {
+    "ID": 1309,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      130902
+    ]
+  },
+  {
+    "ID": 1310,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131001,
+      131002
+    ]
+  },
+  {
+    "ID": 1312,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131201
+    ]
+  },
+  {
+    "ID": 1313,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131301
+    ]
+  },
+  {
+    "ID": 1314,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131401
+    ]
+  },
+  {
+    "ID": 1315,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131501
+    ]
+  },
+  {
+    "ID": 1317,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      131701
+    ]
+  },
+  {
+    "ID": 1321,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      132101
+    ]
+  },
+  {
+    "ID": 1401,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140101
+    ]
+  },
+  {
+    "ID": 1402,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140201
+    ]
+  },
+  {
+    "ID": 1403,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140301
+    ]
+  },
+  {
+    "ID": 1404,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140401
+    ]
+  },
+  {
+    "ID": 1405,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140501
+    ]
+  },
+  {
+    "ID": 1406,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140601
+    ]
+  },
+  {
+    "ID": 1407,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140701
+    ]
+  },
+  {
+    "ID": 1408,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140801
+    ]
+  },
+  {
+    "ID": 1409,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      140901
+    ]
+  },
+  {
+    "ID": 1410,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      141001
+    ]
+  },
+  {
+    "ID": 1412,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      141201
+    ]
+  },
+  {
+    "ID": 1413,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      141301
+    ]
+  },
+  {
+    "ID": 1414,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      141401
+    ]
+  },
+  {
+    "ID": 1415,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      141502
+    ]
+  },
+  {
+    "ID": 1501,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      150101
+    ]
+  },
+  {
+    "ID": 8002,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": []
+  },
+  {
+    "ID": 8004,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800301
+    ]
+  },
+  {
+    "ID": 8005,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800501
+    ]
+  },
+  {
+    "ID": 8006,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800501
+    ]
+  },
+  {
+    "ID": 8007,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800701
+    ]
+  },
+  {
+    "ID": 8008,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800701
+    ]
+  },
+  {
+    "ID": 1505,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      150501
+    ]
+  },
+  {
+    "ID": 1502,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      150201
+    ]
+  },
+  {
+    "ID": 1504,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      150401
+    ]
+  },
+  {
+    "ID": 8001,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": []
+  },
+  {
+    "ID": 8003,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800301
+    ]
+  },
+  {
+    "ID": 1506,
+    "SkillIndex": 1,
+    "DefaultMazeBuffIDList": [
+      150601
+    ]
+  },
+  {
+    "ID": 8009,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800901,
+      800902
+    ]
+  },
+  {
+    "ID": 8010,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      800901,
+      800902
+    ]
+  },
+  {
+    "ID": 1507,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      150701
+    ]
+  },
+  {
+    "ID": 1510,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      151002
+    ]
+  },
+  {
+    "ID": 1512,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      151201
+    ]
+  },
+  {
+    "ID": 1513,
+    "SkillIndex": 2,
+    "DefaultMazeBuffIDList": [
+      151301
+    ]
+  }
+]

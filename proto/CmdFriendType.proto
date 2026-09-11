@@ -1,0 +1,768 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AddBlacklistCsReq {
+	uint32 uid = 11; // offset: 24
+}
+
+message AddBlacklistScRsp {
+	uint32 retcode = 6; // offset: 32
+	PlayerSimpleInfo black_info = 14; // offset: 16
+}
+
+message ApplyFriendCsReq {
+	uint32 uid = 5; // offset: 24
+	FriendApplySource source = 12; // offset: 28
+}
+
+message ApplyFriendScRsp {
+	uint32 uid = 6; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message BGPIHMLLNGM {
+	FKCNEPIJJAO BFGELCKJJPN = 1; // offset: 32
+	OIMLMDHOHAP MHAIBAMJGIM = 3; // offset: 48
+	GLILLENEIJK ENDLJENKBMF = 11; // offset: 40
+	NMFEHEHPGAB HJFHOEAAGGC = 12; // offset: 24
+}
+
+message BMKNANGPDGH {
+	uint32 battle_round_cnt = 1; // offset: 44
+	uint32 EMOHLJHPOPC = 3; // offset: 32
+	uint32 last_level_percent = 6; // offset: 36
+	repeated ONKDAPOKGAC avatar_list = 8; // offset: 24
+	uint32 passed_level = 9; // offset: 40
+}
+
+enum BattleRecordType {
+	BattleRecordType_BattleRecordNone = 0;
+	BattleRecordType_BattleRecordChallenge = 1;
+	BattleRecordType_BattleRecordRogue = 2;
+}
+
+message CFNEMEIDMID {
+	uint32 area_id = 3; // offset: 28
+	uint32 HOLPMKOHACH = 6; // offset: 24
+}
+
+message CJNDCNIJBEI {
+	repeated ONKDAPOKGAC avatar_list = 7; // offset: 16
+	repeated uint32 finished_target_list = 14; // offset: 24
+}
+
+message ChallengePeakBossFriendLineupRecommendation {
+	repeated ONKDAPOKGAC avatar_list = 2; // offset: 24
+	bool is_hard_mode = 3; // offset: 41
+	uint32 buff_id = 6; // offset: 44
+	repeated uint32 finished_target_list = 10; // offset: 32
+	bool hard_mode_has_passed = 14; // offset: 40
+}
+
+enum CmdFriendType {
+	CmdFriendType_NLCDGIPGFDJ = 0;
+	CmdFriendType_DeleteBlacklistScRsp = 2907;
+	CmdFriendType_GetFriendLoginInfoScRsp = 2947;
+	CmdFriendType_GetAssistListScRsp = 2973;
+	CmdFriendType_GetFriendApplyListInfoScRsp = 2916;
+	CmdFriendType_SetForbidOtherApplyFriendScRsp = 2926;
+	CmdFriendType_SyncAddBlacklistScNotify = 2912;
+	CmdFriendType_GetFriendRecommendLineupCsReq = 2936;
+	CmdFriendType_SetFriendMarkCsReq = 2980;
+	CmdFriendType_ReportPlayerScRsp = 2919;
+	CmdFriendType_GetCurAssistScRsp = 2949;
+	CmdFriendType_GetFriendDevelopmentInfoCsReq = 2962;
+	CmdFriendType_SetFriendMarkScRsp = 2967;
+	CmdFriendType_HandleFriendScRsp = 2942;
+	CmdFriendType_GetFriendRecommendLineupDetailCsReq = 2946;
+	CmdFriendType_SetFriendRemarkNameCsReq = 2938;
+	CmdFriendType_DeleteFriendCsReq = 2961;
+	CmdFriendType_SetForbidOtherApplyFriendCsReq = 2970;
+	CmdFriendType_ReportPlayerCsReq = 2904;
+	CmdFriendType_GetFriendBattleRecordDetailCsReq = 2953;
+	CmdFriendType_CurAssistChangedNotify = 2941;
+	CmdFriendType_GetPlayerDetailInfoScRsp = 2975;
+	CmdFriendType_GetFriendApplyListInfoCsReq = 2960;
+	CmdFriendType_GetAssistHistoryCsReq = 2982;
+	CmdFriendType_GetFriendDevelopmentInfoScRsp = 2914;
+	CmdFriendType_TakeAssistRewardScRsp = 2979;
+	CmdFriendType_DeleteBlacklistCsReq = 2985;
+	CmdFriendType_GetAssistHistoryScRsp = 2932;
+	CmdFriendType_TakeAssistRewardCsReq = 2940;
+	CmdFriendType_AddBlacklistScRsp = 2921;
+	CmdFriendType_NewAssistHistoryNotify = 2984;
+	CmdFriendType_HandleFriendCsReq = 2915;
+	CmdFriendType_SyncDeleteFriendScNotify = 2968;
+	CmdFriendType_SearchPlayerCsReq = 2981;
+	CmdFriendType_SearchPlayerScRsp = 2951;
+	CmdFriendType_GetFriendRecommendListInfoScRsp = 2917;
+	CmdFriendType_GetFriendListInfoCsReq = 2934;
+	CmdFriendType_ApplyFriendScRsp = 2956;
+	CmdFriendType_SetFriendRemarkNameScRsp = 2978;
+	CmdFriendType_DeleteFriendScRsp = 2908;
+	CmdFriendType_GetFriendListInfoScRsp = 2925;
+	CmdFriendType_GetFriendRecommendListInfoCsReq = 2911;
+	CmdFriendType_GetFriendBattleRecordDetailScRsp = 2944;
+	CmdFriendType_GetFriendLoginInfoCsReq = 2996;
+	CmdFriendType_GetFriendAssistListCsReq = 2910;
+	CmdFriendType_GetAssistListCsReq = 2993;
+	CmdFriendType_AddBlacklistCsReq = 2964;
+	CmdFriendType_SetAssistScRsp = 2929;
+	CmdFriendType_SyncApplyFriendScNotify = 2983;
+	CmdFriendType_ApplyFriendCsReq = 2958;
+	CmdFriendType_GetFriendRecommendLineupDetailScRsp = 2931;
+	CmdFriendType_SyncHandleFriendScNotify = 2939;
+	CmdFriendType_GetPlatformPlayerInfoCsReq = 2930;
+	CmdFriendType_GetPlatformPlayerInfoScRsp = 2924;
+	CmdFriendType_GetPlayerDetailInfoCsReq = 2905;
+	CmdFriendType_GetCurAssistCsReq = 2922;
+	CmdFriendType_SetAssistCsReq = 2903;
+	CmdFriendType_GetFriendAssistListScRsp = 2913;
+	CmdFriendType_GetFriendRecommendLineupScRsp = 2977;
+}
+
+message CurAssistChangedNotify {
+	PlayerAssistInfo ODHMGPNECFO = 12; // offset: 16
+}
+
+message DBFHOCOBPMK {
+	repeated PlayerChallengePeakRecordMobData HDCHFBKDCEB = 4; // offset: 32
+	PlayerChallengePeakRecordBossData CDFFIGJLGMM = 10; // offset: 16
+	uint32 group_id = 13; // offset: 40
+}
+
+message DeleteBlacklistCsReq {
+	uint32 uid = 2; // offset: 24
+}
+
+message DeleteBlacklistScRsp {
+	uint32 retcode = 3; // offset: 24
+	uint32 uid = 7; // offset: 28
+}
+
+message DeleteFriendCsReq {
+	uint32 uid = 4; // offset: 28
+	uint32 LMHDOMCMGNL = 7; // offset: 24
+}
+
+message DeleteFriendScRsp {
+	uint32 retcode = 1; // offset: 24
+	uint32 uid = 14; // offset: 28
+}
+
+enum DevelopmentType {
+	DevelopmentType_DevelopmentNone = 0;
+	DevelopmentType_DevelopmentRogueCosmos = 1;
+	DevelopmentType_DevelopmentRogueChess = 2;
+	DevelopmentType_DevelopmentRogueChessNous = 3;
+	DevelopmentType_DevelopmentMemoryChallenge = 4;
+	DevelopmentType_DevelopmentStoryChallenge = 5;
+	DevelopmentType_DevelopmentUnlockAvatar = 6;
+	DevelopmentType_DevelopmentUnlockEquipment = 7;
+	DevelopmentType_DevelopmentActivityStart = 8;
+	DevelopmentType_DevelopmentActivityEnd = 9;
+	DevelopmentType_DevelopmentBossChallenge = 10;
+	DevelopmentType_DevelopmentRogueTourn = 11;
+	DevelopmentType_DevelopmentRogueTournWeek = 12;
+	DevelopmentType_DevelopmentRogueMagic = 13;
+	DevelopmentType_DevelopmentChallengePeak = 14;
+	DevelopmentType_DevelopmentRogueTournDivision = 15;
+	DevelopmentType_DevelopmentGridFightDivision = 16;
+	DevelopmentType_DevelopmentGridFightGameplay = 17;
+	DevelopmentType_DevelopmentGridFightGameplayOcMode = 18;
+}
+
+message DisplayAvatarDetailInfo {
+	uint32 avatar_id = 1; // offset: 56
+	DisplayEquipmentInfo equipment = 2; // offset: 40
+	uint32 exp = 4; // offset: 48
+	repeated AvatarSkillTree skilltree_list = 5; // offset: 24
+	uint32 pos = 7; // offset: 68
+	repeated DisplayRelicInfo relic_list = 9; // offset: 32
+	uint32 promotion = 10; // offset: 64
+	uint32 dressed_skin_id = 11; // offset: 76
+	uint32 avatar_type = 12; // offset: 72
+	uint32 level = 13; // offset: 80
+	uint32 rank = 14; // offset: 52
+	uint32 enhanced_id = 15; // offset: 60
+}
+
+message DisplayEquipmentInfo {
+	uint32 tid = 4; // offset: 40
+	uint32 promotion = 6; // offset: 28
+	uint32 level = 9; // offset: 24
+	uint32 rank = 11; // offset: 32
+	uint32 exp = 14; // offset: 36
+}
+
+message DisplayRelicInfo {
+	uint32 tid = 2; // offset: 48
+	uint32 exp = 3; // offset: 40
+	uint32 level = 7; // offset: 32
+	uint32 type = 8; // offset: 44
+	uint32 main_affix_id = 9; // offset: 36
+	repeated RelicAffix sub_affix_list = 10; // offset: 24
+}
+
+message EDEGAHHANMF {
+	uint32 PLKAGMLBCDG = 3; // offset: 36
+	uint32 MBHJNPEILCL = 5; // offset: 40
+	uint32 IGENPDKHDMC = 8; // offset: 32
+	uint32 LCDDMLIMAGA = 14; // offset: 24
+	uint32 OPENPJJLADD = 15; // offset: 28
+}
+
+message EJAKBKOEEPC {
+	JMOCDMHFEJG BHDKLAJPMBJ = 1; // offset: 24
+}
+
+message FKCNEPIJJAO {
+	uint32 FEFLAJIODHB = 8; // offset: 28
+	uint32 JNCCOGCHNMB = 11; // offset: 32
+	uint32 DCOKLHPBAJO = 13; // offset: 36
+	uint32 area_id = 15; // offset: 24
+}
+
+message FPDCINMDJCE {
+	PlayerSimpleInfo player_info = 3; // offset: 24
+	string remark_name = 15; // offset: 32
+	oneof KJFEKHDEBIK {
+		FriendChallengeLineup NHMOPCHJEHN = 11; // offset: 40
+		CJNDCNIJBEI BNAFKMMLGFE = 4; // offset: 40
+		MJMGDLJAJCM LMHIOKFMDNE = 12; // offset: 40
+		ChallengePeakBossFriendLineupRecommendation KCNAHJCMNJI = 14; // offset: 40
+		OJJJDPNOKHG NHKCFOALAPD = 7; // offset: 40
+		OFFMDBMMNFM KPPDEMBPEDO = 823; // offset: 40
+	}
+}
+
+message FriendApplyInfo {
+	PlayerSimpleInfo player_info = 6; // offset: 24
+	int64 apply_time = 11; // offset: 32
+}
+
+enum FriendApplySource {
+	FriendApplySource_None = 0;
+	FriendApplySource_Search = 1;
+	FriendApplySource_Recommend = 2;
+	FriendApplySource_Assist = 3;
+	FriendApplySource_RecommendAssist = 4;
+	FriendApplySource_PsnFriend = 5;
+	FriendApplySource_AssistReward = 6;
+	FriendApplySource_SocialPlay = 7;
+	FriendApplySource_Roaming = 8;
+	FriendApplySource_DiceCombatV2 = 9;
+	FriendApplySource_RecentVisitor = 10;
+	HPEKGMDHFLO_JNLIOGAONMA = 11;
+}
+
+message FriendChallengeClearanceInfo {
+	PlayerChallengeTierceRecord MEGBIPBAFBP = 9; // offset: 16
+	uint32 group_id = 10; // offset: 40
+	uint32 LMPPDGOFOMF = 12; // offset: 44
+	oneof EDKOHAAMONH {
+		ChallengeStatistics challenge_default = 173; // offset: 32
+		ChallengeStoryStatistics challenge_story = 759; // offset: 32
+		ChallengeBossStatistics challenge_boss = 1549; // offset: 32
+	}
+}
+
+message FriendChallengeLineup {
+	uint32 EEJCPNAEKLJ = 5; // offset: 52
+	uint32 buff_one = 6; // offset: 48
+	uint32 buff_two = 7; // offset: 60
+	repeated ChallengeLineupList lineup_list = 8; // offset: 32
+	PlayerSimpleInfo player_info = 12; // offset: 16
+	uint32 score_id = 13; // offset: 56
+	string remark_name = 15; // offset: 24
+}
+
+message FriendGridFightRecord {
+	uint32 division_id = 4; // offset: 24
+}
+
+message FriendRecommendInfo {
+	bool JINLAHLMDLN = 2; // offset: 32
+	PlayerSimpleInfo player_info = 13; // offset: 16
+}
+
+message FriendSimpleInfo {
+	int64 create_time = 1; // offset: 48
+	string remark_name = 2; // offset: 16
+	PAEFDELFKJK MBOIHJLIJDG = 3; // offset: 24
+	PlayerSimpleInfo player_info = 4; // offset: 32
+	bool is_marked = 13; // offset: 56
+	PlayingState playing_state = 15; // offset: 60
+}
+
+message GLILLENEIJK {
+	uint32 GNIFODGCPAA = 2; // offset: 24
+	uint32 FFFNGBKHOEA = 11; // offset: 28
+}
+
+message GetAssistHistoryCsReq {
+}
+
+message GetAssistHistoryScRsp {
+	uint32 EFONJLMDFIH = 2; // offset: 28
+	uint32 OFEKHCHHOFD = 6; // offset: 32
+	uint32 retcode = 9; // offset: 36
+	uint32 LLIPLPNDIMC = 10; // offset: 24
+}
+
+message GetAssistListCsReq {
+	bool DDNKHDIKAEL = 11; // offset: 24
+	bool LKBAENBKJCE = 14; // offset: 25
+}
+
+message GetAssistListScRsp {
+	repeated PlayerAssistInfo assist_list = 9; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}
+
+message GetCurAssistCsReq {
+}
+
+message GetCurAssistScRsp {
+	PlayerAssistInfo ODHMGPNECFO = 2; // offset: 16
+	uint32 retcode = 6; // offset: 32
+}
+
+message GetFriendApplyListInfoCsReq {
+}
+
+message GetFriendApplyListInfoScRsp {
+	uint32 retcode = 2; // offset: 40
+	repeated FriendApplyInfo receive_apply_list = 12; // offset: 24
+	repeated uint32 send_apply_list = 13; // offset: 16
+}
+
+message GetFriendAssistListCsReq {
+	bool DDNKHDIKAEL = 10; // offset: 44
+	repeated uint32 EEJGCFBJKAK = 11; // offset: 32
+	PIDAHABFLBL HFOLAOIKOLB = 13; // offset: 48
+	repeated uint32 HHFPJHMEIJK = 14; // offset: 24
+	uint32 target_side = 15; // offset: 40
+}
+
+message GetFriendAssistListScRsp {
+	uint32 retcode = 3; // offset: 36
+	repeated PlayerAssistInfo assist_list = 5; // offset: 24
+	uint32 target_side = 12; // offset: 32
+}
+
+message GetFriendBattleRecordDetailCsReq {
+	uint32 uid = 5; // offset: 24
+}
+
+message GetFriendBattleRecordDetailScRsp {
+	HBJDMDKKMFI BAMDEHAICDA = 2; // offset: 32
+	repeated FriendChallengeClearanceInfo EPNLMHPCDKL = 5; // offset: 24
+	repeated DBFHOCOBPMK LGIBJLFBFCG = 7; // offset: 16
+	uint32 uid = 11; // offset: 60
+	uint32 retcode = 12; // offset: 56
+	BGPIHMLLNGM HCIEFEHCENO = 13; // offset: 40
+}
+
+message GetFriendDevelopmentInfoCsReq {
+	uint32 uid = 3; // offset: 24
+}
+
+message GetFriendDevelopmentInfoScRsp {
+	uint32 uid = 5; // offset: 32
+	repeated NJMOBNILIHI EMBPENNEIJH = 8; // offset: 16
+	uint32 retcode = 9; // offset: 36
+}
+
+message GetFriendListInfoCsReq {
+}
+
+message GetFriendListInfoScRsp {
+	repeated FriendSimpleInfo friend_list = 1; // offset: 24
+	repeated PlayerSimpleInfo black_list = 3; // offset: 16
+	uint32 retcode = 7; // offset: 40
+}
+
+message GetFriendLoginInfoCsReq {
+}
+
+message GetFriendLoginInfoScRsp {
+	repeated uint32 _friend_uid_list = 3; // offset: 16
+	bool show_red_dot_flag = 6; // offset: 44
+	bool is_allow_other_apply = 9; // offset: 45
+	repeated uint32 _black_uid_list = 10; // offset: 24
+	uint32 retcode = 13; // offset: 40
+}
+
+message GetFriendRecommendLineupCsReq {
+	JFNJKAPPNOF type = 1; // offset: 28
+	uint32 key = 12; // offset: 24
+}
+
+message GetFriendRecommendLineupDetailCsReq {
+	uint32 uid = 6; // offset: 28
+	JFNJKAPPNOF type = 12; // offset: 32
+	uint32 key = 13; // offset: 24
+}
+
+message GetFriendRecommendLineupDetailScRsp {
+	JFNJKAPPNOF type = 1; // offset: 32
+	repeated DisplayAvatarDetailInfo KNHHAJDNGJG = 6; // offset: 16
+	uint32 key = 10; // offset: 40
+	uint32 retcode = 12; // offset: 36
+	uint32 uid = 14; // offset: 44
+}
+
+message GetFriendRecommendLineupScRsp {
+	bool ALDBIIIGLOM = 1; // offset: 44
+	uint32 retcode = 2; // offset: 36
+	repeated FPDCINMDJCE MGKCKHIIICL = 3; // offset: 24
+	uint32 key = 5; // offset: 40
+	JFNJKAPPNOF type = 14; // offset: 32
+}
+
+message GetFriendRecommendListInfoCsReq {
+	bool DDNKHDIKAEL = 4; // offset: 24
+}
+
+message GetFriendRecommendListInfoScRsp {
+	repeated FriendRecommendInfo friend_recommend_list = 6; // offset: 16
+	uint32 retcode = 13; // offset: 32
+}
+
+message GetPlatformPlayerInfoCsReq {
+	repeated string EPIBJAMIJFI = 7; // offset: 24
+	PlatformType platform = 11; // offset: 32
+}
+
+message GetPlatformPlayerInfoScRsp {
+	repeated PlayerSimpleInfo friend_recommend_list = 4; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetPlayerDetailInfoCsReq {
+	uint32 uid = 7; // offset: 24
+}
+
+message GetPlayerDetailInfoScRsp {
+	PlayerDetailInfo detail_info = 7; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message HBJDMDKKMFI {
+	uint32 division_id = 6; // offset: 24
+}
+
+message HHJANNIGCKM {
+	bool EGLLMGLLHDL = 4; // offset: 32
+	repeated uint32 finished_target_list = 5; // offset: 16
+}
+
+message HandleFriendCsReq {
+	bool is_accept = 8; // offset: 24
+	uint32 uid = 11; // offset: 28
+}
+
+message HandleFriendScRsp {
+	uint32 uid = 2; // offset: 36
+	bool is_accept = 6; // offset: 32
+	uint32 retcode = 12; // offset: 40
+	FriendSimpleInfo friend_info = 13; // offset: 16
+}
+
+message ICMGDJBDFEA {
+	uint32 group_id = 3; // offset: 36
+	uint32 LMPPDGOFOMF = 4; // offset: 44
+	uint32 FBOGDAHNDKA = 5; // offset: 32
+	HHJANNIGCKM NCKJLAEJNDP = 7; // offset: 16
+	uint32 max_level = 13; // offset: 40
+}
+
+message IENCCMEAIAJ {
+	uint32 GNIFODGCPAA = 8; // offset: 24
+}
+
+message JBKJGBMMKFI {
+	uint32 peak_id = 7; // offset: 24
+}
+
+enum JFNJKAPPNOF {
+	JFNJKAPPNOF_NLCDGIPGFDJ = 0;
+	JFNJKAPPNOF_OCDLPDDMCLP = 1;
+	JFNJKAPPNOF_JHOEBNNMKHB = 2;
+	JFNJKAPPNOF_KMDNDLKKDLH = 3;
+	JFNJKAPPNOF_DJKDPGDLLFM = 4;
+	JFNJKAPPNOF_IGDNEOELFKC = 5;
+	JFNJKAPPNOF_HCBNCEDBABL = 6;
+}
+
+message JMOCDMHFEJG {
+	PIBFIDOEPAP KGBHIKKLJMK = 10; // offset: 24
+}
+
+message KGBAFBEMICB {
+	uint32 AACGBEBGDPE = 3; // offset: 24
+	bool MNDCIBFEJOP = 12; // offset: 28
+}
+
+message KHFEGOFPHHC {
+	uint32 area_id = 15; // offset: 24
+}
+
+message LJJIEAPLOOI {
+	uint32 division_id = 9; // offset: 24
+}
+
+message MJMGDLJAJCM {
+	repeated OKFKPPNGCOD DNIGKDKIPPJ = 14; // offset: 16
+}
+
+message MOOGABJBJAG {
+	uint32 challenge_id = 1; // offset: 24
+}
+
+message NJMOBNILIHI {
+	DevelopmentType NELHEHHFCCM = 5; // offset: 32
+	int64 time = 7; // offset: 40
+	oneof NNMAOMHPNBK {
+		KHFEGOFPHHC DCODKLADIJM = 379; // offset: 24
+		MOOGABJBJAG ELJOEBBHDPB = 401; // offset: 24
+		uint32 avatar_id = 954; // offset: 24
+		uint32 KAJCFPKEGBP = 1587; // offset: 24
+		CFNEMEIDMID IIBJEGJMOKJ = 1974; // offset: 24
+		uint32 panel_id = 1981; // offset: 24
+		JBKJGBMMKFI AGKKAFEFGOB = 1678; // offset: 24
+		IENCCMEAIAJ IMILIFMDLBI = 1052; // offset: 24
+		LJJIEAPLOOI BNNDODHIKCE = 632; // offset: 24
+		KGBAFBEMICB DHKCMBFCALH = 1780; // offset: 24
+	}
+}
+
+message NMFEHEHPGAB {
+	uint32 area_id = 4; // offset: 32
+	uint32 MGCACGFLKEK = 5; // offset: 28
+	uint32 MBDKAJBEPPF = 10; // offset: 24
+}
+
+message NewAssistHistoryNotify {
+	uint32 OFEKHCHHOFD = 5; // offset: 24
+}
+
+message OFFMDBMMNFM {
+	repeated BMKNANGPDGH lineup_list = 2; // offset: 16
+}
+
+message OHKDPNBGPOA {
+	bool GNFDDPEMMFN = 7; // offset: 24
+	bool PFBHGAHAFMD = 9; // offset: 28
+	bool IOJEAOCOBBF = 10; // offset: 27
+	bool MAKOLELFLFH = 13; // offset: 25
+	bool DCJECFMMIBC = 14; // offset: 26
+}
+
+message OIMLMDHOHAP {
+	uint32 IELFOBFPDPA = 2; // offset: 32
+	uint32 APANPLBMONN = 5; // offset: 28
+	uint32 area_id = 6; // offset: 24
+	uint32 KPHJDOPBMEN = 13; // offset: 36
+}
+
+message OJJJDPNOKHG {
+	repeated ChallengeLineupList lineup_list = 5; // offset: 32
+	repeated uint32 finished_target_list = 6; // offset: 16
+	repeated uint32 AOLIEDBCNBN = 11; // offset: 40
+}
+
+message OKFKPPNGCOD {
+	repeated ONKDAPOKGAC avatar_list = 8; // offset: 24
+	uint32 peak_id = 11; // offset: 40
+	repeated uint32 finished_target_list = 15; // offset: 32
+}
+
+message ONKDAPOKGAC {
+	AvatarType avatar_type = 1; // offset: 28
+	uint32 id = 2; // offset: 32
+	uint32 level = 3; // offset: 40
+	uint32 index = 4; // offset: 36
+	uint32 skin_id = 5; // offset: 24
+}
+
+message PAEFDELFKJK {
+	EJAKBKOEEPC KBLKLGDCOMF = 1; // offset: 16
+	ICMGDJBDFEA AMLDHBMIGEN = 2; // offset: 32
+	BattleRecordType display_type = 7; // offset: 48
+	FriendGridFightRecord BAMDEHAICDA = 11; // offset: 40
+}
+
+message PIBFIDOEPAP {
+	uint32 FFFNGBKHOEA = 11; // offset: 28
+	uint32 GNIFODGCPAA = 13; // offset: 24
+}
+
+enum PIDAHABFLBL {
+	PIDAHABFLBL_ONGOHDOKEIE = 0;
+	PIDAHABFLBL_FJBENKPGBPP = 1;
+	PIDAHABFLBL_IBNPGEDFIMO = 2;
+}
+
+message PlayerAssistInfo {
+	PlayerSimpleInfo assist_avatar = 2; // offset: 16
+	DisplayAvatarDetailInfo player_info = 15; // offset: 24
+}
+
+message PlayerChallengePeakRecordBossData {
+	uint32 buff_id = 1; // offset: 44
+	bool HAMDKIHGKGO = 6; // offset: 57
+	uint32 DJFGDMIDEHJ = 7; // offset: 40
+	ChallengeLineupList lineup = 9; // offset: 32
+	bool CFLDOMPACKI = 11; // offset: 56
+	uint32 peak_id = 12; // offset: 48
+	uint32 best_cycle_count = 13; // offset: 52
+	repeated uint32 MCJNLLBBDHN = 15; // offset: 16
+}
+
+message PlayerChallengePeakRecordMobData {
+	repeated uint32 MCJNLLBBDHN = 1; // offset: 16
+	uint32 cycles_used = 3; // offset: 40
+	uint32 peak_id = 9; // offset: 44
+	ChallengeLineupList lineup = 13; // offset: 32
+}
+
+message PlayerDetailInfo {
+	string DJONELMIFEE = 1; // offset: 24
+	uint32 uid = 2; // offset: 116
+	PlatformType platform = 3; // offset: 120
+	string IJKOMIKFKEK = 4; // offset: 64
+	bool is_banned = 5; // offset: 124
+	bool HIEAPDNNNEI = 6; // offset: 125
+	PlayerRecordInfo record_info = 7; // offset: 32
+	uint32 GEJFMBBHNLN = 8; // offset: 148
+	uint32 HCGMAGDFAAO = 9; // offset: 140
+	uint32 level = 10; // offset: 112
+	repeated DisplayAvatarDetailInfo display_avatar_list = 11; // offset: 40
+	string signature = 12; // offset: 88
+	uint32 world_level = 13; // offset: 136
+	string nickname = 14; // offset: 72
+	uint32 head_icon = 15; // offset: 132
+	HeadFrameInfo head_frame_info = 336; // offset: 96
+	repeated DisplayAvatarDetailInfo assist_avatar_list = 390; // offset: 104
+	OHKDPNBGPOA BOKLABGLEFL = 428; // offset: 80
+	uint32 KINOEHKMFML = 515; // offset: 128
+	CJLCPMDGIBO DHKFCDAGHDM = 871; // offset: 16
+	uint32 gender = 875; // offset: 144
+	OIIPJFDNPAH AIHNDIAFGPM = 1318; // offset: 56
+}
+
+message PlayerRecordInfo {
+	uint32 ALGEOLGNFBL = 1; // offset: 56
+	uint32 KCBINJNIBNO = 3; // offset: 60
+	uint32 NECKJBHEKHE = 6; // offset: 40
+	uint32 DIOIIFAHAKK = 7; // offset: 32
+	uint32 JJKIKOBAJLF = 9; // offset: 48
+	EDEGAHHANMF EOGGPDHKKBJ = 10; // offset: 16
+	uint32 PPFDDFAHLED = 11; // offset: 44
+	uint32 MIMECEAFDNK = 12; // offset: 36
+	uint32 MHOIJFEBAPA = 15; // offset: 52
+}
+
+enum PlayingState {
+	PlayingState_None = 0;
+	PlayingState_PlayingRogueCosmos = 1;
+	PlayingState_PlayingRogueChess = 2;
+	PlayingState_PlayingRogueChessNous = 3;
+	PlayingState_PlayingChallengeMemory = 4;
+	PlayingState_PlayingChallengeStory = 5;
+	PlayingState_PlayingChallengeBoss = 6;
+	PlayingState_PlayingRogueTourn = 7;
+	PlayingState_PlayingRogueMagic = 8;
+	PlayingState_PlayingChallengePeak = 9;
+	PlayingState_PlayingGridFight = 10;
+}
+
+message ReportPlayerCsReq {
+	string IMNOJNCGGNI = 4; // offset: 24
+	uint32 OLLBLNAGMPC = 10; // offset: 32
+	uint32 uid = 11; // offset: 36
+}
+
+message ReportPlayerScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message SearchPlayerCsReq {
+	bool DDNKHDIKAEL = 10; // offset: 32
+	repeated uint32 uid_list = 11; // offset: 16
+}
+
+message SearchPlayerScRsp {
+	repeated uint32 result_uid_list = 2; // offset: 24
+	uint32 retcode = 4; // offset: 40
+	repeated PlayerSimpleInfo simple_info_list = 7; // offset: 16
+}
+
+message SetAssistCsReq {
+	uint32 uid = 5; // offset: 24
+	uint32 avatar_id = 13; // offset: 28
+}
+
+message SetAssistScRsp {
+	uint32 uid = 3; // offset: 28
+	uint32 avatar_id = 5; // offset: 32
+	uint32 retcode = 6; // offset: 24
+}
+
+message SetForbidOtherApplyFriendCsReq {
+	bool PBNJDHFCHHC = 3; // offset: 24
+}
+
+message SetForbidOtherApplyFriendScRsp {
+	bool PBNJDHFCHHC = 8; // offset: 28
+	uint32 retcode = 12; // offset: 24
+}
+
+message SetFriendMarkCsReq {
+	uint32 uid = 1; // offset: 28
+	bool BIJJOJNJHDO = 2; // offset: 24
+	uint32 reason = 12; // offset: 32
+}
+
+message SetFriendMarkScRsp {
+	uint32 uid = 5; // offset: 32
+	bool BIJJOJNJHDO = 10; // offset: 24
+	uint32 retcode = 11; // offset: 28
+}
+
+message SetFriendRemarkNameCsReq {
+	string remark_name = 1; // offset: 16
+	uint32 reason = 2; // offset: 32
+	uint32 uid = 6; // offset: 36
+}
+
+message SetFriendRemarkNameScRsp {
+	uint32 uid = 11; // offset: 32
+	string remark_name = 12; // offset: 16
+	uint32 retcode = 15; // offset: 36
+}
+
+message SyncAddBlacklistScNotify {
+	uint32 uid = 14; // offset: 24
+}
+
+message SyncApplyFriendScNotify {
+	FriendApplyInfo friend_apply_info = 10; // offset: 16
+}
+
+message SyncDeleteFriendScNotify {
+	uint32 uid = 10; // offset: 24
+}
+
+message SyncHandleFriendScNotify {
+	FriendSimpleInfo friend_info = 2; // offset: 16
+	bool is_accept = 3; // offset: 32
+	uint32 uid = 6; // offset: 36
+}
+
+message TakeAssistRewardCsReq {
+}

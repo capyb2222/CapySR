@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+
+enum CmdMarkChestType {
+	CmdMarkChestType_NLCDGIPGFDJ = 0;
+	CmdMarkChestType_GetMarkChestCsReq = 8190;
+	CmdMarkChestType_UpdateMarkChestCsReq = 8197;
+	CmdMarkChestType_MarkChestChangedScNotify = 8184;
+	CmdMarkChestType_UpdateMarkChestScRsp = 8188;
+	CmdMarkChestType_GetMarkChestScRsp = 8196;
+}
+
+message GetMarkChestCsReq {
+}
+
+message GetMarkChestScRsp {
+	uint32 retcode = 7; // offset: 32
+	repeated MarkChestFuncInfo mark_chest_func_info = 9; // offset: 24
+}
+
+message MarkChestChangedScNotify {
+	repeated MarkChestFuncInfo mark_chest_func_info = 7; // offset: 16
+}
+
+message MarkChestFuncInfo {
+	int64 mark_time = 1; // offset: 32
+	uint32 func_id = 2; // offset: 40
+	repeated MarkChestInfo mark_chest_info_list = 5; // offset: 16
+}
+
+message MarkChestInfo {
+	uint32 floor_id = 1; // offset: 32
+	uint32 config_id = 7; // offset: 28
+	uint32 plane_id = 8; // offset: 40
+	uint32 group_id = 10; // offset: 24
+	uint32 HFJELBGDGHP = 15; // offset: 36
+}
+
+message UpdateMarkChestCsReq {
+	uint32 trigger_param_id = 9; // offset: 36
+	repeated MarkChestInfo mark_chest_info_list = 11; // offset: 16
+	uint32 func_id = 13; // offset: 32
+}
+
+message UpdateMarkChestScRsp {
+	uint32 func_id = 6; // offset: 32
+	repeated MarkChestFuncInfo mark_chest_func_info = 11; // offset: 16
+	uint32 retcode = 14; // offset: 36
+	uint32 trigger_param_id = 15; // offset: 40
+}

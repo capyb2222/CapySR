@@ -1,0 +1,181 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ChallengeRaidNotify {
+	KBONOPFLPDJ GCBDMEPBNHN = 6; // offset: 24
+}
+
+enum CmdRaidType {
+	CmdRaidType_NLCDGIPGFDJ = 0;
+	CmdRaidType_GetRaidInfoScRsp = 2214;
+	CmdRaidType_GDJCOFKGJCG = 2232;
+	CmdRaidType_GetChallengeRaidInfoScRsp = 2216;
+	CmdRaidType_StartRaidScRsp = 2206;
+	CmdRaidType_TakeChallengeRaidRewardScRsp = 2226;
+	CmdRaidType_GetAllSaveRaidScRsp = 2202;
+	CmdRaidType_StartRaidCsReq = 2234;
+	CmdRaidType_RaidInfoNotify = 2229;
+	CmdRaidType_GetRaidInfoCsReq = 2248;
+	CmdRaidType_DelSaveRaidScNotify = 2218;
+	CmdRaidType_GetSaveRaidCsReq = 2247;
+	CmdRaidType_GetAllSaveRaidCsReq = 2223;
+	CmdRaidType_LeaveRaidCsReq = 2220;
+	CmdRaidType_LeaveRaidScRsp = 2231;
+	CmdRaidType_RaidKickByServer = 2238;
+	CmdRaidType_SetClientRaidTargetCountScRsp = 2208;
+	CmdRaidType_GetSaveRaidScRsp = 2225;
+	CmdRaidType_SetClientRaidTargetCountCsReq = 2240;
+	CmdRaidType_ChallengeRaidNotify = 2204;
+	CmdRaidType_TakeChallengeRaidRewardCsReq = 2211;
+}
+
+message DelSaveRaidScNotify {
+	uint32 raid_id = 7; // offset: 28
+	uint32 world_level = 10; // offset: 24
+}
+
+message FinishedRaidInfo {
+	uint32 world_level = 7; // offset: 36
+	repeated uint32 NGKBFPFOOPK = 9; // offset: 16
+	uint32 raid_id = 12; // offset: 32
+}
+
+enum GMFMPPKAEHE {
+	GMFMPPKAEHE_NLCDGIPGFDJ = 0;
+	GMFMPPKAEHE_HNADCAHHKIJ = 1;
+}
+
+message GetAllSaveRaidCsReq {
+}
+
+message GetAllSaveRaidScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated RaidData raid_data_list = 4; // offset: 24
+}
+
+message GetChallengeRaidInfoScRsp {
+	repeated uint32 ICCCHCCDKND = 1; // offset: 16
+	uint32 retcode = 3; // offset: 40
+	repeated KBONOPFLPDJ DBOADIFANMH = 12; // offset: 24
+}
+
+message GetRaidInfoCsReq {
+}
+
+message GetRaidInfoScRsp {
+	repeated uint32 challenge_taken_reward_id_list = 1; // offset: 32
+	uint32 retcode = 2; // offset: 48
+	repeated KBONOPFLPDJ challenge_raid_list = 7; // offset: 40
+	repeated FinishedRaidInfo finished_raid_info_list = 12; // offset: 16
+}
+
+message GetSaveRaidCsReq {
+	uint32 raid_id = 11; // offset: 24
+	uint32 world_level = 15; // offset: 28
+}
+
+message GetSaveRaidScRsp {
+	repeated RaidTargetInfo raid_target_info = 3; // offset: 16
+	uint32 retcode = 4; // offset: 40
+	uint32 raid_id = 11; // offset: 36
+	bool is_save = 14; // offset: 44
+	uint32 world_level = 15; // offset: 32
+}
+
+message KBONOPFLPDJ {
+	uint32 max_score = 3; // offset: 24
+	uint32 raid_id = 11; // offset: 28
+}
+
+message LeaveRaidCsReq {
+	bool is_save = 6; // offset: 28
+	uint32 raid_id = 14; // offset: 24
+}
+
+message LeaveRaidScRsp {
+	uint32 retcode = 3; // offset: 24
+	uint32 world_level = 5; // offset: 32
+	uint32 raid_id = 12; // offset: 28
+}
+
+enum MJPGDJIGLKO {
+	MJPGDJIGLKO_NLCDGIPGFDJ = 0;
+	MJPGDJIGLKO_BMOOGBNPEAA = 1;
+	MJPGDJIGLKO_CIHFGJDCHIA = 2;
+}
+
+message OICLHALJIEH {
+}
+
+message RaidData {
+	uint32 raid_id = 1; // offset: 32
+	uint32 world_level = 3; // offset: 36
+	repeated RaidTargetInfo raid_target_info = 7; // offset: 16
+}
+
+message RaidInfoNotify {
+	uint32 world_level = 4; // offset: 40
+	RaidStatus status = 5; // offset: 44
+	ItemList item_list = 6; // offset: 16
+	uint32 raid_id = 8; // offset: 48
+	repeated RaidTargetInfo raid_target_info = 12; // offset: 24
+	uint64 raid_finish_time = 15; // offset: 56
+}
+
+message RaidKickByServer {
+	SceneInfo scene = 3; // offset: 32
+	uint32 world_level = 4; // offset: 48
+	LineupInfo lineup = 6; // offset: 16
+	uint32 raid_id = 8; // offset: 40
+	GMFMPPKAEHE reason = 9; // offset: 44
+}
+
+enum RaidStatus {
+	RAID_STATUS_NONE = 0;
+	RAID_STATUS_DOING = 1;
+	RAID_STATUS_FINISH = 2;
+	RAID_STATUS_FAILED = 3;
+}
+
+message RaidTargetInfo {
+	MJPGDJIGLKO KCEEHIOCBPC = 8; // offset: 24
+	uint32 KKCKMCDGCGK = 11; // offset: 28
+	uint32 LCILPGIDEAC = 14; // offset: 32
+}
+
+message SetClientRaidTargetCountCsReq {
+	uint32 progress = 7; // offset: 24
+	uint32 KJKGHIEKNID = 8; // offset: 28
+}
+
+message SetClientRaidTargetCountScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 KJKGHIEKNID = 9; // offset: 24
+	uint32 progress = 12; // offset: 28
+}
+
+message StartRaidCsReq {
+	uint32 world_level = 2; // offset: 48
+	uint32 is_save = 3; // offset: 52
+	repeated AvatarIdentifier NIMDEPFJJNI = 4; // offset: 16
+	uint32 prop_entity_id = 6; // offset: 40
+	uint32 raid_id = 9; // offset: 44
+	repeated uint32 avatar_list = 13; // offset: 32
+}
+
+message StartRaidScRsp {
+	GEGLJDELBHA scene = 5; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message TakeChallengeRaidRewardCsReq {
+	uint32 HEJANCCDGAP = 12; // offset: 24
+}
+
+message TakeChallengeRaidRewardScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 HEJANCCDGAP = 12; // offset: 36
+	ItemList reward = 15; // offset: 16
+}

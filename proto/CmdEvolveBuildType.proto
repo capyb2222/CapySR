@@ -1,0 +1,197 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ACNKOPCGKDD {
+	uint32 level_id = 6; // offset: 32
+	uint32 FAGLNMDFOME = 11; // offset: 24
+	uint32 max_score = 14; // offset: 28
+}
+
+message CJJHNFICDIM {
+	uint32 exp = 1; // offset: 68
+	repeated LMMLGKHALLA HHFAAFOBKME = 2; // offset: 40
+	uint32 item_value = 5; // offset: 64
+	repeated uint32 BHAOHNCEAJM = 7; // offset: 24
+	repeated ACNKOPCGKDD POFJCCBEBGA = 9; // offset: 56
+	repeated uint32 HNOCFELOAFJ = 12; // offset: 16
+	repeated HLOADNFIOOO JBOJBAGKIAE = 13; // offset: 32
+}
+
+enum CmdEvolveBuildType {
+	CmdEvolveBuildType_MMNFGNKHNLL = 0;
+	CmdEvolveBuildType_GetEvolveBuildQueryInfoScRsp = 7106;
+	CmdEvolveBuildType_EvolveBuildSkipTeachLevelCsReq = 7112;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityDownCsReq = 7102;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityUpScRsp = 7123;
+	CmdEvolveBuildType_EvolveBuildStartLevelScRsp = 7131;
+	CmdEvolveBuildType_GetEvolveBuildCoinNotify = 7139;
+	CmdEvolveBuildType_EvolveBuildSkipTeachLevelScRsp = 7105;
+	CmdEvolveBuildType_GetEvolveBuildGiveupCsReq = 7116;
+	CmdEvolveBuildType_EvolveBuildStartLevelCsReq = 7120;
+	CmdEvolveBuildType_GetEvolveBuildReRandomStageScRsp = 7140;
+	CmdEvolveBuildType_EvolveBuildStartStageCsReq = 7129;
+	CmdEvolveBuildType_GetEvolveBuildReRandomStageCsReq = 7114;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityResetScRsp = 7142;
+	CmdEvolveBuildType_GetEvolveBuildQueryInfoCsReq = 7134;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityResetCsReq = 7119;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityDownScRsp = 7118;
+	CmdEvolveBuildType_EvolveBuildStartStageScRsp = 7132;
+	CmdEvolveBuildType_GetEvolveBuildGiveupScRsp = 7111;
+	CmdEvolveBuildType_GetEvolveBuildShopAbilityUpCsReq = 7125;
+	CmdEvolveBuildType_GetEvolveBuildFinishScNotify = 7148;
+}
+
+enum EDJKFOBBDJF {
+	EDJKFOBBDJF_PCIHNGDCFAL = 0;
+	EDJKFOBBDJF_CNLOJEFOHII = 1;
+	EDJKFOBBDJF_IABFOPFPILL = 2;
+}
+
+message EHPLFHLNMIF {
+	uint32 avatar_id = 1; // offset: 24
+	double damage = 2; // offset: 32
+	AvatarType avatar_type = 7; // offset: 28
+}
+
+message EvolveBuildSkipTeachLevelCsReq {
+	uint32 level_id = 1; // offset: 24
+}
+
+message EvolveBuildSkipTeachLevelScRsp {
+	uint32 retcode = 7; // offset: 28
+	uint32 level_id = 10; // offset: 24
+}
+
+message EvolveBuildStartLevelCsReq {
+	uint32 level_id = 1; // offset: 40
+	repeated EHPLFHLNMIF avatar_list = 3; // offset: 24
+	DKPHAFPGDLO NENJBDBJNFI = 6; // offset: 16
+}
+
+message EvolveBuildStartLevelScRsp {
+	uint32 retcode = 1; // offset: 32
+	LDLCMMOPKNG OEIBHLMDJKA = 14; // offset: 16
+}
+
+message EvolveBuildStartStageCsReq {
+	uint32 level_id = 14; // offset: 24
+}
+
+message EvolveBuildStartStageScRsp {
+	uint32 retcode = 2; // offset: 40
+	LDLCMMOPKNG OEIBHLMDJKA = 3; // offset: 16
+	SceneBattleInfo AEPNEDJPAGK = 5; // offset: 32
+}
+
+message GOMKGHJBNFM {
+	uint32 JEKLOEPPJBK = 1; // offset: 28
+	uint32 level = 6; // offset: 24
+}
+
+message GetEvolveBuildCoinNotify {
+	uint32 item_value = 3; // offset: 28
+	EDJKFOBBDJF HFPEJIDDDJG = 15; // offset: 24
+}
+
+message GetEvolveBuildFinishScNotify {
+	uint32 wave = 3; // offset: 56
+	IAPIIEJHLMP APKKKEIPJOG = 4; // offset: 52
+	uint32 score_id = 5; // offset: 40
+	bool NLMAFMCFHAL = 8; // offset: 36
+	uint32 level_id = 9; // offset: 32
+	uint32 item_value = 10; // offset: 44
+	uint32 exp = 12; // offset: 48
+	LDLCMMOPKNG OEIBHLMDJKA = 13; // offset: 16
+}
+
+message GetEvolveBuildGiveupCsReq {
+	uint32 BOIGPPCIPFF = 4; // offset: 24
+}
+
+message GetEvolveBuildGiveupScRsp {
+	LDLCMMOPKNG OEIBHLMDJKA = 1; // offset: 24
+	uint32 retcode = 3; // offset: 32
+}
+
+message GetEvolveBuildQueryInfoCsReq {
+}
+
+message GetEvolveBuildQueryInfoScRsp {
+	repeated LDLCMMOPKNG JPDOIGJNGNP = 9; // offset: 24
+	uint32 retcode = 11; // offset: 40
+	CJJHNFICDIM CFDIKLBINHK = 14; // offset: 32
+}
+
+message GetEvolveBuildReRandomStageCsReq {
+	uint32 BOIGPPCIPFF = 15; // offset: 24
+}
+
+message GetEvolveBuildReRandomStageScRsp {
+	uint32 retcode = 1; // offset: 32
+	HLOADNFIOOO GMBPFFIABHJ = 9; // offset: 24
+}
+
+message GetEvolveBuildShopAbilityDownCsReq {
+	uint32 JEKLOEPPJBK = 2; // offset: 24
+	uint32 level = 15; // offset: 28
+}
+
+message GetEvolveBuildShopAbilityDownScRsp {
+	uint32 retcode = 3; // offset: 24
+	uint32 level = 8; // offset: 28
+	uint32 JEKLOEPPJBK = 14; // offset: 32
+}
+
+message GetEvolveBuildShopAbilityResetCsReq {
+	EDJKFOBBDJF HFPEJIDDDJG = 8; // offset: 24
+}
+
+message GetEvolveBuildShopAbilityResetScRsp {
+	uint32 item_value = 7; // offset: 40
+	EDJKFOBBDJF HFPEJIDDDJG = 8; // offset: 36
+	repeated GOMKGHJBNFM CEPCGLMFPBC = 13; // offset: 24
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetEvolveBuildShopAbilityUpCsReq {
+	uint32 JEKLOEPPJBK = 7; // offset: 28
+	uint32 level = 12; // offset: 24
+}
+
+message GetEvolveBuildShopAbilityUpScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 JEKLOEPPJBK = 4; // offset: 24
+	uint32 level = 5; // offset: 28
+}
+
+message HLOADNFIOOO {
+	repeated uint32 DCKIGAHCNMJ = 3; // offset: 16
+	uint32 level_id = 9; // offset: 32
+	bool FANPGKBLIOB = 10; // offset: 36
+}
+
+enum IAPIIEJHLMP {
+	IAPIIEJHLMP_BFNCMBCKDHK = 0;
+	IAPIIEJHLMP_GNDJPIHJCFF = 1;
+	IAPIIEJHLMP_BNHFLKDCHOJ = 2;
+	IAPIIEJHLMP_INHGFENMDFN = 3;
+	IAPIIEJHLMP_HPDBIFBGHBD = 4;
+}
+
+message LDLCMMOPKNG {
+	uint32 round_cnt = 2; // offset: 64
+	BattleGridFightSpecialBattleInfo battle_info = 3; // offset: 16
+	repeated EHPLFHLNMIF avatar_list = 4; // offset: 24
+	uint32 DJHHPKMHPBC = 6; // offset: 56
+	repeated BattleTarget battle_target_list = 7; // offset: 40
+	repeated uint32 DCKIGAHCNMJ = 14; // offset: 48
+	EDJKFOBBDJF HFPEJIDDDJG = 15; // offset: 60
+}
+
+message LMMLGKHALLA {
+	repeated GOMKGHJBNFM CEPCGLMFPBC = 6; // offset: 24
+	EDJKFOBBDJF HFPEJIDDDJG = 11; // offset: 32
+	uint32 item_value = 12; // offset: 36
+}

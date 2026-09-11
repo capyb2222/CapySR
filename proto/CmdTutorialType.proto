@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdTutorialType {
+	CmdTutorialType_NLCDGIPGFDJ = 0;
+	CmdTutorialType_UnlockTutorialScRsp = 1616;
+	CmdTutorialType_GetTutorialCsReq = 1634;
+	CmdTutorialType_GetTutorialScRsp = 1625;
+	CmdTutorialType_FinishTutorialScRsp = 1615;
+	CmdTutorialType_UnlockTutorialGuideScRsp = 1656;
+	CmdTutorialType_FinishTutorialCsReq = 1683;
+	CmdTutorialType_GetTutorialGuideScRsp = 1675;
+	CmdTutorialType_UnlockTutorialCsReq = 1660;
+	CmdTutorialType_UnlockTutorialGuideCsReq = 1658;
+	CmdTutorialType_FinishTutorialGuideScRsp = 1639;
+	CmdTutorialType_FinishTutorialGuideCsReq = 1642;
+	CmdTutorialType_GetTutorialGuideCsReq = 1605;
+}
+
+message FinishTutorialCsReq {
+	uint32 tutorial_id = 3; // offset: 28
+	TutorialFinishType HFIBLHAFONM = 9; // offset: 24
+}
+
+message FinishTutorialGuideCsReq {
+	uint32 group_id = 1; // offset: 28
+	TutorialGuideType type = 5; // offset: 24
+}
+
+message FinishTutorialGuideScRsp {
+	ItemList reward = 3; // offset: 16
+	uint32 retcode = 4; // offset: 40
+	TutorialGuide tutorial_guide = 8; // offset: 24
+}
+
+message FinishTutorialScRsp {
+	Tutorial tutorial = 8; // offset: 24
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetTutorialCsReq {
+}
+
+message GetTutorialGuideCsReq {
+}
+
+message GetTutorialGuideScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated TutorialGuide tutorial_guide_list = 15; // offset: 24
+}
+
+message GetTutorialScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated Tutorial tutorial_list = 10; // offset: 24
+}
+
+message Tutorial {
+	uint32 id = 1; // offset: 24
+	TutorialStatus status = 2; // offset: 28
+}
+
+enum TutorialFinishType {
+	TutorialFinishType_NLCDGIPGFDJ = 0;
+	TutorialFinishType_CNPNACJBHJG = 1;
+	TutorialFinishType_NNAIDJINDHO = 2;
+}
+
+message TutorialGuide {
+	TutorialStatus status = 1; // offset: 32
+	TutorialGuideType type = 13; // offset: 28
+	uint32 id = 15; // offset: 24
+}
+
+enum TutorialGuideType {
+	TutorialGuideType_TutorialGuideDefault = 0;
+	TutorialGuideType_TutorialGuideSubguide = 1;
+}
+
+enum TutorialStatus {
+	TutorialStatus_TutorialNone = 0;
+	TutorialStatus_TutorialUnlock = 1;
+	TutorialStatus_TutorialFinish = 2;
+}
+
+message UnlockTutorialCsReq {
+	uint32 HPIMDINCCNN = 12; // offset: 24
+}
+
+message UnlockTutorialGuideCsReq {
+	TutorialGuideType type = 11; // offset: 24
+	uint32 group_id = 13; // offset: 28
+}
+
+message UnlockTutorialGuideScRsp {
+	uint32 retcode = 5; // offset: 32
+	TutorialGuide tutorial_guide = 7; // offset: 16
+}
+
+message UnlockTutorialScRsp {
+	uint32 retcode = 11; // offset: 32
+	Tutorial tutorial = 15; // offset: 16
+}

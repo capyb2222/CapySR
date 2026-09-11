@@ -1,0 +1,452 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AEFFOCFJNBF {
+	uint32 buff_id = 11; // offset: 32
+	ItemCostData cost_data = 15; // offset: 16
+}
+
+message AGEHGBKOBEF {
+	EDOIEMCFFCA LFLCDNGALME = 192; // offset: 32
+	HNKAOFDGLIE CFDIKLBINHK = 1042; // offset: 24
+}
+
+message ALBLEFHHJIC {
+	AvatarType avatar_type = 1; // offset: 28
+	uint32 id = 5; // offset: 36
+	uint32 slot = 7; // offset: 24
+	uint32 level = 11; // offset: 32
+}
+
+message CAJEBOPPMCJ {
+	uint32 KNDHMNBIIDF = 1; // offset: 44
+	RogueAreaStatus area_status = 4; // offset: 24
+	uint32 map_id = 9; // offset: 28
+	bool ALAJJMKOMML = 10; // offset: 36
+	RogueStatus NHDLEFAAPOB = 12; // offset: 32
+	uint32 area_id = 13; // offset: 40
+}
+
+message CDDIJCBEAHJ {
+	repeated uint32 CEMOJMBHLDD = 2; // offset: 16
+}
+
+message CFMHEMGEANC {
+	repeated ABOFJEIMLLJ CHCMEKAFKAF = 14; // offset: 16
+}
+
+message CGNNMPIKBBB {
+	uint32 LJNGPCKPJLF = 3; // offset: 24
+	int64 begin_time = 9; // offset: 32
+	int64 end_time = 11; // offset: 40
+}
+
+message CIFCAIEDOLK {
+	uint32 unlock_aeon_enhance_num = 2; // offset: 24
+	uint32 JPPAGGPJOMO = 8; // offset: 28
+}
+
+enum CmdRogueType {
+	CmdRogueType_NLCDGIPGFDJ = 0;
+	CmdRogueType_GetRogueTalentInfoCsReq = 1802;
+	CmdRogueType_EnhanceRogueBuffScRsp = 1807;
+	CmdRogueType_GetRogueInitialScoreScRsp = 1824;
+	CmdRogueType_TakeRogueAeonLevelRewardScRsp = 1828;
+	CmdRogueType_EnhanceRogueBuffCsReq = 1885;
+	CmdRogueType_ReviveRogueAvatarCsReq = 1811;
+	CmdRogueType_GetRogueInfoCsReq = 1834;
+	CmdRogueType_GetRogueInfoScRsp = 1825;
+	CmdRogueType_EnableRogueTalentCsReq = 1890;
+	CmdRogueType_LeaveRogueCsReq = 1858;
+	CmdRogueType_HPJBLIFMOJB = 1830;
+	CmdRogueType_ReviveRogueAvatarScRsp = 1817;
+	CmdRogueType_EnterRogueMapRoomCsReq = 1879;
+	CmdRogueType_PickRogueAvatarScRsp = 1821;
+	CmdRogueType_GetRogueTalentInfoScRsp = 1806;
+	CmdRogueType_SyncRogueAreaUnlockScNotify = 1900;
+	CmdRogueType_StartRogueScRsp = 1875;
+	CmdRogueType_SyncRogueMapRoomScNotify = 1896;
+	CmdRogueType_SyncRogueReviveInfoScNotify = 1803;
+	CmdRogueType_ExchangeRogueRewardKeyScRsp = 1862;
+	CmdRogueType_PickRogueAvatarCsReq = 1864;
+	CmdRogueType_GetRogueAeonInfoCsReq = 1865;
+	CmdRogueType_GetRogueBuffEnhanceInfoScRsp = 1819;
+	CmdRogueType_SyncRogueExploreWinScNotify = 1882;
+	CmdRogueType_FinishAeonDialogueGroupScRsp = 1820;
+	CmdRogueType_EnterRogueMapRoomScRsp = 1841;
+	CmdRogueType_SyncRogueStatusScNotify = 1843;
+	CmdRogueType_TakeRogueAeonLevelRewardCsReq = 1837;
+	CmdRogueType_SyncRogueSeasonFinishScNotify = 1832;
+	CmdRogueType_SyncRogueVirtualItemInfoScNotify = 1801;
+	CmdRogueType_QuitRogueCsReq = 1829;
+	CmdRogueType_FinishAeonDialogueGroupCsReq = 1848;
+	CmdRogueType_SyncRogueAeonScNotify = 1827;
+	CmdRogueType_LeaveRogueScRsp = 1856;
+	CmdRogueType_GetRogueBuffEnhanceInfoCsReq = 1804;
+	CmdRogueType_StartRogueCsReq = 1805;
+	CmdRogueType_GetRogueAeonInfoScRsp = 1855;
+	CmdRogueType_EnterRogueCsReq = 1860;
+	CmdRogueType_QuitRogueScRsp = 1822;
+	CmdRogueType_OpenRogueChestScRsp = 1853;
+	CmdRogueType_SyncRogueGetItemScNotify = 1895;
+	CmdRogueType_EnterRogueScRsp = 1816;
+	CmdRogueType_OpenRogueChestCsReq = 1897;
+	CmdRogueType_ExchangeRogueRewardKeyCsReq = 1844;
+	CmdRogueType_EnableRogueTalentScRsp = 1854;
+	CmdRogueType_SyncRogueFinishScNotify = 1868;
+}
+
+message DNDMLICBKEF {
+	uint32 area_id = 2; // offset: 36
+	uint32 map_id = 8; // offset: 44
+	uint32 HPKMGKPPELC = 10; // offset: 32
+	repeated PAIJCBOKIFO LLNICHDDIAN = 11; // offset: 24
+	uint32 ANHDBMOPGDC = 15; // offset: 40
+}
+
+message EDOIEMCFFCA {
+	GFGHGCIMKGA AEFMMOHKCHJ = 2; // offset: 40
+	GOIEJOCFKEE ACLKMFCDMED = 8; // offset: 24
+	CGNNMPIKBBB HHFAAFOBKME = 13; // offset: 16
+	MBCBDJNKFEB NIKDPODBIEF = 15; // offset: 32
+}
+
+message EFDAIBDBFEA {
+	uint32 total_count = 1; // offset: 36
+	uint32 LJCEOGPOGBE = 4; // offset: 28
+	uint32 NPHAJEKCBKF = 6; // offset: 32
+	uint32 DGGCFDKJDPO = 10; // offset: 24
+}
+
+message ENOBKLGCHOD {
+	repeated uint32 NOEPBNMJFGL = 1; // offset: 32
+	repeated uint32 unfinished_story_line_id_list = 4; // offset: 40
+	KCMFAIBMOHB MFEODNJNGDP = 9; // offset: 24
+}
+
+message EnableRogueTalentCsReq {
+	uint32 CKHCLKOALKE = 8; // offset: 24
+}
+
+message EnableRogueTalentScRsp {
+	uint32 retcode = 10; // offset: 32
+	FDBDLBAPDBE JCOBJAMPOAL = 11; // offset: 24
+}
+
+message EnterRogueCsReq {
+	uint32 area_id = 12; // offset: 24
+}
+
+message EnterRogueMapRoomCsReq {
+	uint32 MAJKFIMPOOF = 1; // offset: 28
+	uint32 room_id = 10; // offset: 24
+}
+
+message EnterRogueMapRoomScRsp {
+	uint32 ANHDBMOPGDC = 2; // offset: 52
+	uint32 retcode = 6; // offset: 48
+	LineupInfo lineup = 7; // offset: 40
+	FHEGNOPNICH JNKLNLKHGBB = 14; // offset: 24
+	SceneInfo scene = 15; // offset: 32
+}
+
+message EnterRogueScRsp {
+	FHEGNOPNICH JNKLNLKHGBB = 2; // offset: 24
+	uint32 retcode = 5; // offset: 56
+	SceneInfo scene = 7; // offset: 48
+	LineupInfo lineup = 13; // offset: 32
+	AGEHGBKOBEF rogue_game_info = 15; // offset: 16
+}
+
+message ExchangeRogueRewardKeyCsReq {
+	uint32 count = 3; // offset: 24
+}
+
+message ExchangeRogueRewardKeyScRsp {
+	uint32 count = 10; // offset: 24
+	uint32 retcode = 12; // offset: 28
+}
+
+message FLCPJJMHAGO {
+	uint32 max_level = 3; // offset: 36
+	uint32 AFEMBLFCCCH = 13; // offset: 28
+	uint32 level = 14; // offset: 32
+	uint32 exp = 15; // offset: 24
+}
+
+message FinishAeonDialogueGroupCsReq {
+	uint32 AFEMBLFCCCH = 11; // offset: 24
+}
+
+message FinishAeonDialogueGroupScRsp {
+	FLCPJJMHAGO AEFMMOHKCHJ = 1; // offset: 24
+	ItemList reward = 11; // offset: 16
+	uint32 retcode = 14; // offset: 40
+}
+
+message GAOBHBLFPEC {
+	uint32 OFHBBKOKANF = 2; // offset: 32
+	uint32 GBIEAMKLONK = 7; // offset: 28
+	uint32 LKHAIEIDAJL = 12; // offset: 36
+	uint32 DBHOIDLKMAB = 14; // offset: 24
+}
+
+message GFGHGCIMKGA {
+	repeated uint32 OPAEGCBNACJ = 5; // offset: 16
+	uint32 unlock_aeon_enhance_num = 14; // offset: 32
+}
+
+message GKHGFCBMLBL {
+	KCOEJJKGNIG record_info = 5; // offset: 24
+	uint32 GEBGGMAGDJB = 6; // offset: 44
+	uint32 score_id = 7; // offset: 68
+	uint32 MHPHDCFKMLF = 8; // offset: 40
+	ItemList LHPNJLBPACA = 10; // offset: 16
+	bool is_win = 11; // offset: 52
+	uint32 GMIIMAHLIJF = 12; // offset: 60
+	uint32 GHCBFCIGIBF = 13; // offset: 64
+	uint32 HEOMALBNJLL = 98; // offset: 48
+	uint32 area_id = 1019; // offset: 56
+}
+
+message GOIEJOCFKEE {
+	repeated CAJEBOPPMCJ OJGOAOPLMLB = 11; // offset: 24
+}
+
+message GetRogueAeonInfoCsReq {
+}
+
+message GetRogueAeonInfoScRsp {
+	uint32 retcode = 8; // offset: 32
+	repeated FLCPJJMHAGO JHEHAIBMNNF = 12; // offset: 24
+}
+
+message GetRogueBuffEnhanceInfoCsReq {
+}
+
+message GetRogueBuffEnhanceInfoScRsp {
+	uint32 PLDKENJLKME = 6; // offset: 32
+	HFGBCEKGFHK retcode = 11; // offset: 16
+}
+
+message GetRogueInfoCsReq {
+}
+
+message GetRogueInfoScRsp {
+	AGEHGBKOBEF rogue_game_info = 13; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetRogueInitialScoreScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message GetRogueTalentInfoCsReq {
+}
+
+message GetRogueTalentInfoScRsp {
+	uint32 retcode = 7; // offset: 32
+	FDBDLBAPDBE JCOBJAMPOAL = 13; // offset: 24
+}
+
+message HFGBCEKGFHK {
+	repeated AEFFOCFJNBF EMAGFIBLNCJ = 15; // offset: 16
+}
+
+message HIKOBOMBMPB {
+	OEDNNHAOHAB DNPCCFFFBHN = 5; // offset: 24
+}
+
+message HNKAOFDGLIE {
+	bool ILOFGCAFHAH = 1; // offset: 92
+	AGEOGDOGDMM DHEKLJDBNNP = 4; // offset: 56
+	ENOBKLGCHOD EIOHFJMFOKF = 6; // offset: 24
+	INHBMHCJJCN FMIGOKIDKJL = 7; // offset: 64
+	DNDMLICBKEF COOOMDKGODF = 9; // offset: 80
+	HIKOBOMBMPB DNPCCFFFBHN = 11; // offset: 48
+	RogueStatus status = 12; // offset: 88
+	CFMHEMGEANC HABJHGPFGEB = 13; // offset: 16
+	CIFCAIEDOLK AEFMMOHKCHJ = 14; // offset: 32
+	CDDIJCBEAHJ IELPCHGLFCA = 15; // offset: 72
+}
+
+message JIBBEEAIDIC {
+	repeated uint32 OPAEGCBNACJ = 2; // offset: 24
+	uint32 unlock_aeon_enhance_num = 5; // offset: 36
+	uint32 JPPAGGPJOMO = 15; // offset: 32
+}
+
+message KCMFAIBMOHB {
+	ItemCostData LNIEFKBMIPD = 5; // offset: 16
+}
+
+message KCOEJJKGNIG {
+	repeated ALBLEFHHJIC avatar_list = 1; // offset: 16
+	repeated uint32 MAJGMMCOCIG = 12; // offset: 40
+	repeated ABOFJEIMLLJ buff_list = 14; // offset: 32
+}
+
+message KLFPHOOPELB {
+}
+
+message LeaveRogueCsReq {
+}
+
+message LeaveRogueScRsp {
+	FHEGNOPNICH JNKLNLKHGBB = 1; // offset: 40
+	uint32 retcode = 6; // offset: 48
+	LineupInfo lineup = 10; // offset: 24
+	SceneInfo scene = 11; // offset: 16
+}
+
+message MBCBDJNKFEB {
+	uint32 GEBGGMAGDJB = 7; // offset: 24
+	uint32 CICAENDEDFE = 8; // offset: 28
+	uint32 PDGBEJHNHHE = 14; // offset: 32
+}
+
+message OEDNNHAOHAB {
+	repeated EFDAIBDBFEA MAJGMMCOCIG = 1; // offset: 24
+}
+
+message OpenRogueChestCsReq {
+	uint32 interacted_prop_entity_id = 6; // offset: 28
+	bool FDEKKOKBDIC = 12; // offset: 24
+}
+
+message OpenRogueChestScRsp {
+	LMDPKOELKFL ABEMLCJBIEF = 4; // offset: 24
+	ItemList drop_data = 6; // offset: 40
+	uint32 retcode = 9; // offset: 48
+	ItemList reward = 12; // offset: 16
+}
+
+message PAIJCBOKIFO {
+	RogueRoomStatus CAGDNHCOCKM = 3; // offset: 36
+	uint32 PGACMFLCDID = 8; // offset: 28
+	uint32 MAJKFIMPOOF = 11; // offset: 40
+	uint32 room_id = 13; // offset: 32
+	RogueRoomStatus FCHHPCIDNGM = 14; // offset: 24
+}
+
+message PickRogueAvatarCsReq {
+	uint32 prop_entity_id = 6; // offset: 40
+	repeated uint32 DFPPCAJDBFK = 11; // offset: 16
+	repeated uint32 NOEPBNMJFGL = 14; // offset: 24
+}
+
+message PickRogueAvatarScRsp {
+	repeated uint32 BFEDFBEKOBI = 6; // offset: 24
+	uint32 retcode = 13; // offset: 40
+	repeated uint32 NOEPBNMJFGL = 15; // offset: 16
+}
+
+message QuitRogueCsReq {
+	uint32 area_id = 1; // offset: 24
+}
+
+message QuitRogueScRsp {
+	uint32 retcode = 8; // offset: 32
+	AGEHGBKOBEF rogue_game_info = 10; // offset: 24
+}
+
+message ReviveRogueAvatarCsReq {
+	repeated uint32 NOEPBNMJFGL = 10; // offset: 16
+	uint32 interacted_prop_entity_id = 13; // offset: 32
+}
+
+message ReviveRogueAvatarScRsp {
+	KCMFAIBMOHB PHNAANFIFGB = 3; // offset: 16
+	uint32 PLDKENJLKME = 4; // offset: 32
+}
+
+enum RogueAreaStatus {
+	RogueAreaStatus_Lock = 0;
+	RogueAreaStatus_Unlock = 1;
+	RogueAreaStatus_FirstPass = 2;
+	RogueAreaStatus_Close = 3;
+}
+
+enum RogueRoomStatus {
+	RogueRoomStatus_None = 0;
+	RogueRoomStatus_Lock = 1;
+	RogueRoomStatus_Unlock = 2;
+	RogueRoomStatus_Play = 3;
+	RogueRoomStatus_Finish = 4;
+}
+
+message StartRogueCsReq {
+	repeated uint32 NOEPBNMJFGL = 2; // offset: 16
+	repeated uint32 unfinished_story_line_id_list = 4; // offset: 32
+	uint32 AFEMBLFCCCH = 5; // offset: 48
+	uint32 area_id = 10; // offset: 52
+	repeated uint32 JKPIPNMGGOA = 12; // offset: 24
+}
+
+message StartRogueScRsp {
+	AGEHGBKOBEF rogue_game_info = 4; // offset: 48
+	uint32 retcode = 8; // offset: 56
+	LineupInfo lineup = 11; // offset: 16
+	FHEGNOPNICH JNKLNLKHGBB = 12; // offset: 32
+	SceneInfo scene = 15; // offset: 24
+}
+
+message SyncRogueAeonScNotify {
+	JIBBEEAIDIC BGDGIIOKHGF = 4; // offset: 16
+}
+
+message SyncRogueAreaUnlockScNotify {
+	uint32 area_id = 2; // offset: 24
+}
+
+message SyncRogueExploreWinScNotify {
+	bool ILOFGCAFHAH = 14; // offset: 24
+}
+
+message SyncRogueFinishScNotify {
+	GKHGFCBMLBL NLEOMLNOKCC = 14; // offset: 24
+}
+
+message SyncRogueGetItemScNotify {
+	ItemList get_item_list = 3; // offset: 32
+	ItemList IIDEAGLAMCC = 4; // offset: 24
+}
+
+message SyncRogueMapRoomScNotify {
+	PAIJCBOKIFO HNEANMNJHDB = 4; // offset: 24
+	uint32 map_id = 7; // offset: 32
+}
+
+message SyncRogueReviveInfoScNotify {
+	KCMFAIBMOHB MFEODNJNGDP = 2; // offset: 16
+}
+
+message SyncRogueSeasonFinishScNotify {
+	LineupInfo lineup = 5; // offset: 24
+	bool FALJMPELHIO = 7; // offset: 48
+	SceneInfo scene = 12; // offset: 16
+	GKHGFCBMLBL NLEOMLNOKCC = 15; // offset: 40
+}
+
+message SyncRogueStatusScNotify {
+	bool AOBCKABCHGO = 8; // offset: 28
+	RogueStatus status = 13; // offset: 24
+}
+
+message SyncRogueVirtualItemInfoScNotify {
+	GAOBHBLFPEC NIKDPODBIEF = 15; // offset: 24
+}
+
+message TakeRogueAeonLevelRewardCsReq {
+	uint32 AFEMBLFCCCH = 2; // offset: 24
+	uint32 level = 7; // offset: 28
+}
+
+message TakeRogueAeonLevelRewardScRsp {
+	uint32 level = 4; // offset: 32
+	ItemList ENGHMIAMPLG = 10; // offset: 24
+	uint32 AFEMBLFCCCH = 11; // offset: 40
+	uint32 retcode = 14; // offset: 36
+}

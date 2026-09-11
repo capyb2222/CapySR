@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+
+message ArchiveData {
+	repeated uint32 archive_avatar_id_list = 1; // offset: 40
+	repeated RelicList relic_list = 5; // offset: 48
+	repeated uint32 archive_missing_equipment_id_list = 11; // offset: 16
+	repeated uint32 archive_equipment_id_list = 12; // offset: 56
+	repeated MonsterList kill_monster_list = 13; // offset: 24
+}
+
+enum CmdArchiveType {
+	CmdArchiveType_NLCDGIPGFDJ = 0;
+	CmdArchiveType_GetUpdatedArchiveDataScRsp = 2375;
+	CmdArchiveType_GetUpdatedArchiveDataCsReq = 2305;
+	CmdArchiveType_GetArchiveDataScRsp = 2325;
+	CmdArchiveType_GetArchiveDataCsReq = 2334;
+}
+
+message GetArchiveDataCsReq {
+}
+
+message GetArchiveDataScRsp {
+	ArchiveData archive_data = 4; // offset: 16
+	uint32 retcode = 8; // offset: 32
+}
+
+message GetUpdatedArchiveDataCsReq {
+}
+
+message GetUpdatedArchiveDataScRsp {
+	uint32 retcode = 2; // offset: 32
+	ArchiveData archive_data = 8; // offset: 24
+}
+
+message MonsterList {
+	uint32 monster_id = 2; // offset: 24
+	uint32 num = 6; // offset: 28
+}
+
+message RelicList {
+	uint32 set_id = 3; // offset: 28
+	uint32 type = 15; // offset: 24
+}

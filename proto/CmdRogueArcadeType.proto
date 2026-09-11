@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdRogueArcadeType {
+	CmdRogueArcadeType_NLCDGIPGFDJ = 0;
+	CmdRogueArcadeType_RogueArcadeStartScRsp = 7656;
+	CmdRogueArcadeType_RogueArcadeLeaveScRsp = 7681;
+	CmdRogueArcadeType_RogueArcadeRestartCsReq = 7679;
+	CmdRogueArcadeType_RogueArcadeLeaveCsReq = 7670;
+	CmdRogueArcadeType_RogueArcadeRestartScRsp = 7682;
+	CmdRogueArcadeType_RogueArcadeGetInfoCsReq = 7666;
+	CmdRogueArcadeType_RogueArcadeGetInfoScRsp = 7661;
+	CmdRogueArcadeType_RogueArcadeStartCsReq = 7684;
+}
+
+message GCPGBPNGOFF {
+	FHEGNOPNICH JNKLNLKHGBB = 4; // offset: 40
+	SceneInfo scene = 5; // offset: 32
+	LineupInfo lineup = 8; // offset: 16
+}
+
+message RogueArcadeGetInfoCsReq {
+}
+
+message RogueArcadeGetInfoScRsp {
+	uint32 room_id = 8; // offset: 28
+	uint32 retcode = 9; // offset: 24
+}
+
+message RogueArcadeLeaveCsReq {
+}
+
+message RogueArcadeLeaveScRsp {
+	GCPGBPNGOFF IDCMACCPCBH = 4; // offset: 24
+	uint32 retcode = 5; // offset: 32
+}
+
+message RogueArcadeRestartCsReq {
+}
+
+message RogueArcadeRestartScRsp {
+	GCPGBPNGOFF IDCMACCPCBH = 4; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message RogueArcadeStartCsReq {
+	repeated uint32 NOEPBNMJFGL = 3; // offset: 16
+	uint32 room_id = 9; // offset: 32
+}
+
+message RogueArcadeStartScRsp {
+	uint32 retcode = 8; // offset: 36
+	uint32 room_id = 13; // offset: 32
+	GCPGBPNGOFF IDCMACCPCBH = 14; // offset: 16
+}

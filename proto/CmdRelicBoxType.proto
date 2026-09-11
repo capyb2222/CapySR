@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum BDFGBPHEPDI {
+	BDFGBPHEPDI_PDKLDMNAJBO = 0;
+	BDFGBPHEPDI_KCCEHPABIKB = 1;
+	BDFGBPHEPDI_IEGNMOODDAK = 2;
+}
+
+message BEBNHPCBMPF {
+	JBOAAPIDOIC NOAJIGHLIIC = 10; // offset: 16
+	uint32 avatar_id = 15; // offset: 32
+}
+
+enum CmdRelicBoxType {
+	CmdRelicBoxType_NLCDGIPGFDJ = 0;
+	CmdRelicBoxType_ReportRelicBoxActionScRsp = 8968;
+	CmdRelicBoxType_SetRelicBoxTargetCsReq = 8954;
+	CmdRelicBoxType_ReportRelicBoxActionCsReq = 8969;
+	CmdRelicBoxType_OpenRelicBoxCsReq = 8962;
+	CmdRelicBoxType_ConfirmRelicBoxScRsp = 8956;
+	CmdRelicBoxType_SetRelicBoxCustomCsReq = 8967;
+	CmdRelicBoxType_GetRelicBoxDataCsReq = 8960;
+	CmdRelicBoxType_SetRelicBoxTargetScRsp = 8963;
+	CmdRelicBoxType_OpenRelicBoxScRsp = 8959;
+	CmdRelicBoxType_GetRelicBoxDataScRsp = 8966;
+	CmdRelicBoxType_ConfirmRelicBoxCsReq = 8957;
+	CmdRelicBoxType_SetRelicBoxCustomScRsp = 8958;
+	CmdRelicBoxType_RelicBoxRegularScNotify = 8952;
+}
+
+message ConfirmRelicBoxCsReq {
+	bool BBNIFADMHHO = 7; // offset: 24
+}
+
+message ConfirmRelicBoxScRsp {
+	uint32 retcode = 1; // offset: 36
+	uint32 HMBNJLNBLIF = 3; // offset: 32
+	repeated uint32 OAJFAFIDKPI = 10; // offset: 24
+	bool BBNIFADMHHO = 14; // offset: 40
+}
+
+message DPJCBHKGFOK {
+	repeated Relic relics = 9; // offset: 24
+}
+
+message GetRelicBoxDataCsReq {
+}
+
+message GetRelicBoxDataScRsp {
+	uint32 retcode = 4; // offset: 72
+	repeated uint32 OAJFAFIDKPI = 7; // offset: 56
+	DPJCBHKGFOK AHNPPGMFOKN = 8; // offset: 40
+	uint32 MFLMHFLMCPO = 9; // offset: 68
+	PNGBDDIBCDD NJFEFOFPKPF = 10; // offset: 16
+	repeated BEBNHPCBMPF EBDIOJPDJIH = 11; // offset: 32
+	HGABLJFOKDG target = 12; // offset: 24
+	BDFGBPHEPDI state = 15; // offset: 64
+}
+
+message HGABLJFOKDG {
+	JFIIIHFBLPA HDHKAHJBFKD = 1; // offset: 32
+	uint32 avatar_id = 9; // offset: 36
+	JBOAAPIDOIC NOAJIGHLIIC = 10; // offset: 24
+}
+
+message JBOAAPIDOIC {
+	uint32 FLFOCHJFLOE = 3; // offset: 24
+	uint32 IPILHKHCLJH = 6; // offset: 28
+}
+
+enum JFIIIHFBLPA {
+	JFIIIHFBLPA_NEODNIFGDJC = 0;
+	JFIIIHFBLPA_BPKKHFFJGGI = 1;
+}
+
+message OpenRelicBoxCsReq {
+	HGABLJFOKDG target = 7; // offset: 24
+}
+
+message OpenRelicBoxScRsp {
+	uint32 retcode = 8; // offset: 32
+	uint32 GNLAAIDFOJF = 10; // offset: 36
+	PNGBDDIBCDD LCMADDIMION = 12; // offset: 24
+}
+
+message PNGBDDIBCDD {
+	uint32 type = 3; // offset: 36
+	uint32 exp = 5; // offset: 48
+	repeated RelicAffix sub_affix_list = 6; // offset: 24
+	uint32 main_affix_id = 9; // offset: 40
+	uint32 level = 11; // offset: 32
+	uint32 tid = 15; // offset: 44
+}
+
+message RelicBoxRegularScNotify {
+	DPJCBHKGFOK AHNPPGMFOKN = 15; // offset: 16
+}
+
+message ReportRelicBoxActionCsReq {
+	oneof MKKDALGEAKK {
+		uint32 KCGLKFKHPIC = 7; // offset: 16
+	}
+}
+
+message ReportRelicBoxActionScRsp {
+	uint32 retcode = 7; // offset: 28
+	BDFGBPHEPDI state = 11; // offset: 24
+}
+
+message SetRelicBoxCustomCsReq {
+	repeated BEBNHPCBMPF JKKFJHKHFPL = 8; // offset: 32
+	BEBNHPCBMPF EBDIOJPDJIH = 11; // offset: 24
+}
+
+message SetRelicBoxCustomScRsp {
+	uint32 retcode = 14; // offset: 24
+}
+
+message SetRelicBoxTargetCsReq {
+	HGABLJFOKDG target = 9; // offset: 16
+}
+
+message SetRelicBoxTargetScRsp {
+	uint32 retcode = 3; // offset: 32
+	HGABLJFOKDG target = 11; // offset: 16
+}

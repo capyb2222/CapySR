@@ -1,0 +1,372 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AddAvatarScNotify {
+	bool is_new = 9; // offset: 32
+	uint32 base_avatar_id = 10; // offset: 40
+	AddAvatarSrcState src = 14; // offset: 36
+	ItemList reward = 15; // offset: 24
+}
+
+enum AddAvatarSrcState {
+	ADD_AVATAR_SRC_NONE = 0;
+	ADD_AVATAR_SRC_GACHA = 1;
+	ADD_AVATAR_SRC_ROGUE = 2;
+	ADD_AVATAR_SRC_DELIVERY = 3;
+}
+
+message AddMultiPathAvatarScNotify {
+	ItemList reward = 1; // offset: 24
+	bool is_new = 3; // offset: 44
+	uint32 avatar_id = 9; // offset: 40
+	GCALLOJPPIJ ALKDBJEGAGG = 13; // offset: 48
+	repeated NKDNFDCFNCP HJMDNLBNPNA = 15; // offset: 32
+}
+
+message AvatarExpUpCsReq {
+	ItemCostData item_cost = 3; // offset: 24
+	uint32 base_avatar_id = 7; // offset: 32
+}
+
+message AvatarExpUpScRsp {
+	uint32 retcode = 7; // offset: 32
+	repeated PileItem return_item_list = 15; // offset: 16
+}
+
+message AvatarPathChangedNotify {
+	MultiPathAvatarType cur_multi_path_avatar_type = 5; // offset: 28
+	uint32 base_avatar_id = 7; // offset: 24
+}
+
+message AvatarSpecialSkilltreeUnlockScNotify {
+	uint32 avatar_id = 6; // offset: 28
+	uint32 point_id = 12; // offset: 24
+}
+
+enum CFMDKNCDDAL {
+	CFMDKNCDDAL_NADPFMGBHDJ = 0;
+	CFMDKNCDDAL_GGGLNCBOICD = 1;
+}
+
+enum CmdAvatarType {
+	CmdAvatarType_NLCDGIPGFDJ = 0;
+	CmdAvatarType_AvatarExpUpScRsp = 375;
+	CmdAvatarType_TakeOffAvatarSkinCsReq = 319;
+	CmdAvatarType_MarkAvatarCsReq = 381;
+	CmdAvatarType_SetPlayerOutfitCsReq = 330;
+	CmdAvatarType_MarkAvatarScRsp = 351;
+	CmdAvatarType_SetAvatarEnhancedIdScRsp = 340;
+	CmdAvatarType_UnlockAvatarSkinScNotify = 307;
+	CmdAvatarType_DressAvatarCsReq = 383;
+	CmdAvatarType_GetPreAvatarActivityListScRsp = 341;
+	CmdAvatarType_TakeOffEquipmentCsReq = 342;
+	CmdAvatarType_AddAvatarScNotify = 361;
+	CmdAvatarType_GrowthTargetAvatarChangedScNotify = 329;
+	CmdAvatarType_TakePromotionRewardScRsp = 338;
+	CmdAvatarType_UnlockSkillTreeCsReq = 360;
+	CmdAvatarType_RankUpAvatarCsReq = 308;
+	CmdAvatarType_DressAvatarSkinCsReq = 378;
+	CmdAvatarType_PromoteAvatarScRsp = 356;
+	CmdAvatarType_DressAvatarSkinScRsp = 304;
+	CmdAvatarType_RankUpAvatarScRsp = 368;
+	CmdAvatarType_SetMultipleAvatarPathsCsReq = 367;
+	CmdAvatarType_DressRelicAvatarCsReq = 364;
+	CmdAvatarType_DressAvatarScRsp = 315;
+	CmdAvatarType_SetGrowthTargetAvatarScRsp = 303;
+	CmdAvatarType_AvatarSpecialSkilltreeUnlockScNotify = 313;
+	CmdAvatarType_GetPreAvatarGrowthInfoCsReq = 322;
+	CmdAvatarType_TakeOffRelicCsReq = 312;
+	CmdAvatarType_TakeOffRelicScRsp = 311;
+	CmdAvatarType_SetGrowthTargetAvatarCsReq = 373;
+	CmdAvatarType_PromoteAvatarCsReq = 358;
+	CmdAvatarType_KELLLHMHFHL = 376;
+	CmdAvatarType_GetPreAvatarActivityListCsReq = 379;
+	CmdAvatarType_SetAvatarEnhancedIdCsReq = 384;
+	CmdAvatarType_TakeOffAvatarSkinScRsp = 385;
+	CmdAvatarType_AddMultiPathAvatarScNotify = 393;
+	CmdAvatarType_GetPreAvatarGrowthInfoScRsp = 349;
+	CmdAvatarType_SetAvatarPathScRsp = 347;
+	CmdAvatarType_SetPlayerOutfitScRsp = 324;
+	CmdAvatarType_MILFFHPMLMN = 357;
+	CmdAvatarType_GetAvatarDataCsReq = 334;
+	CmdAvatarType_AvatarPathChangedNotify = 370;
+	CmdAvatarType_AvatarExpUpCsReq = 305;
+	CmdAvatarType_SetMultipleAvatarPathsScRsp = 310;
+	CmdAvatarType_UnlockAvatarPathCsReq = 326;
+	CmdAvatarType_DressRelicAvatarScRsp = 321;
+	CmdAvatarType_SetAvatarPathCsReq = 396;
+	CmdAvatarType_GetAvatarDataScRsp = 325;
+	CmdAvatarType_PMOEBOIPGDH = 323;
+	CmdAvatarType_UnlockAvatarPathScRsp = 380;
+	CmdAvatarType_TakeOffEquipmentScRsp = 339;
+	CmdAvatarType_UnlockSkillTreeScRsp = 316;
+	CmdAvatarType_TakePromotionRewardCsReq = 317;
+}
+
+message DressAvatarCsReq {
+	uint32 avatar_id = 2; // offset: 28
+	uint32 equipment_unique_id = 4; // offset: 24
+}
+
+message DressAvatarScRsp {
+	uint32 PLDKENJLKME = 12; // offset: 24
+}
+
+message DressAvatarSkinCsReq {
+	uint32 skin_id = 3; // offset: 28
+	uint32 avatar_id = 11; // offset: 24
+}
+
+message DressAvatarSkinScRsp {
+	uint32 PLDKENJLKME = 14; // offset: 24
+}
+
+message DressRelicAvatarCsReq {
+	repeated DressRelicParam switch_list = 4; // offset: 24
+	uint32 avatar_id = 8; // offset: 32
+}
+
+message DressRelicParam {
+	uint32 relic_type = 1; // offset: 24
+	uint32 relic_unique_id = 7; // offset: 28
+}
+
+message EKLIDIDKFHC {
+	uint32 IGOOJKMPMDC = 1; // offset: 44
+	uint32 base_avatar_id = 9; // offset: 40
+	ItemCostData BACAOLDADMC = 10; // offset: 24
+	ItemCostData OAINNDAHIMG = 13; // offset: 16
+	uint32 KLMIBJIKIBB = 15; // offset: 48
+}
+
+enum GCALLOJPPIJ {
+	GCALLOJPPIJ_NLCDGIPGFDJ = 0;
+	GCALLOJPPIJ_BDEFGIPPKNM = 1;
+	GCALLOJPPIJ_BPBFOIJKCJA = 2;
+}
+
+message GetAvatarDataCsReq {
+	bool is_get_all = 8; // offset: 32
+	repeated uint32 NOEPBNMJFGL = 12; // offset: 24
+}
+
+message GetAvatarDataScRsp {
+	repeated Avatar avatar_list = 2; // offset: 32
+	uint32 JFAADMONJNF = 3; // offset: 80
+	CJLCPMDGIBO DHKFCDAGHDM = 4; // offset: 56
+	repeated uint32 basic_type_id_list = 6; // offset: 48
+	repeated AvatarPathData avatar_path_data_info_list = 7; // offset: 16
+	repeated KVP JBFBEOLOHJN = 8; // offset: 24
+	uint32 retcode = 9; // offset: 88
+	repeated uint32 skin_list = 10; // offset: 64
+	bool is_get_all = 14; // offset: 84
+	repeated CFMDKNCDDAL PILOAFIMCGK = 15; // offset: 72
+}
+
+message GetPreAvatarActivityListCsReq {
+}
+
+message GetPreAvatarActivityListScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated uint32 DDMEHPDHPLM = 3; // offset: 16
+}
+
+message GetPreAvatarGrowthInfoCsReq {
+}
+
+message GetPreAvatarGrowthInfoScRsp {
+	uint32 retcode = 11; // offset: 32
+	repeated PreAvatarGrowthMaterialData JLMMCNIMPOA = 12; // offset: 16
+}
+
+message GrowthTargetAvatarChangedScNotify {
+	repeated CFMDKNCDDAL FLINDJJJFLB = 4; // offset: 24
+	uint32 JFAADMONJNF = 12; // offset: 32
+}
+
+enum GrowthTargetState {
+	GrowthTargetState_MMBDGPMCJKH = 0;
+	GrowthTargetState_PDHPKPOCOHM = 1;
+	GrowthTargetState_CMBMDMBHFEC = 2;
+	GrowthTargetState_DALNOIDGBGI = 3;
+	GrowthTargetState_JEAOCLOOAMJ = 4;
+	GrowthTargetState_FCKJLEGDJHJ = 5;
+}
+
+message LENDBHPIOJK {
+	uint32 avatar_id = 8; // offset: 24
+}
+
+message MarkAvatarCsReq {
+	uint32 avatar_id = 4; // offset: 28
+	bool is_marked = 13; // offset: 24
+}
+
+message MarkAvatarScRsp {
+	uint32 avatar_id = 4; // offset: 28
+	uint32 retcode = 7; // offset: 24
+	bool is_marked = 10; // offset: 32
+}
+
+message PMEMIDKDAFG {
+	repeated PileItem return_item_list = 1; // offset: 24
+	uint32 retcode = 9; // offset: 32
+}
+
+message PreAvatarGrowthMaterialData {
+	uint32 DKEBMGFMCBH = 1; // offset: 100
+	uint32 DLGCGJCKLCB = 2; // offset: 120
+	uint32 IICANCHNIBB = 3; // offset: 116
+	uint32 CAHBPNLNKCC = 4; // offset: 112
+	uint32 BJFJHEJGFPM = 5; // offset: 56
+	uint32 LNHKCMAPMLM = 6; // offset: 84
+	uint32 OIFPBOCOALL = 7; // offset: 88
+	uint32 JPGOACKIFFC = 8; // offset: 68
+	uint32 FDIJAFBCILL = 9; // offset: 72
+	uint32 JOBMEJMFELF = 10; // offset: 76
+	uint32 IEGOLHHOANB = 11; // offset: 64
+	uint32 BFEPBBLIOGP = 12; // offset: 104
+	uint32 PGJKALFDFMA = 13; // offset: 124
+	uint32 JHLPBJCAIIF = 14; // offset: 80
+	uint32 PELFCMAHJGA = 15; // offset: 60
+	uint32 PPDAGPPKEJD = 537; // offset: 92
+	uint32 panel_id = 828; // offset: 96
+	string avatar_icon = 1222; // offset: 40
+	uint32 type = 1263; // offset: 108
+	string NOCPIJJBKCB = 1350; // offset: 32
+	string NDJGLMCPFHK = 1523; // offset: 24
+	string LACBKOCCFHL = 1781; // offset: 48
+}
+
+message PromoteAvatarCsReq {
+	uint32 base_avatar_id = 5; // offset: 32
+	repeated ItemCost item_list = 6; // offset: 24
+}
+
+message PromoteAvatarScRsp {
+	uint32 PLDKENJLKME = 1; // offset: 24
+}
+
+message RankUpAvatarCsReq {
+	uint32 rank = 6; // offset: 32
+	uint32 avatar_id = 7; // offset: 36
+	ItemCostData cost_data = 14; // offset: 16
+}
+
+message RankUpAvatarScRsp {
+	uint32 PLDKENJLKME = 9; // offset: 24
+}
+
+message SetAvatarEnhancedIdCsReq {
+	uint32 avatar_id = 5; // offset: 24
+	uint32 enhanced_id = 13; // offset: 28
+}
+
+message SetAvatarEnhancedIdScRsp {
+	uint32 growth_avatar_id = 6; // offset: 28
+	uint32 retcode = 11; // offset: 32
+	uint32 unk_enhanced_id = 14; // offset: 24
+}
+
+message SetAvatarPathCsReq {
+	MultiPathAvatarType avatar_id = 4; // offset: 24
+}
+
+message SetAvatarPathScRsp {
+	MultiPathAvatarType avatar_id = 11; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}
+
+message SetGrowthTargetAvatarCsReq {
+	uint32 FCACACLEJNM = 1; // offset: 32
+	repeated CFMDKNCDDAL FLINDJJJFLB = 2; // offset: 24
+	GrowthTargetState source = 3; // offset: 40
+	uint32 avatar_id = 15; // offset: 36
+}
+
+message SetGrowthTargetAvatarScRsp {
+	repeated CFMDKNCDDAL FLINDJJJFLB = 4; // offset: 16
+	uint32 retcode = 6; // offset: 32
+	uint32 growth_avatar_id = 11; // offset: 36
+	uint32 JFAADMONJNF = 14; // offset: 40
+}
+
+message SetMultipleAvatarPathsCsReq {
+	repeated MultiPathAvatarType avatar_id_list = 1; // offset: 24
+}
+
+message SetMultipleAvatarPathsScRsp {
+	uint32 PLDKENJLKME = 5; // offset: 24
+}
+
+message SetPlayerOutfitCsReq {
+	CJLCPMDGIBO DHKFCDAGHDM = 1; // offset: 24
+}
+
+message SetPlayerOutfitScRsp {
+	uint32 PLDKENJLKME = 6; // offset: 24
+}
+
+message TakeOffAvatarSkinCsReq {
+	uint32 avatar_id = 1; // offset: 24
+}
+
+message TakeOffAvatarSkinScRsp {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message TakeOffEquipmentCsReq {
+	uint32 avatar_id = 9; // offset: 24
+}
+
+message TakeOffEquipmentScRsp {
+	uint32 PLDKENJLKME = 3; // offset: 24
+}
+
+message TakeOffRelicCsReq {
+	repeated uint32 relic_type_list = 2; // offset: 24
+	uint32 avatar_id = 10; // offset: 32
+}
+
+message TakeOffRelicScRsp {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message TakePromotionRewardCsReq {
+	uint32 promotion = 2; // offset: 24
+	uint32 base_avatar_id = 5; // offset: 28
+}
+
+message TakePromotionRewardScRsp {
+	ItemList reward_list = 1; // offset: 16
+	uint32 retcode = 13; // offset: 32
+}
+
+message UnlockAvatarPathCsReq {
+	MultiPathAvatarType avatar_id = 7; // offset: 24
+}
+
+message UnlockAvatarPathScRsp {
+	ItemList reward = 2; // offset: 24
+	repeated uint32 basic_type_id_list = 3; // offset: 32
+	MultiPathAvatarType avatar_id = 5; // offset: 40
+	uint32 retcode = 12; // offset: 44
+}
+
+message UnlockAvatarSkinScNotify {
+	uint32 skin_id = 11; // offset: 24
+}
+
+message UnlockSkillTreeCsReq {
+	repeated ItemCost item_list = 2; // offset: 16
+	uint32 level = 5; // offset: 36
+	uint32 point_id = 11; // offset: 32
+}
+
+message UnlockSkillTreeScRsp {
+	uint32 point_id = 7; // offset: 28
+	uint32 level = 13; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}

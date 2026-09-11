@@ -1,0 +1,819 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ADNCPPCPLLH {
+	uint32 HAFOKMHCGFM = 2; // offset: 32
+	uint32 GKKNMDDNOJF = 7; // offset: 36
+	uint32 event_id = 8; // offset: 40
+	repeated uint32 MJMJOMDLOHI = 11; // offset: 24
+}
+
+message AHMFKPIAHCO {
+	uint32 KJBILOOCBPB = 4; // offset: 32
+	uint32 DAEKKPOJAJG = 5; // offset: 24
+	uint32 ADADGDPCPDN = 10; // offset: 36
+	uint32 KCLCDFGGPBK = 13; // offset: 28
+}
+
+enum BAKAELIMIJI {
+	BAKAELIMIJI_NLCDGIPGFDJ = 0;
+	BAKAELIMIJI_HEIHBJEEGPB = 1;
+	BAKAELIMIJI_BOGGAFJJPGC = 2;
+	BAKAELIMIJI_HCEBKFDJGIO = 3;
+	BAKAELIMIJI_CBKLDCBEKCH = 4;
+	BAKAELIMIJI_LGGEBOCPPDA = 5;
+	BAKAELIMIJI_BBDHKAKKBEA = 6;
+	BAKAELIMIJI_BFPGGHFAHCA = 7;
+	BAKAELIMIJI_PPINCGHOOBH = 8;
+	BAKAELIMIJI_JCECCHOJPFK = 9;
+	BAKAELIMIJI_JBLEFHFOHGO = 10;
+}
+
+message BANELIGFLCO {
+	uint32 level = 3; // offset: 32
+	uint32 CBILPMICEKC = 10; // offset: 24
+	uint32 MFKHDANPCIC = 11; // offset: 28
+}
+
+message BCDIFIIDPIA {
+	repeated KFGILGDFEKE BEMBGMOIAON = 1; // offset: 24
+}
+
+message CCMCKOKEJNI {
+	repeated uint32 HNDAGKPKGHI = 6; // offset: 16
+}
+
+message CCOHBABCHAI {
+	bool EEDEGBHEKGD = 6; // offset: 24
+	uint32 NJFKOEBEGGB = 9; // offset: 28
+}
+
+enum CmdMonopolyType {
+	CmdMonopolyType_NLCDGIPGFDJ = 0;
+	CmdMonopolyType_MonopolyTakeRaffleTicketRewardCsReq = 7100;
+	CmdMonopolyType_MonopolyEventSelectFriendCsReq = 7014;
+	CmdMonopolyType_MonopolyCheatDiceScRsp = 7051;
+	CmdMonopolyType_MonopolyCellUpdateNotify = 7075;
+	CmdMonopolyType_MonopolyGuessChooseScRsp = 7030;
+	CmdMonopolyType_MonopolyGetRegionProgressCsReq = 7050;
+	CmdMonopolyType_MonopolyGameBingoFlipCardScRsp = 7032;
+	CmdMonopolyType_MonopolyAcceptQuizCsReq = 7084;
+	CmdMonopolyType_MonopolyGuessChooseCsReq = 7041;
+	CmdMonopolyType_MonopolyGetRegionProgressScRsp = 7099;
+	CmdMonopolyType_GetMbtiReportScRsp = 7062;
+	CmdMonopolyType_MonopolyReRollRandomScRsp = 7012;
+	CmdMonopolyType_MonopolyGetRaffleTicketScRsp = 7027;
+	CmdMonopolyType_MonopolyGuessBuyInformationScRsp = 7096;
+	CmdMonopolyType_MonopolyRollDiceScRsp = 7058;
+	CmdMonopolyType_MonopolyEventSelectFriendScRsp = 7036;
+	CmdMonopolyType_MonopolyGetRafflePoolInfoScRsp = 7018;
+	CmdMonopolyType_MonopolyMoveCsReq = 7056;
+	CmdMonopolyType_MonopolyConditionUpdateScNotify = 7002;
+	CmdMonopolyType_MonopolyClickMbtiReportCsReq = 7006;
+	CmdMonopolyType_GetMonopolyDailyReportCsReq = 7066;
+	CmdMonopolyType_MonopolyCheatDiceCsReq = 7081;
+	CmdMonopolyType_GetMonopolyInfoScRsp = 7025;
+	CmdMonopolyType_MonopolyGetRaffleTicketCsReq = 7009;
+	CmdMonopolyType_GetMbtiReportCsReq = 7044;
+	CmdMonopolyType_MonopolyScrachRaffleTicketScRsp = 7028;
+	CmdMonopolyType_MonopolyBuyGoodsScRsp = 7078;
+	CmdMonopolyType_DeleteSocialEventServerCacheScRsp = 7087;
+	CmdMonopolyType_MonopolyRollDiceCsReq = 7016;
+	CmdMonopolyType_DeleteSocialEventServerCacheCsReq = 7091;
+	CmdMonopolyType_MonopolyGameCreateScNotify = 7079;
+	CmdMonopolyType_MonopolyConfirmRandomScRsp = 7017;
+	CmdMonopolyType_MEPENIFDMKC = 7024;
+	CmdMonopolyType_MonopolyDailySettleScNotify = 7013;
+	CmdMonopolyType_GetMonopolyFriendRankingListCsReq = 7023;
+	CmdMonopolyType_MonopolyGiveUpCurContentCsReq = 7085;
+	CmdMonopolyType_GetMonopolyFriendRankingListScRsp = 7076;
+	CmdMonopolyType_MonopolyRollRandomScRsp = 7064;
+	CmdMonopolyType_MonopolyGameBingoFlipCardCsReq = 7082;
+	CmdMonopolyType_MonopolyUpgradeAssetScRsp = 7019;
+	CmdMonopolyType_MonopolyGameGachaScRsp = 7049;
+	CmdMonopolyType_MonopolyMoveScRsp = 7083;
+	CmdMonopolyType_GetMonopolyMbtiReportRewardCsReq = 7071;
+	CmdMonopolyType_GetSocialEventServerCacheScRsp = 7031;
+	CmdMonopolyType_MonopolyUpgradeAssetCsReq = 7004;
+	CmdMonopolyType_MonopolyRollRandomCsReq = 7068;
+	CmdMonopolyType_MonopolySelectOptionScRsp = 7042;
+	CmdMonopolyType_MonopolySocialEventEffectScNotify = 7077;
+	CmdMonopolyType_GetMonopolyInfoCsReq = 7034;
+	CmdMonopolyType_MonopolyGameRaiseRatioCsReq = 7073;
+	CmdMonopolyType_MonopolyTakePhaseRewardScRsp = 7094;
+	CmdMonopolyType_MonopolyClickCellCsReq = 7065;
+	CmdMonopolyType_MonopolySttUpdateScNotify = 7033;
+	CmdMonopolyType_MonopolyGameGachaCsReq = 7022;
+	CmdMonopolyType_MonopolyTakeRaffleTicketRewardScRsp = 7095;
+	CmdMonopolyType_GetMonopolyMbtiReportRewardScRsp = 7069;
+	CmdMonopolyType_MonopolyGetDailyInitItemCsReq = 7048;
+	CmdMonopolyType_MonopolyClickCellScRsp = 7055;
+	CmdMonopolyType_MonopolyLikeScNotify = 7053;
+	CmdMonopolyType_MonopolySelectOptionCsReq = 7015;
+	CmdMonopolyType_MonopolyQuizDurationChangeScNotify = 7070;
+	CmdMonopolyType_MonopolyTakePhaseRewardCsReq = 7052;
+	CmdMonopolyType_MonopolyActionResultScNotify = 7005;
+	CmdMonopolyType_GetSocialEventServerCacheCsReq = 7046;
+	CmdMonopolyType_MonopolyConfirmRandomCsReq = 7011;
+	CmdMonopolyType_MonopolyReRollRandomCsReq = 7021;
+	CmdMonopolyType_MonopolyGetDailyInitItemScRsp = 7020;
+	CmdMonopolyType_MonopolyGetRafflePoolInfoCsReq = 7045;
+	CmdMonopolyType_MonopolyContentUpdateScNotify = 7093;
+	CmdMonopolyType_MonopolyClickMbtiReportScRsp = 7090;
+	CmdMonopolyType_MonopolyAcceptQuizScRsp = 7040;
+	CmdMonopolyType_DailyFirstEnterMonopolyActivityScRsp = 7008;
+	CmdMonopolyType_MonopolyLikeCsReq = 7057;
+	CmdMonopolyType_MonopolyGameSettleScNotify = 7029;
+	CmdMonopolyType_MonopolyBuyGoodsCsReq = 7038;
+	CmdMonopolyType_MonopolyLikeScRsp = 7097;
+	CmdMonopolyType_MonopolyEventLoadUpdateScNotify = 7035;
+	CmdMonopolyType_MonopolyGuessDrawScNotify = 7047;
+	CmdMonopolyType_DailyFirstEnterMonopolyActivityCsReq = 7061;
+	CmdMonopolyType_MonopolyScrachRaffleTicketCsReq = 7037;
+	CmdMonopolyType_MonopolyGiveUpCurContentScRsp = 7007;
+	CmdMonopolyType_MonopolyGameRaiseRatioScRsp = 7003;
+	CmdMonopolyType_GetMonopolyDailyReportScRsp = 7086;
+}
+
+message DBPHHPGNMKC {
+	repeated BANELIGFLCO NPENGFBHFJN = 5; // offset: 16
+}
+
+message DCAJAKJAJNL {
+	uint32 shop_id = 7; // offset: 24
+}
+
+message DCMHLOEGFBM {
+	ItemList item_list = 3; // offset: 24
+	uint32 HABHOAMCGLH = 11; // offset: 32
+	uint32 LCFDOPINEBO = 13; // offset: 36
+}
+
+message DDHIEONLIIL {
+	uint64 HEMOHFJJMJG = 1; // offset: 24
+	bool DDKGKOFAGMH = 2; // offset: 33
+	bool is_taken_reward = 5; // offset: 32
+}
+
+message DFKABDLJMJO {
+	repeated NEMIDPFEJFL PHKBDAHIPEE = 13; // offset: 24
+	uint32 KBLJEGIPINF = 15; // offset: 32
+}
+
+message DKHCBKNGOMF {
+	uint32 MKNLPJMBHDK = 6; // offset: 24
+}
+
+message DailyFirstEnterMonopolyActivityCsReq {
+}
+
+message DailyFirstEnterMonopolyActivityScRsp {
+	bool GLEJFCIOMKC = 5; // offset: 40
+	uint32 retcode = 6; // offset: 44
+	NJHAGKGHKJJ OLAONLGLAJO = 7; // offset: 24
+	uint32 ICPAPCAJFKK = 10; // offset: 48
+	int64 DJMLHBFEMBE = 13; // offset: 32
+}
+
+message DeleteSocialEventServerCacheCsReq {
+	repeated uint32 CNILHHCDAKD = 8; // offset: 24
+}
+
+message DeleteSocialEventServerCacheScRsp {
+	repeated uint32 FHAIOBNLADG = 7; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+message EDGEHPFOKBH {
+	uint32 cnt = 2; // offset: 24
+	uint32 ACPKAOIIEHJ = 6; // offset: 28
+}
+
+message EIDFCGLODFB {
+	uint32 IHAOMLEPHOM = 1; // offset: 28
+	uint32 map_id = 2; // offset: 36
+	bool BPKMKFLDCAI = 9; // offset: 32
+	NADDHEILBBN PIJJDFCBMPG = 15; // offset: 24
+}
+
+message EOHAFICJPIP {
+	uint32 CPOCELOLNHL = 1; // offset: 24
+	uint32 id = 2; // offset: 28
+	uint32 NLGNNDIFGGF = 8; // offset: 32
+	uint32 add_coin = 14; // offset: 36
+}
+
+message FIOENGOHOOJ {
+	NEMIDPFEJFL MEGBFFOAFGL = 1; // offset: 24
+}
+
+message FOOFAIFPOOI {
+	GLMGJFEEJHD JELODDPELKJ = 6; // offset: 32
+	CCOHBABCHAI IBLHLCMNMAJ = 14; // offset: 24
+	repeated GLMGJFEEJHD BGJBAGJAJDL = 15; // offset: 16
+}
+
+message GALCNKIAHNN {
+	uint32 add_coin = 2; // offset: 24
+	uint32 NLGNNDIFGGF = 10; // offset: 28
+}
+
+message GLMGJFEEJHD {
+	uint32 BAJHKGJPFED = 1; // offset: 36
+	uint32 ratio = 5; // offset: 32
+	uint32 config_id = 15; // offset: 40
+	oneof JMPNIHHAMPH {
+		KDPGIMOOLON AGLMEDOBMAL = 6; // offset: 16
+		JGKNADEDNHB LOCHFJEECKL = 3; // offset: 16
+		LOEBAOEFMDC COKLIDDAEOH = 10; // offset: 16
+	}
+}
+
+message GNNGLBEGIKB {
+	uint32 DPGJKAHLINH = 8; // offset: 32
+	uint32 buff_id = 9; // offset: 24
+	uint32 GCLADEKCJCG = 14; // offset: 28
+}
+
+message GOLHAKEGKCL {
+	uint32 item_id = 8; // offset: 24
+	uint32 DCPDNBALDOA = 10; // offset: 32
+	uint32 HFNNNGHBHGG = 15; // offset: 28
+}
+
+message GPPKIMDCPBM {
+	oneof IDLCKHEKCCB {
+		GOLHAKEGKCL FIPDBFMPEKH = 10; // offset: 16
+		GOLHAKEGKCL AHMEECFKBDJ = 6; // offset: 16
+		BANELIGFLCO CBKLDCBEKCH = 11; // offset: 16
+		BANELIGFLCO HMOBMBALLJE = 13; // offset: 16
+		GNNGLBEGIKB IFOOEPKGGAG = 5; // offset: 16
+		GNNGLBEGIKB CMPNCFCJCNE = 7; // offset: 16
+		NEAEMNNKKEF DOMHNBMJGHF = 4; // offset: 16
+		NEAEMNNKKEF HKAGPIMFPAG = 12; // offset: 16
+		CCOHBABCHAI GAJGLONDGMP = 3; // offset: 16
+		AHMFKPIAHCO IJBAMMMBIOA = 14; // offset: 16
+		GNNGLBEGIKB EBCGEBEPOJJ = 15; // offset: 16
+		NEAEMNNKKEF CKBEEBALAEG = 2; // offset: 16
+		NOKANMFKNMM LDIGCPKPNBC = 8; // offset: 16
+	}
+}
+
+message GetMbtiReportCsReq {
+}
+
+message GetMbtiReportScRsp {
+	bool JMFNGFKBIFL = 1; // offset: 44
+	bool is_taken_reward = 3; // offset: 45
+	repeated EDGEHPFOKBH BLINEMKKEOG = 5; // offset: 24
+	uint32 retcode = 8; // offset: 40
+	uint32 progress = 9; // offset: 56
+	int32 CJBLDKJDLOJ = 11; // offset: 52
+	repeated HKNBLADLAAE DMCKDIGKHLB = 12; // offset: 32
+	int32 KHMNANHKINB = 14; // offset: 48
+}
+
+message GetMonopolyDailyReportCsReq {
+}
+
+message GetMonopolyDailyReportScRsp {
+	uint32 retcode = 7; // offset: 32
+	NJHAGKGHKJJ OLAONLGLAJO = 14; // offset: 24
+}
+
+message GetMonopolyFriendRankingListCsReq {
+}
+
+message GetMonopolyFriendRankingListScRsp {
+	repeated GetMonopolyFriendRankingListCsReq BEDHEKAGAPE = 3; // offset: 24
+	uint32 retcode = 4; // offset: 40
+	GetMonopolyFriendRankingListCsReq PONAOKBNIAM = 7; // offset: 32
+}
+
+message GetMonopolyInfoCsReq {
+}
+
+message GetMonopolyInfoScRsp {
+	CCMCKOKEJNI CICLCCFLALE = 1; // offset: 80
+	PDNABFBLEPG OCHNMGMDHME = 2; // offset: 56
+	FOOFAIFPOOI PNJBEPAAEOF = 3; // offset: 96
+	OCDBIMIBNCD stt = 4; // offset: 72
+	repeated uint32 CANEJDOMAFA = 5; // offset: 24
+	BCDIFIIDPIA MALPPHCEOGB = 7; // offset: 32
+	ILMFJKCGBCK COOOMDKGODF = 8; // offset: 16
+	HDDLALFAMKO GKMKAEEDCHP = 9; // offset: 88
+	DBPHHPGNMKC KKKMHNAPFCP = 10; // offset: 40
+	INGKNDHECNF HABJHGPFGEB = 11; // offset: 64
+	uint32 retcode = 12; // offset: 120
+	FIOENGOHOOJ MOMEIFPICLE = 14; // offset: 48
+	NJHAGKGHKJJ OLAONLGLAJO = 15; // offset: 104
+}
+
+message GetMonopolyMbtiReportRewardCsReq {
+}
+
+message GetMonopolyMbtiReportRewardScRsp {
+	uint32 retcode = 9; // offset: 32
+	ItemList reward_list = 13; // offset: 16
+}
+
+message GetSocialEventServerCacheCsReq {
+}
+
+message GetSocialEventServerCacheScRsp {
+	repeated EOHAFICJPIP OKPHCFLPLGH = 2; // offset: 24
+	uint32 retcode = 10; // offset: 32
+}
+
+message HDDLALFAMKO {
+	LAEHICCBBFN KDJACPBDHAE = 12; // offset: 32
+	repeated uint32 LPBBJFFNACA = 13; // offset: 24
+}
+
+message HIHEHNIAGPF {
+	uint32 progress = 4; // offset: 24
+	uint32 FBDENECLHIH = 7; // offset: 28
+}
+
+message HKNBLADLAAE {
+	uint32 HAFOKMHCGFM = 7; // offset: 24
+	uint32 event_id = 12; // offset: 28
+	uint32 MIPKOFFGPFA = 15; // offset: 32
+}
+
+message IAFJANHGCLL {
+}
+
+message ILMFJKCGBCK {
+	EIDFCGLODFB GOPFOJLIFKN = 1; // offset: 40
+	uint32 LJCCANLCGHI = 2; // offset: 52
+	repeated EIDFCGLODFB EGDNFKHLKKE = 6; // offset: 32
+	uint32 COKKNEKDJAJ = 8; // offset: 48
+	repeated EIDFCGLODFB DGBEOGGJLOO = 14; // offset: 16
+}
+
+message INGKNDHECNF {
+	repeated GNNGLBEGIKB buff_list = 8; // offset: 16
+}
+
+message JGKNADEDNHB {
+	uint32 KOMEOMHBCEC = 3; // offset: 48
+	repeated NNDKLIBALLC OLGHCHMMMIA = 4; // offset: 32
+	uint32 KPGNEABOECG = 8; // offset: 52
+	uint32 GHKNBIOFLGA = 12; // offset: 40
+	repeated uint32 HDAKGBMLKKI = 14; // offset: 24
+	uint32 AHAPDFNPICG = 15; // offset: 44
+}
+
+message JPEGNCJDBOM {
+	uint32 BLLLEIGDMOI = 4; // offset: 32
+	uint32 AHAPDFNPICG = 6; // offset: 28
+	uint32 AFHMLGFILFN = 8; // offset: 24
+}
+
+message KDPGIMOOLON {
+	uint32 PEDFLGGDHDP = 1; // offset: 48
+	repeated uint32 KNJMPBHKHCJ = 5; // offset: 24
+	repeated uint32 PGMHMPEHPHP = 6; // offset: 16
+	bool BDEFAFFDBCC = 8; // offset: 52
+	repeated uint32 JKOOLMNHPHI = 15; // offset: 32
+}
+
+message KFGILGDFEKE {
+	uint32 IJFPHJAPBCO = 2; // offset: 88
+	uint32 NBNCEEGGGFF = 3; // offset: 112
+	uint32 FNFEKIPGKHJ = 4; // offset: 92
+	uint32 pool_id = 6; // offset: 100
+	repeated HIHEHNIAGPF MHNLHEIMBLH = 7; // offset: 16
+	repeated HIHEHNIAGPF BADCFEEJKIC = 8; // offset: 32
+	uint32 GCPABINOPNJ = 9; // offset: 104
+	bool BODENACHCHF = 10; // offset: 96
+	repeated HIHEHNIAGPF AMFDDGGEABC = 11; // offset: 64
+	repeated HIHEHNIAGPF IOFPLHOGBOD = 12; // offset: 40
+	repeated DDHIEONLIIL JBKMDKKBFFA = 13; // offset: 48
+	uint32 FDOPJGFNMMA = 15; // offset: 108
+	string DANMGAEPGML = 805; // offset: 24
+	string DPIOJAJLOLD = 1023; // offset: 72
+	string MGKCFIFICCF = 1970; // offset: 80
+}
+
+enum LAEHICCBBFN {
+	LAEHICCBBFN_NLCDGIPGFDJ = 0;
+	LAEHICCBBFN_HHKFKGKFNJI = 1;
+}
+
+message LNCHJBMIMAF {
+	uint32 event_id = 7; // offset: 24
+}
+
+message LOEBAOEFMDC {
+	uint32 HABHOAMCGLH = 3; // offset: 28
+	uint32 HCFJIJHLJDM = 4; // offset: 32
+	bool FNFJOCEGFBI = 6; // offset: 24
+}
+
+message MonopolyAcceptQuizCsReq {
+	repeated NNDKLIBALLC OLGHCHMMMIA = 7; // offset: 16
+}
+
+message MonopolyAcceptQuizScRsp {
+	JGKNADEDNHB LOCHFJEECKL = 3; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message MonopolyActionResult {
+	GPPKIMDCPBM detail = 1; // offset: 24
+	uint32 trigger_map_id = 5; // offset: 44
+	uint32 click_cell_id = 6; // offset: 36
+	uint32 effect_type = 7; // offset: 32
+	uint32 trigger_cell_id = 8; // offset: 52
+	uint32 click_map_id = 10; // offset: 40
+	BAKAELIMIJI source_type = 11; // offset: 48
+}
+
+message MonopolyActionResultScNotify {
+	repeated MonopolyActionResult BKGPGINCHJI = 2; // offset: 24
+}
+
+message MonopolyBuyGoodsCsReq {
+	uint32 goods_id = 3; // offset: 24
+	uint32 shop_id = 10; // offset: 28
+}
+
+message MonopolyBuyGoodsScRsp {
+	uint32 goods_id = 2; // offset: 32
+	uint32 retcode = 3; // offset: 28
+	uint32 shop_id = 11; // offset: 24
+}
+
+message MonopolyCellUpdateNotify {
+	EIDFCGLODFB GOPFOJLIFKN = 12; // offset: 16
+}
+
+message MonopolyCheatDiceCsReq {
+	uint32 LAGNINIKEAE = 4; // offset: 24
+}
+
+message MonopolyCheatDiceScRsp {
+	uint32 retcode = 4; // offset: 24
+	uint32 LAGNINIKEAE = 13; // offset: 28
+}
+
+message MonopolyClickCellCsReq {
+	uint32 IHAOMLEPHOM = 2; // offset: 24
+	uint32 map_id = 13; // offset: 28
+}
+
+message MonopolyClickCellScRsp {
+	uint32 IHAOMLEPHOM = 3; // offset: 32
+	uint32 retcode = 6; // offset: 28
+	uint32 map_id = 12; // offset: 24
+}
+
+message MonopolyClickMbtiReportCsReq {
+}
+
+message MonopolyClickMbtiReportScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message MonopolyConditionUpdateScNotify {
+	CCMCKOKEJNI CICLCCFLALE = 4; // offset: 24
+}
+
+message MonopolyConfirmRandomCsReq {
+	uint32 event_id = 4; // offset: 24
+}
+
+message MonopolyConfirmRandomScRsp {
+	uint32 retcode = 2; // offset: 32
+	NEMIDPFEJFL MOMEIFPICLE = 12; // offset: 16
+}
+
+message MonopolyContentUpdateScNotify {
+	NEMIDPFEJFL MEGBFFOAFGL = 4; // offset: 24
+}
+
+message MonopolyDailySettleScNotify {
+	uint32 ICPAPCAJFKK = 10; // offset: 32
+	NJHAGKGHKJJ OLAONLGLAJO = 11; // offset: 24
+}
+
+message MonopolyEventLoadUpdateScNotify {
+	repeated EIDFCGLODFB EGDNFKHLKKE = 1; // offset: 32
+	repeated EIDFCGLODFB DGBEOGGJLOO = 5; // offset: 16
+}
+
+message MonopolyEventSelectFriendCsReq {
+	bool DHLLPOBKLIO = 4; // offset: 28
+	uint32 LPDFMJPFGJH = 7; // offset: 24
+}
+
+message MonopolyEventSelectFriendScRsp {
+	uint32 add_coin = 1; // offset: 28
+	uint32 retcode = 2; // offset: 32
+	uint32 NLGNNDIFGGF = 11; // offset: 24
+}
+
+message MonopolyGameBingoFlipCardCsReq {
+	uint32 LKFIGBGPEJB = 9; // offset: 24
+}
+
+message MonopolyGameBingoFlipCardScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated uint32 KNJMPBHKHCJ = 5; // offset: 24
+	uint32 total_score = 9; // offset: 36
+	bool BDEFAFFDBCC = 11; // offset: 40
+}
+
+message MonopolyGameCreateScNotify {
+	GLMGJFEEJHD AJGOEJHKOKE = 1; // offset: 24
+	CCOHBABCHAI IBLHLCMNMAJ = 3; // offset: 16
+}
+
+message MonopolyGameGachaCsReq {
+}
+
+message MonopolyGameGachaScRsp {
+	uint32 retcode = 5; // offset: 32
+	repeated uint32 CLGGKLNPLCK = 6; // offset: 16
+}
+
+message MonopolyGameRaiseRatioCsReq {
+	uint32 LCEHCAOINBN = 7; // offset: 24
+}
+
+message MonopolyGameRaiseRatioScRsp {
+	uint32 ratio = 1; // offset: 28
+	uint32 retcode = 14; // offset: 24
+}
+
+message MonopolyGameSettleScNotify {
+	GLMGJFEEJHD AJGOEJHKOKE = 9; // offset: 16
+	ItemList item_list = 10; // offset: 32
+	ItemList NGADCEHJHBE = 13; // offset: 40
+}
+
+message MonopolyGetDailyInitItemCsReq {
+}
+
+message MonopolyGetDailyInitItemScRsp {
+	uint32 PKLPCBACEMA = 2; // offset: 44
+	int64 DJMLHBFEMBE = 5; // offset: 48
+	uint32 AEDFGDEAOBD = 7; // offset: 36
+	uint32 AJDOFHNCOLP = 8; // offset: 32
+	uint32 retcode = 13; // offset: 40
+	uint32 FOFGDAJJPEM = 14; // offset: 28
+	uint32 MKEDABICJPH = 15; // offset: 24
+}
+
+message MonopolyGetRafflePoolInfoCsReq {
+}
+
+message MonopolyGetRafflePoolInfoScRsp {
+	uint32 retcode = 1; // offset: 32
+	BCDIFIIDPIA MALPPHCEOGB = 2; // offset: 24
+}
+
+message MonopolyGetRaffleTicketCsReq {
+	uint32 pool_id = 13; // offset: 24
+}
+
+message MonopolyGetRaffleTicketScRsp {
+	uint32 pool_id = 1; // offset: 32
+	uint32 retcode = 8; // offset: 36
+	repeated DDHIEONLIIL HDLPEKIMAJB = 15; // offset: 24
+}
+
+message MonopolyGetRegionProgressCsReq {
+}
+
+message MonopolyGetRegionProgressScRsp {
+	uint32 retcode = 2; // offset: 28
+	uint32 CNGMMDKCBND = 5; // offset: 32
+	uint32 HEIHPAPJHID = 7; // offset: 24
+}
+
+message MonopolyGiveUpCurContentCsReq {
+	uint32 content_id = 14; // offset: 24
+}
+
+message MonopolyGiveUpCurContentScRsp {
+	uint32 retcode = 13; // offset: 24
+}
+
+message MonopolyGuessBuyInformationScRsp {
+	uint32 retcode = 3; // offset: 24
+}
+
+message MonopolyGuessChooseCsReq {
+	uint32 HCFJIJHLJDM = 3; // offset: 24
+}
+
+message MonopolyGuessChooseScRsp {
+	uint32 HCFJIJHLJDM = 1; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+message MonopolyGuessDrawScNotify {
+	repeated DCMHLOEGFBM KHLFDHANJCO = 13; // offset: 24
+}
+
+message MonopolyLikeCsReq {
+	uint32 teleport_id = 6; // offset: 24
+}
+
+message MonopolyLikeScNotify {
+	repeated uint32 LPBBJFFNACA = 3; // offset: 24
+	uint32 DOHOMJBJLLG = 5; // offset: 32
+}
+
+message MonopolyLikeScRsp {
+	uint32 teleport_id = 2; // offset: 32
+	uint32 retcode = 8; // offset: 36
+	ItemList reward_list = 14; // offset: 16
+}
+
+message MonopolyMoveCsReq {
+	uint32 AHNGICEEADK = 1; // offset: 28
+	uint32 CPFGHPCBFOF = 10; // offset: 24
+}
+
+message MonopolyMoveScRsp {
+	uint32 retcode = 2; // offset: 40
+	repeated EIDFCGLODFB AJGMLOIONPK = 3; // offset: 16
+	ILMFJKCGBCK COOOMDKGODF = 6; // offset: 32
+}
+
+message MonopolyQuizDurationChangeScNotify {
+	repeated JPEGNCJDBOM DGNGMJMPFGK = 9; // offset: 24
+}
+
+message MonopolyReRollRandomCsReq {
+	uint32 event_id = 4; // offset: 24
+}
+
+message MonopolyReRollRandomScRsp {
+	uint32 retcode = 5; // offset: 32
+	NEMIDPFEJFL MOMEIFPICLE = 15; // offset: 16
+}
+
+message MonopolyRollDiceCsReq {
+}
+
+message MonopolyRollDiceScRsp {
+	uint32 roll_result = 4; // offset: 24
+	uint32 retcode = 9; // offset: 28
+}
+
+message MonopolyRollRandomCsReq {
+	uint32 event_id = 5; // offset: 24
+}
+
+message MonopolyRollRandomScRsp {
+	NEMIDPFEJFL MOMEIFPICLE = 1; // offset: 16
+	uint32 retcode = 7; // offset: 36
+	uint32 event_id = 9; // offset: 32
+}
+
+message MonopolyScrachRaffleTicketCsReq {
+	uint64 BBPGHFJOADI = 5; // offset: 24
+	uint32 pool_id = 7; // offset: 32
+}
+
+message MonopolyScrachRaffleTicketScRsp {
+	uint64 BBPGHFJOADI = 5; // offset: 24
+	uint32 retcode = 9; // offset: 32
+	uint32 pool_id = 14; // offset: 36
+}
+
+message MonopolySelectOptionCsReq {
+	uint32 HAFOKMHCGFM = 7; // offset: 24
+	uint32 event_id = 13; // offset: 28
+}
+
+message MonopolySelectOptionScRsp {
+	uint32 HAFOKMHCGFM = 6; // offset: 44
+	repeated HKNBLADLAAE DMCKDIGKHLB = 9; // offset: 32
+	uint32 event_id = 10; // offset: 48
+	NEMIDPFEJFL MOMEIFPICLE = 14; // offset: 16
+	uint32 retcode = 15; // offset: 40
+}
+
+message MonopolySocialEventEffectScNotify {
+	repeated EOHAFICJPIP OKPHCFLPLGH = 13; // offset: 16
+}
+
+message MonopolySttUpdateScNotify {
+	OCDBIMIBNCD stt = 8; // offset: 24
+}
+
+message MonopolyTakePhaseRewardCsReq {
+	repeated uint32 IICEKEPFMJO = 12; // offset: 24
+}
+
+message MonopolyTakePhaseRewardScRsp {
+	uint32 retcode = 3; // offset: 40
+	ItemList reward_list = 8; // offset: 32
+	repeated uint32 IICEKEPFMJO = 9; // offset: 16
+}
+
+message MonopolyTakeRaffleTicketRewardCsReq {
+	uint32 pool_id = 9; // offset: 32
+	uint64 BBPGHFJOADI = 11; // offset: 24
+}
+
+message MonopolyTakeRaffleTicketRewardScRsp {
+	ItemList reward_list = 3; // offset: 24
+	uint32 retcode = 8; // offset: 32
+	uint32 pool_id = 10; // offset: 40
+	uint32 BBPGHFJOADI = 15; // offset: 36
+}
+
+message MonopolyUpgradeAssetCsReq {
+	uint32 AGMNNNMDIPG = 8; // offset: 24
+}
+
+message MonopolyUpgradeAssetScRsp {
+	uint32 retcode = 2; // offset: 24
+}
+
+enum NADDHEILBBN {
+	NADDHEILBBN_BPOCOHFIAOH = 0;
+	NADDHEILBBN_HOPAGBFPBGP = 1;
+	NADDHEILBBN_MDJCIKAGEKH = 2;
+	NADDHEILBBN_CIHFGJDCHIA = 3;
+}
+
+message NCPJGBCCGGI {
+	uint32 CBILPMICEKC = 14; // offset: 24
+}
+
+message NEAEMNNKKEF {
+	uint32 DDFFJEBLCAN = 1; // offset: 24
+	uint32 BGKDJKCFEKD = 5; // offset: 28
+}
+
+message NEMIDPFEJFL {
+	uint32 GCLADEKCJCG = 10; // offset: 32
+	oneof BMHHGPHPLJB {
+		NIFKIMAANFJ NHONHFPBEBG = 9; // offset: 24
+		LNCHJBMIMAF MPBPBBLAHNM = 3; // offset: 24
+		ADNCPPCPLLH ONCBJHBKBLB = 4; // offset: 24
+		NCPJGBCCGGI CEFDDDAIMMD = 5; // offset: 24
+		DCAJAKJAJNL MOFNIOJHBBL = 7; // offset: 24
+		DKHCBKNGOMF AJGOEJHKOKE = 15; // offset: 24
+		GALCNKIAHNN ENFIEFPPCIC = 1; // offset: 24
+		OFPGDJJKGKJ BJHKLNNKPPB = 14; // offset: 24
+		DFKABDLJMJO HCLAEGDLOBD = 11; // offset: 24
+	}
+}
+
+message NIFKIMAANFJ {
+	uint32 event_id = 7; // offset: 24
+}
+
+message NJHAGKGHKJJ {
+	uint32 HNENMGMGONM = 3; // offset: 40
+	uint32 KDFDFBHKCNG = 5; // offset: 56
+	uint32 EEKPBPFPNIK = 7; // offset: 52
+	uint32 IFDIIODCFLC = 8; // offset: 36
+	uint32 DBPJBMMGAHH = 9; // offset: 48
+	uint32 PKHIADLBDDP = 12; // offset: 28
+	uint32 JDMNGBJDLBN = 13; // offset: 44
+	bool DKJBKELKKFO = 14; // offset: 24
+	uint32 OECIPJIPKEG = 15; // offset: 32
+}
+
+message NNDKLIBALLC {
+	uint32 JJKPBPLAGAN = 2; // offset: 24
+	uint32 KPMHGGHLOHB = 10; // offset: 28
+}
+
+message NOKANMFKNMM {
+	uint32 PJFPLAFEHKK = 3; // offset: 24
+}
+
+message OCDBIMIBNCD {
+	repeated uint32 LEIJJGDJECI = 3; // offset: 32
+	repeated uint32 POHBLAMKNJH = 9; // offset: 24
+}
+
+message OFPGDJJKGKJ {
+	uint32 JMBGMIPLLJI = 4; // offset: 36
+	uint32 IJJFAPBJMOD = 8; // offset: 44
+	uint32 GKKNMDDNOJF = 12; // offset: 40
+	repeated uint32 MJMJOMDLOHI = 13; // offset: 16
+	uint32 event_id = 15; // offset: 32
+}
+
+message PDNABFBLEPG {
+	uint32 ALMKIPNHAFM = 4; // offset: 36
+	bool GNIHCOPOLJB = 6; // offset: 33
+	bool BLBFMKKBELI = 7; // offset: 32
+	uint32 KEEOBECJNIP = 11; // offset: 40
+	uint32 item_value = 12; // offset: 24
+	uint32 MGJFFPIAOMI = 15; // offset: 28
+}

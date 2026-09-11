@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+enum CmdInteractiveTriggerMazeBuffType {
+	CmdInteractiveTriggerMazeBuffType_NLCDGIPGFDJ = 0;
+	CmdInteractiveTriggerMazeBuffType_DLDAICAFMPP = 9473;
+	CmdInteractiveTriggerMazeBuffType_GDINFMFDOPD = 9472;
+}
+
+message DCABOALFJAP {
+	uint32 OHMBEPHEBDJ = 2; // offset: 24
+}
+
+message NMEKJABIGGH {
+	uint32 OHMBEPHEBDJ = 11; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}

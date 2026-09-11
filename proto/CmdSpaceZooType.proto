@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdSpaceZooType {
+	CmdSpaceZooType_NLCDGIPGFDJ = 0;
+	CmdSpaceZooType_SpaceZooExchangeItemCsReq = 6739;
+	CmdSpaceZooType_SpaceZooTakeScRsp = 6768;
+	CmdSpaceZooType_SpaceZooDeleteCatScRsp = 6715;
+	CmdSpaceZooType_SpaceZooBornScRsp = 6775;
+	CmdSpaceZooType_SpaceZooTakeCsReq = 6708;
+	CmdSpaceZooType_SpaceZooMutateCsReq = 6760;
+	CmdSpaceZooType_SpaceZooOpCatteryCsReq = 6758;
+	CmdSpaceZooType_SpaceZooBornCsReq = 6705;
+	CmdSpaceZooType_SpaceZooDataScRsp = 6725;
+	CmdSpaceZooType_SpaceZooDeleteCatCsReq = 6783;
+	CmdSpaceZooType_SpaceZooOpCatteryScRsp = 6756;
+	CmdSpaceZooType_SpaceZooDataCsReq = 6734;
+	CmdSpaceZooType_SpaceZooExchangeItemScRsp = 6761;
+	CmdSpaceZooType_SpaceZooCatUpdateNotify = 6742;
+	CmdSpaceZooType_SpaceZooMutateScRsp = 6716;
+}
+
+message DBLILHCLPPL {
+	repeated uint32 item_list = 2; // offset: 16
+	uint32 DNNCAGJIOAP = 4; // offset: 44
+	uint32 unique_id = 7; // offset: 40
+	bool PKKAJKHKBMN = 9; // offset: 48
+	repeated uint32 DLPCPDGEADG = 11; // offset: 32
+	uint32 BBMELNJBGAL = 15; // offset: 52
+}
+
+message GFFFJCEHBEB {
+	uint32 BBMELNJBGAL = 5; // offset: 24
+	uint32 HFLPDCJDIAC = 10; // offset: 28
+}
+
+message SpaceZooBornCsReq {
+	repeated uint32 MOAOBPPHLDC = 5; // offset: 16
+	uint32 OPMPEGKMBPC = 15; // offset: 32
+}
+
+message SpaceZooBornScRsp {
+	uint32 retcode = 6; // offset: 44
+	repeated GFFFJCEHBEB JKMIFNJEBJO = 11; // offset: 16
+	bool HCGHLFAKIKI = 13; // offset: 40
+	DBLILHCLPPL DLMJNMIPDCO = 14; // offset: 24
+}
+
+message SpaceZooCatUpdateNotify {
+	bool FHHCNGAGFCJ = 7; // offset: 32
+	repeated DBLILHCLPPL HMAIHHCBFKP = 8; // offset: 16
+	bool HCGHLFAKIKI = 13; // offset: 33
+}
+
+message SpaceZooDataCsReq {
+}
+
+message SpaceZooDataScRsp {
+	repeated DBLILHCLPPL NFIGGHNNJAP = 2; // offset: 16
+	repeated GFFFJCEHBEB JAPFGEAIACA = 3; // offset: 64
+	repeated uint32 MDFEBNNOKLG = 4; // offset: 32
+	repeated uint32 JGCNAGNOFBP = 5; // offset: 72
+	uint32 OAIMAFOHLHC = 6; // offset: 80
+	repeated uint32 FIBMJBJMCKK = 7; // offset: 48
+	repeated uint32 GLMMHALPEAG = 8; // offset: 40
+	uint32 retcode = 14; // offset: 84
+	repeated uint32 ENGEBGICPPB = 15; // offset: 56
+}
+
+message SpaceZooDeleteCatCsReq {
+	repeated uint32 GBIEAFKKAPI = 11; // offset: 24
+}
+
+message SpaceZooDeleteCatScRsp {
+	repeated uint32 ANHNMANNAEP = 3; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message SpaceZooExchangeItemCsReq {
+	uint32 item_id = 8; // offset: 24
+}
+
+message SpaceZooExchangeItemScRsp {
+	uint32 item_id = 7; // offset: 24
+	uint32 retcode = 11; // offset: 28
+}
+
+message SpaceZooMutateCsReq {
+	uint32 item_id = 8; // offset: 28
+	uint32 ONIAFLNBNPN = 15; // offset: 24
+}
+
+message SpaceZooMutateScRsp {
+	repeated GFFFJCEHBEB JKMIFNJEBJO = 2; // offset: 16
+	bool HCGHLFAKIKI = 3; // offset: 44
+	uint32 retcode = 8; // offset: 40
+	DBLILHCLPPL KIIPGCDJPBO = 9; // offset: 24
+}
+
+message SpaceZooOpCatteryCsReq {
+	uint32 OCKGDJCGKLH = 2; // offset: 28
+	uint32 op_type = 11; // offset: 32
+	uint32 FEPDLPHPHGI = 15; // offset: 24
+}
+
+message SpaceZooOpCatteryScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated uint32 MDFEBNNOKLG = 5; // offset: 24
+}
+
+message SpaceZooTakeCsReq {
+	uint32 KIFKGLGCLEJ = 6; // offset: 24
+}
+
+message SpaceZooTakeScRsp {
+	uint32 retcode = 3; // offset: 36
+	ItemList reward = 10; // offset: 24
+	uint32 KIFKGLGCLEJ = 11; // offset: 32
+}

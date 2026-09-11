@@ -1,0 +1,211 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ChallengePeak {
+	repeated uint32 finished_target_list = 3; // offset: 24
+	bool has_passed = 4; // offset: 48
+	repeated ChallengePeakBuild peak_build_list = 9; // offset: 40
+	repeated uint32 peak_avatar_id_list = 11; // offset: 16
+	uint32 peak_id = 13; // offset: 52
+	uint32 cycles_used = 15; // offset: 56
+}
+
+message ChallengePeakBestRecord {
+	repeated uint32 finished_target_list = 8; // offset: 24
+	uint32 cycles_used = 11; // offset: 44
+	repeated ChallengePeakRecordAvatar peak_avatar_id_list = 13; // offset: 32
+	uint32 peak_id = 14; // offset: 40
+}
+
+message ChallengePeakBestRecordList {
+	repeated ChallengePeakBestRecord peaks = 14; // offset: 16
+}
+
+message ChallengePeakBoss {
+	ChallengePeakBossClearance easy_mode = 5; // offset: 24
+	ChallengePeakBossClearance hard_mode = 8; // offset: 40
+	bool hard_mode_has_passed = 9; // offset: 48
+	uint32 BFBHCKEJDIG = 12; // offset: 52
+	repeated uint32 finished_target_list = 13; // offset: 16
+}
+
+message ChallengePeakBossClearance {
+	uint32 max_left_turn = 1; // offset: 56
+	uint32 buff_id = 2; // offset: 48
+	repeated uint32 peak_avatar_id_list = 4; // offset: 32
+	repeated ChallengePeakRecordAvatar best_record_avatar_list = 5; // offset: 24
+	uint32 best_cycle_count = 6; // offset: 60
+	uint32 best_record_buff_id = 11; // offset: 52
+	bool has_passed = 13; // offset: 64
+	repeated uint32 LAMPCACOCHP = 15; // offset: 40
+}
+
+message ChallengePeakBuild {
+	uint32 equipment_unique_id = 4; // offset: 32
+	uint32 avatar_id = 7; // offset: 36
+	uint32 skin_id = 11; // offset: 40
+	repeated EquipRelic relic_list = 14; // offset: 16
+}
+
+message ChallengePeakGroup {
+	uint32 obtained_stars = 2; // offset: 64
+	ChallengePeakBestRecordList best_record_list = 3; // offset: 40
+	uint32 peak_group_id = 4; // offset: 68
+	repeated uint32 taken_star_rewards = 5; // offset: 24
+	repeated ChallengePeak peaks = 6; // offset: 56
+	bool disable_hard_mode = 8; // offset: 76
+	ChallengePeakBoss peak_boss = 9; // offset: 32
+	WaitConfirmData wait_confirm_data = 12; // offset: 16
+	uint32 count_of_peaks = 15; // offset: 72
+}
+
+message ChallengePeakGroupDataUpdateScNotify {
+	ChallengePeakGroup challenge_peak_group = 7; // offset: 16
+}
+
+message ChallengePeakLineup {
+	repeated uint32 peak_avatar_id_list = 3; // offset: 16
+	uint32 peak_id = 12; // offset: 32
+}
+
+message ChallengePeakRecordAvatar {
+	uint32 skin_id = 4; // offset: 28
+	uint32 avatar_id = 7; // offset: 24
+}
+
+message ChallengePeakRewardGroup {
+	uint32 reward_id = 9; // offset: 32
+	ItemList reward = 13; // offset: 16
+}
+
+message ChallengePeakSettleScNotify {
+	bool is_wait_confirm = 1; // offset: 46
+	bool is_win = 2; // offset: 48
+	bool hard_mode_has_passed = 3; // offset: 47
+	uint32 peak_id = 4; // offset: 40
+	uint32 turn_left = 6; // offset: 56
+	uint32 cycles_used = 8; // offset: 52
+	repeated ChallengePeakRewardGroup peak_reward_group_list = 9; // offset: 24
+	bool is_first_pass = 10; // offset: 45
+	bool is_boss_target_better = 11; // offset: 49
+	repeated uint32 finished_target_list = 13; // offset: 32
+	bool is_unlock_easy_boss = 15; // offset: 44
+}
+
+enum CmdChallengePeakType {
+	CmdChallengePeakType_NLCDGIPGFDJ = 0;
+	CmdChallengePeakType_StartChallengePeakCsReq = 8920;
+	CmdChallengePeakType_ReStartChallengePeakScRsp = 8925;
+	CmdChallengePeakType_TakeChallengePeakRewardCsReq = 8926;
+	CmdChallengePeakType_GetChallengePeakDataCsReq = 8934;
+	CmdChallengePeakType_SetChallengePeakBossHardModeScRsp = 8908;
+	CmdChallengePeakType_SetChallengePeakBossHardModeCsReq = 8940;
+	CmdChallengePeakType_SetChallengePeakMobLineupAvatarCsReq = 8918;
+	CmdChallengePeakType_StartChallengePeakScRsp = 8931;
+	CmdChallengePeakType_GetCurChallengePeakCsReq = 8948;
+	CmdChallengePeakType_ChallengePeakSettleScNotify = 8916;
+	CmdChallengePeakType_TakeChallengePeakRewardScRsp = 8904;
+	CmdChallengePeakType_GetChallengePeakDataScRsp = 8906;
+	CmdChallengePeakType_SetChallengePeakMobLineupAvatarScRsp = 8938;
+	CmdChallengePeakType_LeaveChallengePeakScRsp = 8932;
+	CmdChallengePeakType_ChallengePeakGroupDataUpdateScNotify = 8911;
+	CmdChallengePeakType_ConfirmChallengePeakSettleScRsp = 8939;
+	CmdChallengePeakType_LeaveChallengePeakCsReq = 8929;
+	CmdChallengePeakType_GetCurChallengePeakScRsp = 8914;
+	CmdChallengePeakType_ReStartChallengePeakCsReq = 8947;
+	CmdChallengePeakType_ConfirmChallengePeakSettleCsReq = 8942;
+}
+
+message ConfirmChallengePeakSettleCsReq {
+	uint32 peak_id = 7; // offset: 28
+	bool IOBCIMIPEOM = 13; // offset: 24
+}
+
+message ConfirmChallengePeakSettleScRsp {
+	bool IOBCIMIPEOM = 5; // offset: 28
+	uint32 peak_id = 14; // offset: 24
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetChallengePeakDataCsReq {
+}
+
+message GetChallengePeakDataScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated ChallengePeakGroup challenge_peak_groups = 5; // offset: 24
+	uint32 current_peak_group_id = 14; // offset: 36
+}
+
+message GetCurChallengePeakCsReq {
+}
+
+message GetCurChallengePeakScRsp {
+	uint32 boss_buff_id = 3; // offset: 36
+	uint32 peak_id = 8; // offset: 24
+	uint32 retcode = 13; // offset: 28
+	bool has_passed = 15; // offset: 32
+}
+
+message LeaveChallengePeakCsReq {
+}
+
+message LeaveChallengePeakScRsp {
+	uint32 retcode = 10; // offset: 24
+}
+
+message ReStartChallengePeakCsReq {
+}
+
+message ReStartChallengePeakScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message SetChallengePeakBossHardModeCsReq {
+	bool is_hard_mode = 4; // offset: 28
+	uint32 peak_group_id = 13; // offset: 24
+}
+
+message SetChallengePeakBossHardModeScRsp {
+	uint32 peak_group_id = 4; // offset: 24
+	uint32 retcode = 11; // offset: 28
+	bool is_hard_mode = 15; // offset: 32
+}
+
+message SetChallengePeakMobLineupAvatarCsReq {
+	repeated ChallengePeakLineup lineup_list = 9; // offset: 16
+	uint32 peak_group_id = 13; // offset: 32
+}
+
+message SetChallengePeakMobLineupAvatarScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message StartChallengePeakCsReq {
+	repeated uint32 peak_avatar_id_list = 5; // offset: 16
+	uint32 boss_buff_id = 7; // offset: 36
+	uint32 peak_id = 13; // offset: 32
+}
+
+message StartChallengePeakScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message TakeChallengePeakRewardCsReq {
+	repeated uint32 normal_reward_id_list = 7; // offset: 24
+	uint32 peak_group_id = 12; // offset: 32
+}
+
+message TakeChallengePeakRewardScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 peak_group_id = 4; // offset: 36
+	repeated ChallengePeakRewardGroup peak_reward_group_list = 14; // offset: 24
+}
+
+message WaitConfirmData {
+	bool is_wait_confirm = 2; // offset: 32
+	uint32 cycles_used = 7; // offset: 36
+	repeated uint32 finished_target_list = 8; // offset: 24
+	uint32 peak_id = 13; // offset: 40
+}

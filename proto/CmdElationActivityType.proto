@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdElationActivityType {
+	CmdElationActivityType_NLCDGIPGFDJ = 0;
+	CmdElationActivityType_EnterElationActivityStageCsReq = 9110;
+	CmdElationActivityType_GetElationActivityDataScRsp = 9103;
+	CmdElationActivityType_ElationActivityBattleEndScNotify = 9104;
+	CmdElationActivityType_EnterElationActivityStageScRsp = 9109;
+	CmdElationActivityType_GetElationActivityDataCsReq = 9102;
+}
+
+message ElationActivityAvatar {
+	AvatarType avatar_type = 1; // offset: 24
+	uint32 avatar_id = 7; // offset: 28
+}
+
+message ElationActivityBattleEndScNotify {
+	uint32 perfect_wave = 2; // offset: 36
+	uint32 JCFMCEPKEHA = 5; // offset: 40
+	uint32 JIGFPIOBAHB = 10; // offset: 44
+	ElationActivityLevelData level_data = 11; // offset: 16
+	uint32 level_id = 14; // offset: 32
+}
+
+message ElationActivityLevelData {
+	uint32 FFGFINDLMCF = 1; // offset: 24
+	uint32 CHPCJIBGKFK = 6; // offset: 32
+	bool is_perfect = 7; // offset: 28
+	uint32 level_id = 8; // offset: 36
+	uint32 BOEINFJIILE = 10; // offset: 40
+}
+
+message EnterElationActivityStageCsReq {
+	repeated ElationActivityAvatar fixed_avatar_list = 6; // offset: 16
+	repeated ElationActivityAvatar player_selected_avatar_list = 7; // offset: 24
+	uint32 level_id = 10; // offset: 40
+}
+
+message EnterElationActivityStageScRsp {
+	uint32 retcode = 6; // offset: 36
+	uint32 level_id = 9; // offset: 32
+	SceneBattleInfo battle_info = 12; // offset: 16
+}
+
+message GetElationActivityDataCsReq {
+}
+
+message GetElationActivityDataScRsp {
+	uint32 retcode = 14; // offset: 32
+	repeated ElationActivityLevelData level_data_list = 15; // offset: 24
+}

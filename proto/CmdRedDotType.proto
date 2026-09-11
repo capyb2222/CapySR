@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+
+enum CmdRedDotType {
+	CmdRedDotType_NLCDGIPGFDJ = 0;
+	CmdRedDotType_GetAllRedDotDataScRsp = 5906;
+	CmdRedDotType_UpdateRedDotDataScRsp = 5931;
+	CmdRedDotType_EJDAHCIBGOF = 5929;
+	CmdRedDotType_KABNELBBNKH = 5920;
+	CmdRedDotType_GetAllRedDotDataCsReq = 5934;
+	CmdRedDotType_GetSingleRedDotParamGroupScRsp = 5932;
+}
+
+message FHNAEJBKINH {
+	repeated uint32 KCNPFIGHDAL = 6; // offset: 24
+}
+
+message GFOAMKNHBFE {
+	map<uint32, FHNAEJBKINH> BANBCCBOEBJ = 2; // offset: 24
+	uint32 panel_id = 6; // offset: 32
+	uint32 FDEAKDCDGML = 15; // offset: 36
+}
+
+message GetAllRedDotDataCsReq {
+}
+
+message GetAllRedDotDataScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated GFOAMKNHBFE KGONOBEAGAI = 12; // offset: 24
+}
+
+message GetSingleRedDotParamGroupScRsp {
+	uint32 LNLDJDODOIL = 2; // offset: 32
+	FHNAEJBKINH BKNKFNHIPAK = 9; // offset: 16
+	uint32 group_id = 11; // offset: 40
+	uint32 retcode = 12; // offset: 36
+	uint32 FDEAKDCDGML = 14; // offset: 44
+}
+
+message ILDOMDOFEPK {
+	uint32 panel_id = 3; // offset: 28
+	uint32 FDEAKDCDGML = 5; // offset: 32
+	uint32 group_id = 8; // offset: 24
+}
+
+enum KFMHMJLPHOG {
+	KFMHMJLPHOG_LFGOKFCPBOG = 0;
+	KFMHMJLPHOG_PFNPBLMEOJB = 1;
+	KFMHMJLPHOG_CBHMACJNEJG = 2;
+}
+
+message NNCEFFFGNEN {
+	uint32 group_id = 3; // offset: 36
+	uint32 FDEAKDCDGML = 5; // offset: 44
+	KFMHMJLPHOG BICLKAPMFGP = 10; // offset: 32
+	uint32 panel_id = 14; // offset: 40
+	repeated uint32 switch_list = 15; // offset: 16
+}
+
+message UpdateRedDotDataScRsp {
+	uint32 LNLDJDODOIL = 2; // offset: 24
+	uint32 group_id = 4; // offset: 32
+	uint32 retcode = 5; // offset: 36
+	uint32 FDEAKDCDGML = 14; // offset: 28
+}

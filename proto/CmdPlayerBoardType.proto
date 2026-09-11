@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdPlayerBoardType {
+	CmdPlayerBoardType_NLCDGIPGFDJ = 0;
+	CmdPlayerBoardType_SetAssistAvatarCsReq = 2839;
+	CmdPlayerBoardType_SetPersonalCardScRsp = 2868;
+	CmdPlayerBoardType_SetIsDisplayAvatarInfoCsReq = 2858;
+	CmdPlayerBoardType_SetSignatureCsReq = 2815;
+	CmdPlayerBoardType_SetIsDisplayAvatarInfoScRsp = 2856;
+	CmdPlayerBoardType_SetHeadIconCsReq = 2805;
+	CmdPlayerBoardType_OJKCPGJLCDI = 2883;
+	CmdPlayerBoardType_SetSignatureScRsp = 2842;
+	CmdPlayerBoardType_GetPlayerBoardDataCsReq = 2834;
+	CmdPlayerBoardType_SetPersonalCardCsReq = 2808;
+	CmdPlayerBoardType_GetPlayerBoardDataScRsp = 2825;
+	CmdPlayerBoardType_SetDisplayAvatarScRsp = 2816;
+	CmdPlayerBoardType_SetAssistAvatarScRsp = 2861;
+	CmdPlayerBoardType_SetDisplayAvatarCsReq = 2860;
+	CmdPlayerBoardType_SetHeadIconScRsp = 2875;
+}
+
+message DisplayAvatarVec {
+	repeated DisplayAvatarData display_avatar_list = 3; // offset: 24
+	bool is_display = 5; // offset: 32
+}
+
+message GetPlayerBoardDataCsReq {
+}
+
+message GetPlayerBoardDataScRsp {
+	uint32 retcode = 1; // offset: 76
+	DisplayAvatarVec display_avatar_vec = 4; // offset: 64
+	string signature = 5; // offset: 40
+	repeated uint32 unlocked_personal_card_list = 6; // offset: 48
+	HeadFrameInfo head_frame_info = 7; // offset: 16
+	uint32 current_personal_card_id = 11; // offset: 80
+	repeated uint32 assist_avatar_id_list = 12; // offset: 56
+	repeated HeadIconData unlocked_head_icon_list = 13; // offset: 32
+	uint32 current_head_icon_id = 15; // offset: 72
+}
+
+message SetAssistAvatarCsReq {
+	uint32 avatar_id = 4; // offset: 32
+	repeated uint32 avatar_id_list = 14; // offset: 16
+}
+
+message SetAssistAvatarScRsp {
+	uint32 retcode = 6; // offset: 32
+	uint32 avatar_id = 11; // offset: 36
+	repeated uint32 avatar_id_list = 14; // offset: 24
+}
+
+message SetDisplayAvatarCsReq {
+	repeated DisplayAvatarData display_avatar_list = 6; // offset: 24
+}
+
+message SetDisplayAvatarScRsp {
+	repeated DisplayAvatarData display_avatar_list = 1; // offset: 24
+	uint32 retcode = 13; // offset: 32
+}
+
+message SetHeadIconCsReq {
+	uint32 id = 10; // offset: 24
+}
+
+message SetHeadIconScRsp {
+	uint32 current_head_icon_id = 5; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message SetIsDisplayAvatarInfoCsReq {
+	bool is_display = 11; // offset: 24
+}
+
+message SetIsDisplayAvatarInfoScRsp {
+	bool is_display = 1; // offset: 28
+	uint32 retcode = 14; // offset: 24
+}
+
+message SetPersonalCardCsReq {
+	uint32 id = 1; // offset: 24
+}
+
+message SetPersonalCardScRsp {
+	uint32 current_personal_card_id = 9; // offset: 24
+	uint32 retcode = 10; // offset: 28
+}
+
+message SetSignatureCsReq {
+	string signature = 8; // offset: 16
+}
+
+message SetSignatureScRsp {
+	uint32 retcode = 4; // offset: 32
+	string signature = 12; // offset: 16
+}

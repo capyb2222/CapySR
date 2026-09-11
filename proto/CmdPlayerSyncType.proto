@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AvatarSync {
+	repeated Avatar avatar_list = 4; // offset: 32
+	repeated AvatarPathData avatar_path_data_info_list = 6; // offset: 24
+}
+
+message BasicModuleSync {
+	uint32 DLODAKOHFOP = 7; // offset: 28
+	uint32 stamina = 8; // offset: 24
+}
+
+message CCHMHOONEGG {
+	uint32 num = 2; // offset: 28
+	uint32 OCJLBKDCKHL = 6; // offset: 24
+}
+
+enum CmdPlayerSyncType {
+	CmdPlayerSyncType_LIDGOKIFPOJ = 0;
+	CmdPlayerSyncType_PlayerSyncScNotify = 634;
+}
+
+message GroupStatus {
+	uint32 group_id = 7; // offset: 28
+	int64 refresh_time = 12; // offset: 32
+	MessageGroupStatus group_status = 14; // offset: 24
+}
+
+message MJBANFPPEFH {
+	uint32 id = 12; // offset: 36
+	oneof EPIIKEKKMPJ {
+		ONHKODAFEMH custom_value_list = 139; // offset: 16
+	}
+}
+
+message MissionSync {
+	repeated uint32 finished_main_mission_id_list = 5; // offset: 32
+	repeated uint32 DEPBONHELFD = 7; // offset: 48
+	repeated uint32 LEBFLAKCJCM = 9; // offset: 56
+	repeated Mission mission_list = 11; // offset: 16
+	repeated uint32 OBCBLABECEA = 14; // offset: 64
+	repeated MJBANFPPEFH NLPKLNDCMOC = 15; // offset: 40
+}
+
+message PlayerBoardModuleSync {
+	repeated HeadIconData unlocked_head_icon_list = 6; // offset: 40
+	repeated uint32 GHNJNFKJEDC = 7; // offset: 24
+	bool MFFGEMKLNBF = 10; // offset: 56
+	string signature = 13; // offset: 48
+	HeadFrameInfo head_frame_info = 14; // offset: 32
+}
+
+message PlayerSyncScNotify {
+	repeated Material material_list = 1; // offset: 120
+	MissionSync mission_sync = 2; // offset: 128
+	repeated uint32 del_equipment_list = 4; // offset: 48
+	repeated Relic relic_list = 5; // offset: 144
+	BasicModuleSync JHJNMOFMPMO = 6; // offset: 24
+	repeated Equipment equipment_list = 7; // offset: 72
+	repeated WaitDelResource wait_del_resource_list = 8; // offset: 176
+	repeated Quest quest_list = 10; // offset: 104
+	AvatarSync avatar_sync = 11; // offset: 80
+	PlayerBasicInfo basic_info = 12; // offset: 88
+	repeated uint32 del_relic_list = 15; // offset: 152
+	ItemList FHHGDACMJED = 242; // offset: 56
+	CJLCPMDGIBO DHKFCDAGHDM = 267; // offset: 168
+	repeated NLLLAAEJOBP update_platform_bound_gifts_list = 287; // offset: 112
+	SyncStatus sync_status = 492; // offset: 160
+	repeated Material NAJFMIIFIEC = 620; // offset: 16
+	PlayerBoardModuleSync update_player_board_module_list = 781; // offset: 96
+	repeated CCHMHOONEGG JIEOHBBDJDA = 789; // offset: 64
+	repeated PileItem sync_fiat_items_list = 1747; // offset: 40
+	repeated NKDNFDCFNCP NMBAFJGFOIH = 1757; // offset: 32
+}
+
+message SectionStatus {
+	uint32 section_id = 6; // offset: 24
+	MessageSectionStatus section_status = 9; // offset: 28
+}
+
+message SyncStatus {
+	repeated uint32 BGPACBIJDCH = 5; // offset: 32
+	repeated GroupStatus message_group_status = 6; // offset: 40
+	repeated uint32 MDANGIEIMIF = 7; // offset: 16
+	repeated SectionStatus section_status = 12; // offset: 24
+}

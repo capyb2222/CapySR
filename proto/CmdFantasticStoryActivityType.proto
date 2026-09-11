@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdFantasticStoryActivityType {
+	CmdFantasticStoryActivityType_NLCDGIPGFDJ = 0;
+	CmdFantasticStoryActivityType_FantasticStoryActivityBattleEndScNotify = 4916;
+	CmdFantasticStoryActivityType_EnterFantasticStoryActivityStageScRsp = 4960;
+	CmdFantasticStoryActivityType_FinishChapterScNotify = 4905;
+	CmdFantasticStoryActivityType_GetFantasticStoryActivityDataCsReq = 4934;
+	CmdFantasticStoryActivityType_GetFantasticStoryActivityDataScRsp = 4925;
+	CmdFantasticStoryActivityType_EnterFantasticStoryActivityStageCsReq = 4975;
+}
+
+message EnterFantasticStoryActivityStageCsReq {
+	uint32 battle_id = 1; // offset: 40
+	uint32 OFHBPNGDEGO = 8; // offset: 44
+	repeated uint32 buff_list = 9; // offset: 32
+	repeated PKCIPJBKAFO avatar_list = 10; // offset: 24
+}
+
+message EnterFantasticStoryActivityStageScRsp {
+	uint32 retcode = 2; // offset: 40
+	uint32 battle_id = 5; // offset: 32
+	SceneBattleInfo battle_info = 10; // offset: 24
+	uint32 OFHBPNGDEGO = 14; // offset: 36
+}
+
+message FGGCEKHFPLH {
+	repeated PKCIPJBKAFO avatar_list = 6; // offset: 16
+	repeated uint32 buff_list = 10; // offset: 24
+}
+
+message FantasticStoryActivityBattleEndScNotify {
+	uint32 FHBNGHINHOG = 3; // offset: 28
+	uint32 OFHBPNGDEGO = 5; // offset: 32
+	uint32 battle_id = 12; // offset: 24
+}
+
+message FinishChapterScNotify {
+	GCFDJCPFOGG ONIEMLICONB = 5; // offset: 16
+}
+
+message GCFDJCPFOGG {
+	repeated uint32 FIBFIKOBDPG = 1; // offset: 48
+	repeated uint32 HPLNHIFHBMA = 5; // offset: 64
+	map<uint32, FGGCEKHFPLH> DALPAKHCKLI = 6; // offset: 16
+	map<uint32, uint32> DLBOJCCDCFI = 8; // offset: 56
+	uint32 OFHBPNGDEGO = 10; // offset: 72
+	repeated uint32 JJOBBOHHOMG = 14; // offset: 40
+	repeated uint32 DJJKDGEFOIP = 15; // offset: 24
+}
+
+message GetFantasticStoryActivityDataCsReq {
+	uint32 OFHBPNGDEGO = 13; // offset: 24
+}
+
+message GetFantasticStoryActivityDataScRsp {
+	GCFDJCPFOGG ONIEMLICONB = 4; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message PKCIPJBKAFO {
+	uint32 avatar_id = 5; // offset: 28
+	AvatarType avatar_type = 13; // offset: 24
+}

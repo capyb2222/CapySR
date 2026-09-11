@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BMMHJIFCGNO {
+	uint32 MIPKOFFGPFA = 9; // offset: 28
+	uint32 KAJCFPKEGBP = 15; // offset: 24
+}
+
+message BPFDFOJOEMI {
+	uint32 percent = 6; // offset: 28
+	uint32 LBDLAACOCCN = 7; // offset: 24
+}
+
+message BigDataAvatarRelicRecommend {
+	repeated BPFDFOJOEMI body_main_property_list = 3; // offset: 48
+	repeated BPFDFOJOEMI outer_set_list = 4; // offset: 64
+	uint32 avatar_id = 10; // offset: 72
+	repeated JBGPLPCCDBJ rope_main_property_list = 11; // offset: 56
+	repeated BPFDFOJOEMI foot_main_property_list = 12; // offset: 40
+	repeated JBGPLPCCDBJ sphere_main_property_list = 14; // offset: 24
+	repeated BPFDFOJOEMI inner_set_list = 15; // offset: 16
+}
+
+message BigDataRecommendAvatarRelic {
+	repeated BigDataAvatarRelicRecommend recomended_relic_info_list = 10; // offset: 16
+}
+
+message BigDataRecommendRelicAvatar {
+	repeated RecomendedAvatarInfo recommended_avatar_info_list = 7; // offset: 16
+}
+
+enum BigDataRecommendType {
+	BIG_DATA_RECOMMEND_TYPE_NONE = 0;
+	BIG_DATA_RECOMMEND_TYPE_EQUIPMENT = 1;
+	BIG_DATA_RECOMMEND_TYPE_RELIC_SUIT = 2;
+	BIG_DATA_RECOMMEND_TYPE_RELIC_AVATAR = 3;
+	BIG_DATA_RECOMMEND_TYPE_AVATAR_RELIC = 4;
+	BIG_DATA_RECOMMEND_TYPE_LOCAL_LEGEND = 5;
+	BIG_DATA_RECOMMEND_TYPE_CHALLENGE_PEAK_MOB = 6;
+	BIG_DATA_RECOMMEND_TYPE_CHALLENGE_PEAK_BOSS = 7;
+	BIG_DATA_RECOMMEND_TYPE_CHALLENGE = 8;
+	BIG_DATA_RECOMMEND_TYPE_HMFFBIANKBF = 9;
+	BIG_DATA_RECOMMEND_TYPE_IGDNEOELFKC = 10;
+}
+
+enum CmdRecommendType {
+	CmdRecommendType_NLCDGIPGFDJ = 0;
+	CmdRecommendType_GetBigDataRecommendCsReq = 2416;
+	CmdRecommendType_GetBigDataAllRecommendScRsp = 2404;
+	CmdRecommendType_GetBigDataRecommendScRsp = 2411;
+	CmdRecommendType_GetBigDataAllRecommendCsReq = 2426;
+}
+
+message GHAJJBBEHBE {
+	uint32 BBGHAFGMMNM = 5; // offset: 32
+	uint32 LMHDFOFNFII = 12; // offset: 24
+	uint32 OAOPDHLDFIP = 13; // offset: 28
+}
+
+message GNBBDMBNNDJ {
+	repeated JOLHIMGJGBO lineup_list = 1; // offset: 16
+}
+
+message GetBigDataAllRecommendCsReq {
+	BigDataRecommendType big_data_recommend_type = 9; // offset: 24
+}
+
+message GetBigDataAllRecommendScRsp {
+	BigDataRecommendType big_data_recommend_type = 5; // offset: 40
+	uint32 retcode = 12; // offset: 32
+	oneof OODKOEILJCD {
+		BigDataRecommendRelicAvatar relic_avatar = 4; // offset: 24
+		BigDataRecommendAvatarRelic avatar_relic = 6; // offset: 24
+		GNBBDMBNNDJ KHCMLINMGEN = 15; // offset: 24
+	}
+}
+
+message GetBigDataRecommendCsReq {
+	uint32 equip_avatar = 10; // offset: 28
+	BigDataRecommendType big_data_recommend_type = 12; // offset: 24
+}
+
+message GetBigDataRecommendScRsp {
+	bool has_recommand = 5; // offset: 40
+	uint32 equip_avatar = 9; // offset: 32
+	BigDataRecommendType big_data_recommend_type = 12; // offset: 44
+	uint32 retcode = 14; // offset: 36
+	oneof OODKOEILJCD {
+		HCIIHNAFNAB equipment_recommend = 3; // offset: 24
+		RelicRecommend relic_recommend = 4; // offset: 24
+		GNBBDMBNNDJ KHCMLINMGEN = 6; // offset: 24
+	}
+}
+
+message HCIIHNAFNAB {
+	repeated BMMHJIFCGNO update_equipments_list = 10; // offset: 24
+}
+
+message JBGPLPCCDBJ {
+	uint32 GBJPBAHGBPO = 1; // offset: 24
+	uint32 NMFGIBMHNKI = 3; // offset: 32
+	uint32 percent = 11; // offset: 28
+}
+
+message RecomendedAvatarInfo {
+	uint32 recommend_avatar_id = 1; // offset: 32
+	uint32 relic_set_id = 4; // offset: 36
+	repeated uint32 avatar_id_list = 7; // offset: 24
+}
+
+message RelicRecommend {
+	repeated GHAJJBBEHBE GMCNPKAJMHC = 2; // offset: 24
+}

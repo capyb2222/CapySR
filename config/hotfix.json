@@ -1,0 +1,34 @@
+{
+    "CNBETAWin4.5.51": {
+        "asset_bundle_url": "https://autopatchcn.bhsr.com/asb/BetaLive/output_16228654_7d9ae69e532c_ff87719729c35f",
+        "ex_resource_url": "https://autopatchcn.bhsr.com/design_data/BetaLive/output_16297504_50bd375a94d3_6512106296b202",
+        "ifix_url": "https://autopatchcn.bhsr.com/ifix/BetaLive/output_0_40d2ce0253_c61ba99f70b885",
+        "ifix_version": "0",
+        "lua_url": "https://autopatchcn.bhsr.com/lua/BetaLive/output_16228766_9f45f1eb6490_9f172521b06e84",
+        "lua_version": ""
+    },
+    "CNBETAWin4.5.52": {
+        "asset_bundle_url": "https://autopatchcn.bhsr.com/asb/BetaLive/output_16317320_6a387bae4513_2f3e5644103a8a",
+        "ex_resource_url": "https://autopatchcn.bhsr.com/design_data/BetaLive/output_16353768_a1fcf7f6043c_508532c7de08bc",
+        "ifix_url": "https://autopatchcn.bhsr.com/ifix/BetaLive/output_0_40d2ce0253_c61ba99f70b885",
+        "ifix_version": "0",
+        "lua_url": "https://autopatchcn.bhsr.com/lua/BetaLive/output_16317476_035e0a79224b_ed91499b6ef70b",
+        "lua_version": ""
+    },
+    "CNBETAWin4.5.53": {
+        "asset_bundle_url": "https://autopatchcn.bhsr.com/asb/BetaLive/output_16397599_dc132a900809_7e7a4d9792c13e",
+        "ex_resource_url": "https://autopatchcn.bhsr.com/design_data/BetaLive/output_16399740_f7f17473a4be_cd161900e78e53",
+        "ifix_url": "https://autopatchcn.bhsr.com/ifix/BetaLive/output_0_40d2ce0253_c61ba99f70b885",
+        "ifix_version": "0",
+        "lua_url": "https://autopatchcn.bhsr.com/lua/BetaLive/output_16399471_bf17e3d5c3d7_5605fcd6b48271",
+        "lua_version": ""
+    },
+    "OSBETAWin4.5.53": {
+        "asset_bundle_url": "https://autopatchos.starrails.com/asb/BetaLive/output_16397599_dc132a900809_878c6299f49949",
+        "ex_resource_url": "https://autopatchos.starrails.com/design_data/BetaLive/output_16399740_f7f17473a4be_da8930e9651f6c",
+        "ifix_url": "https://autopatchos.starrails.com/ifix/BetaLive/output_0_40d2ce0253_6d871f8bca6eb4",
+        "ifix_version": "0",
+        "lua_url": "https://autopatchos.starrails.com/lua/BetaLive/output_16399471_bf17e3d5c3d7_0d1eb698b6136c",
+        "lua_version": ""
+    }
+}

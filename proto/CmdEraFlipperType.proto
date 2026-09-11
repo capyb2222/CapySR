@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ChangeEraFlipperDataCsReq {
+	KKFMGCNDHGH data = 10; // offset: 16
+}
+
+message ChangeEraFlipperDataScRsp {
+	KKFMGCNDHGH data = 12; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+enum CmdEraFlipperType {
+	CmdEraFlipperType_NLCDGIPGFDJ = 0;
+	CmdEraFlipperType_EraFlipperDataChangeScNotify = 6560;
+	CmdEraFlipperType_ChangeEraFlipperDataCsReq = 6566;
+	CmdEraFlipperType_EnterEraFlipperDataCsReq = 6563;
+	CmdEraFlipperType_GetEraFlipperDataCsReq = 6575;
+	CmdEraFlipperType_ResetEraFlipperDataCsReq = 6554;
+	CmdEraFlipperType_GetEraFlipperDataScRsp = 6567;
+	CmdEraFlipperType_ChangeEraFlipperDataScRsp = 6558;
+	CmdEraFlipperType_ResetEraFlipperDataScRsp = 6571;
+	CmdEraFlipperType_EnterEraFlipperDataScRsp = 6555;
+}
+
+message EnterEraFlipperDataCsReq {
+	uint32 state = 5; // offset: 24
+	uint32 region_id = 11; // offset: 28
+}
+
+message EnterEraFlipperDataScRsp {
+	uint32 region_id = 4; // offset: 24
+	uint32 retcode = 12; // offset: 28
+}
+
+message EraFlipperDataChangeScNotify {
+	uint32 DAGNPMDMCIN = 3; // offset: 32
+	KKFMGCNDHGH data = 14; // offset: 16
+}
+
+message GetEraFlipperDataCsReq {
+}
+
+message GetEraFlipperDataScRsp {
+	KKFMGCNDHGH data = 5; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message KKFMGCNDHGH {
+	repeated DisplayAvatarData DMDKAOOLABF = 6; // offset: 24
+}
+
+message ResetEraFlipperDataCsReq {
+	bool CJEILDIOIOE = 14; // offset: 24
+}
+
+message ResetEraFlipperDataScRsp {
+	bool CJEILDIOIOE = 7; // offset: 36
+	uint32 retcode = 10; // offset: 32
+	KKFMGCNDHGH data = 15; // offset: 24
+}

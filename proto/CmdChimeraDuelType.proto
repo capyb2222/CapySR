@@ -1,0 +1,433 @@
+syntax = "proto3";
+
+
+message BBDLCOJKGMI {
+	GLLDHGHJLOA PHLAMKCLLKP = 2; // offset: 16
+}
+
+enum BDEJGKKACMA {
+	BDEJGKKACMA_NLCDGIPGFDJ = 0;
+	BDEJGKKACMA_hp = 1;
+	BDEJGKKACMA_COJOIFPPCIJ = 2;
+}
+
+message CJHOCMLPMJD {
+	repeated uint32 AJFJLCKPNAM = 5; // offset: 16
+}
+
+message ChimeraDuelChangeLineupCsReq {
+	uint32 ALJOJIDAAPC = 5; // offset: 32
+	repeated uint32 AJFJLCKPNAM = 6; // offset: 24
+	uint32 GIECFFNDLEB = 8; // offset: 36
+}
+
+message ChimeraDuelChangeLineupScRsp {
+	uint32 retcode = 10; // offset: 32
+	repeated uint32 AJFJLCKPNAM = 11; // offset: 16
+}
+
+message ChimeraDuelEndGameCsReq {
+}
+
+message ChimeraDuelEndGameScRsp {
+	uint32 retcode = 4; // offset: 32
+	EBPBMFBFEJA CECFDNCDBEI = 13; // offset: 16
+}
+
+message ChimeraDuelEndRoundBattleStageCsReq {
+	IDGMALDABBE stt = 1; // offset: 24
+	DIIKFKNEHHG NONPIMDDJNN = 2; // offset: 36
+	uint32 MILMHPODLBB = 15; // offset: 32
+}
+
+message ChimeraDuelEndRoundBattleStageScRsp {
+	uint32 retcode = 9; // offset: 32
+	DIIKFKNEHHG NONPIMDDJNN = 11; // offset: 40
+	oneof KKNBOACNCON {
+		LCEDDGELBMJ CFDIKLBINHK = 1788; // offset: 16
+		EBPBMFBFEJA CECFDNCDBEI = 693; // offset: 16
+	}
+}
+
+message ChimeraDuelEndRoundShopStageCsReq {
+}
+
+message ChimeraDuelEndRoundShopStageScRsp {
+	uint32 retcode = 6; // offset: 32
+	LCEDDGELBMJ CFDIKLBINHK = 13; // offset: 24
+}
+
+message ChimeraDuelFinishMasterChallengeCsReq {
+	uint32 IPINHNFCIOE = 8; // offset: 24
+}
+
+message ChimeraDuelFinishMasterChallengeScRsp {
+	uint32 IPINHNFCIOE = 3; // offset: 24
+	uint32 retcode = 7; // offset: 28
+}
+
+message ChimeraDuelGetDataCsReq {
+}
+
+message ChimeraDuelGetDataScRsp {
+	LCEDDGELBMJ CFDIKLBINHK = 2; // offset: 16
+	uint32 retcode = 4; // offset: 40
+	PCBOLEAFMDN COFPFIDNONN = 8; // offset: 32
+}
+
+message ChimeraDuelGetFriendListCsReq {
+}
+
+message ChimeraDuelGetFriendListScRsp {
+	repeated MPPHIOJNKGB friend_list = 2; // offset: 24
+	uint32 retcode = 6; // offset: 32
+}
+
+message ChimeraDuelPlayerRankData {
+	uint32 score_id = 6; // offset: 24
+	uint32 rank = 15; // offset: 28
+}
+
+message ChimeraDuelSaveFriendPvpLineupCsReq {
+	uint32 slot = 10; // offset: 24
+}
+
+message ChimeraDuelSaveFriendPvpLineupScRsp {
+	uint32 retcode = 7; // offset: 36
+	PNCNGIAMLCA lineup = 11; // offset: 16
+	uint32 slot = 13; // offset: 32
+}
+
+message ChimeraDuelSelectGameCsReq {
+	uint32 FGLEKNDHMKN = 3; // offset: 24
+}
+
+message ChimeraDuelSelectGameScRsp {
+	uint32 FGLEKNDHMKN = 8; // offset: 24
+	uint32 retcode = 11; // offset: 28
+}
+
+message ChimeraDuelSellChimeraCsReq {
+	repeated uint32 AJFJLCKPNAM = 1; // offset: 16
+	uint32 NDJGKJMPPHJ = 2; // offset: 32
+}
+
+message ChimeraDuelSellChimeraScRsp {
+	repeated uint32 AJFJLCKPNAM = 5; // offset: 16
+	uint32 NDJGKJMPPHJ = 8; // offset: 32
+	uint32 retcode = 14; // offset: 36
+}
+
+message ChimeraDuelSetFriendDefendLineupCsReq {
+	uint32 slot = 14; // offset: 24
+}
+
+message ChimeraDuelSetFriendDefendLineupScRsp {
+	uint32 retcode = 10; // offset: 24
+	uint32 slot = 13; // offset: 28
+}
+
+message ChimeraDuelShopBuyChimeraCsReq {
+	repeated uint32 FMMICIHEOCM = 9; // offset: 16
+	uint32 GCKFOOIEHHA = 11; // offset: 36
+	uint32 KODOOHHPIKN = 13; // offset: 32
+}
+
+message ChimeraDuelShopBuyChimeraScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message ChimeraDuelShopBuyItemCsReq {
+	uint32 JHINLPCKMPK = 8; // offset: 28
+	uint32 AGBAIFPNKII = 13; // offset: 24
+}
+
+message ChimeraDuelShopBuyItemScRsp {
+	uint32 retcode = 9; // offset: 24
+}
+
+message ChimeraDuelShopLockCsReq {
+	bool is_locked = 1; // offset: 32
+	oneof KKNBOACNCON {
+		uint32 NDJGKJMPPHJ = 13; // offset: 16
+		uint32 AGBAIFPNKII = 2; // offset: 16
+	}
+}
+
+message ChimeraDuelShopLockScRsp {
+	uint32 retcode = 3; // offset: 40
+	bool is_locked = 15; // offset: 36
+	oneof KKNBOACNCON {
+		uint32 NDJGKJMPPHJ = 4; // offset: 16
+		uint32 AGBAIFPNKII = 5; // offset: 16
+	}
+}
+
+message ChimeraDuelShopRefreshCsReq {
+}
+
+message ChimeraDuelShopRefreshScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message ChimeraDuelStartGameCsReq {
+	uint32 IPINHNFCIOE = 9; // offset: 24
+}
+
+message ChimeraDuelStartGameScRsp {
+	uint32 retcode = 7; // offset: 32
+	LCEDDGELBMJ CFDIKLBINHK = 15; // offset: 16
+}
+
+message ChimeraDuelSyncChangeScNotify {
+	repeated LGEDKNLBCAN DGNGMJMPFGK = 13; // offset: 24
+}
+
+message ChimeraDuelUnlockMasterCsReq {
+	uint32 IPINHNFCIOE = 7; // offset: 24
+}
+
+message ChimeraDuelUnlockMasterScRsp {
+	uint32 IPINHNFCIOE = 9; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+enum CmdChimeraDuelType {
+	CmdChimeraDuelType_NLCDGIPGFDJ = 0;
+	CmdChimeraDuelType_ChimeraDuelSaveFriendPvpLineupScRsp = 9251;
+	CmdChimeraDuelType_ChimeraDuelShopRefreshCsReq = 9217;
+	CmdChimeraDuelType_ChimeraDuelGetFriendListCsReq = 9253;
+	CmdChimeraDuelType_ChimeraDuelSetFriendDefendLineupScRsp = 9245;
+	CmdChimeraDuelType_ChimeraDuelSetFriendDefendLineupCsReq = 9227;
+	CmdChimeraDuelType_ChimeraDuelChangeLineupCsReq = 9249;
+	CmdChimeraDuelType_ChimeraDuelGetDataScRsp = 9216;
+	CmdChimeraDuelType_ChimeraDuelShopRefreshScRsp = 9229;
+	CmdChimeraDuelType_ChimeraDuelGetFriendListScRsp = 9243;
+	CmdChimeraDuelType_ChimeraDuelSyncChangeScNotify = 9252;
+	CmdChimeraDuelType_ChimeraDuelShopBuyItemScRsp = 9212;
+	CmdChimeraDuelType_ChimeraDuelShopLockScRsp = 9248;
+	CmdChimeraDuelType_ChimeraDuelSellChimeraCsReq = 9222;
+	CmdChimeraDuelType_ChimeraDuelEndRoundShopStageScRsp = 9214;
+	CmdChimeraDuelType_ChimeraDuelGetDataCsReq = 9244;
+	CmdChimeraDuelType_ChimeraDuelEndRoundShopStageCsReq = 9236;
+	CmdChimeraDuelType_ChimeraDuelFinishMasterChallengeCsReq = 9238;
+	CmdChimeraDuelType_ChimeraDuelEndRoundBattleStageCsReq = 9258;
+	CmdChimeraDuelType_ChimeraDuelFinishMasterChallengeScRsp = 9234;
+	CmdChimeraDuelType_ChimeraDuelStartGameCsReq = 9226;
+	CmdChimeraDuelType_ChimeraDuelUnlockMasterCsReq = 9239;
+	CmdChimeraDuelType_ChimeraDuelChangeLineupScRsp = 9231;
+	CmdChimeraDuelType_ChimeraDuelEndRoundBattleStageScRsp = 9224;
+	CmdChimeraDuelType_ChimeraDuelSelectGameCsReq = 9223;
+	CmdChimeraDuelType_ChimeraDuelShopBuyItemCsReq = 9233;
+	CmdChimeraDuelType_ChimeraDuelSellChimeraScRsp = 9215;
+	CmdChimeraDuelType_ChimeraDuelShopBuyChimeraScRsp = 9235;
+	CmdChimeraDuelType_ChimeraDuelEndGameCsReq = 9250;
+	CmdChimeraDuelType_ChimeraDuelShopBuyChimeraCsReq = 9257;
+	CmdChimeraDuelType_ChimeraDuelStartGameScRsp = 9221;
+	CmdChimeraDuelType_ChimeraDuelShopLockCsReq = 9228;
+	CmdChimeraDuelType_ChimeraDuelSelectGameScRsp = 9225;
+	CmdChimeraDuelType_ChimeraDuelUnlockMasterScRsp = 9242;
+	CmdChimeraDuelType_ChimeraDuelSaveFriendPvpLineupCsReq = 9219;
+	CmdChimeraDuelType_ChimeraDuelEndGameScRsp = 9218;
+}
+
+enum DIIKFKNEHHG {
+	DIIKFKNEHHG_NLCDGIPGFDJ = 0;
+	DIIKFKNEHHG_EHNIPLNEEDI = 1;
+	DIIKFKNEHHG_FAODKNDLNPF = 2;
+	DIIKFKNEHHG_EEOOMIBEMNH = 3;
+}
+
+message DMOJMNKOILL {
+	bool is_locked = 3; // offset: 29
+	bool IFIGFODOPBB = 4; // offset: 28
+	uint32 item_id = 8; // offset: 24
+	uint32 AGBAIFPNKII = 11; // offset: 32
+}
+
+message EBPBMFBFEJA {
+	uint32 FGLEKNDHMKN = 4; // offset: 44
+	LCEDDGELBMJ CFDIKLBINHK = 9; // offset: 24
+	ChimeraDuelPlayerRankData AAIMONALOPD = 11; // offset: 16
+	bool ENFKEAEGPBJ = 15; // offset: 40
+}
+
+message FJJHCDGNDPD {
+	repeated uint32 ACCKECIHCGJ = 1; // offset: 32
+	repeated uint32 JJOJFFAOEDI = 11; // offset: 16
+}
+
+message FLOPNJFNAOG {
+	POACIACEJJN JOOEEKMDAEO = 5; // offset: 16
+	bool NBHLDBBBPPA = 11; // offset: 32
+}
+
+message GIEPFAIPADI {
+	repeated uint32 FMMICIHEOCM = 10; // offset: 16
+}
+
+message GLLDHGHJLOA {
+	repeated uint32 AJFJLCKPNAM = 2; // offset: 32
+	uint32 rank = 3; // offset: 68
+	string nickname = 4; // offset: 24
+	uint32 IPINHNFCIOE = 6; // offset: 56
+	uint32 head_icon = 7; // offset: 64
+	uint32 uid = 8; // offset: 52
+	uint32 KIMKENNLHEH = 9; // offset: 48
+	repeated NHDGNBKBNDB BCGOAIPKGIK = 11; // offset: 16
+	uint32 hp = 13; // offset: 60
+}
+
+message HNAOOMKGFCB {
+	PDHFFPOJNJG source_type = 2; // offset: 28
+	uint32 BHCCDFFBAAM = 13; // offset: 32
+	uint32 LLMHAEAPGON = 14; // offset: 24
+}
+
+message IDGMALDABBE {
+	repeated KELKOMPBONA IIFPJKNCLGF = 3; // offset: 24
+	repeated KELKOMPBONA EECAHBHNDHC = 10; // offset: 32
+	NDLBFFKAGBN NMPGPDMHKAM = 11; // offset: 16
+	uint32 total_damage = 14; // offset: 48
+	uint32 cost_time = 15; // offset: 52
+}
+
+message JJKOHCPBGAL {
+	uint32 FLIEDGKFNOL = 5; // offset: 48
+	HNAOOMKGFCB source = 9; // offset: 16
+	GIEPFAIPADI LHEOBNDKGHD = 12; // offset: 32
+	oneof BHNPKLCNDNG {
+		BDEJGKKACMA LLCOEPJFGPE = 118; // offset: 24
+		uint32 BNCCMEGJONF = 446; // offset: 24
+		FJJHCDGNDPD IAECKEDODEF = 451; // offset: 24
+	}
+}
+
+message JJNHIKIGKJC {
+	uint32 unique_id = 6; // offset: 28
+	uint32 item_id = 7; // offset: 24
+}
+
+message KELKOMPBONA {
+	uint32 level = 1; // offset: 52
+	int32 atk = 2; // offset: 64
+	uint32 FGECDDFBFOJ = 5; // offset: 72
+	uint32 grid_fight_equipment_id = 6; // offset: 44
+	uint32 EBMJGPMHDMK = 7; // offset: 68
+	uint32 MBNBFBNKLGH = 8; // offset: 24
+	uint32 unique_id = 9; // offset: 28
+	uint32 DIECMLHJCFE = 10; // offset: 32
+	KPEPGHLKNFG status = 11; // offset: 60
+	int32 hp = 12; // offset: 56
+	uint32 index = 13; // offset: 48
+	uint32 DKHCOHKFKFA = 14; // offset: 40
+	uint32 exp = 15; // offset: 36
+}
+
+message KGHDDIBDABP {
+	uint32 IPAOBKONIFL = 2; // offset: 36
+	uint32 NDJGKJMPPHJ = 10; // offset: 32
+	bool is_locked = 11; // offset: 24
+	uint32 grid_fight_equipment_id = 13; // offset: 28
+	uint32 FGECDDFBFOJ = 14; // offset: 40
+}
+
+enum KPEPGHLKNFG {
+	KPEPGHLKNFG_LCNJHOKLMPN = 0;
+	KPEPGHLKNFG_JJBEPKLOLCP = 1;
+	KPEPGHLKNFG_DOGMHOAOJFD = 2;
+}
+
+message LCEDDGELBMJ {
+	repeated uint32 HGKDHJHKFBP = 2; // offset: 40
+	uint32 BAJHKGJPFED = 4; // offset: 76
+	uint32 NMPABPJHGPE = 5; // offset: 72
+	uint32 hp = 6; // offset: 56
+	uint32 IDNHBBMLNJK = 8; // offset: 52
+	uint32 JGPHDBDHKKO = 9; // offset: 64
+	uint32 KIMKENNLHEH = 10; // offset: 68
+	repeated NHDGNBKBNDB BCGOAIPKGIK = 13; // offset: 16
+	uint32 IPINHNFCIOE = 14; // offset: 48
+	oneof PAPIIIMEKDD {
+		POACIACEJJN HKFFIGBBFAE = 1599; // offset: 24
+		BBDLCOJKGMI PJCKOBNPFCB = 1575; // offset: 24
+	}
+}
+
+message LGEDKNLBCAN {
+	oneof MMCGBGDJIPN {
+		JJKOHCPBGAL ALPKKNKAFBG = 3; // offset: 16
+		uint32 PBCGHKNGBFC = 14; // offset: 16
+		NHDGNBKBNDB PFOBPLCGGGI = 9; // offset: 16
+		uint32 KBPJKIEBBON = 10; // offset: 16
+		FLOPNJFNAOG KJHMPBOIGGE = 11; // offset: 16
+		CJHOCMLPMJD FICFIOENBEN = 2; // offset: 16
+		uint32 GCKFOOIEHHA = 15; // offset: 16
+		uint32 HFOKEKMCOBP = 8; // offset: 16
+		uint32 CIFFLEBCFGK = 13; // offset: 16
+		MAFDLBFIJMB BHPPAPONGOE = 6; // offset: 16
+		uint32 NGBAKCIGBMN = 7; // offset: 16
+	}
+}
+
+message MAFDLBFIJMB {
+	PNCNGIAMLCA lineup = 10; // offset: 16
+	uint32 slot = 15; // offset: 32
+}
+
+message MPPHIOJNKGB {
+	uint32 uid = 1; // offset: 36
+	uint32 score_id = 4; // offset: 32
+	PNCNGIAMLCA lineup = 7; // offset: 24
+}
+
+message NDLBFFKAGBN {
+	uint32 BPHNEOLCKAD = 1; // offset: 40
+	uint32 MHDBNNKHBBL = 3; // offset: 28
+	uint32 total_turns = 5; // offset: 36
+	uint32 ODIBDCLGKBE = 6; // offset: 32
+	uint32 total_auto_turns = 12; // offset: 24
+	uint32 LPLLIICLCHB = 14; // offset: 44
+}
+
+message NHDGNBKBNDB {
+	int32 GIFJODBPLPJ = 3; // offset: 48
+	uint32 unique_id = 4; // offset: 32
+	JJNHIKIGKJC equip = 6; // offset: 16
+	int32 OEEIPJDNMOK = 8; // offset: 36
+	uint32 LLEOGLLHCLK = 10; // offset: 52
+	uint32 exp = 11; // offset: 40
+	uint32 FGECDDFBFOJ = 15; // offset: 44
+}
+
+message PCBOLEAFMDN {
+	uint32 NGBAKCIGBMN = 4; // offset: 76
+	uint32 DEFHFAGLMLC = 5; // offset: 68
+	repeated uint32 PGGOOINMOLF = 8; // offset: 24
+	uint32 FGLEKNDHMKN = 9; // offset: 64
+	uint32 CIFFLEBCFGK = 10; // offset: 72
+	repeated uint32 FOLMLBOLGEM = 11; // offset: 56
+	repeated uint32 HAKLMIAENCF = 12; // offset: 48
+	repeated MAFDLBFIJMB GNJGPFDKLBH = 14; // offset: 40
+	ChimeraDuelPlayerRankData AAIMONALOPD = 15; // offset: 32
+}
+
+enum PDHFFPOJNJG {
+	PDHFFPOJNJG_NLCDGIPGFDJ = 0;
+	PDHFFPOJNJG_GIKNCJMJLFE = 1;
+	PDHFFPOJNJG_PAGPNOKLNOM = 2;
+	PDHFFPOJNJG_LPIINKCPJPO = 3;
+	PDHFFPOJNJG_DIMIFCJPHME = 4;
+	PDHFFPOJNJG_AJGOEJHKOKE = 5;
+}
+
+message PNCNGIAMLCA {
+	repeated NHDGNBKBNDB BCGOAIPKGIK = 7; // offset: 32
+	repeated uint32 AJFJLCKPNAM = 9; // offset: 16
+	uint32 IPINHNFCIOE = 12; // offset: 40
+}
+
+message POACIACEJJN {
+	repeated DMOJMNKOILL LCJFDCHINHL = 6; // offset: 32
+	repeated KGHDDIBDABP DKCMMMPNEME = 9; // offset: 24
+}

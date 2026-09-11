@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+
+enum CmdTextJoinType {
+	CmdTextJoinType_NLCDGIPGFDJ = 0;
+	CmdTextJoinType_IPONEPLMCBI = 3834;
+	CmdTextJoinType_TextJoinQueryScRsp = 3875;
+	CmdTextJoinType_TextJoinQueryCsReq = 3805;
+	CmdTextJoinType_TextJoinSaveScRsp = 3825;
+	CmdTextJoinType_TextJoinBatchSaveScRsp = 3816;
+	CmdTextJoinType_TextJoinBatchSaveCsReq = 3860;
+}
+
+message JCDNAGMDELF {
+	string ANEGIMPIEHL = 7; // offset: 16
+	uint32 PAIPJMKCCEH = 10; // offset: 36
+	uint32 HPCIKHIBFHD = 15; // offset: 32
+}
+
+message KIJJCOBOJFM {
+	uint32 text_join_item_id = 8; // offset: 24
+}
+
+message TextJoinBatchSaveCsReq {
+	repeated JCDNAGMDELF HPEDOFFJKKP = 7; // offset: 24
+}
+
+message TextJoinBatchSaveScRsp {
+	repeated JCDNAGMDELF HPEDOFFJKKP = 2; // offset: 16
+	uint32 retcode = 4; // offset: 32
+}
+
+message TextJoinQueryCsReq {
+	repeated uint32 NKNFFPBDPJP = 3; // offset: 24
+}
+
+message TextJoinQueryScRsp {
+	uint32 retcode = 10; // offset: 32
+	repeated JCDNAGMDELF HPEDOFFJKKP = 13; // offset: 16
+}
+
+message TextJoinSaveScRsp {
+	uint32 retcode = 1; // offset: 24
+}

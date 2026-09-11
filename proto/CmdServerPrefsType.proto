@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+
+enum CmdServerPrefsType {
+	CmdServerPrefsType_NLCDGIPGFDJ = 0;
+	CmdServerPrefsType_GetAllServerPrefsDataScRsp = 6125;
+	CmdServerPrefsType_UpdateServerPrefsDataScRsp = 6116;
+	CmdServerPrefsType_BIOLLCIKFFD = 6105;
+	CmdServerPrefsType_GetAllServerPrefsDataCsReq = 6134;
+	CmdServerPrefsType_UpdateServerPrefsCsReq = 6160;
+	CmdServerPrefsType_GetServerPrefsDataScRsp = 6175;
+}
+
+message GetAllServerPrefsDataCsReq {
+}
+
+message GetAllServerPrefsDataScRsp {
+	uint32 retcode = 9; // offset: 32
+	repeated ServerPrefs server_prefs_list = 11; // offset: 24
+}
+
+message GetServerPrefsDataScRsp {
+	ServerPrefs server_prefs = 7; // offset: 24
+	uint32 retcode = 8; // offset: 32
+}
+
+message IANCKAHGKMI {
+	uint32 CFBDEAHMPKF = 2; // offset: 24
+}
+
+message ServerPrefs {
+	uint32 server_prefs_id = 3; // offset: 32
+	bytes data = 13; // offset: 16
+}
+
+message UpdateServerPrefsCsReq {
+	ServerPrefs server_prefs = 15; // offset: 16
+}
+
+message UpdateServerPrefsDataScRsp {
+	uint32 server_prefs_id = 2; // offset: 24
+	uint32 retcode = 9; // offset: 28
+}

@@ -1,0 +1,300 @@
+syntax = "proto3";
+
+
+message BJGNOHEEIGD {
+	uint32 DCOONCCIKGL = 2; // offset: 36
+	repeated uint32 DECFDGJJFGL = 6; // offset: 16
+	uint32 LCFLDHCDNPA = 8; // offset: 32
+}
+
+message BMDEEMIDNEL {
+	repeated uint32 IHOMKIICBLP = 5; // offset: 16
+	uint32 CEDDGAMLKJK = 9; // offset: 32
+}
+
+enum CmdLimaoNewsType {
+	CmdLimaoNewsType_NLCDGIPGFDJ = 0;
+	CmdLimaoNewsType_LimaoNewsCompleteOfficeSurveyListScRsp = 9186;
+	CmdLimaoNewsType_LimaoNewsUpvotePostScRsp = 9180;
+	CmdLimaoNewsType_LimaoNewsUpvoteInterviewScRsp = 9151;
+	CmdLimaoNewsType_OKGOKBGHECO = 9199;
+	CmdLimaoNewsType_NOGFALFDIHF = 9204;
+	CmdLimaoNewsType_DPMAAMEHJKI = 9205;
+	CmdLimaoNewsType_LimaoNewsDataChangeScNotify = 9167;
+	CmdLimaoNewsType_LimaoNewsFinishClientMessageScRsp = 9178;
+	CmdLimaoNewsType_OIIMHPFEBGF = 9183;
+	CmdLimaoNewsType_LimaoNewsFinishClientEventScRsp = 9185;
+	CmdLimaoNewsType_ALJLHGANFEM = 9203;
+	CmdLimaoNewsType_LimaoNewsFinishClientReplyScRsp = 9160;
+	CmdLimaoNewsType_LimaoNewsTrackSurveyScRsp = 9210;
+	CmdLimaoNewsType_POBOGNLNKCJ = 9201;
+	CmdLimaoNewsType_LimaoNewsGetDataScRsp = 9173;
+	CmdLimaoNewsType_LimaoNewsSubmitPostScRsp = 9176;
+	CmdLimaoNewsType_BIECJPJOGOD = 9206;
+	CmdLimaoNewsType_LimaoNewsOfficeSurveyWithFilterScRsp = 9208;
+	CmdLimaoNewsType_OKDICCOLPLG = 9195;
+	CmdLimaoNewsType_JOGEHJJCHNM = 9187;
+	CmdLimaoNewsType_ECIIEHHBAJJ = 9202;
+	CmdLimaoNewsType_MGKFNLIDIMN = 9177;
+	CmdLimaoNewsType_IELEHBEKEBG = 9189;
+	CmdLimaoNewsType_LimaoNewsGetDataCsReq = 9171;
+	CmdLimaoNewsType_FGEBELHDACI = 9207;
+	CmdLimaoNewsType_EOKDNIINNJF = 9194;
+	CmdLimaoNewsType_MCONKMMNKHD = 9184;
+	CmdLimaoNewsType_LimaoNewsSubmitIssueScRsp = 9168;
+	CmdLimaoNewsType_JKLDNBFNOGA = 9192;
+	CmdLimaoNewsType_CDCJOCAPMBO = 9174;
+	CmdLimaoNewsType_BCIDNJPJDJJ = 9172;
+	CmdLimaoNewsType_FJKMBBBFDGO = 9159;
+	CmdLimaoNewsType_LimaoNewsSetMainPageFlagScRsp = 9153;
+}
+
+message DGFHEGJKHFO {
+	uint32 KPKJALDCMIK = 15; // offset: 24
+}
+
+message DPAJAECBCPA {
+	repeated LimaoNewsOfficeSurveyState CMNOBDCMGHE = 3; // offset: 32
+	repeated uint32 IAEAJKJDCHO = 7; // offset: 16
+	repeated uint32 HBEHCHBCBPG = 13; // offset: 40
+}
+
+message EMOPGLBEHPA {
+	uint32 PLDKENJLKME = 15; // offset: 24
+}
+
+message FNIDNGOGAFF {
+	uint32 KPKJALDCMIK = 4; // offset: 24
+	uint32 IIADKFFPKGP = 6; // offset: 28
+}
+
+message GNPIEPGLNPC {
+	uint32 PLDKENJLKME = 4; // offset: 24
+}
+
+message HBOOIEJHKOD {
+	uint32 CBGODLHCLPK = 3; // offset: 24
+	uint32 BOGIJENAEHJ = 15; // offset: 28
+}
+
+message HDDBFAIFCGK {
+	uint32 LFPABLEIKKE = 8; // offset: 32
+	repeated PJPMBOBAMIC EHFHDELPGLN = 15; // offset: 16
+}
+
+message HOALCJNIJJC {
+	uint32 event_id = 7; // offset: 28
+	uint32 param = 14; // offset: 24
+}
+
+message IBPHNIBGMPH {
+	uint32 CBGODLHCLPK = 9; // offset: 24
+}
+
+message ICCEJJFNNBD {
+	uint32 PLDKENJLKME = 12; // offset: 24
+}
+
+message IGIBNBCMEAG {
+	uint32 PLDKENJLKME = 4; // offset: 32
+	int64 LLKBEKMEEEB = 11; // offset: 24
+}
+
+message JABBBMCMKAI {
+	uint32 FBGGJDIGBKH = 9; // offset: 28
+	uint32 NABDKGBPGOA = 15; // offset: 24
+}
+
+message JGHOCEGBDCC {
+}
+
+message JPIEAEJIDAO {
+	repeated FNIDNGOGAFF LMLLNJBLPGC = 11; // offset: 24
+}
+
+message KELNHIOMCNF {
+}
+
+message KJAMNAOLOLL {
+	uint32 LJHGIFGINOL = 10; // offset: 28
+	uint32 MBBGFJGCHGE = 15; // offset: 24
+}
+
+message LDCEDOGDNDC {
+	uint32 AMMPOLONOBC = 14; // offset: 24
+	uint32 HAFOKMHCGFM = 15; // offset: 28
+}
+
+message LFGKIJMBKJG {
+	uint32 CBGODLHCLPK = 7; // offset: 24
+	bool KBLBFGANMPJ = 11; // offset: 28
+}
+
+message LGGGHFDBCFN {
+	bool has_passed = 1; // offset: 24
+	uint32 FDGJLMMEAOF = 3; // offset: 32
+	uint32 KBDOBOODPAK = 8; // offset: 28
+	uint32 progress = 13; // offset: 36
+}
+
+message LimaoNewsCompleteOfficeSurveyListScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message LimaoNewsDataChangeScNotify {
+	repeated OCEAHPDAPFC DGNGMJMPFGK = 9; // offset: 24
+}
+
+message LimaoNewsFinishClientEventScRsp {
+	uint32 event_id = 4; // offset: 28
+	uint32 param = 8; // offset: 32
+	uint32 retcode = 9; // offset: 24
+}
+
+message LimaoNewsFinishClientMessageScRsp {
+	uint32 retcode = 2; // offset: 28
+	uint32 NNDNCAEGDFI = 14; // offset: 24
+}
+
+message LimaoNewsFinishClientReplyScRsp {
+	uint32 CBGODLHCLPK = 2; // offset: 32
+	uint32 BOGIJENAEHJ = 4; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}
+
+message LimaoNewsGetDataCsReq {
+}
+
+message LimaoNewsGetDataScRsp {
+	repeated uint32 KBMHPOBLMKH = 1; // offset: 88
+	uint32 JDGKFGONCJI = 2; // offset: 140
+	OEIHBAJCCAF OILCNNHJKLE = 3; // offset: 32
+	repeated KJAMNAOLOLL LFEGDDMBLEE = 4; // offset: 112
+	bool HIHOBEPGLEJ = 5; // offset: 120
+	repeated FNIDNGOGAFF LBBGCNIJMJC = 6; // offset: 40
+	repeated HDDBFAIFCGK IDMHGCAIBNK = 8; // offset: 16
+	repeated BMDEEMIDNEL KFCEKGMDPKP = 9; // offset: 48
+	repeated uint32 BEBLBBEEIGH = 10; // offset: 24
+	uint32 retcode = 11; // offset: 136
+	repeated LGGGHFDBCFN JEFNJEJFPGK = 12; // offset: 56
+	repeated PBLBAAMLNLH JLADELFEHNO = 13; // offset: 80
+	repeated uint32 BIGCHMJEPKE = 15; // offset: 64
+	repeated BJGNOHEEIGD BICJEHNPJGK = 276; // offset: 104
+	int64 PKLLFPOGLML = 1176; // offset: 128
+	repeated PPPCGBKJDAB EGIKGNHCMLF = 1377; // offset: 72
+}
+
+enum LimaoNewsOfficeSurveyState {
+	LimaoNewsOfficeSurveyState_None = 0;
+	LimaoNewsOfficeSurveyState_Unvisible = 1;
+	LimaoNewsOfficeSurveyState_Pending = 2;
+	LimaoNewsOfficeSurveyState_Started = 3;
+	LimaoNewsOfficeSurveyState_Finished = 4;
+}
+
+message LimaoNewsOfficeSurveyWithFilterScRsp {
+	uint32 retcode = 5; // offset: 24
+}
+
+message LimaoNewsSetMainPageFlagScRsp {
+	uint32 retcode = 9; // offset: 24
+}
+
+message LimaoNewsSubmitIssueScRsp {
+	uint32 LFPABLEIKKE = 1; // offset: 28
+	uint32 retcode = 10; // offset: 24
+}
+
+message LimaoNewsSubmitPostScRsp {
+	PBLBAAMLNLH AMFEFIDDMDA = 9; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message LimaoNewsTrackSurveyScRsp {
+	uint32 KPKJALDCMIK = 2; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}
+
+message LimaoNewsUpvoteInterviewScRsp {
+	uint32 BEOHGAADKPH = 2; // offset: 32
+	uint32 retcode = 3; // offset: 28
+	bool KBLBFGANMPJ = 14; // offset: 24
+}
+
+message LimaoNewsUpvotePostScRsp {
+	uint32 retcode = 1; // offset: 32
+	bool KBLBFGANMPJ = 6; // offset: 24
+	uint32 CBGODLHCLPK = 8; // offset: 28
+}
+
+message NFBHBDICGOG {
+}
+
+message OCEAHPDAPFC {
+	oneof MMCGBGDJIPN {
+		uint32 OCJCOOLMCGD = 5; // offset: 16
+		PBLBAAMLNLH NOGCKIHEDCE = 7; // offset: 16
+		uint32 HOCFMNJPCLI = 6; // offset: 16
+		uint32 JGMJFHLIAIL = 13; // offset: 16
+		KJAMNAOLOLL IAFPOEBBJIL = 3; // offset: 16
+		LGGGHFDBCFN LDBGGNHLFAM = 14; // offset: 16
+		JPIEAEJIDAO HDMEPMHHOLP = 12; // offset: 16
+		uint32 JDGKFGONCJI = 15; // offset: 16
+		uint32 CGEFHJIEKGF = 1; // offset: 16
+		OEIHBAJCCAF EOKMIFNCLAB = 9; // offset: 16
+		BMDEEMIDNEL ANLLBMHLFFC = 4; // offset: 16
+		BJGNOHEEIGD NBCEHKBENPE = 8; // offset: 16
+		PPPCGBKJDAB JEBEMFMEEPJ = 956; // offset: 16
+	}
+}
+
+message OEIHBAJCCAF {
+	uint32 MPNOHKEMGJP = 1; // offset: 40
+	repeated uint32 IEBALCFJBCM = 7; // offset: 16
+	uint32 FBGGJDIGBKH = 8; // offset: 48
+	uint32 NABDKGBPGOA = 9; // offset: 56
+	uint32 EEJMBOEGNIG = 10; // offset: 36
+	bool GKFNOCPMJLC = 11; // offset: 44
+	uint32 PDDLOMPEABK = 12; // offset: 32
+	uint32 BGLGKBEKMKH = 13; // offset: 52
+}
+
+message OFNBDEKJMON {
+	uint32 LFPABLEIKKE = 10; // offset: 24
+}
+
+message OLNDMBMBNDC {
+	uint32 NNDNCAEGDFI = 5; // offset: 32
+	repeated uint32 AKEFNAJMCCM = 10; // offset: 24
+}
+
+message PBLBAAMLNLH {
+	bool KBLBFGANMPJ = 1; // offset: 36
+	uint32 LJHGIFGINOL = 3; // offset: 32
+	bool is_unlocked = 5; // offset: 37
+	uint32 MDJMBGPLCDD = 6; // offset: 24
+	bool BBMCAHOMEFN = 7; // offset: 38
+	uint32 CBGODLHCLPK = 11; // offset: 28
+	uint32 BMGBBEMHLIG = 15; // offset: 40
+}
+
+message PDPKFDOJOFK {
+	uint32 CKKDLHLJGMD = 6; // offset: 28
+	uint32 BGLGKBEKMKH = 10; // offset: 24
+}
+
+message PJPMBOBAMIC {
+	bool KBLBFGANMPJ = 5; // offset: 28
+	uint32 BEOHGAADKPH = 11; // offset: 24
+}
+
+message PLADCLDJGKK {
+	uint32 BEOHGAADKPH = 9; // offset: 24
+	bool KBLBFGANMPJ = 10; // offset: 28
+}
+
+message PPPCGBKJDAB {
+	uint32 AMMPOLONOBC = 7; // offset: 32
+	repeated uint32 KDEAHPHDDHH = 11; // offset: 24
+	uint32 CIPADGHBJNP = 14; // offset: 36
+}

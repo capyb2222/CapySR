@@ -1,0 +1,151 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CakeRaceCoinScoreChangeScNotify {
+	uint32 item_value = 2; // offset: 24
+	uint32 score_id = 4; // offset: 32
+	uint32 JNBEGEOPGFJ = 13; // offset: 28
+}
+
+message CakeRaceFinishFieldRewardScNotify {
+	ItemList reward = 3; // offset: 16
+	uint32 LOPNADHJKBF = 6; // offset: 32
+}
+
+message CakeRaceFinishPveCsReq {
+	bool DHLLPOBKLIO = 8; // offset: 24
+	uint32 score = 15; // offset: 28
+}
+
+message CakeRaceFinishPveScRsp {
+	uint32 retcode = 14; // offset: 24
+}
+
+message CakeRaceGetDailyLikeCsReq {
+}
+
+message CakeRaceGetDailyLikeScRsp {
+	repeated uint32 LPBBJFFNACA = 8; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}
+
+message CakeRaceGetDataCsReq {
+}
+
+message CakeRaceGetDataScRsp {
+	repeated uint32 LAJJHAAKGAF = 2; // offset: 24
+	uint32 score_id = 5; // offset: 52
+	uint32 retcode = 8; // offset: 44
+	uint32 item_value = 9; // offset: 48
+	repeated uint32 EAHKHGPPLEA = 14; // offset: 16
+	uint32 JNBEGEOPGFJ = 15; // offset: 40
+}
+
+message CakeRaceGetFriendRankingInfoListCsReq {
+}
+
+message CakeRaceGetFriendRankingInfoListScRsp {
+	uint32 retcode = 1; // offset: 40
+	repeated uint32 LPBBJFFNACA = 5; // offset: 24
+	repeated JBHLNAHOJOH MLPHLIHFGKG = 14; // offset: 32
+}
+
+message CakeRaceGetHandbookCsReq {
+}
+
+message CakeRaceGetHandbookScRsp {
+	uint32 retcode = 5; // offset: 32
+	repeated GKCNOIGHOPM AOBBDDKFBMD = 7; // offset: 24
+}
+
+message CakeRaceLikeFriendRankingInfoCsReq {
+	uint32 teleport_id = 4; // offset: 24
+}
+
+message CakeRaceLikeFriendRankingInfoScRsp {
+	ItemList reward_list = 5; // offset: 16
+	uint32 teleport_id = 7; // offset: 40
+	uint32 retcode = 11; // offset: 44
+	repeated uint32 LPBBJFFNACA = 15; // offset: 32
+}
+
+message CakeRaceLoanCsReq {
+}
+
+message CakeRaceLoanScRsp {
+	uint32 AKEABJGIKLI = 3; // offset: 32
+	ItemList item_list = 5; // offset: 16
+	uint32 retcode = 10; // offset: 36
+}
+
+message CakeRaceStartPveCsReq {
+	uint32 LOPNADHJKBF = 9; // offset: 24
+}
+
+message CakeRaceStartPveScRsp {
+	uint32 LOPNADHJKBF = 13; // offset: 28
+	uint32 retcode = 14; // offset: 24
+}
+
+message CakeRaceUpdatePveCsReq {
+	uint32 OPNGHDENCAB = 3; // offset: 40
+	uint32 LOPNADHJKBF = 4; // offset: 36
+	oneof FGIMLNIJINE {
+		ICDBHMEPNDB BOEJNBKDJLM = 12; // offset: 16
+		uint32 BCFPLAPCFPL = 13; // offset: 16
+		bool MAGPAGCHOHP = 5; // offset: 16
+		EMJCPFCMOMK KMOLBEGKLNI = 2; // offset: 16
+		bool PIKEOHHECCA = 10; // offset: 16
+	}
+}
+
+message CakeRaceUpdatePveScRsp {
+	uint32 retcode = 14; // offset: 24
+}
+
+enum CmdCakeRaceType {
+	CmdCakeRaceType_NLCDGIPGFDJ = 0;
+	CmdCakeRaceType_CakeRaceFinishPveCsReq = 9137;
+	CmdCakeRaceType_CakeRaceFinishPveScRsp = 9136;
+	CmdCakeRaceType_CakeRaceStartPveCsReq = 9140;
+	CmdCakeRaceType_CakeRaceUpdatePveCsReq = 9148;
+	CmdCakeRaceType_CakeRaceLikeFriendRankingInfoScRsp = 9146;
+	CmdCakeRaceType_CakeRaceGetHandbookCsReq = 9129;
+	CmdCakeRaceType_CakeRaceGetFriendRankingInfoListScRsp = 9132;
+	CmdCakeRaceType_CakeRaceLoanCsReq = 9133;
+	CmdCakeRaceType_CakeRaceGetFriendRankingInfoListCsReq = 9141;
+	CmdCakeRaceType_CakeRaceGetDataCsReq = 9128;
+	CmdCakeRaceType_CakeRaceLikeFriendRankingInfoCsReq = 9125;
+	CmdCakeRaceType_CakeRaceUpdatePveScRsp = 9147;
+	CmdCakeRaceType_CakeRaceCoinScoreChangeScNotify = 9126;
+	CmdCakeRaceType_CakeRaceGetDataScRsp = 9149;
+	CmdCakeRaceType_CakeRaceGetHandbookScRsp = 9144;
+	CmdCakeRaceType_CakeRaceGetDailyLikeCsReq = 9122;
+	CmdCakeRaceType_CakeRaceGetDailyLikeScRsp = 9134;
+	CmdCakeRaceType_CakeRaceStartPveScRsp = 9127;
+	CmdCakeRaceType_CakeRaceLoanScRsp = 9123;
+	CmdCakeRaceType_CakeRaceFinishFieldRewardScNotify = 9138;
+}
+
+message EMJCPFCMOMK {
+	repeated uint32 CPIKEIGHMGB = 12; // offset: 24
+}
+
+message GKCNOIGHOPM {
+	uint32 MBNBCPEAALJ = 1; // offset: 28
+	uint32 LHHJFMMCBAF = 12; // offset: 32
+	uint32 CBNKDHIHECO = 15; // offset: 24
+}
+
+message ICDBHMEPNDB {
+	uint32 LHHJFMMCBAF = 7; // offset: 24
+	uint32 JLAHNBIMKPD = 10; // offset: 28
+}
+
+message JBHLNAHOJOH {
+	uint32 uid = 9; // offset: 32
+	uint32 JNBEGEOPGFJ = 12; // offset: 28
+	uint32 FOGJIBONACG = 15; // offset: 24
+}

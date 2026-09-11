@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BFAKMCIJFCB {
+	repeated IIONNFELFEF PKMHMGAEAGO = 1; // offset: 24
+	repeated HJACHMJFEAH PNHLAAMNGFE = 2; // offset: 16
+	BOMHOLBACKF GLOGEMFDMJG = 3; // offset: 40
+}
+
+message CGLJLBDFNBK {
+	repeated HIMPJFMPEPA JLGNAPBFBCN = 1; // offset: 24
+	uint32 GAEKEFEKCBD = 2; // offset: 32
+}
+
+message HANFHCOHGBP {
+	uint32 BHBJFFMACFD = 1; // offset: 32
+	repeated ABNBDDCDBCA IOFDGOCBIIC = 2; // offset: 24
+}
+
+message IKAHKMNCFDN {
+	uint32 PCPDHEIEJFO = 1; // offset: 24
+	uint32 slot = 2; // offset: 28
+}
+
+message JOFHMCJPBCE {
+	uint32 PCPDHEIEJFO = 4; // offset: 28
+	uint32 count = 6; // offset: 24
+}
+
+message PJFIMFJPMCN {
+	uint32 PCPDHEIEJFO = 10; // offset: 32
+	repeated uint32 LPDFMJPFGJH = 11; // offset: 24
+}

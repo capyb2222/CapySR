@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdTalkEventType {
+	CmdTalkEventType_MNPGFLPBDLK = 0;
+	CmdTalkEventType_GetFirstTalkNpcScRsp = 2116;
+	CmdTalkEventType_GetFirstTalkByPerformanceNpcScRsp = 2139;
+	CmdTalkEventType_TakeTalkRewardScRsp = 2175;
+	CmdTalkEventType_FinishFirstTalkByPerformanceNpcScRsp = 2108;
+	CmdTalkEventType_SelectInclinationTextCsReq = 2183;
+	CmdTalkEventType_FinishFirstTalkNpcCsReq = 2158;
+	CmdTalkEventType_TakeTalkRewardCsReq = 2105;
+	CmdTalkEventType_SelectInclinationTextScRsp = 2115;
+	CmdTalkEventType_GetNpcTakenRewardScRsp = 2125;
+	CmdTalkEventType_FinishFirstTalkNpcScRsp = 2156;
+	CmdTalkEventType_GetFirstTalkByPerformanceNpcCsReq = 2142;
+	CmdTalkEventType_GetNpcTakenRewardCsReq = 2134;
+	CmdTalkEventType_FinishFirstTalkByPerformanceNpcCsReq = 2161;
+	CmdTalkEventType_GetFirstTalkNpcCsReq = 2160;
+}
+
+message FinishFirstTalkByPerformanceNpcCsReq {
+	uint32 performance_id = 13; // offset: 24
+}
+
+message FinishFirstTalkByPerformanceNpcScRsp {
+	uint32 retcode = 6; // offset: 32
+	uint32 performance_id = 10; // offset: 36
+	ItemList reward = 11; // offset: 16
+}
+
+message FinishFirstTalkNpcCsReq {
+	uint32 npc_id = 4; // offset: 24
+}
+
+message FinishFirstTalkNpcScRsp {
+	uint32 npc_id = 2; // offset: 24
+	uint32 retcode = 10; // offset: 28
+}
+
+message FirstNpcTalkInfo {
+	uint32 npc_id = 1; // offset: 24
+	bool is_meet = 3; // offset: 28
+}
+
+message GetFirstTalkByPerformanceNpcCsReq {
+	repeated uint32 performance_id_list = 4; // offset: 16
+}
+
+message GetFirstTalkByPerformanceNpcScRsp {
+	uint32 retcode = 10; // offset: 32
+	repeated NpcMeetByPerformanceStatus npc_meet_status_list = 14; // offset: 24
+}
+
+message GetFirstTalkNpcCsReq {
+	repeated uint32 npc_id_list = 4; // offset: 16
+}
+
+message GetFirstTalkNpcScRsp {
+	repeated FirstNpcTalkInfo npc_meet_status_list = 2; // offset: 16
+	uint32 retcode = 8; // offset: 32
+}
+
+message GetNpcTakenRewardCsReq {
+	uint32 npc_id = 2; // offset: 24
+}
+
+message GetNpcTakenRewardScRsp {
+	uint32 npc_id = 2; // offset: 32
+	repeated uint32 talk_event_list = 8; // offset: 16
+	uint32 retcode = 10; // offset: 36
+}
+
+message NpcMeetByPerformanceStatus {
+	uint32 performance_id = 3; // offset: 28
+	bool is_meet = 6; // offset: 24
+}
+
+message SelectInclinationTextCsReq {
+	uint32 talk_sentence_id = 4; // offset: 24
+}
+
+message SelectInclinationTextScRsp {
+	uint32 talk_sentence_id = 11; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+message TakeTalkRewardCsReq {
+	Vector JAKEBEGAJNA = 7; // offset: 16
+	uint32 MJALBOEAKME = 10; // offset: 32
+}
+
+message TakeTalkRewardScRsp {
+	uint32 retcode = 12; // offset: 32
+	ItemList reward = 13; // offset: 24
+	uint32 MJALBOEAKME = 15; // offset: 36
+}

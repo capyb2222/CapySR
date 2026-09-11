@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+
+enum CmdPamSkinType {
+	CmdPamSkinType_NLCDGIPGFDJ = 0;
+	CmdPamSkinType_UnlockPamSkinScNotify = 8124;
+	CmdPamSkinType_GetPamSkinDataCsReq = 8130;
+	CmdPamSkinType_GetPamSkinDataScRsp = 8136;
+	CmdPamSkinType_SelectPamSkinCsReq = 8137;
+	CmdPamSkinType_SelectPamSkinScRsp = 8128;
+}
+
+message GetPamSkinDataCsReq {
+}
+
+message GetPamSkinDataScRsp {
+	uint32 cur_skin = 6; // offset: 32
+	uint32 retcode = 8; // offset: 36
+	repeated uint32 unlock_skin_list = 15; // offset: 16
+}
+
+message SelectPamSkinCsReq {
+	uint32 pam_skin = 1; // offset: 24
+}
+
+message SelectPamSkinScRsp {
+	uint32 cur_skin = 4; // offset: 28
+	uint32 retcode = 9; // offset: 32
+	uint32 set_skin = 15; // offset: 24
+}
+
+message UnlockPamSkinScNotify {
+	uint32 pam_skin = 3; // offset: 24
+}

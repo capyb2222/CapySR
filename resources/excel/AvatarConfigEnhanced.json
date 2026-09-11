@@ -1,0 +1,256 @@
+[
+  {
+    "AvatarID": 1212,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Jingliu_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Jingliu_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 140
+    },
+    "RankIDList": [
+      1121201,
+      1121202,
+      1121203,
+      1121204,
+      1121205,
+      1121206
+    ],
+    "SkillList": [
+      1121201,
+      1121202,
+      1121203,
+      1121204,
+      1121206,
+      1121207,
+      1121209
+    ]
+  },
+  {
+    "AvatarID": 1205,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Ren_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Ren_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 130
+    },
+    "RankIDList": [
+      1120501,
+      1120502,
+      1120503,
+      1120504,
+      1120505,
+      1120506
+    ],
+    "SkillList": [
+      1120501,
+      1120502,
+      1120503,
+      1120504,
+      1120506,
+      1120507,
+      1120508
+    ]
+  },
+  {
+    "AvatarID": 1005,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Kafka_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Kafka_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 120
+    },
+    "RankIDList": [
+      1100501,
+      1100502,
+      1100503,
+      1100504,
+      1100505,
+      1100506
+    ],
+    "SkillList": [
+      1100501,
+      1100502,
+      1100503,
+      1100504,
+      1100506,
+      1100507
+    ]
+  },
+  {
+    "AvatarID": 1006,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Silwolf_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Silwolf_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 110
+    },
+    "RankIDList": [
+      1100601,
+      1100602,
+      1100603,
+      1100604,
+      1100605,
+      1100606
+    ],
+    "SkillList": [
+      1100601,
+      1100602,
+      1100603,
+      1100604,
+      1100606,
+      1100607
+    ]
+  },
+  {
+    "AvatarID": 1307,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_BlackSwan_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_BlackSwan_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 120
+    },
+    "RankIDList": [
+      1130701,
+      1130702,
+      1130703,
+      1130704,
+      1130705,
+      1130706
+    ],
+    "SkillList": [
+      1130701,
+      1130702,
+      1130703,
+      1130704,
+      1130706,
+      1130707
+    ]
+  },
+  {
+    "AvatarID": 1306,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Sparkle_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Sparkle_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 110
+    },
+    "RankIDList": [
+      1130601,
+      1130602,
+      1130603,
+      1130604,
+      1130605,
+      1130606
+    ],
+    "SkillList": [
+      1130601,
+      1130602,
+      1130603,
+      1130604,
+      1130606,
+      1130607
+    ]
+  },
+  {
+    "AvatarID": 1102,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Seele_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Seele_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 120
+    },
+    "RankIDList": [
+      1110201,
+      1110202,
+      1110203,
+      1110204,
+      1110205,
+      1110206
+    ],
+    "SkillList": [
+      1110201,
+      1110202,
+      1110203,
+      1110204,
+      1110206,
+      1110207
+    ]
+  },
+  {
+    "AvatarID": 1217,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Huohuo_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Huohuo_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 140
+    },
+    "RankIDList": [
+      1121701,
+      1121702,
+      1121703,
+      1121704,
+      1121705,
+      1121706
+    ],
+    "SkillList": [
+      1121701,
+      1121702,
+      1121703,
+      1121704,
+      1121706,
+      1121707
+    ]
+  },
+  {
+    "AvatarID": 1310,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Sam_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Sam_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 240
+    },
+    "RankIDList": [
+      1131001,
+      1131002,
+      1131003,
+      1131004,
+      1131005,
+      1131006
+    ],
+    "SkillList": [
+      1131001,
+      1131002,
+      1131003,
+      1131004,
+      1131006,
+      1131007,
+      1131008,
+      1131009
+    ]
+  },
+  {
+    "AvatarID": 1004,
+    "EnhancedID": 1,
+    "JsonPath": "Config/ConfigCharacter/Avatar/Advanced/Avatar_Advanced_Welt_00_Config.json",
+    "AIPath": "Config/ConfigAI/ComplexSkillAIGlobalGroup/Avatar/Advanced/Avatar_Advanced_Welt_00_ComplexSkillAI.json",
+    "SPNeed": {
+      "Value": 120
+    },
+    "RankIDList": [
+      1100401,
+      1100402,
+      1100403,
+      1100404,
+      1100405,
+      1100406
+    ],
+    "SkillList": [
+      1100401,
+      1100402,
+      1100403,
+      1100404,
+      1100406,
+      1100407
+    ]
+  }
+]

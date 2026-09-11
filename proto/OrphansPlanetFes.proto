@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+
+message PlanetFesBuyLandScRsp {
+	uint32 retcode = 13; // offset: 24
+}
+
+enum PlanetFesCardPieceApplyPermissionType {
+	PlanetFesCardPieceApplyPermissionType_OAPAHOMMCGO = 0;
+	PlanetFesCardPieceApplyPermissionType_GOJLDPCAMHM = 1;
+	PlanetFesCardPieceApplyPermissionType_MKAAHIPOJBJ = 2;
+}
+
+message PlanetFesClientStatusCsReq {
+	bool is_active = 10; // offset: 24
+}
+
+message PlanetFesClientStatusScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message PlanetFesCollectIncomeCsReq {
+	uint32 FNABEJNJBKN = 15; // offset: 24
+}
+
+message PlanetFesCollectIncomeScRsp {
+	uint32 retcode = 2; // offset: 24
+}
+
+enum PlanetFesCustomKey {
+	PlanetFesCustomKey_NLCDGIPGFDJ = 0;
+	PlanetFesCustomKey_HHBCDDHGFEO = 1;
+	PlanetFesCustomKey_DHHOGPFPJGL = 2;
+	PlanetFesCustomKey_OANGMEDLOBL = 3;
+	PlanetFesCustomKey_CFOLBLCAPFB = 4;
+}
+
+message PlanetFesGetBusinessDayInfoCsReq {
+	bool EFILMAOHOBK = 8; // offset: 24
+}
+
+message PlanetFesSetAvatarWorkScRsp {
+	uint32 retcode = 3; // offset: 24
+}
+
+message PlanetFesUpgradeFesLevelCsReq {
+	uint32 IGOOJKMPMDC = 12; // offset: 24
+}
+
+message PlanetFesUpgradeFesLevelScRsp {
+	uint32 retcode = 12; // offset: 24
+}

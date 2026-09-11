@@ -1,0 +1,201 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AcceptMainMissionCsReq {
+	uint32 main_mission_id = 9; // offset: 24
+}
+
+message AcceptMainMissionScRsp {
+	uint32 main_mission_id = 1; // offset: 24
+	uint32 retcode = 2; // offset: 28
+}
+
+message CPFCAJBHOIB {
+	repeated uint32 FKOABFGMHJI = 5; // offset: 24
+}
+
+enum CmdMissionType {
+	CmdMissionType_NLCDGIPGFDJ = 0;
+	CmdMissionType_FinishTalkMissionCsReq = 1205;
+	CmdMissionType_GetMainMissionCustomValueCsReq = 1222;
+	CmdMissionType_StartFinishSubMissionScNotify = 1293;
+	CmdMissionType_AcceptMainMissionScRsp = 1229;
+	CmdMissionType_GetMissionDataScRsp = 1225;
+	CmdMissionType_FinishTalkMissionScRsp = 1275;
+	CmdMissionType_GetMissionStatusScRsp = 1238;
+	CmdMissionType_UpdateTrackMainMissionCsReq = 1284;
+	CmdMissionType_UpdateMainMissionCustomValueScRsp = 1230;
+	CmdMissionType_MissionGroupWarnScNotify = 1239;
+	CmdMissionType_LINJAMBKGBI = 1282;
+	CmdMissionType_GetMainMissionCustomValueScRsp = 1249;
+	CmdMissionType_GetMissionStatusCsReq = 1217;
+	CmdMissionType_MissionSyncTaskScRsp = 1258;
+	CmdMissionType_UpdateMainMissionCustomValueCsReq = 1241;
+	CmdMissionType_FinishedMissionScNotify = 1279;
+	CmdMissionType_TeleportToMissionResetPointCsReq = 1281;
+	CmdMissionType_TeleportToMissionResetPointScRsp = 1251;
+	CmdMissionType_FinishCosumeItemMissionCsReq = 1261;
+	CmdMissionType_MissionRewardScNotify = 1260;
+	CmdMissionType_GetMissionDataCsReq = 1234;
+	CmdMissionType_StarPerformanceRelayCsReq = 1224;
+	CmdMissionType_StarPerformanceRelayScRsp = 1296;
+	CmdMissionType_FinishCosumeItemMissionScRsp = 1208;
+	CmdMissionType_SubMissionRewardScNotify = 1207;
+	CmdMissionType_AcceptMainMissionCsReq = 1203;
+	CmdMissionType_LHGHGPPLMHP = 1216;
+	CmdMissionType_UpdateTrackMainMissionScRsp = 1240;
+	CmdMissionType_StartFinishMainMissionScNotify = 1273;
+}
+
+message FinishCosumeItemMissionCsReq {
+	uint32 sub_mission_id = 2; // offset: 32
+	ItemList item_list = 4; // offset: 24
+}
+
+message FinishCosumeItemMissionScRsp {
+	uint32 sub_mission_id = 5; // offset: 28
+	uint32 retcode = 9; // offset: 24
+}
+
+message FinishTalkMissionCsReq {
+	string talk_str = 2; // offset: 32
+	uint32 sub_mission_id = 6; // offset: 40
+	repeated MissionCustomValue custom_value_list = 11; // offset: 16
+}
+
+message FinishTalkMissionScRsp {
+	uint32 sub_mission_id = 1; // offset: 44
+	repeated MissionCustomValue custom_value_list = 5; // offset: 16
+	string talk_str = 10; // offset: 32
+	uint32 retcode = 11; // offset: 40
+}
+
+message FinishedMissionScNotify {
+	repeated uint32 finished_main_mission_id_list = 11; // offset: 16
+}
+
+message GetMainMissionCustomValueCsReq {
+	repeated uint32 main_mission_id_list = 8; // offset: 16
+}
+
+message GetMainMissionCustomValueScRsp {
+	repeated MainMission main_mission_list = 1; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message GetMissionDataCsReq {
+}
+
+message GetMissionDataScRsp {
+	repeated uint32 KBDGNGMPFEH = 2; // offset: 32
+	uint32 track_mission_id = 4; // offset: 72
+	uint32 retcode = 6; // offset: 68
+	repeated Mission mission_list = 8; // offset: 40
+	repeated uint32 finished_main_mission_id_list = 9; // offset: 56
+	repeated MainMission main_mission_list = 11; // offset: 48
+	uint32 GKFPKBGJBGN = 13; // offset: 64
+	repeated uint32 OLKALABEDOA = 15; // offset: 16
+}
+
+message GetMissionStatusCsReq {
+	repeated uint32 main_mission_id_list = 9; // offset: 32
+	repeated uint32 sub_mission_id_list = 10; // offset: 16
+}
+
+message GetMissionStatusScRsp {
+	repeated Mission sub_mission_status_list = 2; // offset: 16
+	repeated uint32 unfinished_main_mission_id_list = 3; // offset: 48
+	repeated uint32 curversion_finished_main_mission_id_list = 5; // offset: 56
+	uint32 retcode = 7; // offset: 72
+	repeated uint32 disabled_main_mission_id_list = 9; // offset: 40
+	repeated MainMissionCustomValue main_mission_mcv_list = 12; // offset: 32
+	repeated uint32 finished_main_mission_id_list = 14; // offset: 24
+}
+
+message LIFMGAFOBPC {
+	string AFBDHEMJEPP = 1; // offset: 16
+}
+
+message MainMission {
+	repeated MissionCustomValue custom_value_list = 1; // offset: 16
+	uint32 id = 6; // offset: 36
+	MissionStatus status = 14; // offset: 32
+}
+
+message MissionGroupWarnScNotify {
+	repeated uint32 OIKJKMJCHEG = 14; // offset: 16
+}
+
+message MissionRewardScNotify {
+	ItemList reward = 3; // offset: 16
+	uint32 sub_mission_id = 5; // offset: 32
+	uint32 main_mission_id = 12; // offset: 36
+}
+
+message MissionSyncTaskScRsp {
+	string key = 1; // offset: 16
+	uint32 retcode = 12; // offset: 32
+}
+
+message StarPerformanceRelayCsReq {
+	uint32 performance_id = 1; // offset: 24
+	uint32 performance_type = 12; // offset: 28
+}
+
+message StarPerformanceRelayScRsp {
+	uint32 retcode = 10; // offset: 24
+}
+
+message StartFinishMainMissionScNotify {
+	uint32 main_mission_id = 2; // offset: 24
+}
+
+message StartFinishSubMissionScNotify {
+	uint32 sub_mission_id = 2; // offset: 24
+}
+
+message SubMissionRewardScNotify {
+	ItemList reward = 5; // offset: 16
+	uint32 sub_mission_id = 11; // offset: 32
+}
+
+message TeleportToMissionResetPointCsReq {
+}
+
+message TeleportToMissionResetPointScRsp {
+	uint32 client_pos_version = 4; // offset: 36
+	MotionInfo motion = 10; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+enum TrackMainMissionUpdateReasonId {
+	TrackMainMissionUpdateReasonId_DJAOKMDALMI = 0;
+	TrackMainMissionUpdateReasonId_FEFMPGIAGBP = 1;
+	TrackMainMissionUpdateReasonId_OGIADPFFHEF = 2;
+	TrackMainMissionUpdateReasonId_OJBIMIOEABG = 3;
+}
+
+message UpdateMainMissionCustomValueCsReq {
+	string BGDFHBAANLB = 11; // offset: 16
+	uint32 value = 12; // offset: 32
+	uint32 main_mission_id = 15; // offset: 36
+}
+
+message UpdateMainMissionCustomValueScRsp {
+	uint32 retcode = 5; // offset: 32
+	MainMission HKDDMGGDCIP = 14; // offset: 24
+}
+
+message UpdateTrackMainMissionCsReq {
+	uint32 track_mission_id = 2; // offset: 32
+	TrackMainMissionUpdateReasonId POPNCNIBNMJ = 3; // offset: 28
+	uint32 JFONDEBDIOO = 10; // offset: 24
+}
+
+message UpdateTrackMainMissionScRsp {
+	uint32 prev_track_mission_id = 1; // offset: 24
+	uint32 track_mission_id = 11; // offset: 28
+	uint32 retcode = 15; // offset: 32
+}

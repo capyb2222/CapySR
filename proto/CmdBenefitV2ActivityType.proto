@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ANKFJAABBFK {
+	uint32 JALHKMEOOPN = 4; // offset: 24
+	uint32 group_id = 14; // offset: 28
+}
+
+enum CmdBenefitV2ActivityType {
+	CmdBenefitV2ActivityType_NLCDGIPGFDJ = 0;
+	CmdBenefitV2ActivityType_DGDFAKFHKFA = 9823;
+	CmdBenefitV2ActivityType_NIJIGHHGKIO = 9824;
+	CmdBenefitV2ActivityType_DIPCCGHFJAA = 9829;
+	CmdBenefitV2ActivityType_JGAJJBNCIKK = 9827;
+	CmdBenefitV2ActivityType_NDGINIGLHFG = 9822;
+	CmdBenefitV2ActivityType_MOHCJNIMHJM = 9830;
+}
+
+message EOAJKNKDAOD {
+	uint32 group_id = 2; // offset: 32
+	repeated HBFODNLIBFI DJNDMMIKFHN = 4; // offset: 16
+}
+
+message FMDGFHPOAIO {
+	uint32 JALHKMEOOPN = 8; // offset: 28
+	uint32 group_id = 9; // offset: 24
+}
+
+message HBFODNLIBFI {
+	uint32 ECGDECADBDO = 9; // offset: 32
+	uint32 JENKDACFCDO = 11; // offset: 24
+	uint32 JALHKMEOOPN = 14; // offset: 28
+	bool AHDCGHABALN = 15; // offset: 36
+}
+
+message HBOCFEEEEII {
+	uint32 group_id = 2; // offset: 36
+	uint32 JALHKMEOOPN = 4; // offset: 40
+	uint32 retcode = 9; // offset: 32
+	ItemList item_list = 11; // offset: 24
+}
+
+message ILFJIIDEEBI {
+}
+
+message IMFBPGDPEOI {
+	uint32 JALHKMEOOPN = 2; // offset: 36
+	uint32 ECGDECADBDO = 8; // offset: 32
+	uint32 JENKDACFCDO = 10; // offset: 40
+	uint32 group_id = 12; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}
+
+message PAGLMEAGPPC {
+	uint32 retcode = 10; // offset: 32
+	repeated EOAJKNKDAOD AJKOKAJABFG = 13; // offset: 24
+}

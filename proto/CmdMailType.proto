@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ClientMail {
+	string sender = 1; // offset: 24
+	uint32 template_id = 2; // offset: 76
+	uint32 id = 3; // offset: 72
+	int64 expire_time = 5; // offset: 88
+	string title = 7; // offset: 56
+	string content = 8; // offset: 48
+	repeated string para_list = 9; // offset: 40
+	int64 time = 10; // offset: 64
+	bool is_read = 11; // offset: 80
+	ItemList attachment = 13; // offset: 32
+	MailType mail_type = 15; // offset: 84
+}
+
+enum CmdMailType {
+	CmdMailType_NLCDGIPGFDJ = 0;
+	CmdMailType_TakeMailAttachmentScRsp = 856;
+	CmdMailType_DelMailScRsp = 816;
+	CmdMailType_GetMailScRsp = 825;
+	CmdMailType_MarkReadMailScRsp = 875;
+	CmdMailType_TakeMailAttachmentCsReq = 858;
+	CmdMailType_DelMailCsReq = 860;
+	CmdMailType_MarkReadMailCsReq = 805;
+	CmdMailType_NewMailScNotify = 883;
+	CmdMailType_GetMailCsReq = 834;
+}
+
+message DelMailCsReq {
+	repeated uint32 id_list = 13; // offset: 16
+}
+
+message DelMailScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated uint32 id_list = 10; // offset: 16
+}
+
+message GetMailCsReq {
+	uint32 start = 4; // offset: 28
+	uint32 HFKFNFKIEON = 9; // offset: 24
+}
+
+message GetMailScRsp {
+	uint32 total_num = 6; // offset: 52
+	repeated ClientMail notice_mail_list = 8; // offset: 32
+	uint32 retcode = 9; // offset: 48
+	uint32 start = 10; // offset: 44
+	repeated ClientMail mail_list = 12; // offset: 16
+	bool is_end = 13; // offset: 40
+}
+
+message KNPNAHPHNJK {
+	uint32 IODBGABPNOP = 4; // offset: 24
+	uint32 item_id = 5; // offset: 28
+}
+
+enum MailType {
+	MailType_Normal = 0;
+	MailType_Star = 1;
+}
+
+message MarkReadMailCsReq {
+	uint32 id = 9; // offset: 24
+}
+
+message MarkReadMailScRsp {
+	uint32 id = 8; // offset: 24
+	uint32 retcode = 10; // offset: 28
+}
+
+message NewMailScNotify {
+	repeated uint32 mail_id_list = 10; // offset: 16
+}
+
+message TakeMailAttachmentCsReq {
+	repeated uint32 mail_id_list = 2; // offset: 24
+	uint32 optional_reward_id = 4; // offset: 32
+}
+
+message TakeMailAttachmentScRsp {
+	repeated uint32 succ_mail_id_list = 1; // offset: 16
+	repeated KNPNAHPHNJK fail_mail_list = 6; // offset: 24
+	ItemList attachment = 10; // offset: 40
+	uint32 retcode = 15; // offset: 48
+}

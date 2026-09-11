@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+
+enum CmdContentPackageType {
+	CmdContentPackageType_NLCDGIPGFDJ = 0;
+	CmdContentPackageType_ContentPackageGetDataCsReq = 7534;
+	CmdContentPackageType_ContentPackageSyncDataScNotify = 7520;
+	CmdContentPackageType_ContentPackageGetDataScRsp = 7506;
+	CmdContentPackageType_ContentPackageTransferScNotify = 7532;
+}
+
+message ContentPackageData {
+	repeated ContentPackageInfo content_package_list = 4; // offset: 24
+	uint32 cur_content_id = 10; // offset: 32
+}
+
+message ContentPackageGetDataCsReq {
+}
+
+message ContentPackageGetDataScRsp {
+	ContentPackageData data = 4; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message ContentPackageInfo {
+	uint32 content_id = 10; // offset: 24
+	ContentPackageStatus status = 13; // offset: 28
+}
+
+enum ContentPackageStatus {
+	ContentPackageStatus_None = 0;
+	ContentPackageStatus_Init = 1;
+	ContentPackageStatus_Doing = 2;
+	ContentPackageStatus_Finished = 3;
+	ContentPackageStatus_Release = 4;
+}
+
+message ContentPackageSyncDataScNotify {
+	ContentPackageData data = 14; // offset: 16
+}
+
+message ContentPackageTransferScNotify {
+}

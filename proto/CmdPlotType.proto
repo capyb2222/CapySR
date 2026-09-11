@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+enum CmdPlotType {
+	CmdPlotType_NLCDGIPGFDJ = 0;
+	CmdPlotType_FinishPlotCsReq = 1134;
+	CmdPlotType_FinishPlotScRsp = 1125;
+}
+
+message FinishPlotCsReq {
+	uint32 CAMCBJPOMLC = 3; // offset: 24
+}
+
+message FinishPlotScRsp {
+	uint32 CAMCBJPOMLC = 9; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}

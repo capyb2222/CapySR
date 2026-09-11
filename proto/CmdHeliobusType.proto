@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BGOMIHEFHPA {
+	uint32 DNNCAGJIOAP = 1; // offset: 36
+	uint32 HGBLLINAMLN = 2; // offset: 48
+	uint32 MDAIPFLCNAJ = 4; // offset: 44
+	repeated BLODLKIBCIE GEFLCFHPNJH = 8; // offset: 24
+	uint32 GAIJNEMFDBP = 9; // offset: 52
+	uint32 CBGODLHCLPK = 10; // offset: 32
+	bool KGEJAOIMOBK = 13; // offset: 41
+	bool BNBCGFOBIPH = 15; // offset: 40
+}
+
+message BLODLKIBCIE {
+	uint32 BOGIJENAEHJ = 1; // offset: 32
+	repeated BLODLKIBCIE LEGEGIHKLFK = 10; // offset: 24
+	uint32 ELAENNLBEDD = 12; // offset: 36
+}
+
+enum CmdHeliobusType {
+	CmdHeliobusType_NLCDGIPGFDJ = 0;
+	CmdHeliobusType_HeliobusEnterBattleScRsp = 5838;
+	CmdHeliobusType_HeliobusSnsPostCsReq = 5860;
+	CmdHeliobusType_HeliobusSnsPostScRsp = 5816;
+	CmdHeliobusType_HeliobusSnsCommentScRsp = 5815;
+	CmdHeliobusType_HeliobusUpgradeLevelScRsp = 5808;
+	CmdHeliobusType_HeliobusLineupUpdateScNotify = 5885;
+	CmdHeliobusType_HeliobusSnsCommentCsReq = 5883;
+	CmdHeliobusType_HeliobusSnsLikeCsReq = 5858;
+	CmdHeliobusType_HeliobusSelectSkillScRsp = 5821;
+	CmdHeliobusType_HeliobusStartRaidScRsp = 5804;
+	CmdHeliobusType_HeliobusEnterBattleCsReq = 5817;
+	CmdHeliobusType_HeliobusSnsLikeScRsp = 5856;
+	CmdHeliobusType_HeliobusChallengeUpdateScNotify = 5819;
+	CmdHeliobusType_HeliobusSelectSkillCsReq = 5864;
+	CmdHeliobusType_HeliobusUpgradeLevelCsReq = 5861;
+	CmdHeliobusType_HeliobusInfoChangedScNotify = 5839;
+	CmdHeliobusType_HeliobusStartRaidCsReq = 5878;
+	CmdHeliobusType_HeliobusSnsReadScRsp = 5875;
+	CmdHeliobusType_HeliobusActivityDataScRsp = 5825;
+	CmdHeliobusType_HeliobusSnsUpdateScNotify = 5842;
+	CmdHeliobusType_HeliobusSnsReadCsReq = 5805;
+	CmdHeliobusType_HeliobusUnlockSkillScNotify = 5868;
+	CmdHeliobusType_HeliobusActivityDataCsReq = 5834;
+}
+
+message HeliobusActivityDataCsReq {
+}
+
+message HeliobusActivityDataScRsp {
+	uint32 IMGDMDDKHDL = 1; // offset: 68
+	uint32 level = 2; // offset: 60
+	repeated HeliobusChallengeData challenge_list = 3; // offset: 40
+	repeated HeliobusChallengeLineup DJKMBPEFCKL = 4; // offset: 48
+	repeated BGOMIHEFHPA AAHPCIOOLHB = 7; // offset: 24
+	ONBLLGHELOB skill_info = 8; // offset: 32
+	uint32 OMMNAFNIKPH = 9; // offset: 72
+	uint32 retcode = 10; // offset: 56
+	uint32 phase = 11; // offset: 76
+	uint32 AFMLOAPAAPM = 15; // offset: 64
+}
+
+message HeliobusChallengeData {
+	uint32 star = 1; // offset: 24
+	bool DBPNANBMGFE = 7; // offset: 28
+	uint32 challenge_id = 10; // offset: 32
+}
+
+message HeliobusChallengeLineup {
+	uint32 skill_id = 3; // offset: 32
+	uint32 group_id = 5; // offset: 36
+	repeated uint32 avatar_id_list = 14; // offset: 24
+}
+
+message HeliobusChallengeUpdateScNotify {
+	HeliobusChallengeData OCDLPDDMCLP = 2; // offset: 24
+}
+
+message HeliobusEnterBattleCsReq {
+	uint32 skill_id = 1; // offset: 36
+	repeated uint32 avatar_id_list = 2; // offset: 16
+	uint32 event_id = 12; // offset: 32
+}
+
+message HeliobusEnterBattleScRsp {
+	uint32 event_id = 4; // offset: 36
+	uint32 retcode = 6; // offset: 32
+	SceneBattleInfo battle_info = 13; // offset: 16
+}
+
+message HeliobusInfoChangedScNotify {
+	uint32 IMGDMDDKHDL = 9; // offset: 36
+	repeated BGOMIHEFHPA KGKLBGOADCE = 11; // offset: 16
+	uint32 OMMNAFNIKPH = 13; // offset: 32
+	uint32 phase = 14; // offset: 40
+}
+
+message HeliobusLineupUpdateScNotify {
+	HeliobusChallengeLineup lineup = 14; // offset: 24
+}
+
+message HeliobusSelectSkillCsReq {
+	uint32 HACFLGOPALO = 4; // offset: 24
+}
+
+message HeliobusSelectSkillScRsp {
+	uint32 skill_id = 12; // offset: 28
+	uint32 retcode = 14; // offset: 24
+}
+
+message HeliobusSnsCommentCsReq {
+	uint32 JKGKPABHDCH = 5; // offset: 28
+	uint32 CBGODLHCLPK = 7; // offset: 24
+	uint32 BOGIJENAEHJ = 12; // offset: 32
+}
+
+message HeliobusSnsCommentScRsp {
+	uint32 retcode = 7; // offset: 32
+	BGOMIHEFHPA AMFEFIDDMDA = 11; // offset: 24
+}
+
+message HeliobusSnsLikeCsReq {
+	uint32 CBGODLHCLPK = 11; // offset: 24
+}
+
+message HeliobusSnsLikeScRsp {
+	uint32 retcode = 3; // offset: 28
+	bool KGEJAOIMOBK = 5; // offset: 24
+	uint32 CBGODLHCLPK = 10; // offset: 32
+}
+
+message HeliobusSnsPostCsReq {
+	uint32 MDAIPFLCNAJ = 3; // offset: 32
+	uint32 DNNCAGJIOAP = 4; // offset: 28
+	uint32 CBGODLHCLPK = 10; // offset: 24
+}
+
+message HeliobusSnsPostScRsp {
+	uint32 retcode = 11; // offset: 32
+	BGOMIHEFHPA AMFEFIDDMDA = 12; // offset: 16
+}
+
+message HeliobusSnsReadCsReq {
+	uint32 CBGODLHCLPK = 13; // offset: 24
+}
+
+message HeliobusSnsReadScRsp {
+	uint32 CBGODLHCLPK = 4; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}
+
+message HeliobusSnsUpdateScNotify {
+	repeated BGOMIHEFHPA KGKLBGOADCE = 1; // offset: 16
+}
+
+message HeliobusStartRaidCsReq {
+	uint32 prop_entity_id = 1; // offset: 48
+	uint32 DNOAEPDPHKK = 2; // offset: 40
+	uint32 skill_id = 3; // offset: 44
+	uint32 raid_id = 8; // offset: 32
+	bool is_save = 9; // offset: 36
+	repeated uint32 avatar_list = 11; // offset: 24
+}
+
+message HeliobusStartRaidScRsp {
+	uint32 retcode = 7; // offset: 32
+	GEGLJDELBHA scene = 12; // offset: 16
+}
+
+message HeliobusUnlockSkillScNotify {
+	uint32 ENGEPMPCJPC = 4; // offset: 28
+	uint32 skill_id = 11; // offset: 24
+}
+
+message HeliobusUpgradeLevelCsReq {
+}
+
+message HeliobusUpgradeLevelScRsp {
+	uint32 level = 3; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message ONBLLGHELOB {
+	repeated uint32 NGONANKBKMF = 8; // offset: 24
+	uint32 ENGEPMPCJPC = 10; // offset: 32
+}

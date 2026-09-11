@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+
+enum CmdWaypointType {
+	CmdWaypointType_NLCDGIPGFDJ = 0;
+	CmdWaypointType_DDKCNBCOELM = 460;
+	CmdWaypointType_GetChapterScRsp = 416;
+	CmdWaypointType_KNFMJKOGEGF = 434;
+	CmdWaypointType_GetWaypointScRsp = 425;
+}
+
+message FDECDCEDPNM {
+	bool is_new = 7; // offset: 32
+	uint32 id = 8; // offset: 40
+	uint32 BGMFEHBEABC = 9; // offset: 36
+	repeated uint32 ICCCHCCDKND = 15; // offset: 24
+}
+
+message GAKJMHLEJMD {
+	repeated HEGGPIEGBIN HCBJONGPJFD = 2; // offset: 16
+}
+
+message GetChapterScRsp {
+	uint32 retcode = 13; // offset: 32
+	repeated FDECDCEDPNM LPBLEICPFPD = 14; // offset: 16
+}
+
+message GetWaypointScRsp {
+	uint32 retcode = 5; // offset: 32
+	GAKJMHLEJMD KEDNGHIEOBB = 9; // offset: 16
+}
+
+message HEGGPIEGBIN {
+	uint32 FHNNGNBDGHO = 5; // offset: 32
+	bool is_new = 12; // offset: 24
+	uint32 id = 15; // offset: 28
+}
+
+message JBAEGHHHDNH {
+}
+
+message LKJFAOIDNNF {
+	uint32 DCAHJELNJNP = 12; // offset: 24
+}

@@ -1,0 +1,568 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AALCHOPCBEM {
+	CABCPFKAOPP JOOEEKMDAEO = 12; // offset: 16
+}
+
+message AFDJNEOHCLB {
+	uint32 progress = 7; // offset: 36
+	JLPEICPFLMC source = 10; // offset: 24
+	uint32 OCJCOOLMCGD = 15; // offset: 32
+}
+
+message AJNJDDFGFJL {
+	uint32 level = 2; // offset: 28
+	uint64 IEPAPOPIFHH = 11; // offset: 40
+	uint32 max_level = 13; // offset: 24
+	uint32 BFCNALJDHMP = 14; // offset: 32
+}
+
+message AKHEOAIPAPA {
+	uint32 unique_id = 1; // offset: 48
+	double OJMOBAEEMAP = 3; // offset: 40
+	GLBAOKOHKCF GOKKLNBMLCA = 4; // offset: 52
+	JLPEICPFLMC source = 5; // offset: 16
+	double CPLFBOBLFMC = 13; // offset: 32
+}
+
+enum BCAMANFJINC {
+	BCAMANFJINC_NLCDGIPGFDJ = 0;
+	BCAMANFJINC_MLIGAFABJDP = 1;
+	BCAMANFJINC_BLLCMLBDLPC = 2;
+	BCAMANFJINC_MEBGACKEOOG = 3;
+	BCAMANFJINC_GHPKFACFMML = 4;
+	BCAMANFJINC_JHJCNLLMPKH = 5;
+	BCAMANFJINC_LOFJAGLLHHG = 6;
+	BCAMANFJINC_HEIHBJEEGPB = 7;
+	BCAMANFJINC_NJPMBLBIBOD = 8;
+	BCAMANFJINC_GIFGLDBDELN = 9;
+	BCAMANFJINC_NGECENKOPLK = 10;
+	BCAMANFJINC_EMGMFOBLAFN = 11;
+	BCAMANFJINC_LIJMDJDFIIC = 12;
+	BCAMANFJINC_JHGMHCJOKNA = 13;
+	BCAMANFJINC_KPCEJLILHMO = 14;
+	BCAMANFJINC_AEHHIPFDNFJ = 15;
+	BCAMANFJINC_KHBEOADDIFM = 16;
+	BCAMANFJINC_action = 17;
+	BCAMANFJINC_DACEMIDFHOG = 18;
+	BCAMANFJINC_OIKFFLEHFCN = 19;
+	BCAMANFJINC_KEJCJJHDKJB = 20;
+	BCAMANFJINC_EIIJCLPCFLM = 21;
+	BCAMANFJINC_NKJFKBBDDEO = 22;
+}
+
+message BDOEDOEBFAJ {
+	repeated uint32 MGJENMKKIBJ = 1; // offset: 64
+	repeated HGCIPBFBNKO LDCJONHGDAN = 2; // offset: 40
+	repeated DFFLMEMFPLM IEDKELDFHLP = 3; // offset: 24
+	uint32 NKDDBPGDAEE = 4; // offset: 128
+	KFOOLGFCNDN ILOODGHPOBM = 5; // offset: 72
+	uint32 hp = 6; // offset: 136
+	repeated PHHFOGFKDBC MEMGHBHGGPN = 7; // offset: 16
+	BNHBDMIDFCL FMIGOKIDKJL = 8; // offset: 96
+	uint32 GCBDADCOBAE = 9; // offset: 124
+	repeated uint32 OKHDNEOLLNF = 10; // offset: 104
+	uint32 item_value = 11; // offset: 116
+	uint32 stage_id = 12; // offset: 132
+	uint32 cur_wave = 13; // offset: 112
+	repeated LEGNLMENMJK entity_list = 14; // offset: 56
+	repeated AFDJNEOHCLB IFJIHNBDNGN = 15; // offset: 88
+	MBLJIEELMKN GHICOBOPHOL = 101; // offset: 80
+	repeated uint64 FNJCMFOFCNC = 440; // offset: 48
+	uint32 max_hp = 582; // offset: 120
+}
+
+message BFGNNODONFI {
+}
+
+message BNHBDMIDFCL {
+	uint32 unique_id = 4; // offset: 36
+	oneof CHJNPHDLMKL {
+		JAAJAPNFMGO DOKPHNPNCPN = 649; // offset: 16
+	}
+}
+
+message CABCPFKAOPP {
+	repeated uint32 GCDGGBLOJIC = 1; // offset: 32
+	uint32 OEKIFIKBMFI = 5; // offset: 40
+	repeated uint32 NFPADEPIKML = 10; // offset: 16
+	uint32 KDIDDHIDNCG = 14; // offset: 44
+}
+
+enum CNEEMBBNNBO {
+	CNEEMBBNNBO_NLCDGIPGFDJ = 0;
+	CNEEMBBNNBO_EHNIPLNEEDI = 1;
+	CNEEMBBNNBO_FAODKNDLNPF = 2;
+	CNEEMBBNNBO_INCLHHDFCEL = 3;
+}
+
+message ChenLingActivatedPrivilegeCsReq {
+	uint32 BCJDCONICKP = 1; // offset: 24
+}
+
+message ChenLingActivatedPrivilegeScRsp {
+	uint32 ADBGHKBGGJM = 9; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+message ChenLingBuyShopItemCsReq {
+	uint32 BCFJGDPGKAB = 1; // offset: 24
+}
+
+message ChenLingBuyShopItemScRsp {
+	uint32 PLDKENJLKME = 14; // offset: 24
+}
+
+message ChenLingClientStartBattleCsNotify {
+	uint32 GDIMKFNECOK = 1; // offset: 24
+}
+
+message ChenLingClientStatusChangeCsNotify {
+	bool PBJJAHKLNAA = 3; // offset: 24
+}
+
+message ChenLingFinishBattleCsReq {
+	uint32 GDIMKFNECOK = 2; // offset: 44
+	bool is_win = 3; // offset: 32
+	uint32 soldier_dead_cnt = 4; // offset: 36
+	repeated OGGELMMFPKP PPCKLBHFCCA = 7; // offset: 24
+	uint32 add_coin = 11; // offset: 40
+}
+
+message ChenLingFinishBattleScRsp {
+	uint32 retcode = 2; // offset: 44
+	DFEGGFFOMKI BFLLJJBHLDF = 3; // offset: 16
+	uint32 AMDLCBJOEDG = 5; // offset: 48
+	repeated OGGELMMFPKP PPCKLBHFCCA = 6; // offset: 32
+	bool is_win = 9; // offset: 53
+	uint32 add_coin = 12; // offset: 40
+	bool DAOMHGBDEJH = 15; // offset: 52
+}
+
+message ChenLingFinishPrepareCsReq {
+}
+
+message ChenLingFinishPrepareScRsp {
+	uint32 PLDKENJLKME = 9; // offset: 24
+}
+
+message ChenLingFinishShopCsReq {
+}
+
+message ChenLingFinishShopScRsp {
+	uint32 PLDKENJLKME = 2; // offset: 24
+}
+
+message ChenLingGetDataCsReq {
+}
+
+message ChenLingGetDataScRsp {
+	uint32 retcode = 2; // offset: 48
+	uint32 GDHOLMIBAEA = 6; // offset: 52
+	repeated uint32 IMNNAENHBMA = 10; // offset: 32
+	FDDNKPJEMJE DJOLGKGKCHE = 14; // offset: 16
+	BDOEDOEBFAJ KFAIGIIPLOF = 15; // offset: 40
+}
+
+message ChenLingHandlePendingActionsCsReq {
+	uint32 ONIAFLNBNPN = 1; // offset: 32
+	oneof FDNAJJKOHBN {
+		LFIONDMGCOP GFGGBLEGKGJ = 1533; // offset: 16
+	}
+}
+
+message ChenLingHandlePendingActionsScRsp {
+	uint32 retcode = 5; // offset: 24
+	uint32 ONIAFLNBNPN = 12; // offset: 28
+}
+
+message ChenLingMoveEntityCsReq {
+	PFPPACPMFDJ OCJHKKAGDCI = 6; // offset: 24
+	uint32 OJBCBIEJBOJ = 11; // offset: 32
+}
+
+message ChenLingMoveEntityScRsp {
+	uint32 PLDKENJLKME = 14; // offset: 24
+}
+
+message ChenLingQuitStageCsReq {
+	uint32 GDIMKFNECOK = 15; // offset: 24
+}
+
+message ChenLingQuitStageScRsp {
+	uint32 retcode = 8; // offset: 32
+	DFEGGFFOMKI BFLLJJBHLDF = 9; // offset: 24
+}
+
+message ChenLingRefreshCardCsReq {
+}
+
+message ChenLingRefreshCardScRsp {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message ChenLingRefreshPolicyCsReq {
+}
+
+message ChenLingRefreshPolicyScRsp {
+	uint32 PLDKENJLKME = 6; // offset: 24
+}
+
+message ChenLingRefreshShopCsReq {
+}
+
+message ChenLingRefreshShopScRsp {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message ChenLingSelectCardCsReq {
+	uint32 LFBHAOBBKLA = 4; // offset: 24
+}
+
+message ChenLingSelectCardScRsp {
+	uint32 PLDKENJLKME = 11; // offset: 24
+}
+
+message ChenLingSelectPolicyCsReq {
+	uint32 MFOEEODHKGH = 13; // offset: 24
+}
+
+message ChenLingSelectPolicyScRsp {
+	uint32 PLDKENJLKME = 11; // offset: 24
+}
+
+message ChenLingSellHandCardCsReq {
+	uint32 HBFMDPBHHHE = 12; // offset: 24
+}
+
+message ChenLingSellHandCardScRsp {
+	uint32 PLDKENJLKME = 6; // offset: 24
+}
+
+message ChenLingStartStageCsReq {
+	uint32 NKDDBPGDAEE = 2; // offset: 28
+	uint32 stage_id = 14; // offset: 24
+}
+
+message ChenLingStartStageScRsp {
+	uint32 retcode = 1; // offset: 32
+	BDOEDOEBFAJ AHCGJNDKBCA = 4; // offset: 16
+}
+
+message ChenLingSyncChangeScNotify {
+	repeated IOELPDDJGFJ DGNGMJMPFGK = 2; // offset: 16
+}
+
+message ChenLingUnlockGridCsReq {
+	PFPPACPMFDJ CIFIGNAEMHL = 7; // offset: 16
+}
+
+message ChenLingUnlockGridScRsp {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message ChenLingUseHandCardCsReq {
+	PFPPACPMFDJ OCJHKKAGDCI = 6; // offset: 16
+	uint32 HBFMDPBHHHE = 12; // offset: 32
+}
+
+message ChenLingUseHandCardScRsp {
+	uint32 PLDKENJLKME = 7; // offset: 24
+}
+
+enum CmdChenLingBattleType {
+	CmdChenLingBattleType_NLCDGIPGFDJ = 0;
+	CmdChenLingBattleType_ChenLingRefreshCardScRsp = 9572;
+	CmdChenLingBattleType_ChenLingSelectCardScRsp = 9609;
+	CmdChenLingBattleType_ChenLingSelectPolicyCsReq = 9591;
+	CmdChenLingBattleType_ChenLingClientStartBattleCsNotify = 9620;
+	CmdChenLingBattleType_ChenLingRefreshShopScRsp = 9589;
+	CmdChenLingBattleType_ChenLingActivatedPrivilegeCsReq = 9585;
+	CmdChenLingBattleType_ChenLingBuyShopItemScRsp = 9583;
+	CmdChenLingBattleType_ChenLingGetDataCsReq = 9604;
+	CmdChenLingBattleType_ChenLingFinishShopCsReq = 9587;
+	CmdChenLingBattleType_ChenLingSelectCardCsReq = 9612;
+	CmdChenLingBattleType_ChenLingGetDataScRsp = 9576;
+	CmdChenLingBattleType_ChenLingSelectPolicyScRsp = 9582;
+	CmdChenLingBattleType_ChenLingQuitStageCsReq = 9599;
+	CmdChenLingBattleType_ChenLingStartStageCsReq = 9590;
+	CmdChenLingBattleType_ChenLingBuyShopItemCsReq = 9575;
+	CmdChenLingBattleType_ChenLingRefreshPolicyCsReq = 9588;
+	CmdChenLingBattleType_ChenLingUnlockGridScRsp = 9581;
+	CmdChenLingBattleType_ChenLingUseHandCardCsReq = 9596;
+	CmdChenLingBattleType_ChenLingUnlockGridCsReq = 9586;
+	CmdChenLingBattleType_ChenLingFinishPrepareScRsp = 9578;
+	CmdChenLingBattleType_ChenLingFinishBattleScRsp = 9595;
+	CmdChenLingBattleType_ChenLingRefreshPolicyScRsp = 9608;
+	CmdChenLingBattleType_ChenLingUseHandCardScRsp = 9574;
+	CmdChenLingBattleType_ChenLingFinishBattleCsReq = 9617;
+	CmdChenLingBattleType_ChenLingSellHandCardCsReq = 9618;
+	CmdChenLingBattleType_ChenLingFinishShopScRsp = 9605;
+	CmdChenLingBattleType_ChenLingActivatedPrivilegeScRsp = 9579;
+	CmdChenLingBattleType_ChenLingRefreshCardCsReq = 9593;
+	CmdChenLingBattleType_ChenLingSellHandCardScRsp = 9584;
+	CmdChenLingBattleType_ChenLingStartStageScRsp = 9601;
+	CmdChenLingBattleType_ChenLingRefreshShopCsReq = 9577;
+	CmdChenLingBattleType_ChenLingQuitStageScRsp = 9602;
+	CmdChenLingBattleType_ChenLingFinishPrepareCsReq = 9610;
+	CmdChenLingBattleType_ChenLingMoveEntityCsReq = 9598;
+	CmdChenLingBattleType_ChenLingHandlePendingActionsScRsp = 9603;
+	CmdChenLingBattleType_ChenLingMoveEntityScRsp = 9594;
+	CmdChenLingBattleType_ChenLingHandlePendingActionsCsReq = 9613;
+	CmdChenLingBattleType_ChenLingSyncChangeScNotify = 9611;
+	CmdChenLingBattleType_ChenLingClientStatusChangeCsNotify = 9580;
+}
+
+message DFEGGFFOMKI {
+	repeated OGGELMMFPKP PPCKLBHFCCA = 4; // offset: 16
+	uint32 cur_hp = 7; // offset: 44
+	uint32 max_hp = 8; // offset: 40
+	uint32 wave = 10; // offset: 48
+	CNEEMBBNNBO reason = 11; // offset: 32
+	uint32 stage_id = 15; // offset: 36
+}
+
+message DFFLMEMFPLM {
+	uint32 BFCNALJDHMP = 6; // offset: 32
+	PFPPACPMFDJ DJNOLLDHPHJ = 9; // offset: 24
+}
+
+message EJDPLLIJDNK {
+	uint64 CHFNDAGCEBK = 4; // offset: 24
+}
+
+message EJKNEDLPMIB {
+	GACKCPEPDAF GHPKFACFMML = 8; // offset: 16
+	uint32 BFCNALJDHMP = 9; // offset: 32
+}
+
+message EOKKHLOIBIM {
+	DFFLMEMFPLM GEOMBJDBHDD = 8; // offset: 32
+	DFFLMEMFPLM HEHIOCEPEAE = 13; // offset: 16
+}
+
+message FDDNKPJEMJE {
+	bool is_unlock = 1; // offset: 28
+	uint32 stage_id = 15; // offset: 24
+}
+
+message FIBKOLLMPMM {
+}
+
+message FJJPDJAEJHC {
+	repeated uint32 MKOKLLKALDE = 9; // offset: 16
+}
+
+message GACKCPEPDAF {
+	uint32 max_level = 7; // offset: 32
+	uint32 config_id = 13; // offset: 36
+	uint32 level = 14; // offset: 40
+	uint64 MLMFNEBLNHP = 15; // offset: 24
+}
+
+message GDDLBMCHIED {
+	repeated uint32 MKOKLLKALDE = 10; // offset: 24
+	uint32 KDIDDHIDNCG = 12; // offset: 32
+}
+
+message GEEPIPMBGJD {
+	uint32 OEKIFIKBMFI = 4; // offset: 52
+	repeated uint32 NFPADEPIKML = 6; // offset: 24
+	uint32 KDIDDHIDNCG = 8; // offset: 48
+	repeated uint32 GCDGGBLOJIC = 10; // offset: 16
+	CABCPFKAOPP JOOEEKMDAEO = 14; // offset: 32
+}
+
+message GICMOLJPLGF {
+	repeated PHHFOGFKDBC MEMGHBHGGPN = 9; // offset: 24
+}
+
+message GKNOCNDPAJA {
+	uint64 IEPAPOPIFHH = 10; // offset: 32
+	uint32 level = 13; // offset: 24
+	uint32 max_level = 14; // offset: 28
+}
+
+enum GLBAOKOHKCF {
+	GLBAOKOHKCF_NLCDGIPGFDJ = 0;
+	GLBAOKOHKCF_COJOIFPPCIJ = 2;
+	GLBAOKOHKCF_hp = 3;
+	GLBAOKOHKCF_OGGGLOEIOMM = 4;
+	GLBAOKOHKCF_CCPLGNNIOCO = 5;
+	GLBAOKOHKCF_DGOMNKGLABB = 6;
+	GLBAOKOHKCF_PAIEELDAADP = 7;
+}
+
+message HGCIPBFBNKO {
+	uint32 config_id = 10; // offset: 44
+	uint64 unique_id = 12; // offset: 48
+	JLPEICPFLMC source = 15; // offset: 24
+	oneof AEJNJCELNOE {
+		JLIFGIMBMBD AENBOONOFLC = 6; // offset: 16
+	}
+}
+
+message IIEKKGNJJMC {
+	uint32 BFCNALJDHMP = 3; // offset: 28
+	uint64 KNDHHAJMBGB = 6; // offset: 32
+	bool DBODGPBOIHC = 9; // offset: 24
+}
+
+message IOELPDDJGFJ {
+	JLPEICPFLMC source = 1536; // offset: 32
+	oneof MMCGBGDJIPN {
+		GICMOLJPLGF PJDHBMOIPPO = 3; // offset: 24
+		LCKBHJBKHNH CCHBNLOBPGE = 6; // offset: 24
+		uint32 cur_hp = 15; // offset: 24
+		uint32 rogue_money = 1; // offset: 24
+		LEGNLMENMJK AGHANKEAODD = 11; // offset: 24
+		uint32 MGKMLJHMNMO = 8; // offset: 24
+		AJNJDDFGFJL GDFFAICHLDJ = 9; // offset: 24
+		IIEKKGNJJMC BECPNBEFHGC = 4; // offset: 24
+		EJKNEDLPMIB PBNOFEFIDFI = 14; // offset: 24
+		NEEAHLMKAAB IAOIFAADLLC = 13; // offset: 24
+		DFFLMEMFPLM HOEGFMPDBHH = 12; // offset: 24
+		FJJPDJAEJHC HLHBOGKHEEO = 2; // offset: 24
+		HGCIPBFBNKO ANHDPPOAOGL = 2045; // offset: 24
+		uint64 ELMMNHBECNI = 1645; // offset: 24
+		FDDNKPJEMJE DJOLGKGKCHE = 726; // offset: 24
+		uint32 GCBDADCOBAE = 1072; // offset: 24
+		uint32 FOJHBIMCLGC = 648; // offset: 24
+		NGHEPMFILPE CNCKEHMNJGD = 1958; // offset: 24
+		KHGFCNNCOGA BJPEEGIFAEA = 1664; // offset: 24
+		AFDJNEOHCLB OFCPKKMEFKE = 1271; // offset: 24
+		LGFBMEACHPI NAPDGGDENBM = 1946; // offset: 24
+		BNHBDMIDFCL FMIGOKIDKJL = 1821; // offset: 24
+		uint32 PMFBIGLPJJA = 1106; // offset: 24
+		EJDPLLIJDNK ONAJPGNNLEN = 36; // offset: 24
+		uint32 GDHOLMIBAEA = 818; // offset: 24
+		EOKKHLOIBIM KNANINELANC = 1413; // offset: 24
+		KHLAFMBONNK BEOAPFIBDLB = 1469; // offset: 24
+		JKLKCKNBHCI ADEJOKOIBHC = 1788; // offset: 24
+		BFGNNODONFI PJMJAPKJINA = 1482; // offset: 24
+		MBLJIEELMKN GHICOBOPHOL = 1867; // offset: 24
+	}
+}
+
+message JAAJAPNFMGO {
+	repeated uint32 GCDGGBLOJIC = 3; // offset: 16
+}
+
+message JKLKCKNBHCI {
+}
+
+message JLIFGIMBMBD {
+	uint32 KKCKMCDGCGK = 6; // offset: 32
+	uint32 HMLBJFJIPCE = 8; // offset: 24
+	uint32 BIOFDPICHLC = 13; // offset: 28
+}
+
+message JLPEICPFLMC {
+	uint64 BNEFLBPCPOI = 2; // offset: 32
+	BCAMANFJINC source_type = 14; // offset: 44
+	oneof KLLMJCCOMNF {
+		uint32 BFCNALJDHMP = 10; // offset: 24
+		uint32 HPDFGFBLDOG = 13; // offset: 24
+		uint32 GCPPLLLHBBJ = 9; // offset: 24
+		uint32 DJODEIMGKGK = 7; // offset: 24
+		uint32 PBHFMIIIPBD = 3; // offset: 24
+		uint64 CHFNDAGCEBK = 455; // offset: 24
+		uint32 LEEMKAMANJN = 1052; // offset: 24
+		uint32 NKDDBPGDAEE = 139; // offset: 24
+		uint32 EFEENOFADFC = 202; // offset: 24
+		PFPPACPMFDJ DJNOLLDHPHJ = 1084; // offset: 24
+	}
+}
+
+message KFOOLGFCNDN {
+	oneof CNHEJLOEFAA {
+		AALCHOPCBEM EFBPPPNPBKH = 13; // offset: 16
+		FIBKOLLMPMM IFCFIPGIIME = 8; // offset: 16
+		LJBOELCMGFK OCIHLGBPALK = 7; // offset: 16
+		GDDLBMCHIED NNLBNIJJPAH = 2; // offset: 16
+		GEEPIPMBGJD DJBMEHBKNDF = 3; // offset: 16
+		MLJEJCFJPLE BAMNOFCJMPP = 10; // offset: 16
+	}
+}
+
+message KHGFCNNCOGA {
+	uint32 BFCNALJDHMP = 5; // offset: 32
+	repeated uint32 PJANEJJKOKA = 15; // offset: 16
+}
+
+message KHLAFMBONNK {
+}
+
+message LCKBHJBKHNH {
+	uint32 cur_wave = 2; // offset: 32
+	KFOOLGFCNDN ILOODGHPOBM = 8; // offset: 24
+}
+
+message LDNFIICMCHA {
+	bool DBODGPBOIHC = 2; // offset: 40
+	uint64 KNDHHAJMBGB = 4; // offset: 64
+	repeated AKHEOAIPAPA DIILKEEGLOJ = 6; // offset: 24
+	uint64 IEPAPOPIFHH = 7; // offset: 56
+	uint32 max_level = 9; // offset: 48
+	repeated GACKCPEPDAF KAJOFKIEKNH = 11; // offset: 32
+	uint32 level = 13; // offset: 44
+}
+
+message LEGNLMENMJK {
+	uint32 card_id = 7; // offset: 32
+	uint32 unique_id = 8; // offset: 40
+	oneof NPFEGGMNBOC {
+		LDNFIICMCHA MLIGAFABJDP = 13; // offset: 24
+		GKNOCNDPAJA BLLCMLBDLPC = 4; // offset: 24
+	}
+}
+
+message LFIONDMGCOP {
+	uint32 AAIDCOJPLCI = 15; // offset: 24
+}
+
+message LGFBMEACHPI {
+	repeated uint32 MGJENMKKIBJ = 14; // offset: 16
+}
+
+message LJBOELCMGFK {
+	repeated uint32 GCDGGBLOJIC = 5; // offset: 24
+	uint32 KDIDDHIDNCG = 8; // offset: 32
+}
+
+message MBLJIEELMKN {
+	repeated KVP OCIJDDBLGMH = 14; // offset: 24
+}
+
+message MLJEJCFJPLE {
+}
+
+message NEEAHLMKAAB {
+	uint32 BFCNALJDHMP = 1; // offset: 28
+	uint32 max_level = 4; // offset: 24
+	uint64 IEPAPOPIFHH = 13; // offset: 32
+	uint32 level = 14; // offset: 40
+}
+
+message NGHEPMFILPE {
+	uint32 BFCNALJDHMP = 1; // offset: 32
+	AKHEOAIPAPA GOBMEEHNFDC = 10; // offset: 16
+}
+
+message OGGELMMFPKP {
+	double damage = 6; // offset: 32
+	uint32 config_id = 11; // offset: 24
+}
+
+message PFPPACPMFDJ {
+	int32 x = 6; // offset: 28
+	int32 y = 14; // offset: 24
+}
+
+message PHHFOGFKDBC {
+	uint32 unique_id = 5; // offset: 28
+	uint32 card_id = 7; // offset: 24
+}

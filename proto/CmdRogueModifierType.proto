@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdRogueModifierType {
+	CmdRogueModifierType_NLCDGIPGFDJ = 0;
+	CmdRogueModifierType_RogueModifierAddNotify = 5305;
+	CmdRogueModifierType_RogueModifierDelNotify = 5383;
+	CmdRogueModifierType_RogueModifierStageStartNotify = 5315;
+	CmdRogueModifierType_RogueModifierUpdateNotify = 5356;
+	CmdRogueModifierType_RogueModifierSelectCellScRsp = 5360;
+	CmdRogueModifierType_RogueModifierSelectCellCsReq = 5375;
+}
+
+message RogueModifierAddNotify {
+	BMCNDLNONMO modifier = 9; // offset: 16
+}
+
+message RogueModifierDelNotify {
+	uint64 FCHLCANJIGL = 6; // offset: 24
+}
+
+message RogueModifierSelectCellCsReq {
+	uint32 IHAOMLEPHOM = 7; // offset: 24
+}
+
+message RogueModifierSelectCellScRsp {
+	uint32 retcode = 3; // offset: 32
+	ItemList NMJGHEACCMC = 11; // offset: 16
+}
+
+message RogueModifierStageStartNotify {
+	RogueModifierSourceType source_type = 4; // offset: 24
+}
+
+message RogueModifierUpdateNotify {
+	BMCNDLNONMO modifier = 1; // offset: 16
+}

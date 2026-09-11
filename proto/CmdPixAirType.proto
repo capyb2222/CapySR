@@ -1,0 +1,388 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AEGGFGBNLPE {
+	bool FOGGEJIIJCM = 5; // offset: 24
+}
+
+message AGBPBAOCCJF {
+	bool is_win = 10; // offset: 24
+}
+
+message ALLFGCIALIJ {
+	uint32 JNBIALMKFCL = 8; // offset: 32
+	repeated EMHEOJNCGFH grid_fight_equipment_list = 11; // offset: 16
+}
+
+message AOPODAHBPFH {
+	uint32 content_id = 5; // offset: 28
+	uint32 content_type = 10; // offset: 24
+}
+
+message BMOIPALHBJN {
+	repeated NJHFBDDHCEN OGDKJPDFFAI = 2; // offset: 16
+	uint32 JOMDKGINNEK = 13; // offset: 40
+	uint32 shop_id = 14; // offset: 32
+	uint32 AAIODNCLAIP = 15; // offset: 36
+}
+
+message CCPCAIGEBCB {
+	uint32 CCBIIDDBFGK = 11; // offset: 24
+}
+
+message CKICDPIJIMF {
+	uint32 battle_id = 1; // offset: 24
+}
+
+enum CmdPixAirType {
+	CmdPixAirType_NLCDGIPGFDJ = 0;
+	CmdPixAirType_PixAirSellEquipCsReq = 9778;
+	CmdPixAirType_LPPIEIAIMPN = 9818;
+	CmdPixAirType_PixAirSellEquipScRsp = 9817;
+	CmdPixAirType_PixAirUnlockPlaneScRsp = 9812;
+	CmdPixAirType_PixAirSwapEquipScRsp = 9810;
+	CmdPixAirType_PixAirQuitStageCsReq = 9802;
+	CmdPixAirType_DJFANBNMAKN = 9808;
+	CmdPixAirType_PixAirStartStageScRsp = 9799;
+	CmdPixAirType_INPBMNCLGNI = 9777;
+	CmdPixAirType_PixAirBuyGoodsScRsp = 9793;
+	CmdPixAirType_AJMNMFNAPDI = 9774;
+	CmdPixAirType_PixAirRefreshShopScRsp = 9788;
+	CmdPixAirType_PixAirGetDataScRsp = 9776;
+	CmdPixAirType_PixAirBuyGoodsCsReq = 9795;
+	CmdPixAirType_PixAirUnlockPlaneCsReq = 9789;
+	CmdPixAirType_PixAirChangePosCsReq = 9784;
+	CmdPixAirType_PixAirReenterStageCsReq = 9781;
+	CmdPixAirType_PixAirRefreshShopCsReq = 9772;
+	CmdPixAirType_PixAirQuitStageScRsp = 9786;
+	CmdPixAirType_PixAirSyncChangeScNotify = 9790;
+	CmdPixAirType_PixAirReenterStageScRsp = 9796;
+	CmdPixAirType_IJOKHOEMJEM = 9791;
+	CmdPixAirType_PixAirGetDataCsReq = 9804;
+	CmdPixAirType_EFIGNDDPNJH = 9809;
+	CmdPixAirType_PixAirStartStageCsReq = 9801;
+}
+
+message EIFBMCGPNMG {
+	map<uint32, uint32> EOPNCAMILJF = 4; // offset: 16
+}
+
+message EKJMIJBIIHO {
+	uint32 retcode = 8; // offset: 24
+}
+
+message EMHEOJNCGFH {
+	uint32 level = 6; // offset: 24
+	uint32 grid_fight_equipment_id = 10; // offset: 28
+}
+
+message EPADPABCFGH {
+	uint32 pos = 9; // offset: 28
+	uint32 unique_id = 11; // offset: 24
+	uint32 IAAHNOFKNGN = 15; // offset: 32
+}
+
+message EPBFAAHFDNF {
+	uint32 event_id = 4; // offset: 32
+	repeated MGCPEPBPMNG KFNMIEMBJGD = 11; // offset: 16
+}
+
+message FFKHFDJFAGM {
+	uint32 queue_position = 12; // offset: 32
+	oneof MMCGBGDJIPN {
+		CKICDPIJIMF BACBKGJJOGA = 2; // offset: 16
+		PKPHOOGGPOL IBIFHOIPAGE = 6; // offset: 16
+		FJGMGGIGLPD MOFNIOJHBBL = 4; // offset: 16
+		KAAJEKKIDIE IPKGIIJEPAJ = 7; // offset: 16
+		ALLFGCIALIJ JFGIMDGOMBH = 11; // offset: 16
+		EPBFAAHFDNF OOOACLEFDGM = 14; // offset: 16
+		HIEACFOEMCE ADMICNGJLOI = 1136; // offset: 16
+		CCPCAIGEBCB AOEMGEFGIFG = 427; // offset: 16
+	}
+}
+
+message FJGMGGIGLPD {
+}
+
+message GANGPOOHAKI {
+	uint32 PEBCBLBLMPH = 8; // offset: 24
+}
+
+message GBMAHPJPGLM {
+	uint32 CKHCLKOALKE = 5; // offset: 24
+}
+
+message GCINPDAAELN {
+	repeated JPEBEDHMNLA grid_fight_equipment_list = 9; // offset: 24
+}
+
+message GDNDBHGJBLF {
+	uint32 PEBCBLBLMPH = 8; // offset: 24
+}
+
+enum GJIGHKNMILJ {
+	GJIGHKNMILJ_NCMIMMDPHFM = 0;
+	GJIGHKNMILJ_PJFGLBEKECE = 1;
+	GJIGHKNMILJ_INCLHHDFCEL = 2;
+	GJIGHKNMILJ_BGDCOCGIONK = 3;
+}
+
+message GNCJNHIOKDL {
+	uint32 retcode = 2; // offset: 32
+	uint32 CKHCLKOALKE = 4; // offset: 36
+	oneof PGNIENCDODA {
+		uint32 ECHFGJHHGOG = 14; // offset: 24
+		uint32 NDEDLLMEFBJ = 10; // offset: 24
+		KVP CJKEIMBCMEP = 1; // offset: 24
+	}
+}
+
+message HENHAIFODIG {
+	uint32 retcode = 10; // offset: 24
+}
+
+message HGNAHHFBMMN {
+	LHJDEOLKHKB JGEMNOLFNIE = 1; // offset: 24
+	uint32 GJLDDMIIILF = 2; // offset: 92
+	IDJALKEGPLI basic = 3; // offset: 16
+	string trans_no = 4; // offset: 40
+	uint32 MFPOKNMFNGM = 5; // offset: 88
+	uint32 AJHDCEGIGMC = 7; // offset: 76
+	repeated KVP switch_list = 8; // offset: 32
+	uint32 ALJNIHNLNMA = 10; // offset: 84
+	uint32 PAEAKCCACOP = 11; // offset: 80
+	uint32 stage_id = 12; // offset: 72
+	FFKHFDJFAGM FMIGOKIDKJL = 14; // offset: 64
+	BMOIPALHBJN NGNJHMEOHBD = 15; // offset: 56
+}
+
+message HIEACFOEMCE {
+	uint32 HICEJEJNOLE = 9; // offset: 24
+}
+
+message HLDLJBFIMOO {
+	uint32 HAFOKMHCGFM = 6; // offset: 24
+}
+
+message IDJALKEGPLI {
+	repeated KVP DCJDCPMKEPN = 10; // offset: 24
+	uint32 plane_id = 14; // offset: 32
+}
+
+message IIFHCHDPKIA {
+	uint32 queue_position = 1; // offset: 32
+	oneof MMCGBGDJIPN {
+		AGBPBAOCCJF DHJNFOKBPNC = 11; // offset: 16
+		OHPMDJFALNH JEIODBPCKNB = 5; // offset: 16
+		MOJCEJIPPGO MOFNIOJHBBL = 8; // offset: 16
+		AEGGFGBNLPE IPKGIIJEPAJ = 10; // offset: 16
+		LJGKOGKEDOA JFGIMDGOMBH = 12; // offset: 16
+		HLDLJBFIMOO OOOACLEFDGM = 4; // offset: 16
+		GANGPOOHAKI ADMICNGJLOI = 1099; // offset: 16
+		GDNDBHGJBLF AOEMGEFGIFG = 1306; // offset: 16
+	}
+}
+
+message IMAGFGIHLJC {
+	uint32 CDMFHNGEFCN = 1; // offset: 24
+	uint32 area_id = 6; // offset: 32
+	uint32 AJHDCEGIGMC = 15; // offset: 28
+}
+
+enum JDHJMNAGIIA {
+	JDHJMNAGIIA_CDCHHNPNPLN = 0;
+	JDHJMNAGIIA_EECEDOKMPPI = 1;
+	JDHJMNAGIIA_PGGEODDBMMK = 2;
+	JDHJMNAGIIA_PJGPLEAPECI = 3;
+	JDHJMNAGIIA_BFLLFGOJPCG = 4;
+	JDHJMNAGIIA_JAOLOFNICGD = 5;
+	JDHJMNAGIIA_KAPHNBBNHBP = 6;
+	JDHJMNAGIIA_DAJDHGGFJGK = 7;
+	JDHJMNAGIIA_KEDPGJCCLDC = 8;
+	JDHJMNAGIIA_MDMMEAKJNOC = 9;
+	JDHJMNAGIIA_CDKPJHAEMFE = 10;
+	JDHJMNAGIIA_CCJKIBNAFPJ = 11;
+	JDHJMNAGIIA_NIBDPFIMOFG = 12;
+	JDHJMNAGIIA_KGJCNJPFCNO = 13;
+	JDHJMNAGIIA_CPBNIGEIKJA = 14;
+}
+
+message JPEBEDHMNLA {
+	uint32 unique_id = 1; // offset: 40
+	uint32 level = 5; // offset: 36
+	uint32 pos = 6; // offset: 28
+	uint32 grid_fight_equipment_id = 9; // offset: 32
+	uint32 CCBIIDDBFGK = 10; // offset: 24
+}
+
+message KAAJEKKIDIE {
+	EMHEOJNCGFH equip = 11; // offset: 24
+}
+
+message KLBPBDLHKBG {
+	JDHJMNAGIIA source_type = 9; // offset: 32
+	uint32 BNEFLBPCPOI = 12; // offset: 36
+	oneof MMCGBGDJIPN {
+		FFKHFDJFAGM FMIGOKIDKJL = 11; // offset: 16
+		NBKKABHMMPP IANBCDJPDJF = 2; // offset: 16
+		GCINPDAAELN EKEFDIEPHEE = 10; // offset: 16
+		uint32 FKIAFJBMAPI = 1; // offset: 16
+		IMAGFGIHLJC JKPINLKEOOK = 15; // offset: 16
+		EIFBMCGPNMG DLOHBPGEMFF = 5; // offset: 16
+		NNFFGHJKPJD KJHMPBOIGGE = 271; // offset: 16
+		uint32 JOINHCDHNNL = 2005; // offset: 16
+		uint32 PMFBIGLPJJA = 1939; // offset: 16
+		uint32 OEKKEIMGBNO = 1869; // offset: 16
+	}
+}
+
+message KNHFDINIJOL {
+}
+
+message LHJDEOLKHKB {
+	uint32 slot_num = 4; // offset: 40
+	repeated JPEBEDHMNLA DPPJILKLJAG = 8; // offset: 16
+	repeated JPEBEDHMNLA MKJECBOMHPP = 11; // offset: 24
+}
+
+message LJGKOGKEDOA {
+	uint32 OJEIHPEIJCO = 1; // offset: 24
+}
+
+message MGCPEPBPMNG {
+	uint32 content_id = 3; // offset: 28
+	uint32 HAFOKMHCGFM = 12; // offset: 24
+}
+
+message MOJCEJIPPGO {
+}
+
+message NAJFNKIEEDM {
+	repeated uint32 BLHJIPBHHFO = 6; // offset: 24
+}
+
+message NBKKABHMMPP {
+	uint32 score_id = 1; // offset: 40
+	ItemList reward = 8; // offset: 16
+	uint32 GMLCJEOOCHJ = 10; // offset: 56
+	GJIGHKNMILJ reason = 11; // offset: 32
+	uint32 NJPMPAAGCCD = 12; // offset: 36
+	uint32 ALOFCOLHAGA = 14; // offset: 48
+	uint32 HGBHCLHCGBB = 503; // offset: 52
+	uint32 OACBLHIIIEH = 1633; // offset: 44
+}
+
+message NJHFBDDHCEN {
+	uint32 level = 7; // offset: 24
+	bool LHGIFDNPIDE = 11; // offset: 32
+	uint32 grid_fight_equipment_id = 13; // offset: 28
+}
+
+message NMACHAFCGNI {
+	uint32 MFPOKNMFNGM = 2; // offset: 36
+	uint32 stage_id = 7; // offset: 40
+	IDJALKEGPLI basic = 8; // offset: 16
+	uint32 ALJNIHNLNMA = 9; // offset: 32
+}
+
+message NNFFGHJKPJD {
+	uint32 JOMDKGINNEK = 2; // offset: 32
+	uint32 AAIODNCLAIP = 4; // offset: 40
+	repeated NJHFBDDHCEN OGDKJPDFFAI = 5; // offset: 16
+	uint32 shop_id = 11; // offset: 36
+}
+
+message OHPMDJFALNH {
+	uint32 content_id = 13; // offset: 24
+}
+
+message PKPHOOGGPOL {
+	repeated AOPODAHBPFH message_datas = 7; // offset: 24
+}
+
+message PixAirBuyGoodsCsReq {
+	uint32 FIEDIDHOLDJ = 4; // offset: 24
+}
+
+message PixAirBuyGoodsScRsp {
+	uint32 retcode = 13; // offset: 24
+}
+
+message PixAirChangePosCsReq {
+	repeated EPADPABCFGH MJLGNPMNMOP = 14; // offset: 16
+}
+
+message PixAirGetDataCsReq {
+}
+
+message PixAirGetDataScRsp {
+	uint32 score_id = 3; // offset: 60
+	uint32 retcode = 4; // offset: 56
+	repeated uint32 PGMIJBOGIKN = 7; // offset: 48
+	NMACHAFCGNI IEIGEDABKAD = 11; // offset: 32
+	NAJFNKIEEDM JCOBJAMPOAL = 12; // offset: 40
+	repeated uint32 OPOJIGCHGDO = 13; // offset: 24
+}
+
+message PixAirQuitStageCsReq {
+}
+
+message PixAirQuitStageScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message PixAirReenterStageCsReq {
+}
+
+message PixAirReenterStageScRsp {
+	uint32 retcode = 4; // offset: 32
+	HGNAHHFBMMN stage_info = 9; // offset: 16
+}
+
+message PixAirRefreshShopCsReq {
+}
+
+message PixAirRefreshShopScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message PixAirSellEquipCsReq {
+	uint32 ONIAFLNBNPN = 11; // offset: 24
+}
+
+message PixAirSellEquipScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message PixAirStartStageCsReq {
+	uint32 ALJNIHNLNMA = 1; // offset: 32
+	uint32 stage_id = 7; // offset: 24
+	uint32 plane_id = 12; // offset: 36
+	bool EMMGHDLIPOH = 15; // offset: 28
+}
+
+message PixAirStartStageScRsp {
+	bool EMMGHDLIPOH = 6; // offset: 36
+	HGNAHHFBMMN stage_info = 12; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message PixAirSwapEquipScRsp {
+	uint32 retcode = 7; // offset: 32
+	repeated EPADPABCFGH MJLGNPMNMOP = 13; // offset: 24
+}
+
+message PixAirSyncChangeScNotify {
+	repeated KLBPBDLHKBG DGNGMJMPFGK = 7; // offset: 16
+}
+
+message PixAirUnlockPlaneCsReq {
+	uint32 plane_id = 8; // offset: 24
+}
+
+message PixAirUnlockPlaneScRsp {
+	uint32 plane_id = 4; // offset: 28
+	uint32 retcode = 14; // offset: 24
+}

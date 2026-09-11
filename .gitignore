@@ -1,0 +1,11 @@
+build/
+logs/
+*.log
+data/player.json
+src/proto/gen/
+src/net/cmd_ids.h
+src/net/cmd_ids.cpp
+.vs/
+.vscode/
+.idea/
+*.user

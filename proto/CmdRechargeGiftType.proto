@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BCAJNMLLIED {
+	uint32 progress = 1; // offset: 36
+	repeated uint32 OLHODIFNABL = 4; // offset: 16
+	uint32 id = 9; // offset: 32
+	uint32 panel_id = 12; // offset: 40
+}
+
+enum CmdRechargeGiftType {
+	CmdRechargeGiftType_NLCDGIPGFDJ = 0;
+	CmdRechargeGiftType_TakeRechargeBenefitRewardScRsp = 8372;
+	CmdRechargeGiftType_TakeRechargeGiftRewardScRsp = 8368;
+	CmdRechargeGiftType_TakeRechargeGiftRewardCsReq = 8377;
+	CmdRechargeGiftType_GetRechargeBenefitInfoScRsp = 8373;
+	CmdRechargeGiftType_TakeRechargeBenefitRewardCsReq = 8365;
+	CmdRechargeGiftType_GetRechargeGiftInfoScRsp = 8376;
+	CmdRechargeGiftType_SyncRechargeBenefitInfoScNotify = 8380;
+	CmdRechargeGiftType_GetRechargeGiftInfoCsReq = 8370;
+	CmdRechargeGiftType_GetRechargeBenefitInfoCsReq = 8364;
+}
+
+message GetRechargeBenefitInfoCsReq {
+}
+
+message GetRechargeBenefitInfoScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated BCAJNMLLIED OABBABNPPOO = 10; // offset: 24
+}
+
+message GetRechargeGiftInfoCsReq {
+}
+
+message GetRechargeGiftInfoScRsp {
+	repeated JBNGCJJDLHL OFIHOCCHNCN = 2; // offset: 16
+	uint32 retcode = 6; // offset: 32
+}
+
+message IJHPILBBHDI {
+	message BBIBCFCKPJH {
+		enum EGCFNCBLHJC {
+			EGCFNCBLHJC_EDHBOMMOKGM = 0;
+			EGCFNCBLHJC_ACBHGLIBJBG = 1;
+			EGCFNCBLHJC_LJLKNDIACEO = 2;
+		}
+	}
+	BBIBCFCKPJH.EGCFNCBLHJC status = 5; // offset: 28
+	uint32 index = 12; // offset: 24
+}
+
+message JBNGCJJDLHL {
+	repeated IJHPILBBHDI status_list = 1; // offset: 16
+	int64 end_time = 2; // offset: 40
+	uint32 gift_type = 5; // offset: 48
+	int64 start_time = 7; // offset: 32
+}
+
+message SyncRechargeBenefitInfoScNotify {
+	BCAJNMLLIED KLCGBJIEMPO = 13; // offset: 24
+}
+
+message TakeRechargeBenefitRewardCsReq {
+	uint32 id = 13; // offset: 24
+}
+
+message TakeRechargeBenefitRewardScRsp {
+	ItemList reward = 2; // offset: 32
+	BCAJNMLLIED KLCGBJIEMPO = 14; // offset: 24
+	uint32 retcode = 15; // offset: 40
+}
+
+message TakeRechargeGiftRewardCsReq {
+	uint32 gift_type = 15; // offset: 24
+}
+
+message TakeRechargeGiftRewardScRsp {
+	ItemList reward = 9; // offset: 16
+	uint32 retcode = 11; // offset: 40
+	JBNGCJJDLHL KJBDNIIBGNE = 12; // offset: 32
+}

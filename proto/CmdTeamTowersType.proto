@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+
+message AJGLEIOGOID {
+	uint32 stage_id = 4; // offset: 32
+	repeated uint32 IKOKEPJGHAF = 10; // offset: 16
+	uint32 IDIPBEPCIFG = 11; // offset: 36
+}
+
+message CLCOAJDPMJN {
+	repeated uint32 IKOKEPJGHAF = 2; // offset: 16
+	uint32 IDIPBEPCIFG = 6; // offset: 40
+	uint32 retcode = 7; // offset: 44
+	repeated MBLAIDFENOE GEPKDDNJING = 8; // offset: 24
+	uint32 GEPHKCPLAJF = 11; // offset: 48
+	bool is_win = 13; // offset: 52
+	uint32 stage_id = 15; // offset: 56
+}
+
+enum CmdTeamTowersType {
+	CmdTeamTowersType_NLCDGIPGFDJ = 0;
+	CmdTeamTowersType_TeamTowersGetDataScRsp = 9979;
+	CmdTeamTowersType_GHNJNKLLAAA = 9953;
+	CmdTeamTowersType_AHBAGOLHOKD = 9963;
+	CmdTeamTowersType_PHIIDKGBFLO = 9954;
+	CmdTeamTowersType_TeamTowersGetDataCsReq = 9958;
+}
+
+message EABDMCJDJFA {
+	uint32 skill_id = 3; // offset: 24
+	uint32 level = 8; // offset: 28
+}
+
+enum GJCOFAFLAEI {
+	GJCOFAFLAEI_NLCDGIPGFDJ = 0;
+	GJCOFAFLAEI_NCMIMMDPHFM = 1;
+	GJCOFAFLAEI_role_star = 2;
+	GJCOFAFLAEI_MCMDKGEANNA = 3;
+	GJCOFAFLAEI_LBGJHODBAEA = 4;
+}
+
+message HDLCAPDIKJI {
+	uint32 skill_id = 1; // offset: 28
+	uint32 count = 2; // offset: 24
+}
+
+message ICLFACJDJHB {
+	uint32 level = 5; // offset: 28
+	uint32 skill_id = 8; // offset: 24
+}
+
+message KKPHDBMNNHB {
+	repeated HDLCAPDIKJI cast_skill_info_list = 2; // offset: 32
+	uint32 MNHPDBEDJLB = 3; // offset: 56
+	repeated uint32 IKOKEPJGHAF = 4; // offset: 16
+	uint64 CEDKBKPCCDJ = 7; // offset: 48
+	bool is_win = 8; // offset: 60
+	uint32 IDIPBEPCIFG = 13; // offset: 68
+	uint32 stage_id = 14; // offset: 64
+	repeated uint32 PBNNCINCGGC = 15; // offset: 24
+}
+
+message MBLAIDFENOE {
+	GJCOFAFLAEI source_type = 4; // offset: 24
+	uint32 exp = 6; // offset: 32
+	uint32 NCHBLJHJNID = 14; // offset: 28
+}
+
+message TeamTowersGetDataCsReq {
+}
+
+message TeamTowersGetDataScRsp {
+	uint32 GEPHKCPLAJF = 2; // offset: 40
+	repeated AJGLEIOGOID OHFIIBEIPJE = 4; // offset: 16
+	repeated EABDMCJDJFA LCOCDLIECKJ = 5; // offset: 24
+	uint32 retcode = 15; // offset: 44
+}

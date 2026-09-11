@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+
+message AOMMAFEOBOA {
+	uint32 id = 9; // offset: 24
+	bool has_passed = 12; // offset: 28
+}
+
+enum CmdTarotBookType {
+	CmdTarotBookType_NLCDGIPGFDJ = 0;
+	CmdTarotBookType_TarotBookFinishStoryCsReq = 8160;
+	CmdTarotBookType_TarotBookFinishStoryScRsp = 8145;
+	CmdTarotBookType_TarotBookGetDataScRsp = 8156;
+	CmdTarotBookType_TarotBookSyncDataScNotify = 8159;
+	CmdTarotBookType_TarotBookUnlockStoryScRsp = 8153;
+	CmdTarotBookType_TarotBookMultiOpenPackAndUnlockStoryScRsp = 8142;
+	CmdTarotBookType_TarotBookUnlockInteractionScRsp = 8143;
+	CmdTarotBookType_TarotBookUnlockStoryCsReq = 8144;
+	CmdTarotBookType_TarotBookOpenPackScRsp = 8148;
+	CmdTarotBookType_TarotBookGetDataCsReq = 8150;
+	CmdTarotBookType_TarotBookOpenPackCsReq = 8157;
+	CmdTarotBookType_TarotBookFinishInteractionScRsp = 8147;
+	CmdTarotBookType_TarotBookModifyEnergyScNotify = 8152;
+	CmdTarotBookType_TarotBookMultiOpenPackAndUnlockStoryCsReq = 8158;
+	CmdTarotBookType_TarotBookFinishInteractionCsReq = 8149;
+	CmdTarotBookType_TarotBookUnlockInteractionCsReq = 8146;
+}
+
+message GMBGLBHEFDI {
+	repeated uint32 HKFDNIFACFH = 7; // offset: 32
+	repeated uint32 FPPJGGJCJIH = 12; // offset: 16
+}
+
+message LIONJNJEBBF {
+	uint32 id = 4; // offset: 28
+	uint32 level = 14; // offset: 24
+}
+
+message OHCFIOOIKND {
+	repeated AOMMAFEOBOA ILKLAJBGKKI = 14; // offset: 32
+	repeated LIONJNJEBBF LNFCBCDNFDL = 15; // offset: 16
+}
+
+message TarotBookFinishInteractionCsReq {
+	uint32 INJAGFDOFEJ = 15; // offset: 24
+}
+
+message TarotBookFinishInteractionScRsp {
+	uint32 retcode = 1; // offset: 28
+	uint32 INJAGFDOFEJ = 14; // offset: 24
+}
+
+message TarotBookFinishStoryCsReq {
+	uint32 LNAHJENGELA = 14; // offset: 24
+}
+
+message TarotBookFinishStoryScRsp {
+	uint32 LNAHJENGELA = 3; // offset: 36
+	uint32 retcode = 9; // offset: 32
+	OHCFIOOIKND BBEMIGELGJC = 13; // offset: 24
+}
+
+message TarotBookGetDataCsReq {
+}
+
+message TarotBookGetDataScRsp {
+	uint32 HBLKMBHGLNO = 4; // offset: 56
+	map<uint32, uint32> IMNNLHCAKML = 5; // offset: 40
+	OHCFIOOIKND BBEMIGELGJC = 8; // offset: 48
+	GMBGLBHEFDI interaction = 9; // offset: 32
+	uint32 energy_info = 10; // offset: 68
+	map<uint32, uint32> IJOJMJOMELA = 11; // offset: 24
+	uint32 LOCEBOCJGEC = 14; // offset: 64
+	uint32 retcode = 15; // offset: 60
+}
+
+message TarotBookModifyEnergyScNotify {
+	uint32 energy_info = 1; // offset: 24
+	uint32 sub_mission_id = 7; // offset: 28
+}
+
+message TarotBookMultiOpenPackAndUnlockStoryCsReq {
+}
+
+message TarotBookMultiOpenPackAndUnlockStoryScRsp {
+	repeated uint32 LNOAAOAFJJE = 1; // offset: 32
+	uint32 retcode = 2; // offset: 64
+	map<uint32, uint32> IJOJMJOMELA = 3; // offset: 40
+	uint32 LOCEBOCJGEC = 5; // offset: 56
+	map<uint32, uint32> IMNNLHCAKML = 7; // offset: 48
+	uint32 energy_info = 11; // offset: 60
+	uint32 HBLKMBHGLNO = 13; // offset: 68
+	OHCFIOOIKND BBEMIGELGJC = 15; // offset: 16
+}
+
+message TarotBookOpenPackCsReq {
+}
+
+message TarotBookOpenPackScRsp {
+	uint32 LOCEBOCJGEC = 2; // offset: 44
+	map<uint32, uint32> NLAANGNGAIA = 4; // offset: 16
+	uint32 retcode = 7; // offset: 52
+	uint32 energy_info = 8; // offset: 40
+	map<uint32, uint32> KMNLFHLINFB = 9; // offset: 32
+	uint32 HBLKMBHGLNO = 15; // offset: 48
+}
+
+message TarotBookSyncDataScNotify {
+	map<uint32, uint32> IJOJMJOMELA = 4; // offset: 24
+	OHCFIOOIKND BBEMIGELGJC = 7; // offset: 16
+	uint32 energy_info = 9; // offset: 56
+	uint32 HBLKMBHGLNO = 10; // offset: 52
+	map<uint32, uint32> IMNNLHCAKML = 12; // offset: 32
+	uint32 LOCEBOCJGEC = 15; // offset: 48
+}
+
+message TarotBookUnlockInteractionCsReq {
+	repeated uint32 FEEGJLAMKLJ = 6; // offset: 24
+}
+
+message TarotBookUnlockInteractionScRsp {
+	repeated uint32 CLNOMEFFHKG = 3; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message TarotBookUnlockStoryCsReq {
+	repeated uint32 OCFCIANNKKI = 11; // offset: 24
+}
+
+message TarotBookUnlockStoryScRsp {
+	uint32 retcode = 3; // offset: 56
+	repeated uint32 BHFHFONGHML = 4; // offset: 24
+	map<uint32, uint32> IMNNLHCAKML = 5; // offset: 40
+	map<uint32, uint32> IJOJMJOMELA = 7; // offset: 48
+	LIONJNJEBBF CLLIKPONHOC = 15; // offset: 16
+}

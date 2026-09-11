@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+
+message CABBOOKAODO {
+	repeated uint32 relic_ids = 1; // offset: 32
+	ONFLANPGHHL AEONNKANGCE = 3; // offset: 16
+	uint32 avatar_id = 5; // offset: 40
+}
+
+enum CmdRelicSmartWearType {
+	CmdRelicSmartWearType_NLCDGIPGFDJ = 0;
+	CmdRelicSmartWearType_RelicSmartWearDeletePlanScRsp = 8255;
+	CmdRelicSmartWearType_RelicSmartWearUpdatePlanCsReq = 8254;
+	CmdRelicSmartWearType_RelicSmartWearGetPlanScRsp = 8266;
+	CmdRelicSmartWearType_RelicSmartWearGetPinRelicScRsp = 8256;
+	CmdRelicSmartWearType_RelicSmartWearGetPlanCsReq = 8260;
+	CmdRelicSmartWearType_RelicSmartWearAddPlanCsReq = 8267;
+	CmdRelicSmartWearType_RelicSmartWearDeletePlanCsReq = 8270;
+	CmdRelicSmartWearType_RelicSmartWearAddPlanScRsp = 8258;
+	CmdRelicSmartWearType_RelicSmartWearUpdatePinRelicScNotify = 8253;
+	CmdRelicSmartWearType_RelicSmartWearUpdatePlanScRsp = 8263;
+	CmdRelicSmartWearType_RelicSmartWearDeletePinRelicScRsp = 8251;
+	CmdRelicSmartWearType_RelicSmartWearGetPinRelicCsReq = 8257;
+	CmdRelicSmartWearType_RelicSmartWearUpdatePinRelicCsReq = 8252;
+	CmdRelicSmartWearType_RelicSmartWearUpdatePinRelicScRsp = 8264;
+	CmdRelicSmartWearType_RelicSmartWearDeletePinRelicCsReq = 8265;
+}
+
+enum KCKJILIMNFF {
+	KCKJILIMNFF_NLCDGIPGFDJ = 0;
+	KCKJILIMNFF_CFPGFAMANFD = 1;
+	KCKJILIMNFF_HEHPPOFHLMI = 2;
+	KCKJILIMNFF_EBDIOJPDJIH = 3;
+}
+
+message ONFLANPGHHL {
+	repeated uint32 outside_relic_list = 6; // offset: 24
+	KCKJILIMNFF ALAEIBDIGHM = 7; // offset: 40
+	repeated uint32 inside_relic_list = 9; // offset: 16
+}
+
+message RelicSmartWearAddPlanCsReq {
+	RelicSmartWearPlan relic_plan = 9; // offset: 16
+}
+
+message RelicSmartWearAddPlanScRsp {
+	RelicSmartWearPlan relic_plan = 8; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+message RelicSmartWearDeletePinRelicCsReq {
+	repeated ONFLANPGHHL AIFAMIFGMCH = 9; // offset: 16
+	uint32 avatar_id = 13; // offset: 32
+	bool BEAJGCMPOED = 15; // offset: 36
+}
+
+message RelicSmartWearDeletePinRelicScRsp {
+	uint32 retcode = 4; // offset: 36
+	uint32 avatar_id = 6; // offset: 32
+	repeated ONFLANPGHHL AIFAMIFGMCH = 15; // offset: 24
+}
+
+message RelicSmartWearDeletePlanCsReq {
+	uint32 unique_id = 10; // offset: 24
+}
+
+message RelicSmartWearDeletePlanScRsp {
+	uint32 unique_id = 4; // offset: 28
+	uint32 retcode = 9; // offset: 24
+}
+
+message RelicSmartWearGetPinRelicCsReq {
+	uint32 avatar_id = 4; // offset: 24
+}
+
+message RelicSmartWearGetPinRelicScRsp {
+	uint32 retcode = 7; // offset: 36
+	repeated CABBOOKAODO OJNCAOKPKIB = 12; // offset: 24
+	uint32 avatar_id = 14; // offset: 32
+}
+
+message RelicSmartWearGetPlanCsReq {
+	uint32 avatar_id = 13; // offset: 24
+}
+
+message RelicSmartWearGetPlanScRsp {
+	uint32 retcode = 3; // offset: 32
+	uint32 avatar_id = 10; // offset: 36
+	repeated RelicSmartWearPlan relic_plan_list = 15; // offset: 24
+}
+
+message RelicSmartWearPlan {
+	uint32 unique_id = 1; // offset: 40
+	repeated uint32 inside_relic_list = 6; // offset: 24
+	repeated uint32 outside_relic_list = 9; // offset: 32
+	uint32 avatar_id = 11; // offset: 44
+}
+
+message RelicSmartWearUpdatePinRelicCsReq {
+	CABBOOKAODO DNNKBPBFPBK = 2; // offset: 16
+}
+
+message RelicSmartWearUpdatePinRelicScNotify {
+	repeated CABBOOKAODO PLNCNCNIPKN = 1; // offset: 32
+	uint32 relic_unique_id = 4; // offset: 40
+	repeated CABBOOKAODO ANCHGOGNLFP = 5; // offset: 16
+}
+
+message RelicSmartWearUpdatePinRelicScRsp {
+	uint32 retcode = 4; // offset: 32
+	CABBOOKAODO DNNKBPBFPBK = 10; // offset: 16
+}
+
+message RelicSmartWearUpdatePlanCsReq {
+	RelicSmartWearPlan relic_plan = 14; // offset: 24
+}
+
+message RelicSmartWearUpdatePlanScRsp {
+	RelicSmartWearPlan relic_plan = 1; // offset: 16
+	uint32 retcode = 12; // offset: 32
+}

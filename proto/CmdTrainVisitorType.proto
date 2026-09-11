@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum ACKPCFFEMHB {
+	ACKPCFFEMHB_NLCDGIPGFDJ = 0;
+	ACKPCFFEMHB_GGEOGCBGEIH = 1;
+	ACKPCFFEMHB_CNPNACJBHJG = 2;
+}
+
+enum CFCPOEDPPKB {
+	CFCPOEDPPKB_ABECLEIGDEF = 0;
+	CFCPOEDPPKB_CINLJPPIINL = 1;
+	CFCPOEDPPKB_CHBNBPFIJPG = 2;
+}
+
+enum CmdTrainVisitorType {
+	CmdTrainVisitorType_NLCDGIPGFDJ = 0;
+	CmdTrainVisitorType_TakeTrainVisitorBehaviorRewardScRsp = 3715;
+	CmdTrainVisitorType_GJBHPGPAGKJ = 3739;
+	CmdTrainVisitorType_GetTrainVisitorRegisterCsReq = 3758;
+	CmdTrainVisitorType_GGFOFBFAEIN = 3705;
+	CmdTrainVisitorType_TrainVisitorBehaviorFinishCsReq = 3734;
+	CmdTrainVisitorType_GetTrainVisitorRegisterScRsp = 3756;
+	CmdTrainVisitorType_TrainVisitorBehaviorFinishScRsp = 3725;
+	CmdTrainVisitorType_PJMKLBEMCBG = 3742;
+	CmdTrainVisitorType_GetTrainVisitorBehaviorScRsp = 3775;
+	CmdTrainVisitorType_TrainVisitorRewardSendNotify = 3716;
+	CmdTrainVisitorType_TakeTrainVisitorBehaviorRewardCsReq = 3783;
+	CmdTrainVisitorType_TrainRefreshTimeNotify = 3760;
+}
+
+message DEFFFLGJAEM {
+	bool is_meet = 11; // offset: 24
+	uint32 DOOACEHOPEE = 14; // offset: 28
+}
+
+message GetTrainVisitorBehaviorScRsp {
+	uint32 retcode = 5; // offset: 32
+	repeated DEFFFLGJAEM LPOLKFNCEAB = 10; // offset: 24
+}
+
+message GetTrainVisitorRegisterCsReq {
+	ACKPCFFEMHB type = 4; // offset: 24
+}
+
+message GetTrainVisitorRegisterScRsp {
+	uint32 retcode = 3; // offset: 40
+	repeated uint32 BLKHPCPALDN = 11; // offset: 32
+	repeated MNKGDKAIELH NEDBIFJPBDJ = 13; // offset: 24
+}
+
+message MNKGDKAIELH {
+	uint32 IMHLMHKOPLD = 5; // offset: 44
+	TrainVisitorStatus status = 7; // offset: 40
+	bool LHNHMFEKNDJ = 8; // offset: 36
+	uint32 DOOACEHOPEE = 9; // offset: 32
+	repeated uint32 HBGLEOAJJGE = 10; // offset: 24
+}
+
+message NNAHGDGNOEK {
+	repeated uint32 BLKHPCPALDN = 7; // offset: 24
+}
+
+message NPEBOLNHFAL {
+	repeated uint32 MPNDOLJMBFH = 2; // offset: 24
+}
+
+message OBICGCEFCCI {
+	uint32 retcode = 4; // offset: 24
+}
+
+message TakeTrainVisitorBehaviorRewardCsReq {
+	uint32 CNLGPDPICBH = 1; // offset: 24
+}
+
+message TakeTrainVisitorBehaviorRewardScRsp {
+	repeated uint32 HBGLEOAJJGE = 6; // offset: 16
+	uint32 retcode = 7; // offset: 36
+	uint32 DOOACEHOPEE = 15; // offset: 32
+}
+
+message TrainRefreshTimeNotify {
+	uint64 IAMKNFKCLCH = 10; // offset: 24
+}
+
+message TrainVisitorBehaviorFinishCsReq {
+	uint32 DOOACEHOPEE = 6; // offset: 24
+}
+
+message TrainVisitorBehaviorFinishScRsp {
+	ItemList reward = 6; // offset: 24
+	uint32 retcode = 10; // offset: 36
+	uint32 DOOACEHOPEE = 13; // offset: 32
+}
+
+message TrainVisitorRewardSendNotify {
+	CFCPOEDPPKB type = 7; // offset: 36
+	ItemList reward = 10; // offset: 24
+	uint32 DOOACEHOPEE = 11; // offset: 32
+}
+
+enum TrainVisitorStatus {
+	TrainVisitorStatus_None = 0;
+	TrainVisitorStatus_Init = 1;
+	TrainVisitorStatus_GetOn = 2;
+	TrainVisitorStatus_GetOff = 3;
+	TrainVisitorStatus_BeTrainMember = 4;
+}

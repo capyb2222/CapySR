@@ -1,0 +1,379 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AMKBFMCOIHK {
+	uint32 id = 8; // offset: 32
+	CGOGDJKALMH source_type = 11; // offset: 28
+	DifficultyAdjustmentType ANJMFPKJHOH = 12; // offset: 24
+}
+
+message BCBHFBPADEE {
+	uint32 MGGNKENIPFC = 13; // offset: 28
+	uint32 JNOPBGBACOO = 15; // offset: 24
+}
+
+message BKAHEDAHNHL {
+	uint32 gold = 9; // offset: 24
+	uint32 NBFJHDJBLCF = 12; // offset: 28
+}
+
+message BLPLICDMFEL {
+	uint32 floor_id = 12; // offset: 32
+	repeated MJEIKNGOCJO PEPOGGNCGLD = 14; // offset: 16
+}
+
+enum BMHIHBHECKD {
+	BMHIHBHECKD_NLCDGIPGFDJ = 0;
+	BMHIHBHECKD_AONEONHEHNA = 1;
+	BMHIHBHECKD_NGCHDKKBACD = 2;
+	BMHIHBHECKD_LHCCHLAIAIN = 3;
+}
+
+message BPAGBAALHMP {
+	uint32 EGKNHHFDJHM = 1; // offset: 28
+	uint32 level = 3; // offset: 24
+	uint32 BLMAEGGMCHJ = 4; // offset: 32
+	bool is_perfect = 10; // offset: 36
+}
+
+enum CGOGDJKALMH {
+	CGOGDJKALMH_FHFJLAIAGEH = 0;
+	CGOGDJKALMH_FMDDNENDJOJ = 1;
+	CGOGDJKALMH_JIBJFDIJCNM = 2;
+}
+
+message CancelAutoConversionCacheCsReq {
+	repeated string OKFMBDEECCH = 1; // offset: 24
+	BMHIHBHECKD type = 2; // offset: 40
+	repeated uint32 JALHKMEOOPN = 13; // offset: 32
+}
+
+message CancelAutoConversionCacheScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message CancelDirectDeliveryNoticeCsReq {
+	uint32 HFHHKGFNGFC = 7; // offset: 24
+}
+
+message CancelDirectDeliveryNoticeScRsp {
+	uint32 HFHHKGFNGFC = 3; // offset: 28
+	uint32 retcode = 12; // offset: 24
+}
+
+enum CmdMiscModuleType {
+	CmdMiscModuleType_NLCDGIPGFDJ = 0;
+	CmdMiscModuleType_SecurityReportScRsp = 4139;
+	CmdMiscModuleType_SubmitOrigamiItemCsReq = 4168;
+	CmdMiscModuleType_CancelAutoConversionCacheScRsp = 4115;
+	CmdMiscModuleType_MazeKillDirectScRsp = 4149;
+	CmdMiscModuleType_CycleScoreRewardGetDataCsReq = 4196;
+	CmdMiscModuleType_CycleScoreRewardGetDataScRsp = 4147;
+	CmdMiscModuleType_UpdateGunPlayDataCsReq = 4181;
+	CmdMiscModuleType_CycleScoreRewardDestroyExceedRewardScRsp = 4167;
+	CmdMiscModuleType_CycleScoreRewardUpdateInfoScNotify = 4110;
+	CmdMiscModuleType_DirectDeliveryScNotify = 4182;
+	CmdMiscModuleType_GetMovieRacingDataScRsp = 4178;
+	CmdMiscModuleType_CancelDirectDeliveryNoticeScRsp = 4184;
+	CmdMiscModuleType_GetPlayerForbidCsReq = 4113;
+	CmdMiscModuleType_GetGunPlayDataCsReq = 4185;
+	CmdMiscModuleType_CycleScoreRewardTakeRewardScRsp = 4126;
+	CmdMiscModuleType_CycleScoreRewardDestroyExceedRewardCsReq = 4180;
+	CmdMiscModuleType_TakePictureCsReq = 4160;
+	CmdMiscModuleType_DifficultyAdjustmentGetDataScRsp = 4173;
+	CmdMiscModuleType_GetSwitchMascotDataCsReq = 4140;
+	CmdMiscModuleType_GetUnreleasedBlockInfoScRsp = 4124;
+	CmdMiscModuleType_TakePictureScRsp = 4116;
+	CmdMiscModuleType_ShareScRsp = 4125;
+	CmdMiscModuleType_GetOrigamiPropInfoCsReq = 4121;
+	CmdMiscModuleType_GetShareDataScRsp = 4175;
+	CmdMiscModuleType_PlayerForbidScNotify = 4176;
+	CmdMiscModuleType_SwitchMascotUpdateScNotify = 4141;
+	CmdMiscModuleType_SubmitOrigamiItemScRsp = 4164;
+	CmdMiscModuleType_TriggerVoiceCsReq = 4161;
+	CmdMiscModuleType_CancelDirectDeliveryNoticeCsReq = 4132;
+	CmdMiscModuleType_UpdateMovieRacingDataCsReq = 4104;
+	CmdMiscModuleType_TriggerVoiceScRsp = 4108;
+	CmdMiscModuleType_GetOrigamiPropInfoScRsp = 4112;
+	CmdMiscModuleType_GetMovieRacingDataCsReq = 4138;
+	CmdMiscModuleType_GetSwitchMascotDataScRsp = 4179;
+	CmdMiscModuleType_CNHFAPDGPPM = 4142;
+	CmdMiscModuleType_UpdateMovieRacingDataScRsp = 4119;
+	CmdMiscModuleType_GetGunPlayDataScRsp = 4107;
+	CmdMiscModuleType_UpdateGunPlayDataScRsp = 4151;
+	CmdMiscModuleType_DifficultyAdjustmentUpdateDataCsReq = 4103;
+	CmdMiscModuleType_GetPlayerForbidScRsp = 4123;
+	CmdMiscModuleType_MazeKillDirectCsReq = 4122;
+	CmdMiscModuleType_DifficultyAdjustmentGetDataCsReq = 4193;
+	CmdMiscModuleType_DifficultyAdjustmentUpdateDataScRsp = 4129;
+	CmdMiscModuleType_GetUnreleasedBlockInfoCsReq = 4130;
+	CmdMiscModuleType_GetShareDataCsReq = 4105;
+	CmdMiscModuleType_ShareCsReq = 4134;
+	CmdMiscModuleType_CancelAutoConversionCacheCsReq = 4183;
+	CmdMiscModuleType_CycleScoreRewardTakeRewardCsReq = 4170;
+}
+
+message CycleScoreRewardDestroyExceedRewardCsReq {
+	repeated uint32 BHNEOLKFNAM = 3; // offset: 24
+}
+
+message CycleScoreRewardDestroyExceedRewardScRsp {
+	GAAMBBFPCHB NFEDANFBIBE = 2; // offset: 16
+	uint32 retcode = 14; // offset: 32
+}
+
+message CycleScoreRewardGetDataCsReq {
+}
+
+message CycleScoreRewardGetDataScRsp {
+	uint32 retcode = 1; // offset: 32
+	GAAMBBFPCHB NFEDANFBIBE = 3; // offset: 16
+}
+
+message CycleScoreRewardTakeRewardCsReq {
+	repeated uint32 LLJHJADNDKB = 6; // offset: 24
+}
+
+message CycleScoreRewardTakeRewardScRsp {
+	ItemList ENGHMIAMPLG = 3; // offset: 24
+	uint32 retcode = 5; // offset: 48
+	GAAMBBFPCHB NFEDANFBIBE = 8; // offset: 16
+	repeated uint32 NGKOFMBBGNL = 9; // offset: 40
+}
+
+message CycleScoreRewardUpdateInfoScNotify {
+	GAAMBBFPCHB NFEDANFBIBE = 7; // offset: 16
+}
+
+message DifficultyAdjustmentGetDataCsReq {
+}
+
+message DifficultyAdjustmentGetDataScRsp {
+	repeated AMKBFMCOIHK content_package_list = 9; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+enum DifficultyAdjustmentType {
+	DifficultyAdjustmentType_DifficultyAjustmentTypeDefault = 0;
+	DifficultyAdjustmentType_DifficultyAjustmentTypeEasy = 1;
+}
+
+message DifficultyAdjustmentUpdateDataCsReq {
+	AMKBFMCOIHK data = 2; // offset: 24
+}
+
+message DifficultyAdjustmentUpdateDataScRsp {
+	uint32 retcode = 4; // offset: 40
+	repeated AMKBFMCOIHK content_package_list = 6; // offset: 32
+	AMKBFMCOIHK data = 8; // offset: 24
+}
+
+message DirectDeliveryScNotify {
+	repeated ItemList DJOBNPIAEJP = 1; // offset: 16
+	uint32 HFHHKGFNGFC = 10; // offset: 32
+}
+
+enum FDJADOEAOLE {
+	FDJADOEAOLE_OIDDFJEFIPF = 0;
+	FDJADOEAOLE_AHGEIJFIGKE = 1;
+	FDJADOEAOLE_PKHPJIKJMDO = 2;
+	FDJADOEAOLE_HFGBOOLJDNA = 3;
+	FDJADOEAOLE_ENDLJOAKNPI = 4;
+	FDJADOEAOLE_KLMEOKHGFCF = 5;
+}
+
+message GAAMBBFPCHB {
+	int64 start_time = 4; // offset: 32
+	int64 end_time = 11; // offset: 48
+	repeated uint32 OPLNKCOLCKJ = 12; // offset: 24
+	uint32 PMJGAJGIFOA = 14; // offset: 40
+}
+
+message GetGunPlayDataCsReq {
+}
+
+message GetGunPlayDataScRsp {
+	repeated BPAGBAALHMP OHOLABHLCKL = 1; // offset: 16
+	uint32 retcode = 2; // offset: 32
+}
+
+message GetMovieRacingDataCsReq {
+}
+
+message GetMovieRacingDataScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated HDAHFLMBAAB HNIAEGMMPKD = 9; // offset: 24
+}
+
+message GetOrigamiPropInfoCsReq {
+	uint32 HJDJCKJCAKH = 7; // offset: 36
+	repeated uint32 BGJAEJKJCFP = 9; // offset: 16
+	uint32 IFMCCMLCBGP = 11; // offset: 32
+}
+
+message GetOrigamiPropInfoScRsp {
+	uint32 IFMCCMLCBGP = 8; // offset: 32
+	uint32 HJDJCKJCAKH = 10; // offset: 40
+	repeated BLPLICDMFEL CGOJBLPJFAK = 12; // offset: 16
+	uint32 retcode = 15; // offset: 36
+}
+
+message GetPlayerForbidCsReq {
+}
+
+message GetPlayerForbidScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated OHLGEHNPAAL PMNDKKIMGDE = 15; // offset: 24
+}
+
+message GetShareDataCsReq {
+}
+
+message GetShareDataScRsp {
+	repeated BCBHFBPADEE MNCJMIOONPE = 8; // offset: 24
+	uint32 retcode = 13; // offset: 32
+}
+
+message GetSwitchMascotDataCsReq {
+	uint32 NBFJHDJBLCF = 2; // offset: 24
+}
+
+message GetSwitchMascotDataScRsp {
+	uint32 NBFJHDJBLCF = 4; // offset: 32
+	uint32 retcode = 10; // offset: 36
+	repeated BKAHEDAHNHL JNOEHPJJPOF = 12; // offset: 16
+}
+
+message GetUnreleasedBlockInfoCsReq {
+}
+
+message GetUnreleasedBlockInfoScRsp {
+	repeated uint32 KNKGIENCLJJ = 1; // offset: 16
+	repeated uint32 NJIIPBHBEDK = 5; // offset: 24
+	int64 GCMOKMIEHDB = 10; // offset: 48
+	uint32 retcode = 14; // offset: 40
+}
+
+message HDAHFLMBAAB {
+	uint32 level = 2; // offset: 28
+	MovieRacingType type = 13; // offset: 36
+	uint32 EGKNHHFDJHM = 14; // offset: 32
+	uint32 HFENOFPKNPJ = 15; // offset: 24
+}
+
+message IGBJDKIEDJL {
+	string GIFOENLDCHO = 8; // offset: 24
+}
+
+enum LJLPAIMJJLE {
+	LJLPAIMJJLE_OJPLDOMGBHI = 0;
+	LJLPAIMJJLE_KKFPNJFJGAP = 1;
+	LJLPAIMJJLE_ECFPBMFKBNA = 2;
+	LJLPAIMJJLE_INJEDKLCGIC = 3;
+}
+
+message MJEIKNGOCJO {
+	uint32 state = 1; // offset: 32
+	uint32 config_id = 9; // offset: 28
+	uint32 group_id = 12; // offset: 24
+}
+
+message MazeKillDirectCsReq {
+	FDJADOEAOLE source_type = 4; // offset: 32
+	repeated uint32 entity_list = 6; // offset: 16
+	uint32 FABPLNCIGPK = 15; // offset: 36
+}
+
+message MazeKillDirectScRsp {
+	repeated uint32 entity_list = 6; // offset: 24
+	uint32 retcode = 15; // offset: 32
+}
+
+enum MovieRacingType {
+	MovieRacingType_MovieRacingOverTake = 0;
+	MovieRacingType_MovieRacingOverTakeEndless = 1;
+	MovieRacingType_MovieRacingShooting = 2;
+	MovieRacingType_MovieRacingShootingEndless = 3;
+}
+
+message OHLGEHNPAAL {
+	LJLPAIMJJLE IICLNAGKNPP = 1; // offset: 24
+	int64 JPLIJJFCAOO = 2; // offset: 40
+	int64 end_time = 3; // offset: 32
+}
+
+message OKJCHGLGBHP {
+	uint32 NADCIHPPPBC = 4; // offset: 32
+	repeated uint32 JLNOCDGJDLI = 7; // offset: 16
+	uint32 type = 10; // offset: 36
+}
+
+message PlayerForbidScNotify {
+	repeated OHLGEHNPAAL PMNDKKIMGDE = 14; // offset: 24
+}
+
+message SecurityReportScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message ShareCsReq {
+	uint32 MGGNKENIPFC = 15; // offset: 24
+}
+
+message ShareScRsp {
+	ItemList reward = 1; // offset: 32
+	BCBHFBPADEE NMOKJJMNICM = 4; // offset: 16
+	uint32 retcode = 5; // offset: 40
+}
+
+message SubmitOrigamiItemCsReq {
+	uint32 KPKEBLOEFCP = 15; // offset: 24
+}
+
+message SubmitOrigamiItemScRsp {
+	uint32 KPKEBLOEFCP = 6; // offset: 28
+	uint32 retcode = 12; // offset: 24
+}
+
+message SwitchMascotUpdateScNotify {
+	bool EBLPGLFJNEL = 3; // offset: 32
+	repeated BKAHEDAHNHL JNOEHPJJPOF = 12; // offset: 16
+}
+
+message TakePictureCsReq {
+}
+
+message TakePictureScRsp {
+	uint32 retcode = 13; // offset: 24
+}
+
+message TriggerVoiceCsReq {
+	repeated OKJCHGLGBHP OKJNBIOKKIB = 6; // offset: 24
+}
+
+message TriggerVoiceScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message UpdateGunPlayDataCsReq {
+	uint64 uuid = 8; // offset: 32
+	uint32 GIJOPFIAMIA = 12; // offset: 44
+	BPAGBAALHMP AOPPLPDBEHK = 14; // offset: 16
+	uint32 group_id = 15; // offset: 40
+}
+
+message UpdateGunPlayDataScRsp {
+	BPAGBAALHMP AOPPLPDBEHK = 4; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message UpdateMovieRacingDataCsReq {
+	HDAHFLMBAAB LJEPIAIDJFC = 12; // offset: 24
+}
+
+message UpdateMovieRacingDataScRsp {
+	HDAHFLMBAAB LJEPIAIDJFC = 6; // offset: 16
+	uint32 retcode = 10; // offset: 32
+}

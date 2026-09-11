@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+
+message AcceptedPamMissionExpireCsReq {
+	uint32 EBIIKKFIHNG = 13; // offset: 24
+}
+
+message AcceptedPamMissionExpireScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+enum CmdPamMissionType {
+	CmdPamMissionType_NLCDGIPGFDJ = 0;
+	CmdPamMissionType_AcceptedPamMissionExpireCsReq = 4034;
+	CmdPamMissionType_SyncAcceptedPamMissionNotify = 4005;
+	CmdPamMissionType_AcceptedPamMissionExpireScRsp = 4025;
+}
+
+message SyncAcceptedPamMissionNotify {
+	uint32 main_mission_id = 12; // offset: 24
+	uint64 expire_time = 14; // offset: 32
+}

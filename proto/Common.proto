@@ -1,0 +1,2802 @@
+syntax = "proto3";
+
+
+// ========================= Adventure =========================
+
+message NAJKNJLJPEP {
+	uint32 HFPLJFBOPEH = 12; // offset: 24
+	uint32 LDPBPHBBFGF = 14; // offset: 28
+}
+
+// ========================= AetherDivide =========================
+
+message AetherDivideBattleInfo {
+	bool encrypt_result = 3; // offset: 60
+	uint32 logic_random_seed = 7; // offset: 52
+	uint32 battle_id = 8; // offset: 56
+	repeated SceneMonsterWave monster_wave_list = 10; // offset: 40
+	repeated BattleBuff buff_list = 11; // offset: 32
+	repeated AetherAvatarInfo battle_avatar_list = 12; // offset: 16
+	uint32 stage_id = 13; // offset: 48
+}
+
+message AssistMonsterEntityInfo {
+	repeated uint32 entity_id_list = 7; // offset: 24
+}
+
+message SpBarInfo {
+	uint32 cur_sp = 1; // offset: 24
+	uint32 max_sp = 2; // offset: 28
+}
+
+// ========================= AiPam =========================
+
+message ChatMessageData {
+	uint64 create_time = 4; // offset: 48
+	repeated MessageChatData message_datas = 9; // offset: 40
+	EKNABKLPEEL CKHPFFENOBE = 10; // offset: 24
+	EKNABKLPEEL BKOALKHDLOB = 11; // offset: 16
+}
+
+message HJNPOBAMKKF {
+	repeated AOAOBPGFHLA HGNKNFJPIKI = 1; // offset: 24
+	repeated JAONELJJAFK CDMKBCHLPAB = 2; // offset: 16
+	uint32 MNCFOGJECMF = 3; // offset: 40
+}
+
+message JOLHIMGJGBO {
+	oneof JBLDLHIGGKM {
+		OHLNNOMJPNH FJONKDKACAB = 1; // offset: 24
+		CIOAOEGEIKH DKBBMJDNHNG = 2; // offset: 24
+		JPKIDILKOAK BDNBIHLJNCK = 3; // offset: 24
+		DAMNNJKJOMM HCAAHIGINOM = 4; // offset: 24
+		KOBGMGHMCLF OEAKBCLIHGH = 5; // offset: 24
+		GFDJLBJPNMC MIEJNLBBIDB = 6; // offset: 24
+	}
+}
+
+message MessageChatData {
+	MsgType message_type = 1; // offset: 32
+	ChatData chat_data = 2; // offset: 24
+}
+
+enum PJCMNENIEHH {
+	PJCMNENIEHH_NLCDGIPGFDJ = 0;
+	PJCMNENIEHH_KPILFMMNIGO = 1;
+	PJCMNENIEHH_GGJPEMFEBLB = 2;
+	PJCMNENIEHH_CIMNEOAKBJH = 3;
+	PJCMNENIEHH_BOMDAIKIPLP = 4;
+}
+
+// ========================= Avatar =========================
+
+message AetherAvatarInfo {
+	uint32 id = 1; // offset: 44
+	uint32 index = 2; // offset: 40
+	uint32 promotion = 3; // offset: 52
+	repeated uint32 LICLEEICAOE = 4; // offset: 16
+	AABGIFAEEEK AGBMHEMIAIH = 5; // offset: 48
+	SpBarInfo sp_bar = 6; // offset: 24
+}
+
+message Avatar {
+	uint32 cur_multi_path_avatar_type = 2; // offset: 32
+	uint32 level = 4; // offset: 36
+	uint32 equipment_unique_id = 7; // offset: 68
+	uint64 first_met_time_stamp = 9; // offset: 56
+	bool is_marked = 10; // offset: 44
+	repeated uint32 has_taken_promotion_reward_list = 12; // offset: 24
+	uint32 promotion = 13; // offset: 64
+	uint32 exp = 14; // offset: 48
+	uint32 base_avatar_id = 15; // offset: 40
+}
+
+message AvatarPathData {
+	uint32 unk_enhanced_id = 1; // offset: 48
+	uint32 path_equipment_id = 2; // offset: 64
+	uint32 avatar_id = 3; // offset: 60
+	repeated AvatarPathSkillTree avatar_path_skill_tree = 9; // offset: 16
+	uint32 rank = 10; // offset: 56
+	repeated EquipRelic equip_relic_list = 12; // offset: 24
+	uint64 unlock_time = 13; // offset: 40
+	uint32 dressed_skin_id = 14; // offset: 52
+}
+
+message AvatarPathSkillTree {
+	uint32 point_id = 8; // offset: 24
+	uint32 level = 11; // offset: 28
+}
+
+message CJLCPMDGIBO {
+	repeated uint32 EAKOLIJOEPA = 1; // offset: 24
+}
+
+message DressRelicAvatarScRsp {
+	uint32 retcode = 2; // offset: 24
+	uint32 avatar_id = 14; // offset: 28
+}
+
+message ItemCost {
+	oneof item {
+		PileItem pile_item = 10; // offset: 24
+		uint32 equipment_unique_id = 2; // offset: 24
+		uint32 relic_unique_id = 4; // offset: 24
+		uint64 blind_box_pet_uid = 1; // offset: 24
+	}
+}
+
+enum MultiPathAvatarType {
+	MultiPathAvatarType_None = 0;
+	MultiPathAvatarType_Mar7ThKnightType = 1001;
+	MultiPathAvatarType_Mar7ThRogueType = 1224;
+	MultiPathAvatarType_BoyWarriorType = 8001;
+	MultiPathAvatarType_GirlWarriorType = 8002;
+	MultiPathAvatarType_BoyKnightType = 8003;
+	MultiPathAvatarType_GirlKnightType = 8004;
+	MultiPathAvatarType_BoyShamanType = 8005;
+	MultiPathAvatarType_GirlShamanType = 8006;
+	MultiPathAvatarType_BoyMemoryType = 8007;
+	MultiPathAvatarType_GirlMemoryType = 8008;
+	MultiPathAvatarType_BoyElationType = 8009;
+	MultiPathAvatarType_GirlElationType = 8010;
+}
+
+message NKDNFDCFNCP {
+	repeated PileItem HJLENJODAMN = 3; // offset: 24
+	PileItem FMOKFKBAEII = 8; // offset: 16
+}
+
+// ========================= Battle =========================
+
+enum AABGIFAEEEK {
+	AABGIFAEEEK_OCAJFLCAMNA = 0;
+	AABGIFAEEEK_AONENHHFNOD = 1;
+	AABGIFAEEEK_AOIAAGNAFIO = 2;
+}
+
+message AOFMDLLDIHG {
+	uint32 skill_id = 1; // offset: 32
+	double delay = 2; // offset: 48
+	repeated uint32 battle_target_list = 3; // offset: 24
+	double damage = 4; // offset: 40
+	double LHJMDKJDGAH = 5; // offset: 56
+}
+
+message AvatarSkillTree {
+	uint32 point_id = 1; // offset: 24
+	uint32 level = 2; // offset: 28
+}
+
+message BattleAvatar {
+	AvatarType avatar_type = 1; // offset: 112
+	uint32 id = 2; // offset: 84
+	uint32 level = 3; // offset: 92
+	uint32 rank = 4; // offset: 96
+	uint32 index = 5; // offset: 100
+	repeated AvatarSkillTree skilltree_list = 6; // offset: 64
+	repeated BattleEquipment equipment_list = 7; // offset: 40
+	uint32 hp = 8; // offset: 108
+	uint32 promotion = 10; // offset: 80
+	repeated BattleRelic relic_list = 11; // offset: 32
+	uint32 world_level = 12; // offset: 72
+	uint32 assist_uid = 13; // offset: 88
+	AMEMKFNABGG ALNJENINBPN = 15; // offset: 56
+	SpBarInfo sp_bar = 16; // offset: 48
+	uint32 GDIMKFNECOK = 17; // offset: 76
+	repeated AvatarSkillTree CHEFGGPEJKL = 18; // offset: 16
+	uint32 enhanced_id = 19; // offset: 104
+}
+
+message BattleBuff {
+	uint32 id = 1; // offset: 40
+	uint32 level = 2; // offset: 48
+	uint32 owner_index = 3; // offset: 44
+	uint32 wave_flag = 4; // offset: 52
+	repeated uint32 target_index_list = 5; // offset: 16
+	map<string, float> dynamic_values = 6; // offset: 24
+}
+
+enum BattleEndStatus {
+	BATTLE_END_NONE = 0;
+	BATTLE_END_WIN = 1;
+	BATTLE_END_LOSE = 2;
+	BATTLE_END_QUIT = 3;
+}
+
+message BattleEquipment {
+	uint32 id = 1; // offset: 24
+	uint32 level = 2; // offset: 36
+	uint32 promotion = 3; // offset: 32
+	uint32 rank = 4; // offset: 28
+}
+
+message BattleEventBattleInfo {
+	uint32 battle_event_id = 1; // offset: 88
+	BattleEventProperty status = 2; // offset: 24
+	repeated AOFMDLLDIHG skill_info = 3; // offset: 16
+	double NEMOMKPCCMG = 4; // offset: 56
+	double LIOCBCEJAIF = 5; // offset: 64
+	double total_damage = 6; // offset: 72
+	double GPPOHBEGNNO = 7; // offset: 48
+	double DOGFPDEIECH = 8; // offset: 40
+	double DHHEBNINHDE = 9; // offset: 80
+}
+
+message BattleEventProperty {
+	SpBarInfo sp_bar = 2; // offset: 24
+}
+
+message BattleGridFightEquipInfo {
+	uint32 grid_fight_equipment_id = 2; // offset: 44
+	map<uint32, uint32> convert_property_to_fixpoint = 4; // offset: 24
+	uint32 unique_id = 5; // offset: 48
+	map<uint32, double> OPEMKBPFFDN = 6; // offset: 32
+	NKAFNCBDJAH PMAEBPKJCLL = 8; // offset: 40
+}
+
+message BattleGridFightSpecialBattleInfo {
+	uint32 cur_level_id = 1; // offset: 128
+	uint32 PFBDNGHMBII = 2; // offset: 144
+	uint32 rogue_money = 3; // offset: 124
+	repeated GFNAPELNFIC ICOPGAJFKHE = 4; // offset: 48
+	repeated GFNAPELNFIC OMCLLCNKAHE = 5; // offset: 64
+	repeated uint32 LLIFKMANADH = 6; // offset: 88
+	EAENAFJCEFD HPHJGIEKMAA = 7; // offset: 112
+	repeated uint32 FPONJJMJFAE = 8; // offset: 104
+	uint32 grid_fight_cur_level_exp = 9; // offset: 132
+	uint32 LJGPHGDDBKE = 11; // offset: 140
+	repeated uint32 DCKIGAHCNMJ = 12; // offset: 80
+	uint32 cur_wave = 14; // offset: 152
+	repeated OEMOIGDNPNP LONFKFCFDND = 17; // offset: 96
+	repeated HLFOOKANNDE HNJPIDFKNIK = 18; // offset: 56
+	repeated uint32 BLLKCBJGAEB = 19; // offset: 72
+	bool CHKBOLNIPMO = 20; // offset: 156
+	uint32 GMBPGBIJGGE = 21; // offset: 148
+	IDJIAGLCAPE INPNMBJNPPK = 22; // offset: 24
+	uint32 NBKKKKKEMEH = 23; // offset: 120
+	repeated uint32 PMLEEGOGPIF = 25; // offset: 16
+	repeated PMNLJEJKLOD GMGPFAIONNG = 26; // offset: 40
+	uint32 LJHKBJIBCGK = 27; // offset: 136
+}
+
+message BattleGridFightTraitCoreRoleInfo {
+	uint32 role_id = 1; // offset: 28
+	uint32 unique_id = 2; // offset: 24
+}
+
+message BattleGridFightTraitEffectInfo {
+	uint32 effect_id = 1; // offset: 32
+	oneof NEBNJDMFELO {
+		BattleGridFightTraitCoreRoleInfo trait_core_role = 101; // offset: 16
+		BattleGridFigntAvatarCoreRoleInfo avatar_core_info = 102; // offset: 16
+		GridFightTraitEffectLevelInfo trait_effect_level_info = 103; // offset: 16
+		KFMKBMJPEIC JLCLHAKNMLL = 104; // offset: 16
+		CPMNHNHKLBK LFIDNOAECMN = 105; // offset: 16
+	}
+}
+
+message BattleGridFigntAvatarCoreRoleInfo {
+	repeated uint32 grid_fight_avatar_list = 1; // offset: 24
+	repeated uint32 LKNGKJCFFBH = 2; // offset: 16
+}
+
+message BattleRelic {
+	uint32 id = 1; // offset: 56
+	uint32 level = 2; // offset: 52
+	uint32 main_affix_id = 3; // offset: 32
+	repeated RelicAffix sub_affix_list = 4; // offset: 16
+	uint32 unique_id = 5; // offset: 40
+	uint32 set_id = 6; // offset: 48
+	uint32 type = 7; // offset: 44
+	uint32 rarity = 8; // offset: 36
+}
+
+message BattleRogueMagicInfo {
+	IJLEFNJPFKP OOPCPMANCBO = 1; // offset: 24
+	BLJEJFMKEII detail_info = 2; // offset: 32
+}
+
+message BattleTargetList {
+	repeated BattleTarget battle_target_list = 1; // offset: 16
+}
+
+message GridFightDropEntry {
+	GridFightDropType drop_type = 1; // offset: 36
+	uint32 item_id = 2; // offset: 32
+	uint32 num = 3; // offset: 40
+	GridFightDropParam param = 5; // offset: 24
+}
+
+message LMDPKOELKFL {
+	ItemList return_item_list = 2; // offset: 16
+	bool ABFCDBOCMCF = 3; // offset: 40
+	repeated uint32 relic_ids = 13; // offset: 24
+}
+
+message NIFPICHIDLJ {
+	MOHNIMLCODA type = 1; // offset: 32
+	uint32 config_id = 2; // offset: 44
+	uint32 unique_id = 3; // offset: 36
+	uint32 level = 4; // offset: 40
+	repeated OEBBNFANHLK switch_list = 5; // offset: 16
+}
+
+enum RebattleType {
+	REBATTLE_TYPE_NONE = 0;
+	REBATTLE_TYPE_REBATTLE_MIDWAY = 1;
+	REBATTLE_TYPE_REBATTLE_LOSE = 2;
+	REBATTLE_TYPE_REBATTLE_MIDWAY_LINEUP = 3;
+	REBATTLE_TYPE_REBATTLE_LOSE_LINEUP = 4;
+	REBATTLE_TYPE_QUIT_MIDWAY = 5;
+	REBATTLE_TYPE_QUIT_LOSE = 6;
+}
+
+// ========================= Challenge =========================
+
+message AvatarIdentifier {
+	uint32 assist_uid = 3; // offset: 28
+	uint32 id = 7; // offset: 24
+	AvatarType avatar_type = 13; // offset: 32
+}
+
+message BattleTarget {
+	uint32 id = 1; // offset: 24
+	uint32 progress = 2; // offset: 28
+	uint32 total_progress = 3; // offset: 32
+}
+
+message ChallengeAvatarInfo {
+	AvatarType avatar_type = 1; // offset: 36
+	uint32 id = 2; // offset: 40
+	uint32 level = 3; // offset: 24
+	uint32 index = 4; // offset: 28
+	uint32 skin_id = 5; // offset: 32
+}
+
+message ChallengeBossAvatarRelicInfo {
+	map<uint32, ChallengeBossRelicInfo> avatar_relic_slot_map = 1; // offset: 24
+}
+
+message ChallengeBossEquipmentInfo {
+	uint32 unique_id = 1; // offset: 36
+	uint32 tid = 2; // offset: 24
+	uint32 level = 3; // offset: 32
+	uint32 promotion = 4; // offset: 40
+	uint32 rank = 5; // offset: 28
+}
+
+message ChallengeBossRelicInfo {
+	uint32 unique_id = 1; // offset: 40
+	uint32 tid = 2; // offset: 36
+	uint32 level = 3; // offset: 44
+	uint32 main_affix_id = 4; // offset: 32
+	repeated RelicAffix sub_affix_list = 5; // offset: 24
+}
+
+message ChallengeBossStatistics {
+	uint32 record_id = 4; // offset: 32
+	AANLJBLOOFO PPBHLLOJNEK = 12; // offset: 24
+}
+
+message ChallengeStatistics {
+	uint32 record_id = 12; // offset: 32
+	ADKJKMKBFDC PPBHLLOJNEK = 13; // offset: 16
+}
+
+message ChallengeStoryStatistics {
+	uint32 record_id = 6; // offset: 32
+	EIKPHEMHIOH PPBHLLOJNEK = 9; // offset: 16
+}
+
+message PlayerChallengeTierceRecord {
+	bool EGLLMGLLHDL = 1; // offset: 40
+	uint32 record_id = 2; // offset: 52
+	repeated AIIGHJEIGHE GBMBAHHDONN = 3; // offset: 32
+	uint32 used_cycle_count = 4; // offset: 44
+	uint32 total_score = 5; // offset: 48
+	repeated uint32 finished_target_list = 6; // offset: 16
+}
+
+// ========================= ChallengePeak =========================
+
+message EquipRelic {
+	uint32 type = 5; // offset: 24
+	uint32 relic_unique_id = 15; // offset: 28
+}
+
+// ========================= Chat =========================
+
+message ChatData {
+	oneof PGBLIFDKBHK {
+		ECCKHOLLPPC NPBOINAPJJE = 101; // offset: 24
+		NDDOMFBJMKE IBJBFODFIMN = 102; // offset: 24
+		string message_text = 103; // offset: 24
+		uint32 extra_id = 104; // offset: 24
+		GCBHOIJLBFL IALHIFELMGE = 105; // offset: 24
+		IDLACKBINMC ADBNPHDPPIH = 106; // offset: 24
+		IGCHDHFMPBJ LPLCDCIFOOK = 107; // offset: 24
+		PELDIEOMMDM NLHJFKGNAMB = 108; // offset: 24
+		OPLFDAGPBEI BCLPAMNPHNP = 109; // offset: 24
+		HCKADDLIGEB HJADNIAAMGJ = 110; // offset: 24
+		PJLMOOPKHEM MHGBFFHGFKP = 111; // offset: 24
+		LJMGDJBLLKC BALFEMJCMPK = 112; // offset: 24
+	}
+}
+
+// ========================= ChessRogue =========================
+
+message AGEOGDOGDMM {
+	uint32 rogue_money = 13; // offset: 24
+}
+
+message APNCCNFJBKO {
+	repeated KJAMNOGFAMJ buff_list = 8; // offset: 24
+}
+
+message BMCNDLNONMO {
+	uint64 FCHLCANJIGL = 6; // offset: 48
+	KIJEFIIBBGG OOPCPMANCBO = 10; // offset: 24
+	RogueModifierSourceType source_type = 14; // offset: 44
+	oneof KKNBOACNCON {
+		FGHIMGPGBNF NLGJFIGPENF = 7; // offset: 16
+		AIBNHPAGDOL LEJPOHHGBMB = 11; // offset: 16
+		HFJKOCDOAEH GGJOKFEOEBK = 13; // offset: 16
+		AEBNHMHDMNP AOCJHEHCGFA = 4; // offset: 16
+		EOLKILAIAKL DOLKNBFGCAD = 12; // offset: 16
+	}
+}
+
+message EGLAPJGFKPN {
+	APNCCNFJBKO JPKACKNNHCA = 11; // offset: 16
+}
+
+message FDBDLBAPDBE {
+	repeated OKPIPFKONMG BLHJIPBHHFO = 7; // offset: 16
+}
+
+message GMIJHCONFIH {
+	repeated KOFMGCNIMIN MAJGMMCOCIG = 1; // offset: 24
+}
+
+message INHBMHCJJCN {
+	uint32 queue_position = 8; // offset: 32
+	DCFPEIMAMCN detail = 13; // offset: 24
+}
+
+message NHLBNBBDHMI {
+	GMIJHCONFIH HAJJBOFCFOO = 3; // offset: 16
+}
+
+enum RogueModifierSourceType {
+	RogueModifierSourceType_RogueModifierSourceNone = 0;
+	RogueModifierSourceType_RogueModifierSourceDiceRoll = 1;
+	RogueModifierSourceType_RogueModifierSourceAeon = 2;
+	RogueModifierSourceType_RogueModifierSourceBoardEvent = 3;
+	RogueModifierSourceType_RogueModifierSourceDialogEvent = 4;
+	RogueModifierSourceType_RogueModifierSourceMiracle = 5;
+	RogueModifierSourceType_RogueModifierSourceCellMark = 6;
+	RogueModifierSourceType_RogueModifierSourceAeonTalent = 7;
+	RogueModifierSourceType_RogueModifierSourceBossDecay = 8;
+	RogueModifierSourceType_RogueModifierSourceDiceBranch = 9;
+	RogueModifierSourceType_RogueModifierSourcePersonaStyle = 10;
+}
+
+// ========================= Chimera =========================
+
+message COCHLLCNDJF {
+	repeated EDKJELMPONH CDGNAJDAGKE = 6; // offset: 24
+}
+
+message GADFFIFFNHM {
+	int32 atk = 4; // offset: 48
+	bool AMHAJDNFBGC = 6; // offset: 40
+	repeated uint32 IIELAJFFDPB = 9; // offset: 24
+	int32 hp = 10; // offset: 44
+	COCHLLCNDJF CDGNAJDAGKE = 12; // offset: 32
+	uint32 id = 13; // offset: 52
+}
+
+message GCFGCHAMNOL {
+	repeated uint32 PGFFGKDOPGM = 3; // offset: 24
+	uint32 CMEKNAJONPH = 4; // offset: 32
+}
+
+enum HDIOKENOFNJ {
+	HDIOKENOFNJ_EEGFMMCGCNH = 0;
+	HDIOKENOFNJ_GOBLPKACBAE = 1;
+	HDIOKENOFNJ_AHEJBANCCEK = 2;
+	HDIOKENOFNJ_KBBPMFKGFCP = 3;
+}
+
+message ONNMLLIEENI {
+	uint32 finish_work_cnt = 12; // offset: 24
+	uint32 IDBDBICPBBG = 14; // offset: 28
+}
+
+// ========================= DiceCombat =========================
+
+message DiceCombatAvatar {
+	uint32 dice_avatar_id = 1; // offset: 32
+	uint32 level = 2; // offset: 36
+	repeated uint32 dice_id_list = 3; // offset: 24
+	int64 unlock_time = 4; // offset: 40
+}
+
+// ========================= EvolveBuild =========================
+
+message DKPHAFPGDLO {
+	uint32 JGDOICIEMAH = 1; // offset: 28
+	uint32 IOEAFFEEDFM = 2; // offset: 24
+}
+
+// ========================= Fate =========================
+
+message KPNHGDGLICN {
+	AvatarType avatar_type = 1; // offset: 28
+	uint32 id = 2; // offset: 24
+}
+
+enum MOHNIMLCODA {
+	MOHNIMLCODA_NLCDGIPGFDJ = 0;
+	MOHNIMLCODA_DMJKCOJLFCL = 1;
+	MOHNIMLCODA_ANEIGHKMJKB = 2;
+	MOHNIMLCODA_MGMPDHKJFIM = 3;
+	MOHNIMLCODA_MAIBAOAOGID = 4;
+	MOHNIMLCODA_EGCGFGDILBC = 5;
+	MOHNIMLCODA_KEEIBDBEJLH = 6;
+	MOHNIMLCODA_level = 7;
+	MOHNIMLCODA_DIMIFCJPHME = 8;
+	MOHNIMLCODA_PEEDCBADBHJ = 9;
+}
+
+// ========================= FightMatch3 =========================
+
+message LAJGLHCCNED {
+	uint32 BMANBMAOLLD = 1; // offset: 72
+	uint32 CKDCNKNMEAI = 2; // offset: 56
+	uint32 EKPKADNENAG = 3; // offset: 68
+	uint32 FIIPIFLPEDB = 4; // offset: 60
+	uint32 MPNGHAGHAIM = 5; // offset: 48
+	uint32 DNDAOOCDNGC = 6; // offset: 76
+	uint32 GMNONMGKBFI = 7; // offset: 28
+	uint32 CJHGLLNBLJH = 8; // offset: 52
+	uint32 ONLANGHDIPJ = 9; // offset: 44
+	uint32 CPHOGFPNKLC = 10; // offset: 36
+	uint32 JOBFJAPJDBA = 11; // offset: 24
+	uint32 PIPOCNHBHAC = 12; // offset: 40
+	uint32 HFOPGJFDIHM = 13; // offset: 32
+	uint32 CGHLEEAOJGO = 14; // offset: 64
+}
+
+// ========================= FiveDim =========================
+
+message AHCLMAGAHPN {
+	MotionInfo motion = 3; // offset: 24
+	uint32 entity_id = 13; // offset: 32
+}
+
+message BLPHONLBNBO {
+	uint32 instance_id = 9; // offset: 28
+	uint32 group_id = 11; // offset: 24
+}
+
+message DGHPIDMDOJM {
+	AHCLMAGAHPN PPJFMBIGIGB = 3; // offset: 16
+	string uuid = 4; // offset: 40
+	BLPHONLBNBO OEIBHLMDJKA = 6; // offset: 24
+	uint32 GABODFDMPMM = 14; // offset: 48
+}
+
+// ========================= Friend =========================
+
+message ChallengeLineupList {
+	repeated ChallengeAvatarInfo avatar_list = 1; // offset: 16
+}
+
+enum FriendOnlineStatus {
+	FRIEND_ONLINE_STATUS_OFFLINE = 0;
+	FRIEND_ONLINE_STATUS_ONLINE = 1;
+}
+
+message HeadFrameInfo {
+	uint32 head_frame_item_id = 1; // offset: 32
+	int64 head_frame_expire_time = 2; // offset: 24
+}
+
+enum PlatformType {
+	EDITOR = 0;
+	IOS = 1;
+	ANDROID = 2;
+	PC = 3;
+	WEB = 4;
+	WAP = 5;
+	PS4 = 6;
+	JFHILPANBNL_COKOMDEDBEI = 7;
+	CLOUD_ANDROID = 8;
+	CLOUD_PC = 9;
+	CLOUD_IOS = 10;
+	PS5 = 11;
+	MAC = 12;
+	CLOUD_MAC = 13;
+	CLOUD_WEB_ANDROID = 20;
+	CLOUD_WEB_IOS = 21;
+	CLOUD_WEB_PC = 22;
+	CLOUD_WEB_MAC = 23;
+	CLOUD_WEB_TOUCH = 24;
+	CLOUD_WEB_KEYBOARD = 25;
+	CLOUD_DOUYIN_IOS = 27;
+	CLOUD_DOUYIN_ANDROID = 28;
+}
+
+message PlayerSimpleInfo {
+	uint32 uid = 1; // offset: 116
+	string nickname = 2; // offset: 24
+	uint32 level = 3; // offset: 96
+	uint32 head_icon = 4; // offset: 92
+	string signature = 5; // offset: 16
+	bool is_banned = 6; // offset: 120
+	FriendOnlineStatus online_status = 7; // offset: 128
+	int64 last_active_time = 8; // offset: 104
+	PlatformType platform = 9; // offset: 88
+	string platform_uuid = 10; // offset: 48
+	string platform_nick = 11; // offset: 56
+	uint32 chat_bubble_id = 12; // offset: 100
+	repeated AssistSimpleInfo assist_simple_info_list = 13; // offset: 64
+	uint32 personal_card = 14; // offset: 124
+	CJLCPMDGIBO player_outfit_data = 15; // offset: 32
+	HeadFrameInfo head_frame_info = 16; // offset: 72
+	uint32 gender = 17; // offset: 112
+	int64 update_time = 18; // offset: 80
+}
+
+message RelicAffix {
+	uint32 affix_id = 1; // offset: 32
+	uint32 cnt = 2; // offset: 24
+	uint32 step = 3; // offset: 28
+}
+
+// ========================= Gacha =========================
+
+message Item {
+	uint32 main_affix_id = 4; // offset: 40
+	uint32 num = 6; // offset: 36
+	uint32 level = 8; // offset: 52
+	uint32 rank = 9; // offset: 32
+	uint32 promotion = 12; // offset: 60
+	uint32 unique_id = 13; // offset: 44
+	uint32 item_id = 15; // offset: 48
+	oneof extra_info {
+		LHCBKDNHGCG blind_box_pet_extra_info = 407; // offset: 16
+	}
+}
+
+// ========================= GridFight =========================
+
+message FHCEIOHLADG {
+	uint32 pos = 1; // offset: 24
+	uint32 LHHONKJPPDC = 2; // offset: 28
+	uint32 KFGOKFKHOPB = 3; // offset: 32
+	uint32 LLLOOKPGGGG = 4; // offset: 36
+}
+
+message GridFightAugmentInfo {
+	uint32 augment_id = 1; // offset: 24
+}
+
+message GridFightDropInfo {
+	repeated GridFightDropEntry drop_list = 1; // offset: 24
+}
+
+message GridFightDropParam {
+	oneof NEBNJDMFELO {
+		uint32 role_star = 101; // offset: 24
+		uint32 PIHGNNMBCEJ = 102; // offset: 24
+	}
+}
+
+enum GridFightDropType {
+	GridFightDropType_None = 0;
+	GridFightDropType_Coin = 1;
+	GridFightDropType_Exp = 2;
+	GridFightDropType_Refresh = 3;
+	GridFightDropType_Role = 4;
+	GridFightDropType_Item = 5;
+	GridFightDropType_Orb = 6;
+	GridFightDropType_RoleWithEquip = 7;
+}
+
+message GridFightInfo {
+	repeated BattleAvatar background_avatar_list = 1; // offset: 64
+	uint32 battle_wave_id = 2; // offset: 96
+	uint32 grid_fight_lineup_hp = 3; // offset: 124
+	uint32 max_active_role_count = 4; // offset: 108
+	repeated GridFightTraitInfo grid_fight_trait_info = 7; // offset: 32
+	repeated GridFightRoleInfo grid_game_role_list = 8; // offset: 16
+	uint32 penalty_bonus_rule_id = 9; // offset: 104
+	repeated GridFightAugmentInfo sync_augment_info = 10; // offset: 72
+	GridFightNodeInfo node_info = 11; // offset: 88
+	uint32 enemy_difficulty_level = 12; // offset: 116
+	uint32 season = 13; // offset: 100
+	repeated GridFightPortalInfo grid_fight_portal_buff_list = 14; // offset: 80
+	bool is_overlock = 15; // offset: 132
+	uint32 division_id = 16; // offset: 112
+	repeated GridFightNPCInfo grid_game_npc_list = 17; // offset: 40
+	repeated GridFightProjectionInfo KCOMPKMJCMC = 18; // offset: 24
+	uint32 active_role_count = 19; // offset: 128
+	map<string, uint32> role_saved_values = 20; // offset: 48
+	uint32 enemy_hp_percent = 21; // offset: 120
+	bool MEHFNAEMMFE = 22; // offset: 133
+}
+
+message GridFightMonsterBattleInfo {
+	uint32 role_star = 8; // offset: 36
+	uint32 ININNFJHJCM = 11; // offset: 32
+	repeated GridFightDropEntry drop_list = 15; // offset: 16
+}
+
+message GridFightNPCInfo {
+	uint32 unique_id = 1; // offset: 32
+	uint32 npc_id = 2; // offset: 36
+	uint32 pos = 3; // offset: 40
+	repeated BattleGridFightEquipInfo grid_fight_equipment_list = 4; // offset: 24
+}
+
+message GridFightNodeInfo {
+	uint32 route_id = 1; // offset: 32
+	uint32 chapter_id = 2; // offset: 24
+	uint32 section_id = 3; // offset: 36
+	uint32 node_type = 4; // offset: 28
+}
+
+message GridFightPortalInfo {
+	uint32 portal_buff_id = 1; // offset: 24
+}
+
+message GridFightProjectionInfo {
+	uint32 unique_id = 1; // offset: 28
+	uint32 LKMEMKLGIIK = 2; // offset: 24
+	uint32 pos = 3; // offset: 32
+}
+
+message GridFightRoleBattleExtInfo {
+	GridFightRoleBattleModeInfo mode_info = 101; // offset: 24
+	GridFightRoleBattleStateInfo state_info = 102; // offset: 16
+}
+
+message GridFightRoleBattleModeInfo {
+	uint32 mode = 1; // offset: 24
+}
+
+message GridFightRoleBattleStateInfo {
+	oneof BHGKHELCPGO {
+		uint32 value = 1; // offset: 24
+	}
+}
+
+message GridFightRoleInfo {
+	uint32 role_id = 1; // offset: 52
+	uint32 role_star = 2; // offset: 64
+	uint32 pos = 3; // offset: 48
+	repeated BattleGridFightEquipInfo role_equipment_list = 7; // offset: 16
+	uint32 avatar_id = 8; // offset: 56
+	map<uint32, uint32> convert_property_to_fixpoint = 10; // offset: 32
+	uint32 unique_id = 11; // offset: 60
+	GridFightRoleBattleExtInfo battle_ext_info = 12; // offset: 40
+}
+
+message GridFightSceneMonsterExtraInfo {
+	oneof AOKGBOOKMFP {
+		GridFightMonsterBattleInfo grid_fight_info = 475; // offset: 16
+	}
+}
+
+message GridFightTraitEffectLevelInfo {
+	uint32 trait_effect_level_exp = 1; // offset: 32
+	map<uint32, GridFightDropInfo> trait_effect_level_reward = 2; // offset: 16
+}
+
+message GridFightTraitInfo {
+	uint32 trait_id = 1; // offset: 44
+	uint32 layer = 2; // offset: 40
+	repeated BattleGridFightTraitEffectInfo trait_effect_list = 3; // offset: 16
+	repeated GridFightTraitMemberInfo member_list = 5; // offset: 32
+	uint32 BPJKHDNBPOE = 6; // offset: 52
+	uint32 AFKKLDMAEDJ = 7; // offset: 48
+}
+
+message GridFightTraitMemberInfo {
+	uint32 member_role_unique_id = 1; // offset: 28
+	GridFightTraitMemberType member_type = 2; // offset: 24
+	uint32 member_role_id = 3; // offset: 36
+	GridFightUpdateSource update_source = 4; // offset: 32
+}
+
+enum GridFightTraitMemberType {
+	GridFightTraitMemberType_None = 0;
+	GridFightTraitMemberType_Role = 1;
+	GridFightTraitMemberType_Reserved2 = 2;
+}
+
+enum GridFightUpdateSource {
+	GridFightUpdateSource_None = 0;
+	GridFightUpdateSource_Role = 1;
+	GridFightUpdateSource_Equipment = 2;
+	GridFightUpdateSource_Dummy = 3;
+	GridFightUpdateSource_Reserved4 = 4;
+}
+
+// ========================= Heliobus =========================
+
+message GEGLJDELBHA {
+	SceneInfo MOPHKIGKDIK = 1; // offset: 16
+	LineupInfo lineup = 9; // offset: 24
+	uint32 raid_id = 12; // offset: 44
+	uint32 world_level = 15; // offset: 40
+}
+
+// ========================= IdleLive =========================
+
+message ItemList {
+	repeated Item item_list = 2; // offset: 24
+}
+
+message KVP {
+	uint32 value = 3; // offset: 28
+	uint32 key = 9; // offset: 24
+}
+
+// ========================= Item =========================
+
+message Equipment {
+	uint32 level = 1; // offset: 36
+	uint32 unique_id = 3; // offset: 24
+	uint32 exp = 6; // offset: 44
+	uint32 promotion = 7; // offset: 32
+	bool is_protected = 8; // offset: 48
+	uint32 dress_avatar_id = 9; // offset: 40
+	uint32 rank = 14; // offset: 28
+	uint32 tid = 15; // offset: 52
+}
+
+message Material {
+	uint32 num = 3; // offset: 36
+	uint32 tid = 8; // offset: 32
+	uint64 expire_time = 15; // offset: 24
+}
+
+message NLLLAAEJOBP {
+	repeated uint32 DMNHPNAPGNB = 3; // offset: 24
+	uint32 tid = 9; // offset: 32
+}
+
+message PileItem {
+	uint32 item_num = 1; // offset: 28
+	uint32 item_id = 14; // offset: 24
+}
+
+message Relic {
+	uint32 unique_id = 1; // offset: 68
+	uint32 dress_avatar_id = 2; // offset: 60
+	repeated RelicAffix sub_affix_list = 3; // offset: 24
+	uint32 level = 4; // offset: 56
+	repeated RelicAffix preview_sub_affix_list = 5; // offset: 32
+	uint32 exp = 6; // offset: 52
+	bool is_protected = 7; // offset: 65
+	repeated RelicAffix reforge_sub_affix_list = 8; // offset: 40
+	uint32 reforge_block_sub_affix_id = 10; // offset: 76
+	uint32 tid = 11; // offset: 48
+	bool is_discarded = 14; // offset: 64
+	uint32 main_affix_id = 15; // offset: 72
+}
+
+message WaitDelResource {
+	uint32 tid = 11; // offset: 24
+	uint32 num = 13; // offset: 28
+}
+
+// ========================= Jukebox =========================
+
+message MNCBEDBDDHL {
+	KHADHDLCNOI JKNLCEEDAHJ = 1; // offset: 32
+	repeated AAKECCJELLI NNJCEINOEHH = 2; // offset: 16
+	bool PGPNCNABHAM = 3; // offset: 40
+}
+
+// ========================= Lineup =========================
+
+enum AvatarType {
+	AvatarType_None = 0;
+	AvatarType_AvatarTrialType = 1;
+	AvatarType_AvatarLimitType = 2;
+	AvatarType_AvatarFormalType = 3;
+	AvatarType_AvatarAssistType = 4;
+	AvatarType_AvatarAetherDivideType = 5;
+	AvatarType_AvatarUpgradeAvailableType = 6;
+	AvatarType_AvatarGridFightType = 7;
+	AvatarType_AvatarFixedPathType = 8;
+	AvatarType_AvatarReturnAssistType = 9;
+}
+
+enum ExtraLineupType {
+	ExtraLineupType_LineupNone = 0;
+	ExtraLineupType_LineupChallenge = 1;
+	ExtraLineupType_LineupRogue = 2;
+	ExtraLineupType_LineupChallenge2 = 3;
+	ExtraLineupType_LineupChallenge3 = 4;
+	ExtraLineupType_LineupRogueChallenge = 5;
+	ExtraLineupType_LineupStageTrial = 6;
+	ExtraLineupType_LineupRogueTrial = 7;
+	ExtraLineupType_LineupActivity = 8;
+	ExtraLineupType_LineupBoxingClub = 9;
+	ExtraLineupType_LineupTreasureDungeon = 11;
+	ExtraLineupType_LineupChessRogue = 12;
+	ExtraLineupType_LineupHeliobus = 13;
+	ExtraLineupType_LineupTournRogue = 14;
+	ExtraLineupType_LineupRelicRogue = 15;
+	ExtraLineupType_LineupArcadeRogue = 16;
+	ExtraLineupType_LineupMagicRogue = 17;
+	ExtraLineupType_LineupFate = 18;
+	ExtraLineupType_LineupGridFight = 19;
+	DMHILEFFPFL_PFDNAOJIDEP = 20;
+}
+
+message LineupAvatar {
+	uint32 hp = 2; // offset: 32
+	uint32 satiety = 3; // offset: 44
+	uint32 slot = 9; // offset: 40
+	AvatarType avatar_type = 10; // offset: 48
+	SpBarInfo sp_bar = 14; // offset: 24
+	uint32 id = 15; // offset: 36
+}
+
+// ========================= Lobby =========================
+
+enum HGMNDBFCBLL {
+	HGMNDBFCBLL_NLCDGIPGFDJ = 0;
+	HGMNDBFCBLL_CPJDKCDJFNA = 1;
+	HGMNDBFCBLL_APBCEPNOCKG = 2;
+}
+
+message LMLNNHKJEIP {
+	MOHAGOFLGAP basic_info = 1; // offset: 40
+	CIGLIFFIIDC GBBCBJCACIN = 2; // offset: 32
+	LobbyGameExtInfo stage_info = 3; // offset: 24
+}
+
+enum LobbyCharacterStatus {
+	LobbyCharacterStatus_None = 0;
+	LobbyCharacterStatus_Idle = 1;
+	LobbyCharacterStatus_Operating = 2;
+	LobbyCharacterStatus_Ready = 3;
+	LobbyCharacterStatus_Fighting = 4;
+	LobbyCharacterStatus_Watching = 5;
+	LobbyCharacterStatus_Matching = 6;
+	LobbyCharacterStatus_LobbyStartFight = 7;
+}
+
+message LobbyGameExtInfo {
+	repeated string MLAFBFEBNHB = 1; // offset: 32
+	bool ELJECOAKNOF = 2; // offset: 40
+	oneof APEMJMHJHKD {
+		LobbyMarchInfo lobby_march_info = 1001; // offset: 24
+		LobbyMarbleInfo lobby_marble_info = 1002; // offset: 24
+		JMFPICAMLIG PHIBAOMGNOH = 1003; // offset: 24
+		LobbyGridFightInfo lobby_grid_fight_info = 1004; // offset: 24
+		IPIJFDIPNDE GOKJCFBPHCJ = 1005; // offset: 24
+		PCBLIKPEEJA MPNPIIHHFPN = 1006; // offset: 24
+		KEIDHKJDDJF ICGJCKLHLAB = 1007; // offset: 24
+	}
+}
+
+message LobbyGridFightInfo {
+	repeated uint32 LAJJHAAKGAF = 1; // offset: 16
+	uint32 gold = 2; // offset: 40
+	uint32 score_id = 3; // offset: 44
+	string KEJLHDPBIPO = 4; // offset: 24
+}
+
+message LobbyMarbleInfo {
+	uint32 GDBNHOJPKIE = 1; // offset: 40
+	uint32 rank = 2; // offset: 36
+	repeated uint32 CIPEHBBKFIH = 3; // offset: 16
+	uint32 score_id = 4; // offset: 32
+}
+
+message LobbyMarchInfo {
+	uint32 HBONKLEOEEI = 1; // offset: 32
+	KBCHOKFHHIH AIKDCBMCLBI = 5; // offset: 24
+}
+
+enum TeamTowersGameType {
+	TeamTowersGameType_None = 0;
+	TeamTowersGameType_RandomStage = 1;
+	TeamTowersGameType_Survival = 2;
+	TeamTowersGameType_Race = 3;
+	TeamTowersGameType_Endless = 4;
+}
+
+// ========================= MapRotation =========================
+
+message ChargerInfo {
+	uint32 group_id = 12; // offset: 24
+	uint32 instance_id = 13; // offset: 28
+}
+
+message MotionInfo {
+	Vector rot = 1; // offset: 32
+	Vector pos = 2; // offset: 16
+}
+
+message RotateMapInfo {
+	Vector ELFDIEFKCMH = 1; // offset: 16
+	Vector4 MIACNFDGKCE = 4; // offset: 24
+}
+
+message RotaterData {
+	float position = 9; // offset: 32
+	uint32 group_id = 10; // offset: 28
+	uint32 instance_id = 15; // offset: 24
+}
+
+message RotaterEnergyInfo {
+	uint32 cur_num = 13; // offset: 24
+	uint32 max_num = 14; // offset: 28
+}
+
+// ========================= MatchThreeModule =========================
+
+enum NPPEMMILLCO {
+	NPPEMMILLCO_HGLIFJGHADE = 0;
+	NPPEMMILLCO_OPCKNBHNBOA = 1;
+	NPPEMMILLCO_CEABDBJPIOF = 2;
+	NPPEMMILLCO_HONKPOMPEOO = 3;
+	NPPEMMILLCO_HOFPNHIBDKL = 4;
+	NPPEMMILLCO_EHNIPLNEEDI = 5;
+	NPPEMMILLCO_FAODKNDLNPF = 6;
+	NPPEMMILLCO_JCNBPNHEBBH = 7;
+}
+
+// ========================= Message =========================
+
+enum MessageGroupStatus {
+	MessageGroupStatus_MessageGroupNone = 0;
+	MessageGroupStatus_MessageGroupDoing = 1;
+	MessageGroupStatus_MessageGroupFinish = 2;
+	MessageGroupStatus_MessageGroupFrozen = 3;
+}
+
+enum MessageSectionStatus {
+	MessageSectionStatus_MessageSectionNone = 0;
+	MessageSectionStatus_MessageSectionDoing = 1;
+	MessageSectionStatus_MessageSectionFinish = 2;
+	MessageSectionStatus_MessageSectionFrozen = 3;
+}
+
+// ========================= Misc =========================
+
+message AAKECCJELLI {
+	uint32 id = 1; // offset: 28
+	uint32 volume = 2; // offset: 24
+}
+
+message AANLJBLOOFO {
+	uint32 buff_one = 1; // offset: 40
+	uint32 buff_two = 4; // offset: 36
+	repeated ChallengeLineupList lineup_list = 7; // offset: 24
+	uint32 EEJCPNAEKLJ = 9; // offset: 32
+	uint32 score_id = 10; // offset: 48
+	uint32 level = 11; // offset: 44
+}
+
+message ABNBDDCDBCA {
+	uint32 slot_id = 1; // offset: 36
+	oneof OIFBOHDMKNI {
+		uint32 ODNGMIJLKKA = 100; // offset: 24
+		uint64 EBAAFDHEPLO = 101; // offset: 24
+	}
+}
+
+message ADKJKMKBFDC {
+	uint32 level = 6; // offset: 40
+	repeated ChallengeLineupList lineup_list = 10; // offset: 16
+	uint32 EEJCPNAEKLJ = 11; // offset: 36
+	uint32 round_count = 13; // offset: 32
+}
+
+message AEBNHMHDMNP {
+	repeated uint32 DAMFHOOMJDK = 3; // offset: 24
+	uint32 coin_count = 6; // offset: 32
+	uint32 total_sell_revenue = 8; // offset: 40
+	uint32 total_buy_cost = 13; // offset: 36
+}
+
+message AIBNHPAGDOL {
+	bool GKEPPNOLNHF = 1; // offset: 24
+	uint32 forbid_reason = 9; // offset: 28
+}
+
+message AIIGHJEIGHE {
+	uint32 stage_index = 1; // offset: 36
+	ChallengeLineupList lineup = 2; // offset: 16
+	uint32 buff_id = 3; // offset: 32
+}
+
+message AMEMKFNABGG {
+	bool GNLMBJCPING = 1; // offset: 40
+	repeated uint32 ILOLFNPALJH = 2; // offset: 32
+	uint32 PIKBPDAMGML = 3; // offset: 44
+	uint32 ODHIDLBAPIG = 4; // offset: 48
+	map<uint32, uint64> HEDHGPKEGBI = 5; // offset: 16
+}
+
+message AOAOBPGFHLA {
+	uint32 compose_relic_id = 1; // offset: 40
+	uint32 relic_type = 2; // offset: 44
+	JAONELJJAFK ELOGOFFIJBB = 3; // offset: 32
+	repeated JAONELJJAFK sub_affix_list = 4; // offset: 16
+}
+
+message APKENKIDMGC {
+	repeated DAAKGEDPPJJ GMGPFAIONNG = 7; // offset: 16
+	uint32 PBJPEOEDEDF = 9; // offset: 32
+}
+
+message AssistSimpleInfo {
+	uint32 avatar_id = 1; // offset: 36
+	uint32 level = 2; // offset: 28
+	uint32 dressed_skin_id = 3; // offset: 32
+	uint32 pos = 4; // offset: 24
+}
+
+message BACHHBGNENA {
+	uint32 EDDBMFMEPJK = 4; // offset: 32
+	PGPHEKKPBLD CFDIKLBINHK = 7; // offset: 24
+	uint32 DLFHABGGHFF = 13; // offset: 36
+}
+
+message BCGJJCCJBCG {
+	uint32 HLLIBEEKFII = 2; // offset: 40
+	uint32 NJHAPBIALCN = 5; // offset: 32
+	uint32 HHGAHEBNAIL = 6; // offset: 36
+	map<uint32, uint32> MIKLLOOAJFE = 7; // offset: 24
+}
+
+enum BEAIKEEANDP {
+	BEAIKEEANDP_NLCDGIPGFDJ = 0;
+	BEAIKEEANDP_NKDECDGECFL = 1;
+	BEAIKEEANDP_LONKNKFDPII = 2;
+}
+
+message BELNLOJAFCM {
+	repeated uint32 HLLLIKPGOFG = 2; // offset: 32
+	uint32 MHFBCGMDDOO = 5; // offset: 40
+	DGHPIDMDOJM JHBAAHGLFCB = 14; // offset: 16
+}
+
+message BGFLAKMOIGC {
+	bool JJMKAHIBDBH = 10; // offset: 25
+	bool AMICPGOIHLL = 14; // offset: 24
+}
+
+message BHPBJOMBCAD {
+	uint32 group_id = 1; // offset: 32
+	repeated NEJPAGJBMDA IJKIBLJEGGE = 3; // offset: 16
+	bool NOALGKCLDHF = 5; // offset: 36
+}
+
+message BKLPIMMNFOC {
+	uint32 pet_id = 1; // offset: 32
+	repeated uint32 MFJEMHJEBAN = 2; // offset: 16
+}
+
+message BLJEJFMKEII {
+	oneof MMCGBGDJIPN {
+		CJHPPLHFNAB FODLGHIFJGC = 1; // offset: 16
+		FHOHCAIFHNA GLDHCIBNBAG = 2; // offset: 16
+	}
+}
+
+message BOFHHEBDEOD {
+	uint32 GDBNHOJPKIE = 1; // offset: 24
+}
+
+enum BOMHOLBACKF {
+	BOMHOLBACKF_HGLIFJGHADE = 0;
+	BOMHOLBACKF_PDJAJHELPKL = 1;
+}
+
+message CBDMGEGELFM {
+	int32 DPICNGBHFAC = 4; // offset: 28
+	uint32 key = 15; // offset: 24
+}
+
+enum CBPDACMBHGL {
+	CBPDACMBHGL_MMCGPCNJGCC = 0;
+	CBPDACMBHGL_CLKMDIEEDKJ = 1;
+	CBPDACMBHGL_BFFIPLJNMLB = 2;
+}
+
+message CDDJMFNHFLN {
+	uint32 PCPMKMOBOMD = 1; // offset: 24
+}
+
+message CEDCMIMKJHK {
+	bool is_open = 4; // offset: 24
+	uint32 avatar_id = 7; // offset: 28
+}
+
+message CIGLIFFIIDC {
+	LKFBIALLBDK NABJDHEPELK = 1; // offset: 28
+	LobbyCharacterStatus status = 2; // offset: 24
+}
+
+message CIOAOEGEIKH {
+	repeated PEGJIHHIFOP DNIGKDKIPPJ = 1; // offset: 16
+}
+
+message CJHPPLHFNAB {
+	EMLFDPFAPJP BJMJBLCMPAL = 1; // offset: 32
+	repeated KCIEGDGJMBE AHBOCLNGFNM = 2; // offset: 16
+}
+
+message CLLBJDEJFNF {
+	message OOIDNDCPEAF {
+		enum DAHCIBCIIAD {
+			DAHCIBCIIAD_MNEIHEIGLPO = 0;
+			DAHCIBCIIAD_BPILLPJGGGB = 1;
+			DAHCIBCIIAD_ANHFOPPEFAL = 2;
+			DAHCIBCIIAD_LEEOOMLKANM = 3;
+			DAHCIBCIIAD_HJOMKLAGMCM = 4;
+		}
+	}
+	uint32 id = 2; // offset: 24
+	uint32 slot = 6; // offset: 28
+	uint32 type = 11; // offset: 32
+}
+
+message CMNLOKDOFEF {
+	uint32 GDBNHOJPKIE = 1; // offset: 24
+}
+
+message CPMNHNHKLBK {
+	uint32 role_id = 1; // offset: 24
+}
+
+message CustomSaveData {
+	string save_data = 10; // offset: 16
+	uint32 group_id = 14; // offset: 32
+}
+
+message DAAKGEDPPJJ {
+	uint32 func_id = 5; // offset: 24
+	bool is_valid = 12; // offset: 28
+}
+
+message DAMNNJKJOMM {
+	repeated uint32 first_lineup = 1; // offset: 16
+	repeated uint32 second_lineup = 2; // offset: 24
+	uint32 DHMEBODOJMI = 3; // offset: 40
+	uint32 DLCJLOIMKOJ = 4; // offset: 44
+}
+
+message DCFPEIMAMCN {
+	oneof KKNBOACNCON {
+		GGGBAIAPDLO PCHGEGFBKLF = 257; // offset: 16
+		GCCIOBKOFJN JFNHDJIDJDA = 249; // offset: 16
+		IEJIOGIGFAI FEMFJIDBEAB = 1427; // offset: 16
+		PKFNILLONDF GHBBKKABKBN = 224; // offset: 16
+		AMKALFJHFJP AMIBPAGBMFP = 826; // offset: 16
+		LFKOLKFKOAP PAKPHFJOBAF = 1524; // offset: 16
+		LBKIKIGLIMJ BJKEDGMKOLM = 1451; // offset: 16
+		MBPJGCJEGJB NGCJBBCOOCF = 1358; // offset: 16
+		JJPDJPINDOA CNANEDFPNKJ = 1275; // offset: 16
+		DNGEEKCHHED CDFPGKGILAJ = 1348; // offset: 16
+		NGEBIKIHIDD PMKJIMIIOGM = 32; // offset: 16
+		INKPGECIDNE JIPEPMDMCMB = 1273; // offset: 16
+		OFMCKLEMOMP FNEOOMHHGGB = 1355; // offset: 16
+		JIGLEHNAKNJ EMOJGAFOCML = 53; // offset: 16
+		PAGJKBPPOKL BMEMABNEFKK = 252; // offset: 16
+		KBKLNECKDEN GOIFJFKIFFF = 742; // offset: 16
+		NFNMMFBJBLC FJCHODNDIKA = 1964; // offset: 16
+		KPJBDOPFPDL FAENLPCFFEB = 448; // offset: 16
+		OFGGMBHCKPJ NLAMHGACGIO = 1264; // offset: 16
+		OFGGMBHCKPJ JCBNIADPOGN = 965; // offset: 16
+		OFGGMBHCKPJ IJMIEMKJCHM = 424; // offset: 16
+		FDICOMLMBME PHGLAEOGJKM = 122; // offset: 16
+		KPOFAPDKBJA MMHGAEBEIHD = 1064; // offset: 16
+		JDFNPICGCGI IFPBFMOAJOP = 1151; // offset: 16
+		NIHKHKONHPN KNKAPJOCNGM = 1456; // offset: 16
+		PGMIABHEJNB HDAHOBBJDIF = 1817; // offset: 16
+		OHJJMCMJEHL KBEBGLAAEGM = 1211; // offset: 16
+		PBMGACMAMBE HBLHLFDHIGP = 1363; // offset: 16
+	}
+}
+
+message DCHCPKMFNNC {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message DINGDGLKHIP {
+	uint32 avatar_id = 2; // offset: 28
+	BEAIKEEANDP HOKEFMONOPG = 6; // offset: 24
+}
+
+message DJEECBNBGMN {
+	uint32 HAFOKMHCGFM = 9; // offset: 24
+}
+
+enum DKOPGDPKJHB {
+	DKOPGDPKJHB_CGBIKOCDABB = 0;
+	DKOPGDPKJHB_ALJCHAAIPHG = 1;
+	DKOPGDPKJHB_COEBIAOACFM = 2;
+	DKOPGDPKJHB_FKOIKJFAIKF = 3;
+	DKOPGDPKJHB_DIEMGOICHLO = 4;
+	DKOPGDPKJHB_KHJHNEOFNLJ = 5;
+	DKOPGDPKJHB_EFOHJENLODE = 6;
+	DKOPGDPKJHB_HJHCDCHOKJG = 7;
+	DKOPGDPKJHB_IHHCKDDFKJL = 8;
+}
+
+message DNGEEKCHHED {
+	repeated uint32 BGAFHIOEHFH = 1; // offset: 24
+	uint32 LGIPILAKIKB = 12; // offset: 32
+}
+
+message DPIFGEONFPI {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+	uint32 ILBJLIENCLB = 2; // offset: 32
+}
+
+message EAENAFJCEFD {
+	repeated uint32 MMGPKJOJIPM = 1; // offset: 32
+	repeated uint32 FGPGOPOCAPN = 2; // offset: 16
+}
+
+message EBBJLHBAGCJ {
+	uint32 ODPELJAIPHL = 1; // offset: 32
+	repeated uint32 GLNPAOLFPDI = 2; // offset: 24
+}
+
+message EBBOJACNHEC {
+	uint32 LHLKJIDFLIN = 3; // offset: 32
+	uint32 GHEHGIOAGDG = 9; // offset: 28
+	bool OEEDPJHLPHL = 15; // offset: 24
+}
+
+message ECCKHOLLPPC {
+	uint64 ANBJMMOEGJE = 1; // offset: 40
+	uint32 GJNMHILINHC = 2; // offset: 32
+	uint32 JOJALEHLLEJ = 3; // offset: 36
+	repeated uint32 AGNFHCLKGCF = 4; // offset: 24
+}
+
+message EDCFKACPFNB {
+	uint32 CKGJIKJDHCJ = 1; // offset: 24
+}
+
+message EDKJELMPONH {
+	uint32 HEFFPONLEGO = 1; // offset: 24
+	uint32 progress = 2; // offset: 28
+}
+
+message EGAILAEBLIG {
+	uint32 LJCEOGPOGBE = 15; // offset: 24
+}
+
+message EIKPHEMHIOH {
+	repeated ChallengeLineupList lineup_list = 2; // offset: 24
+	uint32 buff_one = 3; // offset: 32
+	uint32 buff_two = 6; // offset: 36
+	uint32 EEJCPNAEKLJ = 7; // offset: 48
+	uint32 score_id = 10; // offset: 40
+	uint32 level = 12; // offset: 44
+}
+
+message EJEFBHPAPND {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message EKNABKLPEEL {
+	HCMEILLLKBD KPOBMNLKLOK = 1; // offset: 24
+	uint32 role_id = 2; // offset: 28
+}
+
+message ELLOBCEGLAA {
+	uint32 BLPOAAFKAAK = 1; // offset: 24
+}
+
+message EMLFDPFAPJP {
+	uint32 NAEAGNLBKAM = 1; // offset: 24
+	uint32 MHPPIKLBNMD = 2; // offset: 28
+}
+
+message EOLKILAIAKL {
+	repeated KVP KBMPMGHEKKA = 7; // offset: 24
+	bool PAPMELCOCEP = 10; // offset: 32
+}
+
+message EPCNFDBKAEE {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message FDFGIHJBHEL {
+	uint32 FMEHKPKHGJA = 1; // offset: 28
+	uint32 PNGHFKLCNBE = 2; // offset: 24
+}
+
+message FDGKFJFICDN {
+	uint32 OCPEPEMNNEK = 1; // offset: 24
+	double delay = 2; // offset: 32
+}
+
+message FDICOMLMBME {
+	uint32 AIAFEKGBFIF = 3; // offset: 24
+}
+
+message FEGKCMBHHJP {
+	uint32 FGFFLBHLKDF = 6; // offset: 24
+	uint32 level = 11; // offset: 28
+}
+
+message FGHIMGPGBNF {
+	bool is_selected = 4; // offset: 36
+	uint32 FOHIFIMHENN = 5; // offset: 32
+	repeated uint32 OGOILMLPDEO = 11; // offset: 24
+}
+
+message FHBDPOJEEMJ {
+	oneof KOEFMOAPDGI {
+		DJEECBNBGMN HHBPBGMNGPN = 15; // offset: 16
+		EGAILAEBLIG ECCLOKPNFHP = 7; // offset: 16
+		HLEBBGFAKAK HDFLCOIDCPE = 8; // offset: 16
+	}
+}
+
+message FHKDJMMGIPA {
+	uint32 PLPGAMINLJA = 1; // offset: 24
+}
+
+message FHOHCAIFHNA {
+	uint32 HILINOJPLGA = 1; // offset: 40
+	double difficulty_ratio = 2; // offset: 32
+	uint32 PGGDEHKKINP = 11; // offset: 24
+	uint32 style_level = 12; // offset: 44
+	uint32 style_exp = 13; // offset: 28
+}
+
+message GCBHOIJLBFL {
+	string BLDMFDKDJDM = 10; // offset: 16
+	oneof BLOFAGPDOKJ {
+		DCHCPKMFNNC BNIGONFKICO = 1; // offset: 32
+		EJEFBHPAPND JIOEBAFCAJE = 2; // offset: 32
+		PFDBLPONOHE NBBFPHGLFNP = 3; // offset: 32
+		GMMMIGPFIOH LNOMBCDABKJ = 4; // offset: 32
+		DPIFGEONFPI BEGAIBBJHHD = 5; // offset: 32
+		EPCNFDBKAEE GOIKMBNGGNP = 6; // offset: 32
+		HFHFMPLAJCC CMHJJDDEHCP = 7; // offset: 32
+		GDIBHDEKJCG OOKBDDEJHPB = 8; // offset: 32
+	}
+}
+
+message GCCIOBKOFJN {
+	uint32 LGIPILAKIKB = 5; // offset: 32
+	repeated KJAMNOGFAMJ JJDILEHLHDH = 13; // offset: 24
+}
+
+message GDIBHDEKJCG {
+}
+
+message GFDJLBJPNMC {
+	repeated JGPMBLAJJJG GBMBAHHDONN = 1; // offset: 24
+}
+
+message GFNAPELNFIC {
+	uint32 CLFBBAPEPML = 1; // offset: 36
+	bool is_locked = 2; // offset: 32
+	DKPHAFPGDLO JBNMAOFOFPE = 3; // offset: 24
+}
+
+message GILBMELHGCB {
+	repeated uint32 JMMBAALIOJL = 7; // offset: 24
+	uint32 stage_id = 12; // offset: 32
+}
+
+message GKFGIMIBBHF {
+	uint32 MMFGAJNCAOA = 1; // offset: 24
+	bool finish = 4; // offset: 28
+	uint32 progress = 6; // offset: 32
+}
+
+message GLIBGKGGEJL {
+	repeated uint32 PDABDEJBPEL = 1; // offset: 16
+	uint32 NKDDBPGDAEE = 2; // offset: 32
+}
+
+message GMIMDEJMFCO {
+	MGGBPKANFOA global_blackboard = 5; // offset: 32
+	repeated LGEFLGJIGIJ GMALFEABLNG = 9; // offset: 24
+}
+
+message GMMMIGPFIOH {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message HCGDLIAMDLA {
+	uint32 avatar_id = 2; // offset: 32
+	uint32 JADCEPFHHDK = 3; // offset: 24
+	uint32 JJGMIGBBEOO = 15; // offset: 28
+}
+
+message HCKADDLIGEB {
+	string stop_desc = 1; // offset: 24
+	uint32 HAAFJLKHCKF = 2; // offset: 32
+}
+
+enum HCMEILLLKBD {
+	HCMEILLLKBD_NLCDGIPGFDJ = 0;
+	HCMEILLLKBD_JDOAIPKBIPE = 1;
+	HCMEILLLKBD_GGBMAANJNJC = 2;
+}
+
+message HFHFMPLAJCC {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message HFJKOCDOAEH {
+	uint32 EKNHHGMJCPM = 4; // offset: 24
+	uint32 OLPPACCCNGD = 8; // offset: 28
+}
+
+message HGNBPANECAL {
+	repeated BuffInfo buff_list = 4; // offset: 16
+	uint32 entity_id = 11; // offset: 32
+}
+
+message HIEKLHPINHL {
+	uint32 OFBPKCNCGFG = 2; // offset: 24
+	uint32 max_count = 14; // offset: 28
+}
+
+message HIMPJFMPEPA {
+	uint32 slot_id = 1; // offset: 32
+	KBGKLKLKLFG KFECKHCLIFL = 2; // offset: 24
+}
+
+message HJACHMJFEAH {
+	uint32 PCPDHEIEJFO = 1; // offset: 24
+	uint32 slot = 2; // offset: 28
+}
+
+message HJDCJNOFBHH {
+	uint32 LJCEOGPOGBE = 1; // offset: 24
+}
+
+message HLEBBGFAKAK {
+	uint32 GNCFHIKODKE = 9; // offset: 24
+}
+
+message HLFAKEOBFAB {
+	uint32 HJMACPMOINC = 1; // offset: 28
+	uint32 PBMAHOJBAGG = 2; // offset: 32
+	uint32 AFEMBLFCCCH = 8; // offset: 24
+}
+
+message HLFOOKANNDE {
+	uint32 JGDOICIEMAH = 1; // offset: 40
+	double damage = 2; // offset: 24
+	double KADNIAEJACG = 3; // offset: 32
+}
+
+message HNMGKLKPJEK {
+	uint32 HNEBGGOIOBD = 1; // offset: 24
+	uint32 reason = 2; // offset: 28
+}
+
+message HOMMPJIOPGI {
+	uint32 wave = 1; // offset: 40
+	uint32 score_id = 2; // offset: 36
+	uint32 GMKFBAMNDEA = 3; // offset: 44
+	repeated DKPHAFPGDLO CBLOAJFJKKI = 4; // offset: 24
+	float delay = 5; // offset: 32
+}
+
+message IDJIAGLCAPE {
+	uint32 IPCFGIEFBKH = 1; // offset: 40
+	repeated HOMMPJIOPGI DCMAHKHAFEH = 2; // offset: 16
+	repeated FDGKFJFICDN OJBMGEJCILM = 3; // offset: 32
+}
+
+message IDLACKBINMC {
+	string title = 1; // offset: 32
+	string JFCEOOODIBN = 2; // offset: 24
+}
+
+message IEJIOGIGFAI {
+	uint32 LGIPILAKIKB = 5; // offset: 32
+	repeated KJAMNOGFAMJ CGAEPNOCDIG = 10; // offset: 16
+}
+
+message IGCHDHFMPBJ {
+	DKOPGDPKJHB type = 1; // offset: 32
+	string stop_desc = 2; // offset: 16
+	uint32 avatar_id = 3; // offset: 36
+}
+
+message IIONNFELFEF {
+	uint32 dice_slot_id = 1; // offset: 36
+	uint32 pose = 2; // offset: 32
+	repeated uint32 DMIOBEKLDED = 3; // offset: 16
+}
+
+message IJLEFNJPFKP {
+	uint32 rogue_mode = 1; // offset: 24
+}
+
+message INKPGECIDNE {
+	repeated uint32 KPJPABDIOJB = 3; // offset: 16
+}
+
+message IPIJFDIPNDE {
+	repeated DiceCombatAvatar avatar_list = 1; // offset: 32
+	BOFHHEBDEOD BAEGDJILMBL = 2; // offset: 24
+	CMNLOKDOFEF AEPFOJHNNFH = 3; // offset: 16
+	uint32 EECIJBLGLNG = 4; // offset: 48
+	uint32 EMHHCEMGBEM = 5; // offset: 60
+	uint32 GMCAHOPDHLI = 6; // offset: 56
+	bool KDFJPPOLFEB = 7; // offset: 52
+}
+
+message JAONELJJAFK {
+	uint32 property_type = 1; // offset: 28
+	float value = 2; // offset: 24
+}
+
+message JGPMBLAJJJG {
+	repeated uint32 AEJPCFLOPAL = 1; // offset: 24
+	uint32 buff_id = 2; // offset: 32
+}
+
+message JIGLEHNAKNJ {
+	repeated uint32 KLLIJGIHFAP = 8; // offset: 16
+	uint32 LGIPILAKIKB = 12; // offset: 32
+}
+
+message JJPDJPINDOA {
+	uint32 LGIPILAKIKB = 2; // offset: 32
+	repeated uint32 ANINMMMGLLL = 9; // offset: 16
+}
+
+message JMFPICAMLIG {
+	KBCHOKFHHIH AIKDCBMCLBI = 1; // offset: 24
+}
+
+enum JNBOIFCNBCH {
+	JNBOIFCNBCH_HGLIFJGHADE = 0;
+	JNBOIFCNBCH_LCFJOOIAEHD = 1;
+}
+
+message JPKIDILKOAK {
+	repeated uint32 AEJPCFLOPAL = 1; // offset: 24
+	uint32 buff_id = 2; // offset: 32
+}
+
+message KBCHOKFHHIH {
+	uint32 GDBNHOJPKIE = 1; // offset: 36
+	uint32 EAGEFHOHCOA = 2; // offset: 32
+	uint32 EECIJBLGLNG = 3; // offset: 48
+	uint32 OPHFDHGBLPJ = 4; // offset: 52
+	repeated FDFGIHJBHEL MKIOMOINKOF = 5; // offset: 16
+	uint32 IHEGLJHMKPP = 6; // offset: 40
+	uint32 MFECHJLACLC = 7; // offset: 44
+}
+
+message KBGKLKLKLFG {
+	oneof OIFBOHDMKNI {
+		uint32 ODNGMIJLKKA = 1; // offset: 24
+		PFNJCDINMLA ENGJIMIHCHJ = 2; // offset: 24
+	}
+}
+
+message KBKLNECKDEN {
+	repeated OKCCLEEPELM AGKFAODICEA = 3; // offset: 16
+	uint32 LGIPILAKIKB = 4; // offset: 44
+	uint32 EIALMEADLGF = 6; // offset: 40
+	uint32 NKGGAOJLCMD = 9; // offset: 48
+	OKCCLEEPELM EPOCLANFIAC = 10; // offset: 32
+}
+
+message KCIEGDGJMBE {
+	uint32 GCAHKLNGFCK = 1; // offset: 44
+	repeated OJMPKMNINGK HIILDALHIMD = 2; // offset: 24
+	uint32 level = 3; // offset: 40
+	map<uint32, uint32> HCPNPDLJKGF = 4; // offset: 16
+}
+
+message KEIDHKJDDJF {
+	bool JPDKFADFGBD = 1; // offset: 68
+	repeated uint32 JDJHFJKPLCN = 2; // offset: 32
+	uint32 EKCLGFIPDKL = 3; // offset: 72
+	repeated OAAKAIBPENC FODBOPBEALE = 9; // offset: 40
+	repeated BKLPIMMNFOC AKGBJPNGLKP = 10; // offset: 16
+	repeated KVP NFGFFPCCPFJ = 11; // offset: 56
+	repeated uint32 FMJMODJNKGA = 12; // offset: 24
+	uint32 JJDDMGHOKDL = 13; // offset: 64
+}
+
+message KFMKBMJPEIC {
+	uint32 DNNCAGJIOAP = 1; // offset: 56
+	repeated uint32 IHCDDIPNJKO = 2; // offset: 40
+	repeated BattleGridFightEquipInfo grid_fight_equipment_list = 3; // offset: 48
+	map<uint32, uint32> BANBECDCDHG = 4; // offset: 24
+	repeated FHCEIOHLADG POJGKJENENA = 5; // offset: 32
+}
+
+message KGLIOOODBPN {
+	repeated uint32 OEOMILPAFGI = 7; // offset: 24
+	uint32 composition_type = 9; // offset: 36
+	uint32 level = 11; // offset: 32
+}
+
+message KHADHDLCNOI {
+	uint32 id = 1; // offset: 28
+	bool is_pause = 2; // offset: 24
+}
+
+message KIAICMELIMM {
+	map<uint32, uint32> AOKECJBFMCN = 1; // offset: 24
+	uint32 CDBGPMABMGM = 2; // offset: 36
+	uint32 FGOHMOMLEBG = 3; // offset: 40
+	uint32 enemy_hp_multiplier = 4; // offset: 32
+}
+
+message KIJEFIIBBGG {
+	uint32 IKDHAMLPNPJ = 10; // offset: 32
+	uint32 JAAIADKFPCL = 11; // offset: 28
+	PHAOIGLGBMG content_type = 15; // offset: 24
+}
+
+message KOBGMGHMCLF {
+	uint32 avatar_id = 1; // offset: 36
+	repeated MCOFKOEJGGL BJKBFDJGFOG = 2; // offset: 24
+	uint32 slot = 3; // offset: 40
+	uint32 IDBDBICPBBG = 4; // offset: 32
+}
+
+message KOEIBOFDLCM {
+	uint32 NFMHIOIFLCB = 3; // offset: 24
+}
+
+message KPJBDOPFPDL {
+	OCBPJLLLJGO MAAGBKHLECB = 3; // offset: 24
+}
+
+message LBKIKIGLIMJ {
+	repeated uint32 MJGBLEBKMDH = 5; // offset: 16
+	uint32 LGIPILAKIKB = 7; // offset: 32
+}
+
+message LDKMOFFMGEL {
+	uint32 LPOLPDBELON = 1; // offset: 24
+	uint32 type = 13; // offset: 28
+	uint32 slot = 15; // offset: 32
+}
+
+message LDOMEIGDIAK {
+	uint32 NFMHIOIFLCB = 15; // offset: 24
+}
+
+message LFKOLKFKOAP {
+	uint32 LGIPILAKIKB = 1; // offset: 32
+	repeated uint32 CLEJHGMAFOD = 6; // offset: 16
+}
+
+message LGEFLGJIGIJ {
+	repeated AKMCODLAEKI GFKAFIFMHNF = 1; // offset: 24
+	uint64 GAHFPGCPAJA = 7; // offset: 32
+	MMFOGJPOHGJ owner_type = 9; // offset: 40
+}
+
+message LHCBKDNHGCG {
+	uint64 EBAAFDHEPLO = 15; // offset: 24
+}
+
+message LJMGDJBLLKC {
+	oneof MMCGBGDJIPN {
+		HNMGKLKPJEK GMIBBCHODHA = 1; // offset: 24
+		PFKIFOKEFMC INOOHCJLGKM = 2; // offset: 24
+		FHKDJMMGIPA IIPDMLLKIOD = 3; // offset: 24
+		CDDJMFNHFLN GCCJDEKMLMI = 4; // offset: 24
+		ELLOBCEGLAA DNONCCJFHHC = 5; // offset: 24
+	}
+}
+
+enum LKFBIALLBDK {
+	LKFBIALLBDK_EFAGELOKHAH = 0;
+	LKFBIALLBDK_EFLAAFEKBLO = 1;
+	LKFBIALLBDK_MHOEPNOAGDN = 2;
+	LKFBIALLBDK_GLLICMOMCOA = 3;
+}
+
+message LMLNJFEMOAI {
+	uint32 skill_id = 1; // offset: 24
+	uint32 skill_level = 2; // offset: 28
+}
+
+message MBMAGILKFGP {
+	repeated HCGDLIAMDLA LEBNOGAMCNE = 15; // offset: 24
+}
+
+message MBPJGCJEGJB {
+	repeated uint32 LHMIIFKPPAG = 6; // offset: 16
+	uint32 LGIPILAKIKB = 14; // offset: 32
+}
+
+message MCOFKOEJGGL {
+	uint32 GPIOJJBAIJB = 1; // offset: 32
+	repeated uint32 ADHEJNDAPIH = 2; // offset: 16
+}
+
+message MGGBPKANFOA {
+	repeated AKMCODLAEKI GFKAFIFMHNF = 10; // offset: 24
+}
+
+message MHGAOLCDONK {
+	uint32 OPEEIFGGMIA = 6; // offset: 24
+	uint32 NLMMKAEJEKH = 14; // offset: 28
+}
+
+message MOHAGOFLGAP {
+	uint32 uid = 1; // offset: 76
+	uint32 level = 2; // offset: 48
+	string nickname = 3; // offset: 32
+	uint32 icon = 4; // offset: 72
+	PlatformType platform = 5; // offset: 60
+	string IJKOMIKFKEK = 6; // offset: 16
+	string EBMNJMIKNPP = 7; // offset: 40
+	uint64 version = 8; // offset: 64
+	bool OCLBMMNNMFC = 9; // offset: 52
+	uint32 MIDBIPHKLJO = 10; // offset: 56
+}
+
+enum MsgType {
+	MsgType_None = 0;
+	MsgType_CustomText = 1;
+	MsgType_Emoji = 2;
+	MsgType_Invite = 3;
+	MsgType_PlanetFes = 4;
+	MsgType_AiPamFunctionCall = 5;
+	MsgType_UrlCitation = 6;
+	MsgType_AiPamQuickFunction = 7;
+	MsgType_AiPamLineupInterp = 8;
+	MsgType_AiPamRelicInterp = 9;
+	MsgType_AiPamPoke = 10;
+	BFBCFAIOIEK_CGMPJEGGEED = 11;
+	BFBCFAIOIEK_EJOEHKNHGDM = 12;
+}
+
+message NBDKNCJGOMN {
+	HKOEAOPNEAC KOBBMDFPNKA = 4; // offset: 24
+	uint32 FOKPPMBIDID = 5; // offset: 32
+}
+
+message NCHGLFJCGIJ {
+	repeated BMCNDLNONMO HDLGLFGKONC = 1; // offset: 16
+}
+
+message NDDHJBFEBHG {
+	uint32 OKNPKMABAHE = 12; // offset: 28
+	uint32 NFMHIOIFLCB = 14; // offset: 24
+	uint32 CLMMHFFNKEH = 15; // offset: 32
+}
+
+message NDDOMFBJMKE {
+	uint32 panel_id = 1; // offset: 28
+	uint32 content_type = 2; // offset: 24
+	uint64 HJFDAJAMFAC = 3; // offset: 32
+}
+
+message NEJPAGJBMDA {
+	uint32 FGFFLBHLKDF = 2; // offset: 36
+	bool OGNBANANFCC = 4; // offset: 40
+	oneof MOKOADHEBBA {
+		HJDCJNOFBHH AOLFPJFJPEO = 10; // offset: 24
+		FEGKCMBHHJP NGALCDKBGBK = 6; // offset: 24
+	}
+}
+
+message NFNMMFBJBLC {
+	repeated OCBPJLLLJGO INLDHMAIPMH = 5; // offset: 16
+	uint32 LGIPILAKIKB = 9; // offset: 32
+}
+
+message NGEBIKIHIDD {
+	uint32 LGIPILAKIKB = 7; // offset: 32
+	repeated uint32 BGAFHIOEHFH = 10; // offset: 24
+}
+
+message NIHKHKONHPN {
+	repeated uint32 FNCIOCCACMD = 3; // offset: 32
+	repeated uint32 LEOPMIGFDLK = 6; // offset: 24
+	FHBDPOJEEMJ CPOHGLHEOLG = 12; // offset: 40
+	uint32 LGIPILAKIKB = 15; // offset: 48
+}
+
+enum NIMFANHLFNJ {
+	NIMFANHLFNJ_FAAFEKOFGBL = 0;
+	NIMFANHLFNJ_AMCJDDIPLJN = 1;
+	NIMFANHLFNJ_BNNNGLNGCHL = 2;
+	NIMFANHLFNJ_DIBHICHMJFE = 3;
+	NIMFANHLFNJ_LKDDACHPOAM = 4;
+}
+
+enum NKAFNCBDJAH {
+	NKAFNCBDJAH_FFEDLLJAILE = 0;
+	NKAFNCBDJAH_GPIALFOJHAC = 1;
+	NKAFNCBDJAH_FDEMMIICBPB = 2;
+}
+
+message NMKNOLPFJDN {
+	uint32 JCKKPPELFHC = 3; // offset: 44
+	repeated uint32 CKLIEKOIGOG = 6; // offset: 16
+	repeated uint32 HGDNMKBNMBK = 9; // offset: 24
+	uint32 KOHGFNGKFPE = 13; // offset: 40
+}
+
+message NpcExtraInfo {
+	oneof KKNBOACNCON {
+		NpcRogueGameInfo rogue_game_info = 11; // offset: 24
+		PAGOHCJGOLC MBLFFIKGMOP = 15; // offset: 24
+		MHGAOLCDONK DKPFHLBFFHI = 4; // offset: 24
+	}
+}
+
+message NpcMonsterExtraInfo {
+	oneof KKNBOACNCON {
+		NpcMonsterRogueInfo rogue_game_info = 12; // offset: 24
+	}
+}
+
+message OAAKAIBPENC {
+	uint32 mode = 1; // offset: 36
+	uint32 AIJPKJICFDJ = 2; // offset: 32
+	repeated uint32 KOMOGINENAC = 3; // offset: 24
+}
+
+message OEBBNFANHLK {
+	uint32 JBPNBECLGKN = 1; // offset: 32
+	double AALPICLABCO = 2; // offset: 24
+}
+
+message OEMOIGDNPNP {
+	uint32 card_id = 1; // offset: 40
+	double param = 2; // offset: 32
+	bool is_enable = 3; // offset: 44
+	repeated double switch_list = 4; // offset: 16
+}
+
+message OFGGMBHCKPJ {
+	uint32 LGIPILAKIKB = 7; // offset: 32
+	repeated MMBBHFNJILI AGKFAODICEA = 10; // offset: 24
+}
+
+message OHLNNOMJPNH {
+	repeated uint32 AEJPCFLOPAL = 1; // offset: 24
+}
+
+message OJMPKMNINGK {
+	uint32 CFKKKPNKHEL = 1; // offset: 36
+	uint32 level = 2; // offset: 32
+	bool is_locked = 3; // offset: 40
+	uint32 dice_slot_id = 4; // offset: 44
+	map<uint32, uint32> AAABHNMAENN = 5; // offset: 16
+}
+
+message OKPIPFKONMG {
+	RogueTalentStatus status = 3; // offset: 36
+	uint32 CKHCLKOALKE = 7; // offset: 32
+	repeated GKFGIMIBBHF LDHIJAHNEGK = 9; // offset: 16
+}
+
+message ONNEJIPGHCK {
+	uint32 chest_id = 9; // offset: 24
+}
+
+message OPLFDAGPBEI {
+	uint32 avatar_id = 1; // offset: 48
+	HJNPOBAMKKF FLFNBPLNNBL = 2; // offset: 40
+	HJNPOBAMKKF LLMDKAHFIIJ = 3; // offset: 24
+	string stop_desc = 4; // offset: 16
+}
+
+message PAGJKBPPOKL {
+	OFMCKLEMOMP FNEOOMHHGGB = 6; // offset: 24
+}
+
+message PAGOHCJGOLC {
+	uint32 PPFJGJNCOKI = 6; // offset: 28
+	uint32 DOOACEHOPEE = 10; // offset: 24
+	bool is_meet = 15; // offset: 32
+}
+
+message PBMGACMAMBE {
+	uint32 IOJPOKCDFHM = 6; // offset: 32
+	repeated KGLIOOODBPN JKFNAKBGIBF = 8; // offset: 24
+}
+
+message PCBLIKPEEJA {
+	uint32 EECIJBLGLNG = 1; // offset: 36
+	repeated LMLNJFEMOAI skill_list = 2; // offset: 24
+	TeamTowersGameType DLFHABGGHFF = 3; // offset: 44
+	uint32 stage_id = 4; // offset: 40
+	bool JCKMMMNMLNG = 5; // offset: 32
+}
+
+message PEGJIHHIFOP {
+	repeated uint32 AEJPCFLOPAL = 1; // offset: 24
+}
+
+message PELDIEOMMDM {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+	string stop_desc = 2; // offset: 32
+}
+
+message PFDBLPONOHE {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+	repeated PJCMNENIEHH GBKIBFJCPAL = 2; // offset: 40
+	repeated uint32 POOEMJLCDHB = 3; // offset: 16
+}
+
+message PFKIFOKEFMC {
+	uint32 LENIACMMNMP = 1; // offset: 24
+}
+
+message PFNJCDINMLA {
+	uint64 EBAAFDHEPLO = 1; // offset: 32
+	uint32 pet_id = 2; // offset: 28
+	uint32 HEOHMOFNOIH = 3; // offset: 24
+	bool IEBIKNPNPNO = 4; // offset: 40
+}
+
+message PGLLFCMEFKG {
+	uint32 LHLKJIDFLIN = 1; // offset: 28
+	uint32 GHEHGIOAGDG = 7; // offset: 32
+	bool OEEDPJHLPHL = 14; // offset: 24
+}
+
+enum PHAOIGLGBMG {
+	PHAOIGLGBMG_OLJCMIBGNGL = 0;
+	PHAOIGLGBMG_DLPKBBHKFBL = 1;
+}
+
+enum PJIMOBKFDNP {
+	PJIMOBKFDNP_OPIIMBHECNJ = 0;
+	PJIMOBKFDNP_FIKAGKIKFIJ = 1;
+	PJIMOBKFDNP_NDBNMMJCAIC = 2;
+}
+
+message PJLMOOPKHEM {
+	CBPDACMBHGL LHLKJIDFLIN = 1; // offset: 28
+	uint32 JOJALEHLLEJ = 2; // offset: 24
+}
+
+message PKFNILLONDF {
+	uint32 LGIPILAKIKB = 8; // offset: 32
+	repeated KJAMNOGFAMJ LEOFNINDJDB = 9; // offset: 24
+}
+
+message PKPFAHEBJIO {
+	repeated NIFPICHIDLJ message_datas = 1; // offset: 32
+	map<uint32, uint32> FGGPANADLKM = 2; // offset: 16
+	repeated EBBJLHBAGCJ FPMBJMDNPBM = 3; // offset: 40
+	uint32 area_id = 4; // offset: 48
+	uint32 difficulty = 5; // offset: 52
+}
+
+message PMNLJEJKLOD {
+	NIMFANHLFNJ type = 1; // offset: 28
+	uint32 count = 2; // offset: 24
+}
+
+message POFNNGOCEOK {
+	uint32 EIKLMFPMJJD = 2; // offset: 28
+	uint32 dice_slot_id = 7; // offset: 24
+	int64 expire_time = 12; // offset: 32
+}
+
+message TeleportInfo {
+	uint32 teleport_id = 5; // offset: 28
+	uint32 reason = 6; // offset: 24
+	CBPDACMBHGL LHLKJIDFLIN = 11; // offset: 32
+}
+
+message Vector4 {
+	float z = 2; // offset: 24
+	float y = 5; // offset: 32
+	float x = 9; // offset: 28
+	float w = 12; // offset: 36
+}
+
+// ========================= Mission =========================
+
+message MainMissionCustomValue {
+	uint32 main_mission_id = 4; // offset: 32
+	ONHKODAFEMH custom_value_list = 15; // offset: 24
+}
+
+message Mission {
+	MissionStatus status = 1; // offset: 28
+	uint32 progress = 4; // offset: 32
+	uint32 id = 8; // offset: 24
+}
+
+message MissionCustomValue {
+	uint32 index = 10; // offset: 32
+	uint32 custom_value = 11; // offset: 36
+	string BGDFHBAANLB = 12; // offset: 16
+}
+
+enum MissionStatus {
+	MissionStatus_MissionNone = 0;
+	MissionStatus_MissionDoing = 1;
+	MissionStatus_MissionFinish = 2;
+	MissionStatus_MissionPrepared = 3;
+}
+
+// ========================= Multiplayer =========================
+
+message BFBHKJLJJBJ {
+	uint64 NOPDGKNKEEH = 1; // offset: 24
+	FightGameMode MFLEPLDCJBC = 2; // offset: 32
+}
+
+enum FightGameMode {
+	FightGameMode_None = 0;
+	FightGameMode_Match3 = 1;
+	FightGameMode_Marble = 2;
+	FightGameMode_Match3Solo = 3;
+	FightGameMode_Match3Royale = 4;
+	FightGameMode_MarbleMainsub = 5;
+	FightGameMode_CakeRace = 6;
+	FightGameMode_DiceCombat = 7;
+	FightGameMode_DiceCombatV2 = 8;
+	FightGameMode_TeamTowers = 9;
+	FJPMJPEKLJL_JNLIOGAONMA = 10;
+}
+
+// ========================= PlanetFes =========================
+
+message DFEPHMALKDK {
+	uint32 APIFFHBCDKK = 1; // offset: 52
+	uint32 source = 2; // offset: 32
+	int64 time = 9; // offset: 40
+	repeated uint32 OEEGPNOCFLP = 14; // offset: 24
+	uint32 BLGLDJHOMNO = 15; // offset: 48
+}
+
+message FMKMEFMOJGJ {
+	uint32 item_id = 10; // offset: 24
+	uint32 item_count = 11; // offset: 28
+}
+
+message GMODJEECPPJ {
+	int64 apply_time = 8; // offset: 40
+	uint32 BLGLDJHOMNO = 11; // offset: 36
+	repeated uint32 OEEGPNOCFLP = 14; // offset: 24
+	uint32 APIFFHBCDKK = 15; // offset: 32
+}
+
+message IEDPDDJAAIH {
+	uint64 CBMBOBNCKMO = 5; // offset: 48
+	repeated uint32 OEEGPNOCFLP = 10; // offset: 16
+	bool FOGGEJIIJCM = 12; // offset: 36
+	int64 time = 13; // offset: 40
+	uint32 HCJCIAGKHHL = 14; // offset: 32
+}
+
+message NCFKHDIKCNI {
+	repeated uint32 GFKAFIFMHNF = 9; // offset: 24
+}
+
+message OJHHACMHFKA {
+	uint32 business_day = 2; // offset: 60
+	bool HMEIPBNOMIG = 4; // offset: 49
+	int64 HPNLMPJJHCF = 5; // offset: 40
+	bool NLKMDIBKCIL = 8; // offset: 50
+	uint32 event_type = 11; // offset: 56
+	uint32 BIOFDPICHLC = 12; // offset: 52
+	bool BMHCDIPKKLE = 15; // offset: 48
+	oneof MMCGBGDJIPN {
+		MBMAGILKFGP BPABMONFKNB = 6; // offset: 24
+		BCGJJCCJBCG DPNFIKGHFIH = 3; // offset: 24
+		BACHHBGNENA NBAMDOAEHPJ = 13; // offset: 24
+		LDOMEIGDIAK DIGJDCNCPOM = 7; // offset: 24
+		NDDHJBFEBHG MBNBKOMMPFB = 10; // offset: 24
+		KOEIBOFDLCM FBGJAACOEEI = 14; // offset: 24
+	}
+}
+
+message PGPHEKKPBLD {
+	uint32 DLFHABGGHFF = 8; // offset: 36
+	uint32 ratio = 13; // offset: 40
+	oneof JMPNIHHAMPH {
+		NMKNOLPFJDN AGLMEDOBMAL = 5; // offset: 16
+	}
+}
+
+// ========================= Player =========================
+
+message JPGACKPLGCD {
+	bool KALACJBAPOA = 1; // offset: 25
+	bool FOKJIPGMKAN = 2; // offset: 24
+	bool IBLGOCFBOCO = 3; // offset: 26
+}
+
+message PlayerBasicInfo {
+	string nickname = 1; // offset: 24
+	uint32 level = 2; // offset: 48
+	uint32 exp = 3; // offset: 32
+	uint32 stamina = 4; // offset: 36
+	uint32 mcoin = 5; // offset: 40
+	uint32 hcoin = 6; // offset: 56
+	uint32 scoin = 7; // offset: 44
+	uint32 world_level = 8; // offset: 52
+}
+
+// ========================= PlayerBoard =========================
+
+message DisplayAvatarData {
+	uint32 pos = 5; // offset: 28
+	uint32 avatar_id = 6; // offset: 24
+}
+
+message HeadIconData {
+	uint32 id = 11; // offset: 24
+}
+
+// ========================= PlayerReturn =========================
+
+message IBKDHOIDKJA {
+	uint32 KAMECNCKNAB = 1; // offset: 104
+	uint32 world_level = 2; // offset: 112
+	uint32 PDHOMKKMEME = 3; // offset: 116
+	int64 start_time = 4; // offset: 64
+	repeated PileItem NLMEEHNNOCP = 5; // offset: 32
+	int64 finish_time = 6; // offset: 72
+	repeated uint32 KMMNJBAEMAB = 7; // offset: 48
+	repeated uint32 ELKOPDBOMAD = 8; // offset: 40
+	bool HHFIEKHFNFP = 9; // offset: 92
+	uint32 MNMJCNOLIII = 10; // offset: 80
+	PJIMOBKFDNP status = 12; // offset: 96
+	uint32 MODFNPMCAAN = 13; // offset: 88
+	bool is_taken_reward = 14; // offset: 95
+	repeated uint32 KCHPDJINNLH = 15; // offset: 56
+	bool NFFOAHMFCMD = 164; // offset: 93
+	uint32 CFCNIPLEKON = 953; // offset: 84
+	uint32 HBPKGODMJNK = 1190; // offset: 120
+	uint32 CLALLJOACNF = 1401; // offset: 108
+	bool OCPLGILCPPN = 1563; // offset: 94
+	uint32 ACDPGFLDFHK = 1677; // offset: 100
+	CEDCMIMKJHK BIHNCKPBBOA = 1703; // offset: 24
+}
+
+// ========================= PlayerSync =========================
+
+message ONHKODAFEMH {
+	repeated MissionCustomValue custom_value_list = 1; // offset: 16
+}
+
+// ========================= Quest =========================
+
+message Quest {
+	QuestStatus status = 1; // offset: 32
+	int64 finish_time = 3; // offset: 48
+	repeated uint32 MCPDELEIPIJ = 10; // offset: 16
+	uint32 id = 12; // offset: 36
+	uint32 progress = 14; // offset: 40
+}
+
+enum QuestStatus {
+	QuestStatus_QuestNone = 0;
+	QuestStatus_QuestDoing = 1;
+	QuestStatus_QuestFinish = 2;
+	QuestStatus_QuestClose = 3;
+	QuestStatus_QuestDelete = 4;
+}
+
+// ========================= Replay =========================
+
+enum PBIEFHKNAFA {
+	PBIEFHKNAFA_NLCDGIPGFDJ = 0;
+	PBIEFHKNAFA_KBBDECFFFAL = 1;
+}
+
+// ========================= Rogue =========================
+
+message ABOFJEIMLLJ {
+	uint32 level = 2; // offset: 24
+	uint32 buff_id = 3; // offset: 28
+}
+
+message EnhanceRogueBuffCsReq {
+	uint32 EFPFMFGLGDG = 9; // offset: 24
+}
+
+message EnhanceRogueBuffScRsp {
+	bool KGKEJAKKLDP = 9; // offset: 32
+	uint32 retcode = 13; // offset: 36
+	KJAMNOGFAMJ CNEFDJCKAPL = 14; // offset: 16
+}
+
+message FHEGNOPNICH {
+	RotateMapInfo COOOMDKGODF = 1; // offset: 48
+	int32 region_id = 3; // offset: 64
+	bool MJIPOJPBKNB = 5; // offset: 56
+	uint32 JPPMEKJGJFD = 8; // offset: 60
+	repeated RotaterData CEDGGDFMILP = 9; // offset: 16
+	RotaterEnergyInfo energy_info = 10; // offset: 24
+	repeated ChargerInfo EGAGKNADAHJ = 15; // offset: 40
+}
+
+message LineupInfo {
+	bool _is_virtual = 1; // offset: 82
+	string name = 2; // offset: 32
+	bool _is_favourite = 3; // offset: 80
+	repeated LineupAvatar avatar_list = 4; // offset: 24
+	repeated uint32 story_line_avatar_id_list = 5; // offset: 56
+	uint32 leader_slot = 6; // offset: 68
+	bool ABHONGJHICF = 7; // offset: 81
+	repeated uint32 available_trial_avatar_i_ds = 8; // offset: 16
+	uint32 game_story_line_id = 9; // offset: 72
+	uint32 mp = 10; // offset: 76
+	repeated uint32 locked_avatar_i_ds = 11; // offset: 48
+	uint32 max_mp = 12; // offset: 92
+	uint32 plane_id = 13; // offset: 88
+	uint32 index = 14; // offset: 64
+	ExtraLineupType extra_lineup_type = 15; // offset: 84
+}
+
+message NpcMonsterRogueInfo {
+	uint32 IEDEBFCCKNL = 2; // offset: 44
+	JNBOIFCNBCH DPCNDADDCAJ = 3; // offset: 32
+	uint32 hard_level_group = 4; // offset: 36
+	uint32 elite_group = 7; // offset: 28
+	uint32 level = 14; // offset: 40
+	uint32 rogue_monster_id = 15; // offset: 24
+}
+
+message NpcRogueGameInfo {
+	uint32 MJBKNMJHOGP = 1; // offset: 44
+	map<uint32, uint32> LDPAJKIEPIP = 2; // offset: 16
+	uint32 AIAFEKGBFIF = 5; // offset: 36
+	bool NLAFLKPLPFE = 9; // offset: 32
+	uint32 OEANPIHCHHF = 12; // offset: 40
+	bool DJEPGKBMICM = 13; // offset: 34
+	bool FKKMLJNKHDH = 15; // offset: 33
+}
+
+message PropRogueInfo {
+	uint32 room_id = 3; // offset: 32
+	uint32 GECOCMLBBPE = 4; // offset: 24
+	uint32 KKMEFDEFLBI = 11; // offset: 28
+	uint32 MAJKFIMPOOF = 12; // offset: 36
+}
+
+enum RogueStatus {
+	RogueStatus_None = 0;
+	RogueStatus_Doing = 1;
+	RogueStatus_Pending = 2;
+	RogueStatus_Endless = 3;
+	RogueStatus_Finish = 4;
+}
+
+enum RogueTalentStatus {
+	RogueTalentStatus_Lock = 0;
+	RogueTalentStatus_Unlock = 1;
+	RogueTalentStatus_Enable = 2;
+}
+
+message SceneInfo {
+	map<uint32, HIEKLHPINHL> BIKBFGPFAAC = 1; // offset: 16
+	uint32 floor_id = 2; // offset: 120
+	uint32 world_id = 3; // offset: 160
+	repeated uint32 lighten_section_list = 4; // offset: 48
+	repeated BuffInfo scene_buff_info_list = 5; // offset: 64
+	repeated CustomSaveData custom_data_list = 6; // offset: 88
+	repeated SceneEntityInfo entity_list = 7; // offset: 56
+	uint32 entry_id = 8; // offset: 140
+	uint32 leader_entity_id = 9; // offset: 164
+	uint32 plane_id = 10; // offset: 144
+	repeated HGNBPANECAL CPIKFGPCOCE = 12; // offset: 104
+	uint32 client_pos_version = 14; // offset: 128
+	uint32 game_mode_type = 15; // offset: 148
+	map<string, int32> floor_saved_data = 20; // offset: 32
+	uint32 content_id = 98; // offset: 136
+	BELNLOJAFCM FOJJGJPIMBL = 345; // offset: 112
+	SceneIdentifier scene_identifier = 348; // offset: 80
+	uint64 interact_id = 1031; // offset: 152
+	uint32 dimension_id = 1225; // offset: 132
+	MissionStatusBySceneInfo scene_mission_info = 1284; // offset: 40
+	repeated uint32 opened_chests_list = 1483; // offset: 24
+	repeated SceneEntityGroupInfo entity_group_list = 1617; // offset: 72
+	uint32 game_story_line_id = 2045; // offset: 124
+}
+
+// ========================= RogueCommon =========================
+
+message AKMCODLAEKI {
+	string key = 1; // offset: 24
+	double value = 5; // offset: 32
+}
+
+message AMKALFJHFJP {
+	uint32 LIFJCJKNKNJ = 2; // offset: 36
+	repeated uint32 BPDDBKGDMDD = 3; // offset: 16
+	uint32 LGIPILAKIKB = 7; // offset: 40
+	uint32 FAHAMJFPMMI = 8; // offset: 32
+}
+
+message BDJLHJDPEEK {
+	repeated uint32 attribute_list = 2; // offset: 16
+	uint32 composition_type = 3; // offset: 36
+	uint32 level = 11; // offset: 40
+	uint32 unique_id = 12; // offset: 32
+}
+
+message DNLKMHLAPHC {
+	OCBPJLLLJGO OOPCPMANCBO = 1; // offset: 32
+	repeated OKCCLEEPELM AJFLAHGJELP = 5; // offset: 40
+	repeated LDKMOFFMGEL LEDNAHCKMHK = 9; // offset: 48
+	map<uint32, uint32> HCPNPDLJKGF = 14; // offset: 24
+}
+
+message GGGBAIAPDLO {
+	ItemCostData DEHJDNIEKHB = 2; // offset: 24
+	uint32 NOAMCDNNHMD = 5; // offset: 72
+	uint32 NKGGAOJLCMD = 6; // offset: 52
+	repeated uint32 EBMEEKJGPPM = 7; // offset: 40
+	uint32 FIMMFJCKCNK = 8; // offset: 76
+	uint32 EIALMEADLGF = 9; // offset: 60
+	repeated KJAMNOGFAMJ LEOFNINDJDB = 11; // offset: 32
+	RogueCommonBuffSelectSourceType source_type = 12; // offset: 56
+	bool can_roll = 13; // offset: 64
+	uint32 PCGFIOKLIBE = 14; // offset: 48
+	uint32 EGFOLKEPNCI = 15; // offset: 68
+}
+
+message HKOEAOPNEAC {
+	bool CEIIGJEOIAD = 3; // offset: 44
+	uint32 GPNJGMEPMMD = 4; // offset: 48
+	repeated BHPBJOMBCAD AJKOKAJABFG = 5; // offset: 24
+	uint32 KMNDBEPFMGN = 6; // offset: 52
+	uint32 JAEDKHMMPIH = 8; // offset: 56
+	ItemCostData CANJGJIDKHK = 10; // offset: 16
+	uint32 DGGCFDKJDPO = 12; // offset: 40
+}
+
+message HMAAICNBKCI {
+	map<uint32, int32> DCLBHOHPGMB = 9; // offset: 16
+}
+
+message ItemCostData {
+	repeated ItemCost item_list = 2; // offset: 16
+}
+
+message JDFNPICGCGI {
+	map<uint32, uint32> KEGHPOHGPFF = 3; // offset: 24
+	uint32 LIFJCJKNKNJ = 4; // offset: 80
+	bool KLGGHNILHIC = 5; // offset: 77
+	ODHJEDHKHOD JBEBEKECKJN = 6; // offset: 16
+	repeated uint32 FNIPHPIEBNB = 7; // offset: 56
+	bool PLJNPPKFFCO = 8; // offset: 76
+	uint32 FAHAMJFPMMI = 9; // offset: 72
+	repeated uint32 OIMCPHNONPF = 12; // offset: 48
+	repeated uint32 GJFPEFCOBFJ = 13; // offset: 32
+	repeated uint32 MLIDKPGKCIL = 14; // offset: 40
+}
+
+message KJAMNOGFAMJ {
+	uint32 buff_id = 1; // offset: 24
+	uint32 HAGDKKBAAKK = 4; // offset: 28
+}
+
+message KOFMGCNIMIN {
+	uint32 DGGCFDKJDPO = 1; // offset: 24
+	uint32 LJCEOGPOGBE = 2; // offset: 32
+	uint32 total_count = 4; // offset: 28
+}
+
+message KPOFAPDKBJA {
+	uint32 PNNCEGEMAPP = 2; // offset: 40
+	uint32 FBJLLMGOPHO = 3; // offset: 44
+	uint32 DAEMEBCKHIK = 6; // offset: 36
+	repeated uint32 PGACPPNAFFF = 11; // offset: 16
+	uint32 LGIPILAKIKB = 13; // offset: 32
+}
+
+message LEJFIEPMMGG {
+	uint32 KAHMGPGPOII = 2; // offset: 36
+	bool is_activated = 10; // offset: 32
+	repeated CBDMGEGELFM IFJIHNBDNGN = 15; // offset: 16
+}
+
+message LGFOKKPICEH {
+	uint32 CFKKKPNKHEL = 4; // offset: 28
+	uint32 KGOPHALLLLI = 14; // offset: 24
+}
+
+message MMBBHFNJILI {
+	uint32 unique_id = 5; // offset: 32
+	OKCCLEEPELM OJEANDPABHC = 9; // offset: 16
+}
+
+enum MMFOGJPOHGJ {
+	MMFOGJPOHGJ_NLCDGIPGFDJ = 0;
+	MMFOGJPOHGJ_ANBKDJKHCBI = 1;
+	MMFOGJPOHGJ_CFLNLFPNKPF = 2;
+	MMFOGJPOHGJ_HHGAHPNPCJN = 3;
+	MMFOGJPOHGJ_EELBIOJDKOH = 4;
+	MMFOGJPOHGJ_CGBEHICONCC = 5;
+}
+
+message OCBPJLLLJGO {
+	uint32 GCAHKLNGFCK = 5; // offset: 28
+	uint32 level = 13; // offset: 24
+}
+
+message OFMCKLEMOMP {
+	bool can_roll = 2; // offset: 52
+	uint32 DENIIHGKNFM = 4; // offset: 44
+	uint32 LGIPILAKIKB = 8; // offset: 48
+	ItemCostData GOOMJPLEIKL = 11; // offset: 16
+	uint32 OJCEEICJBGI = 12; // offset: 40
+	repeated uint32 ONECEAIJLAM = 15; // offset: 32
+}
+
+message OHJJMCMJEHL {
+	repeated uint32 BLAHNLDHINC = 5; // offset: 16
+	uint32 MLJHCOGNJEL = 6; // offset: 36
+	uint32 NAENAEGAEAF = 10; // offset: 32
+	bool ODBKCIBGLLP = 13; // offset: 44
+	uint32 DAEMEBCKHIK = 14; // offset: 40
+}
+
+message OKCCLEEPELM {
+	uint32 CFKKKPNKHEL = 8; // offset: 28
+	uint32 level = 15; // offset: 24
+}
+
+message OMJGKNJKHCH {
+	uint32 IGNACLJKFGO = 2; // offset: 24
+	int32 NGIBKCODMAL = 3; // offset: 28
+	int32 JOCCAPDMHGB = 11; // offset: 32
+}
+
+message ONMFMINNBEB {
+	OCBPJLLLJGO DDLADFJMEEC = 7; // offset: 16
+}
+
+message PGMIABHEJNB {
+	repeated uint32 ICCMIEHKDAO = 5; // offset: 16
+	bool EAGILFBCKJH = 7; // offset: 40
+	uint32 NAENAEGAEAF = 11; // offset: 32
+	uint32 DAEMEBCKHIK = 13; // offset: 36
+}
+
+enum RogueCommonBuffSelectSourceType {
+	RogueCommonBuffSelectSourceType_None = 0;
+	RogueCommonBuffSelectSourceType_DiceRoll = 1;
+	RogueCommonBuffSelectSourceType_Aeon = 2;
+	RogueCommonBuffSelectSourceType_BoardEvent = 3;
+	RogueCommonBuffSelectSourceType_LevelMechanism = 4;
+}
+
+// ========================= RogueMagic =========================
+
+message CBOLONJDHHL {
+	string trans_no = 1; // offset: 48
+	uint32 DLOJFEEHLIJ = 3; // offset: 60
+	uint32 ICGCMEIBJLC = 6; // offset: 56
+	INHBMHCJJCN FMIGOKIDKJL = 8; // offset: 16
+	GMIMDEJMFCO blackboard = 12; // offset: 40
+	uint32 LJOBBEFACPG = 13; // offset: 64
+	NCHGLFJCGIJ modifier = 14; // offset: 32
+}
+
+message FKEDPCMLIFE {
+	map<uint32, uint32> HJANIOKJALB = 13; // offset: 24
+}
+
+message JEIKFFFGONB {
+	repeated DINGDGLKHIP BHBPKKKNABO = 5; // offset: 24
+	ItemCostData LNIEFKBMIPD = 11; // offset: 16
+}
+
+// ========================= RogueTourn =========================
+
+message ODHJEDHKHOD {
+	repeated uint32 BIMFEAHDMIK = 1; // offset: 16
+	repeated uint32 NMMCOBBKKHA = 9; // offset: 24
+}
+
+// ========================= Scene =========================
+
+message BuffInfo {
+	uint32 buff_id = 3; // offset: 32
+	float life_time = 4; // offset: 60
+	uint32 level = 5; // offset: 56
+	map<string, float> dynamic_values = 6; // offset: 16
+	uint64 add_time_ms = 8; // offset: 48
+	uint32 base_avatar_id = 9; // offset: 36
+	uint32 buff_summon_entity_id = 10; // offset: 44
+	uint32 count = 12; // offset: 40
+}
+
+message GroupStateInfo {
+	uint32 entry_id = 6; // offset: 32
+	uint32 GMEHAMCHJBK = 11; // offset: 36
+	uint32 group_id = 13; // offset: 28
+	uint32 group_state = 15; // offset: 24
+}
+
+message MissionStatusBySceneInfo {
+	repeated uint32 disabled_main_mission_id_list = 2; // offset: 40
+	repeated uint32 unfinished_main_mission_id_list = 3; // offset: 48
+	repeated Mission sub_mission_status_list = 7; // offset: 24
+	repeated MainMissionCustomValue JLMGBADJBKN = 9; // offset: 32
+	repeated uint32 finished_main_mission_id_list = 15; // offset: 56
+}
+
+message PropExtraInfo {
+	PropTimelineInfo timeline_info = 10; // offset: 32
+	oneof KKNBOACNCON {
+		PropRogueInfo rogue_game_info = 5; // offset: 24
+		HLFAKEOBFAB AEFMMOHKCHJ = 13; // offset: 24
+		BGFLAKMOIGC OGLJIOJBIEN = 1; // offset: 24
+		EBBOJACNHEC ADNHHAELLNC = 6; // offset: 24
+		APKENKIDMGC ACJPMKHJLDB = 7; // offset: 24
+		NBDKNCJGOMN OEMHOKEMBKM = 3; // offset: 24
+		ONNEJIPGHCK MFCPLGHHPNP = 14; // offset: 24
+		PGLLFCMEFKG IDMAELPELLA = 12; // offset: 24
+	}
+}
+
+message PropTimelineInfo {
+	bool timeline_bool_value = 1; // offset: 32
+	bytes timeline_byte_value = 3; // offset: 24
+}
+
+message SceneActorInfo {
+	uint32 base_avatar_id = 3; // offset: 32
+	AvatarType avatar_type = 4; // offset: 28
+	uint32 map_layer = 6; // offset: 36
+	uint32 uid = 11; // offset: 24
+}
+
+message SceneBattleInfo {
+	uint32 monster_wave_length = 1; // offset: 132
+	bool encrypt_result = 3; // offset: 140
+	uint32 logic_random_seed = 4; // offset: 120
+	repeated BattleAvatar battle_avatar_list = 5; // offset: 96
+	repeated BattleBuff buff_list = 6; // offset: 40
+	repeated SceneMonsterWave monster_wave_list = 10; // offset: 56
+	uint32 stage_id = 12; // offset: 128
+	uint32 battle_id = 13; // offset: 144
+	uint32 rounds_limit = 14; // offset: 136
+	uint32 world_level = 15; // offset: 124
+	EDCFKACPFNB battle_action_event_id = 550; // offset: 16
+	BattleGridFightSpecialBattleInfo battle_evolve_build_data = 606; // offset: 24
+	PKPFAHEBJIO battle_fate_data = 715; // offset: 72
+	GLIBGKGGEJL battle_fate_rin_data = 774; // offset: 64
+	KIAICMELIMM battle_sword_training_data = 1456; // offset: 104
+	repeated BattleEventBattleInfo battle_event = 1663; // offset: 88
+	GridFightInfo battle_grid_fight_data = 1674; // offset: 80
+	BattleRogueMagicInfo battle_rogue_magic_info = 1927; // offset: 112
+	map<uint32, BattleTargetList> battle_target_info = 2004; // offset: 32
+}
+
+message SceneEntityGroupInfo {
+	uint32 group_id = 3; // offset: 44
+	repeated SceneEntityInfo entity_list = 8; // offset: 16
+	map<string, int32> BANBECDCDHG = 10; // offset: 24
+	uint32 state = 13; // offset: 40
+}
+
+message SceneEntityInfo {
+	uint32 inst_id = 6; // offset: 52
+	uint32 group_id = 11; // offset: 44
+	uint32 entity_id = 14; // offset: 40
+	MotionInfo motion = 15; // offset: 32
+	oneof entity {
+		SceneActorInfo actor = 12; // offset: 24
+		SceneNpcMonsterInfo npc_monster = 9; // offset: 24
+		SceneNpcInfo npc = 13; // offset: 24
+		ScenePropInfo prop = 2; // offset: 24
+		SceneSummonUnitInfo summon_unit = 4; // offset: 24
+	}
+}
+
+message SceneIdentifier {
+	uint32 content_id = 3; // offset: 40
+	uint32 floor_id = 7; // offset: 44
+	uint32 game_story_line_id = 12; // offset: 32
+	oneof AOKGBOOKMFP {
+		TeleportInfo teleport_info = 1733; // offset: 24
+	}
+}
+
+message SceneMonster {
+	GridFightSceneMonsterExtraInfo extra_info = 3; // offset: 24
+	uint32 max_hp = 4; // offset: 36
+	uint32 monster_id = 5; // offset: 32
+	uint32 cur_hp = 14; // offset: 40
+}
+
+message SceneMonsterWave {
+	SceneMonsterWaveParam monster_param = 2; // offset: 24
+	repeated ItemList NMGIABHIJJB = 5; // offset: 32
+	repeated SceneMonster monster_list = 6; // offset: 40
+	uint32 battle_stage_id = 12; // offset: 52
+	uint32 battle_wave_id = 14; // offset: 48
+}
+
+message SceneMonsterWaveParam {
+	uint32 level = 1; // offset: 28
+	uint32 supplemental_elite_group = 2; // offset: 40
+	uint32 monster_world_level = 11; // offset: 36
+	uint32 hard_level_group = 13; // offset: 24
+	uint32 elite_group = 15; // offset: 32
+}
+
+message SceneNpcInfo {
+	NpcExtraInfo extra_info = 8; // offset: 24
+	uint32 npc_id = 13; // offset: 32
+}
+
+message SceneNpcMonsterInfo {
+	GILBMELHGCB BMIJGBFJMCF = 6; // offset: 32
+	uint32 event_id = 8; // offset: 48
+	NpcMonsterExtraInfo extra_info = 9; // offset: 24
+	bool NMPEOMMHMPP = 10; // offset: 40
+	uint32 monster_id = 11; // offset: 52
+	uint32 world_level = 14; // offset: 44
+	bool NHKJKNJAGMF = 15; // offset: 41
+}
+
+message ScenePropInfo {
+	uint32 prop_id = 2; // offset: 56
+	repeated string trigger_name_list = 4; // offset: 32
+	uint32 prop_state = 5; // offset: 60
+	uint32 life_time_ms = 6; // offset: 40
+	uint64 create_time_ms = 13; // offset: 48
+	PropExtraInfo extra_info = 15; // offset: 16
+}
+
+message SceneSummonUnitInfo {
+	uint64 create_time_ms = 3; // offset: 32
+	uint32 attach_entity_id = 5; // offset: 40
+	uint32 summon_unit_id = 6; // offset: 48
+	repeated string trigger_name_list = 8; // offset: 24
+	int32 life_time_ms = 9; // offset: 52
+	uint32 caster_entity_id = 13; // offset: 44
+}
+
+// ========================= TrainParty =========================
+
+message AreaDynamicInfo {
+	uint32 dice_slot_id = 5; // offset: 28
+	uint32 diy_dynamic_id = 8; // offset: 24
+}
+
+message OIIPJFDNPAH {
+	repeated CLLBJDEJFNF OFOKOHGPEDO = 1; // offset: 32
+	repeated AreaDynamicInfo GOEJIMNENDC = 6; // offset: 40
+	repeated POFNNGOCEOK POLMJFIKNHN = 9; // offset: 24
+}
+
+// ========================= WolfBro =========================
+
+message Vector {
+	sint32 x = 1; // offset: 28
+	sint32 y = 2; // offset: 32
+	sint32 z = 3; // offset: 24
+}

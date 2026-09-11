@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdMapRotationType {
+	CmdMapRotationType_NLCDGIPGFDJ = 0;
+	CmdMapRotationType_RotateMapScRsp = 6856;
+	CmdMapRotationType_NNFHIIFJILF = 6805;
+	CmdMapRotationType_ResetMapRotationRegionCsReq = 6861;
+	CmdMapRotationType_LeaveMapRotationRegionCsReq = 6883;
+	CmdMapRotationType_UpdateMapRotationDataScNotify = 6821;
+	CmdMapRotationType_InteractChargerScRsp = 6875;
+	CmdMapRotationType_UpdateRotaterScNotify = 6817;
+	CmdMapRotationType_DeployRotatorScRsp = 6816;
+	CmdMapRotationType_RotateMapCsReq = 6858;
+	CmdMapRotationType_ResetMapRotationRegionScRsp = 6808;
+	CmdMapRotationType_NHPFKHBLBDD = 6860;
+	CmdMapRotationType_EnterMapRotationRegionScRsp = 6825;
+	CmdMapRotationType_EnterMapRotationRegionCsReq = 6834;
+	CmdMapRotationType_GetMapRotationDataCsReq = 6842;
+	CmdMapRotationType_EGJJGMJHLHC = 6812;
+	CmdMapRotationType_GetMapRotationDataScRsp = 6839;
+	CmdMapRotationType_RemoveRotaterScRsp = 6811;
+	CmdMapRotationType_UpdateEnergyScNotify = 6864;
+	CmdMapRotationType_LeaveMapRotationRegionScRsp = 6815;
+}
+
+message DeployRotatorScRsp {
+	uint32 retcode = 2; // offset: 40
+	RotaterEnergyInfo energy_info = 3; // offset: 24
+	RotaterData rotater_data = 7; // offset: 32
+}
+
+message EEOOKOOABJD {
+	RotaterData JJBDGCGPPFI = 13; // offset: 16
+}
+
+message ELJDDNGDGCH {
+	RotaterData JJBDGCGPPFI = 12; // offset: 24
+}
+
+message EnterMapRotationRegionCsReq {
+	MotionInfo motion = 9; // offset: 16
+	uint32 region_id = 10; // offset: 32
+	uint32 JPPMEKJGJFD = 11; // offset: 36
+}
+
+message EnterMapRotationRegionScRsp {
+	uint32 JPPMEKJGJFD = 3; // offset: 44
+	MotionInfo motion = 6; // offset: 16
+	uint32 retcode = 7; // offset: 52
+	RotaterEnergyInfo energy_info = 10; // offset: 32
+	uint32 region_id = 11; // offset: 40
+	uint32 client_pos_version = 14; // offset: 48
+}
+
+message GetMapRotationDataCsReq {
+}
+
+message GetMapRotationDataScRsp {
+	repeated ChargerInfo EGAGKNADAHJ = 3; // offset: 40
+	repeated RotaterData CEDGGDFMILP = 4; // offset: 48
+	bool BHABAIFPOOA = 5; // offset: 68
+	uint32 retcode = 8; // offset: 64
+	uint32 JPPMEKJGJFD = 10; // offset: 60
+	RotaterEnergyInfo energy_info = 12; // offset: 32
+	RotateMapInfo COOOMDKGODF = 13; // offset: 16
+	int32 region_id = 15; // offset: 56
+}
+
+message ICBEPDGBHMM {
+	ChargerInfo JJFNBOLFKFH = 6; // offset: 24
+}
+
+message InteractChargerScRsp {
+	uint32 retcode = 3; // offset: 40
+	RotaterEnergyInfo energy_info = 4; // offset: 16
+	ChargerInfo charger_info = 13; // offset: 24
+}
+
+message LeaveMapRotationRegionCsReq {
+	MotionInfo motion = 13; // offset: 24
+}
+
+message LeaveMapRotationRegionScRsp {
+	uint32 retcode = 3; // offset: 36
+	uint32 client_pos_version = 11; // offset: 32
+	MotionInfo motion = 14; // offset: 16
+}
+
+message RemoveRotaterScRsp {
+	uint32 retcode = 3; // offset: 40
+	RotaterData rotater_data = 12; // offset: 16
+	RotaterEnergyInfo energy_info = 15; // offset: 24
+}
+
+message ResetMapRotationRegionCsReq {
+	MotionInfo motion = 11; // offset: 24
+	RotateMapInfo COOOMDKGODF = 13; // offset: 32
+}
+
+message ResetMapRotationRegionScRsp {
+	uint32 client_pos_version = 5; // offset: 32
+	MotionInfo motion = 14; // offset: 16
+	uint32 retcode = 15; // offset: 36
+}
+
+message RotateMapCsReq {
+	MotionInfo motion = 5; // offset: 16
+	uint32 instance_id = 12; // offset: 44
+	RotateMapInfo COOOMDKGODF = 14; // offset: 32
+	uint32 group_id = 15; // offset: 40
+}
+
+message RotateMapScRsp {
+	uint32 client_pos_version = 12; // offset: 32
+	MotionInfo motion = 14; // offset: 24
+	uint32 retcode = 15; // offset: 36
+}
+
+message UpdateEnergyScNotify {
+	RotaterEnergyInfo energy_info = 13; // offset: 16
+}
+
+message UpdateMapRotationDataScNotify {
+	repeated ChargerInfo EGAGKNADAHJ = 1; // offset: 40
+	RotateMapInfo COOOMDKGODF = 3; // offset: 48
+	repeated RotaterData CEDGGDFMILP = 4; // offset: 24
+	RotaterEnergyInfo energy_info = 5; // offset: 16
+	bool BHABAIFPOOA = 8; // offset: 60
+	int32 region_id = 11; // offset: 56
+	uint32 JPPMEKJGJFD = 12; // offset: 64
+}
+
+message UpdateRotaterScNotify {
+	repeated RotaterData CEDGGDFMILP = 2; // offset: 24
+}

@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdOfferingType {
+	CmdOfferingType_NLCDGIPGFDJ = 0;
+	CmdOfferingType_SubmitOfferingItemScRsp = 6928;
+	CmdOfferingType_TakeOfferingRewardCsReq = 6924;
+	CmdOfferingType_GetOfferingInfoScRsp = 6936;
+	CmdOfferingType_GetOfferingInfoCsReq = 6930;
+	CmdOfferingType_TakeOfferingRewardScRsp = 6933;
+	CmdOfferingType_SubmitOfferingItemCsReq = 6937;
+	CmdOfferingType_OfferingInfoScNotify = 6940;
+}
+
+message GetOfferingInfoCsReq {
+	repeated uint32 offering_id_list = 5; // offset: 16
+}
+
+message GetOfferingInfoScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated OfferingInfo offering_info_list = 9; // offset: 24
+}
+
+message OfferingInfo {
+	uint32 total_exp = 1; // offset: 48
+	OfferingState offering_state = 2; // offset: 44
+	uint32 offering_id = 5; // offset: 32
+	uint32 offering_level = 7; // offset: 36
+	repeated uint32 has_taken_reward_id_list = 9; // offset: 16
+	uint32 level_exp = 13; // offset: 40
+}
+
+message OfferingInfoScNotify {
+	OfferingInfo offering_info = 3; // offset: 16
+}
+
+enum OfferingState {
+	OFFERING_STATE_NONE = 0;
+	OFFERING_STATE_LOCK = 1;
+	OFFERING_STATE_OPEN = 2;
+}
+
+message SubmitOfferingItemCsReq {
+	uint32 offering_id = 10; // offset: 24
+	uint32 interacted_prop_entity_id = 13; // offset: 28
+}
+
+message SubmitOfferingItemScRsp {
+	uint32 retcode = 3; // offset: 32
+	OfferingInfo offering_info = 15; // offset: 16
+}
+
+message TakeOfferingRewardCsReq {
+	uint32 offering_id = 8; // offset: 32
+	uint32 interacted_prop_entity_id = 12; // offset: 36
+	repeated uint32 take_reward_level_list = 15; // offset: 16
+}
+
+message TakeOfferingRewardScRsp {
+	ItemList reward = 1; // offset: 32
+	uint32 retcode = 4; // offset: 40
+	OfferingInfo offering_info = 12; // offset: 24
+}

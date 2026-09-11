@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ArchiveWolfBroGameCsReq {
+	MotionInfo motion = 3; // offset: 24
+	uint32 id = 15; // offset: 32
+}
+
+message ArchiveWolfBroGameScRsp {
+	GGHOBPBFFOB game_data = 6; // offset: 24
+	uint32 retcode = 9; // offset: 32
+}
+
+enum CmdWolfBroType {
+	CmdWolfBroType_NLCDGIPGFDJ = 0;
+	CmdWolfBroType_WolfBroGamePickupBulletScRsp = 6547;
+	CmdWolfBroType_NCJOMMAINOC = 6502;
+	CmdWolfBroType_StartWolfBroGameCsReq = 6534;
+	CmdWolfBroType_ArchiveWolfBroGameScRsp = 6531;
+	CmdWolfBroType_WolfBroGameUseBulletScRsp = 6540;
+	CmdWolfBroType_WolfBroGameActivateBulletScRsp = 6523;
+	CmdWolfBroType_WolfBroGamePickupBulletCsReq = 6508;
+	CmdWolfBroType_GetWolfBroGameDataScRsp = 6504;
+	CmdWolfBroType_QuitWolfBroGameCsReq = 6516;
+	CmdWolfBroType_WolfBroGameActivateBulletCsReq = 6525;
+	CmdWolfBroType_RestoreWolfBroGameArchiveCsReq = 6529;
+	CmdWolfBroType_QuitWolfBroGameScRsp = 6511;
+	CmdWolfBroType_WolfBroGameDataChangeScNotify = 6548;
+	CmdWolfBroType_RestoreWolfBroGameArchiveScRsp = 6532;
+	CmdWolfBroType_ArchiveWolfBroGameCsReq = 6520;
+	CmdWolfBroType_HPHNFDIPEIE = 6514;
+	CmdWolfBroType_WolfBroGameExplodeMonsterScRsp = 6518;
+	CmdWolfBroType_StartWolfBroGameScRsp = 6506;
+	CmdWolfBroType_GetWolfBroGameDataCsReq = 6526;
+}
+
+message GGHOBPBFFOB {
+	string uuid = 1; // offset: 16
+	repeated Vector PAOEJKABFEP = 6; // offset: 40
+	uint32 id = 8; // offset: 52
+	KDFPANILFOH BBEMIGELGJC = 9; // offset: 24
+	uint32 CHCOPKAKBNO = 13; // offset: 56
+	bool is_bullet_activated = 15; // offset: 48
+}
+
+message GetWolfBroGameDataCsReq {
+	uint32 id = 14; // offset: 24
+}
+
+message GetWolfBroGameDataScRsp {
+	uint32 retcode = 6; // offset: 32
+	GGHOBPBFFOB game_data = 15; // offset: 16
+}
+
+message KDFPANILFOH {
+	repeated Vector PAOEJKABFEP = 1; // offset: 32
+	bool is_bullet_activated = 4; // offset: 40
+	MotionInfo motion = 6; // offset: 24
+	uint32 CHCOPKAKBNO = 8; // offset: 44
+}
+
+message LBMFCJLHNAA {
+	repeated uint32 assist_monster_entity_id_list = 12; // offset: 24
+}
+
+message OKEFGCNNEKI {
+	repeated uint32 assist_monster_entity_id_list = 1; // offset: 24
+	Vector GGDCDJDBCCN = 14; // offset: 16
+}
+
+message QuitWolfBroGameCsReq {
+	uint32 id = 7; // offset: 24
+}
+
+message QuitWolfBroGameScRsp {
+	GGHOBPBFFOB game_data = 5; // offset: 24
+	uint32 retcode = 10; // offset: 32
+}
+
+message RestoreWolfBroGameArchiveCsReq {
+	uint32 id = 7; // offset: 24
+}
+
+message RestoreWolfBroGameArchiveScRsp {
+	uint32 retcode = 4; // offset: 32
+	GGHOBPBFFOB game_data = 8; // offset: 24
+}
+
+message StartWolfBroGameCsReq {
+	MotionInfo motion = 2; // offset: 24
+	GroupStateInfo IDANCEPOOEI = 10; // offset: 32
+	uint32 id = 13; // offset: 40
+}
+
+message StartWolfBroGameScRsp {
+	uint32 retcode = 7; // offset: 32
+	GGHOBPBFFOB game_data = 9; // offset: 16
+}
+
+message WolfBroGameActivateBulletCsReq {
+	uint32 DAKENPDMDDJ = 7; // offset: 28
+	uint32 group_id = 12; // offset: 24
+}
+
+message WolfBroGameActivateBulletScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message WolfBroGameDataChangeScNotify {
+	GGHOBPBFFOB game_data = 9; // offset: 16
+}
+
+message WolfBroGameExplodeMonsterScRsp {
+	uint32 retcode = 15; // offset: 24
+}
+
+message WolfBroGamePickupBulletCsReq {
+	Vector GGDCDJDBCCN = 6; // offset: 16
+}
+
+message WolfBroGamePickupBulletScRsp {
+	GGHOBPBFFOB game_data = 8; // offset: 16
+	uint32 retcode = 12; // offset: 32
+}
+
+message WolfBroGameUseBulletScRsp {
+	uint32 retcode = 9; // offset: 32
+	GGHOBPBFFOB game_data = 10; // offset: 16
+}

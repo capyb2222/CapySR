@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AIKICHNEPKE {
+	uint32 level = 9; // offset: 24
+}
+
+enum CmdFateRinType {
+	CmdFateRinType_NLCDGIPGFDJ = 0;
+	CmdFateRinType_KILPONLFLHM = 9895;
+	CmdFateRinType_FateRinStartHouguMapFightScRsp = 9879;
+	CmdFateRinType_FateRinStartChallengeFightCsReq = 9883;
+	CmdFateRinType_IMPOAADNAPH = 9864;
+	CmdFateRinType_DEMPDDGLJFF = 9880;
+	CmdFateRinType_FateRinGetDataCsReq = 9894;
+	CmdFateRinType_FateRinStartChallengeFightScRsp = 9898;
+	CmdFateRinType_FateRinGetDataScRsp = 9866;
+	CmdFateRinType_PFKFKEPDIIH = 9867;
+	CmdFateRinType_OCELCPOJKKC = 9873;
+	CmdFateRinType_FateRinStartHouguMapFightCsReq = 9876;
+	CmdFateRinType_GJFCCDNCACD = 9886;
+	CmdFateRinType_StartFateRinStoryFightCsReq = 9868;
+	CmdFateRinType_FateRinStartStoryFightScRsp = 9862;
+	CmdFateRinType_HDDKKEHFOPD = 9893;
+	CmdFateRinType_OHFKBKOJHFP = 9871;
+	CmdFateRinType_BCCBFBOENAP = 9875;
+	CmdFateRinType_IAJLPFICPMO = 9865;
+	CmdFateRinType_AIJJAFEJOLM = 9892;
+}
+
+message DNNNCIPMPKH {
+	uint32 NFAOAGIFKEG = 10; // offset: 40
+	ItemList reward = 11; // offset: 32
+	repeated uint32 EDCIGEJLFFH = 14; // offset: 24
+}
+
+message EILMEGELLLJ {
+	repeated uint32 PDABDEJBPEL = 9; // offset: 24
+}
+
+message FNHBHPDJACF {
+	uint32 NFAOAGIFKEG = 11; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message FateRinGetDataCsReq {
+}
+
+message FateRinGetDataScRsp {
+	repeated KDANACKPJIP HBDMBLAPEMH = 3; // offset: 48
+	repeated uint32 PDABDEJBPEL = 5; // offset: 24
+	uint32 NFAOAGIFKEG = 6; // offset: 60
+	repeated GCJCLFOLBPP LDEJLFKJBCL = 7; // offset: 16
+	repeated uint32 HINFJMIMBIN = 8; // offset: 40
+	uint32 level = 10; // offset: 56
+	uint32 ILLHHMHBJCG = 12; // offset: 64
+	uint32 retcode = 13; // offset: 68
+}
+
+message FateRinStartChallengeFightCsReq {
+	uint32 LCICMEPLFGE = 2; // offset: 32
+	repeated uint32 EPJCGCAMFDP = 12; // offset: 24
+}
+
+message FateRinStartChallengeFightScRsp {
+	uint32 retcode = 3; // offset: 32
+	SceneBattleInfo battle_info = 4; // offset: 24
+}
+
+message FateRinStartHouguMapFightCsReq {
+	bool JBIFGIHHMNO = 4; // offset: 28
+	uint32 CCOOCEEAKFI = 14; // offset: 24
+}
+
+message FateRinStartHouguMapFightScRsp {
+	uint32 retcode = 6; // offset: 32
+	SceneBattleInfo battle_info = 13; // offset: 24
+}
+
+message FateRinStartStoryFightScRsp {
+	uint32 retcode = 3; // offset: 32
+	SceneBattleInfo battle_info = 5; // offset: 16
+}
+
+message GCJCLFOLBPP {
+	uint32 NKDDBPGDAEE = 7; // offset: 48
+	repeated uint32 OPBNNKHNAEL = 9; // offset: 16
+	repeated uint32 CKGPHNNDACN = 10; // offset: 40
+	repeated uint32 HPOOCCHJNEN = 14; // offset: 32
+}
+
+message GHCLLIAGDEP {
+	uint32 NKDDBPGDAEE = 14; // offset: 24
+}
+
+message GOELKOBOCDI {
+	repeated GCJCLFOLBPP LDEJLFKJBCL = 3; // offset: 16
+}
+
+message KDANACKPJIP {
+	uint32 CCOOCEEAKFI = 7; // offset: 24
+	uint32 JBGENFIKGGF = 14; // offset: 32
+	uint32 JHMNIGAGOCK = 15; // offset: 28
+}
+
+message KDMOONKPLPI {
+	uint32 retcode = 3; // offset: 28
+	uint32 ILLHHMHBJCG = 13; // offset: 24
+}
+
+message KNLJDBNOPKD {
+	GCJCLFOLBPP PNJMDOFOEEE = 7; // offset: 16
+}
+
+message OCOEKDNDEGJ {
+	uint32 PPMJKDBNHCA = 14; // offset: 24
+}
+
+message PMEHLELAFJI {
+	repeated GCJCLFOLBPP LDEJLFKJBCL = 1; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message PPGFKFIAAHL {
+	KDANACKPJIP NMFGECJBPLJ = 3; // offset: 24
+	BattleEndStatus end_status = 4; // offset: 32
+}
+
+message StartFateRinStoryFightCsReq {
+	uint32 CCOOCEEAKFI = 7; // offset: 24
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdBattleCollegeType {
+	CmdBattleCollegeType_NLCDGIPGFDJ = 0;
+	CmdBattleCollegeType_StartBattleCollegeScRsp = 5760;
+	CmdBattleCollegeType_GetBattleCollegeDataCsReq = 5734;
+	CmdBattleCollegeType_GetBattleCollegeDataScRsp = 5725;
+	CmdBattleCollegeType_SyncBattleCollegeDataChangeScNotify = 5705;
+	CmdBattleCollegeType_StartBattleCollegeCsReq = 5775;
+}
+
+message GetBattleCollegeDataCsReq {
+}
+
+message GetBattleCollegeDataScRsp {
+	uint32 retcode = 4; // offset: 32
+	uint32 MNMJCNOLIII = 10; // offset: 36
+	repeated uint32 finished_college_id_list = 13; // offset: 24
+}
+
+message StartBattleCollegeCsReq {
+	uint32 id = 8; // offset: 24
+}
+
+message StartBattleCollegeScRsp {
+	uint32 retcode = 4; // offset: 32
+	uint32 id = 5; // offset: 36
+	SceneBattleInfo battle_info = 13; // offset: 24
+}
+
+message SyncBattleCollegeDataChangeScNotify {
+	repeated uint32 finished_college_id_list = 3; // offset: 16
+	uint32 MNMJCNOLIII = 11; // offset: 40
+	ItemList reward = 13; // offset: 24
+}

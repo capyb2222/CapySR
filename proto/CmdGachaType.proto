@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdGachaType {
+	CmdGachaType_NLCDGIPGFDJ = 0;
+	CmdGachaType_DoGachaCsReq = 1905;
+	CmdGachaType_PDCIIFCCBEH = 1942;
+	CmdGachaType_ExchangeGachaCeilingScRsp = 1956;
+	CmdGachaType_GetGachaCeilingScRsp = 1916;
+	CmdGachaType_ExchangeGachaCeilingCsReq = 1958;
+	CmdGachaType_SetGachaDecideItemScRsp = 1915;
+	CmdGachaType_DoGachaScRsp = 1975;
+	CmdGachaType_GetGachaInfoScRsp = 1925;
+	CmdGachaType_GetGachaCeilingCsReq = 1960;
+	CmdGachaType_SetGachaDecideItemCsReq = 1983;
+	CmdGachaType_GetGachaInfoCsReq = 1934;
+}
+
+message DoGachaCsReq {
+	uint32 simulate_magic = 9; // offset: 28
+	uint32 gacha_id = 11; // offset: 24
+	uint32 gacha_num = 13; // offset: 36
+	uint32 gacha_random = 14; // offset: 32
+}
+
+message DoGachaScRsp {
+	repeated GachaItem gacha_item_list = 1; // offset: 16
+	uint32 retcode = 2; // offset: 52
+	uint32 NCBEDGBOJLC = 3; // offset: 36
+	uint32 GLLJFPENLHD = 4; // offset: 44
+	uint32 NHBBHEMPJJM = 6; // offset: 48
+	uint32 LDBCKJIPDHF = 7; // offset: 60
+	uint32 GPNLDDLBOLM = 9; // offset: 40
+	uint32 gacha_id = 11; // offset: 56
+	uint32 gacha_num = 15; // offset: 32
+}
+
+message ExchangeGachaCeilingCsReq {
+	uint32 gacha_type = 1; // offset: 28
+	uint32 avatar_id = 6; // offset: 24
+}
+
+message ExchangeGachaCeilingScRsp {
+	uint32 retcode = 1; // offset: 48
+	uint32 gacha_type = 2; // offset: 44
+	uint32 avatar_id = 8; // offset: 40
+	GachaCeiling gacha_ceiling = 14; // offset: 16
+	ItemList transfer_item_list = 15; // offset: 24
+}
+
+message GachaCeiling {
+	uint32 ceiling_num = 1; // offset: 32
+	repeated GachaCeilingAvatar avatar_list = 13; // offset: 16
+	bool is_claimed = 15; // offset: 36
+}
+
+message GachaCeilingAvatar {
+	uint32 repeated_cnt = 9; // offset: 28
+	uint32 avatar_id = 10; // offset: 24
+}
+
+message GachaInfo {
+	GachaCeiling gacha_ceiling = 1; // offset: 32
+	int64 begin_time = 3; // offset: 96
+	uint32 gacha_id = 4; // offset: 92
+	repeated uint32 ONIHOMCELJK = 5; // offset: 64
+	string detail_url = 6; // offset: 40
+	repeated uint32 item_detail_list = 7; // offset: 16
+	uint32 GLLJFPENLHD = 8; // offset: 84
+	uint32 MMELNCHIDNC = 9; // offset: 88
+	repeated uint32 prize_item_list = 10; // offset: 24
+	string history_url = 12; // offset: 48
+	int64 end_time = 13; // offset: 72
+	uint32 NHBBHEMPJJM = 15; // offset: 80
+}
+
+message GachaItem {
+	ItemList transfer_item_list = 5; // offset: 24
+	bool is_new = 8; // offset: 48
+	Item gacha_item = 9; // offset: 16
+	ItemList token_item = 13; // offset: 32
+}
+
+message GetGachaCeilingCsReq {
+	uint32 DDMCNOJFGON = 15; // offset: 24
+}
+
+message GetGachaCeilingScRsp {
+	uint32 retcode = 4; // offset: 32
+	GachaCeiling gacha_ceiling = 10; // offset: 24
+	uint32 gacha_type = 14; // offset: 36
+}
+
+message GetGachaInfoCsReq {
+}
+
+message GetGachaInfoScRsp {
+	uint32 KKKNJDBNJPM = 1; // offset: 56
+	uint32 retcode = 2; // offset: 40
+	uint32 GPNLDDLBOLM = 7; // offset: 52
+	repeated NEIMLKNMDBM AKMDBPNEHDE = 9; // offset: 16
+	uint32 OGMPKDHKPAJ = 10; // offset: 44
+	repeated GachaInfo gacha_info_list = 13; // offset: 24
+	uint32 gacha_random = 15; // offset: 48
+}
+
+message NEIMLKNMDBM {
+	uint32 MMELNCHIDNC = 4; // offset: 40
+	repeated uint32 OJNEFBJHCCK = 10; // offset: 16
+	uint32 GFANBHAEKOK = 12; // offset: 44
+	repeated uint32 EJGNMCAMELA = 13; // offset: 24
+}
+
+message SetGachaDecideItemCsReq {
+	uint32 gacha_id = 5; // offset: 32
+	repeated uint32 OJNEFBJHCCK = 12; // offset: 24
+	uint32 GFANBHAEKOK = 15; // offset: 36
+}
+
+message SetGachaDecideItemScRsp {
+	NEIMLKNMDBM NBLOJLDLBEB = 8; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}

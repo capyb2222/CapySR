@@ -1,0 +1,938 @@
+[
+  {
+    "ID": 20011,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20012,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20013,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20014,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20021,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20022,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20023,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20024,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20031,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20032,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20033,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20034,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20041,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20042,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20043,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20044,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20051,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20052,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20053,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20054,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20061,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20062,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20063,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20064,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20071,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20072,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20073,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20074,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20081,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20082,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20083,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20084,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20091,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20092,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20093,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20094,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20101,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20102,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20103,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20104,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20111,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20112,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20113,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20114,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20121,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20122,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20123,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20124,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20131,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20132,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20133,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20134,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20141,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20142,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20143,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20144,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20151,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20152,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20153,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20154,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20161,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20162,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20163,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20164,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20171,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20172,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20173,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20174,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20181,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20182,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20183,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20184,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20191,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20192,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20193,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20194,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20201,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20202,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20203,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20204,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20211,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20212,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20213,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20214,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20221,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20222,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20223,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20224,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20231,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20232,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20233,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20234,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20241,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20242,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20243,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20244,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20251,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20252,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20253,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20254,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20261,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20262,
+    "TurnLimit": 5,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20263,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  },
+  {
+    "ID": 20264,
+    "TurnLimit": 4,
+    "BattleTargetID": [
+      2001,
+      2002
+    ],
+    "ClearScore": 30000
+  }
+]

@@ -1,0 +1,369 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CILKBJMGNGL {
+	repeated uint32 OBBKBNDGOAI = 1; // offset: 40
+	GNPFDBACMIH story_info = 2; // offset: 24
+	DFGAIOOGPPA IHJKLHGMKBI = 6; // offset: 56
+	repeated LGFOKKPICEH HIILDALHIMD = 7; // offset: 72
+	repeated IFCNLKPPPHK DANNIDIPFAL = 11; // offset: 64
+	repeated NMOMMMGHMOA JJIEDDMALPE = 12; // offset: 48
+	repeated ONMFMINNBEB GJGFCCKEMFD = 14; // offset: 16
+}
+
+enum CmdRogueMagicType {
+	CmdRogueMagicType_ELGPACEMCGP = 0;
+	CmdRogueMagicType_RogueMagicAreaUpdateScNotify = 7708;
+	CmdRogueMagicType_RogueMagicAutoDressInUnitCsReq = 7730;
+	CmdRogueMagicType_RogueMagicBattleFailSettleInfoScNotify = 7712;
+	CmdRogueMagicType_RogueMagicStartScRsp = 7725;
+	CmdRogueMagicType_RogueMagicQueryScRsp = 7704;
+	CmdRogueMagicType_RogueMagicEnterCsReq = 7705;
+	CmdRogueMagicType_RogueMagicQueryCsReq = 7778;
+	CmdRogueMagicType_RogueMagicEnterRoomCsReq = 7783;
+	CmdRogueMagicType_RogueMagicUnitComposeScRsp = 7773;
+	CmdRogueMagicType_RogueMagicGetMiscRealTimeDataCsReq = 7779;
+	CmdRogueMagicType_RogueMagicStartCsReq = 7734;
+	CmdRogueMagicType_RogueMagicScepterTakeOffUnitCsReq = 7781;
+	CmdRogueMagicType_RogueMagicAutoDressInUnitScRsp = 7724;
+	CmdRogueMagicType_RogueMagicSetAutoDressInMagicUnitCsReq = 7784;
+	CmdRogueMagicType_RogueMagicSetAutoDressInMagicUnitScRsp = 7740;
+	CmdRogueMagicType_RogueMagicScepterDressInUnitScRsp = 7707;
+	CmdRogueMagicType_RogueMagicEnableTalentScRsp = 7732;
+	CmdRogueMagicType_RogueMagicEnableTalentCsReq = 7782;
+	CmdRogueMagicType_RogueMagicAutoDressInMagicUnitChangeScNotify = 7747;
+	CmdRogueMagicType_RogueMagicLeaveScRsp = 7716;
+	CmdRogueMagicType_RogueMagicSettleScRsp = 7756;
+	CmdRogueMagicType_RogueMagicGetMiscRealTimeDataScRsp = 7741;
+	CmdRogueMagicType_RogueMagicScepterTakeOffUnitScRsp = 7751;
+	CmdRogueMagicType_RogueMagicUnitComposeCsReq = 7793;
+	CmdRogueMagicType_RogueMagicLevelInfoUpdateScNotify = 7761;
+	CmdRogueMagicType_RogueMagicLeaveCsReq = 7760;
+	CmdRogueMagicType_RogueMagicScepterDressInUnitCsReq = 7785;
+	CmdRogueMagicType_RogueMagicEnterLayerCsReq = 7742;
+	CmdRogueMagicType_RogueMagicSettleCsReq = 7758;
+	CmdRogueMagicType_RogueMagicEnterScRsp = 7775;
+	CmdRogueMagicType_RogueMagicReviveCostUpdateScNotify = 7711;
+	CmdRogueMagicType_RogueMagicReviveAvatarCsReq = 7717;
+	CmdRogueMagicType_RogueMagicStoryInfoUpdateScNotify = 7796;
+	CmdRogueMagicType_RogueMagicEnterRoomScRsp = 7715;
+	CmdRogueMagicType_RogueMagicReviveAvatarScRsp = 7738;
+	CmdRogueMagicType_RogueMagicEnterLayerScRsp = 7739;
+}
+
+message DFGAIOOGPPA {
+	uint32 IMLHHAKIKCD = 8; // offset: 32
+	FDBDLBAPDBE JCOBJAMPOAL = 10; // offset: 24
+}
+
+message EEILAINOLPO {
+	LineupInfo lineup = 3; // offset: 16
+	SceneInfo scene = 4; // offset: 40
+	FHEGNOPNICH JNKLNLKHGBB = 11; // offset: 32
+}
+
+message EJHDAJAGFIJ {
+	bool DOFNEAPHMKH = 4; // offset: 24
+	uint32 AEAHOGPJKEF = 10; // offset: 28
+}
+
+message FKFOIDMNDFG {
+	EJHDAJAGFIJ KDDGKLNGNEA = 3; // offset: 24
+	NOAKCDKAAFB BNLLEJPCIGD = 9; // offset: 32
+	GCBCKOKEAJH PHGJIJELKDB = 15; // offset: 40
+}
+
+message FODHGNLPBKH {
+	HOIFDJPBGLB status = 2; // offset: 28
+	uint32 GHEHGIOAGDG = 3; // offset: 24
+	uint32 room_id = 5; // offset: 36
+	uint32 EEPIDJJJMAH = 6; // offset: 32
+}
+
+message FPNDOBPMNED {
+	repeated uint32 KEHKLHMEABI = 4; // offset: 24
+}
+
+message GCBCKOKEAJH {
+	FKEDPCMLIFE item_value = 3; // offset: 72
+	NHLBNBBDHMI miracle = 4; // offset: 16
+	CBOLONJDHHL basic_info = 5; // offset: 56
+	JEIKFFFGONB lineup = 6; // offset: 64
+	FPNDOBPMNED MEEJDFNHBDI = 8; // offset: 48
+	PLBAMNCLBHB DDLADFJMEEC = 13; // offset: 32
+	KDHAIFIOKDN level = 14; // offset: 24
+}
+
+message GNPFDBACMIH {
+	repeated uint32 NOMDDGGIIBF = 11; // offset: 24
+}
+
+message GPEPGKCPBPB {
+	uint32 JOJCPKNIJOH = 3; // offset: 40
+	repeated FODHGNLPBKH JEHEILKKDEF = 4; // offset: 16
+	uint32 layer_index = 9; // offset: 36
+	uint32 MDAIAMFJNHM = 11; // offset: 44
+	JGNAEPIJDNC status = 13; // offset: 32
+}
+
+message GPHMAJPGGEK {
+	repeated OKCCLEEPELM IHKCHDJEJGJ = 5; // offset: 24
+	repeated OCBPJLLLJGO EBFHIDKDJOB = 13; // offset: 16
+}
+
+enum HOIFDJPBGLB {
+	HOIFDJPBGLB_NLCDGIPGFDJ = 0;
+	HOIFDJPBGLB_JHHAJDKPLJH = 1;
+	HOIFDJPBGLB_LOOAKNHDBLL = 2;
+	HOIFDJPBGLB_CIHFGJDCHIA = 3;
+}
+
+message IFCNLKPPPHK {
+	bool FJKHIFDJMDB = 1; // offset: 53
+	PGGMPDIMLAE COEBCNGCNOO = 2; // offset: 40
+	repeated uint32 PBJLMCGIBND = 5; // offset: 24
+	uint32 area_id = 9; // offset: 48
+	bool is_taken_reward = 12; // offset: 52
+	NJMOAGDJKFH record_info = 13; // offset: 32
+	bool is_unlock = 15; // offset: 54
+}
+
+enum JAMINGBJHBK {
+	JAMINGBJHBK_NLCDGIPGFDJ = 0;
+	JAMINGBJHBK_EHNIPLNEEDI = 1;
+	JAMINGBJHBK_PMKMEAAGKAP = 2;
+	JAMINGBJHBK_MNBAGHPEFBC = 3;
+}
+
+enum JGNAEPIJDNC {
+	JGNAEPIJDNC_NLCDGIPGFDJ = 0;
+	JGNAEPIJDNC_LOOAKNHDBLL = 1;
+	JGNAEPIJDNC_CIHFGJDCHIA = 2;
+}
+
+message KDHAIFIOKDN {
+	repeated GPEPGKCPBPB NNFFPJOLDHK = 1; // offset: 24
+	uint32 BJHMFOAGMBF = 10; // offset: 40
+	uint32 JJLEDNENPJK = 12; // offset: 36
+	PFKHKAMBHBN status = 13; // offset: 32
+	uint32 JDPHADIIAPE = 14; // offset: 44
+	JAMINGBJHBK reason = 15; // offset: 48
+}
+
+message NJMOAGDJKFH {
+	uint32 GEJEANJFCMI = 2; // offset: 56
+	uint32 MHPCIABALPI = 3; // offset: 64
+	uint32 MEDAAELFEMN = 4; // offset: 76
+	uint32 JJLEDNENPJK = 5; // offset: 68
+	uint32 ADIFLCNAABJ = 7; // offset: 72
+	uint32 LKHAIEIDAJL = 8; // offset: 80
+	uint32 EJJGHJMCFPH = 9; // offset: 60
+	uint32 NBMNPGKEIIH = 10; // offset: 84
+	uint32 NNNCEIGNIIA = 13; // offset: 88
+	repeated MMBBHFNJILI HIILDALHIMD = 159; // offset: 32
+	repeated uint32 avatar_id_list = 996; // offset: 40
+	repeated DNLKMHLAPHC MALDOMHPILM = 1327; // offset: 48
+	repeated uint32 BGAFHIOEHFH = 1846; // offset: 16
+}
+
+message NMOMMMGHMOA {
+	uint32 DFBDPEHAAMG = 11; // offset: 28
+	bool is_unlock = 13; // offset: 24
+}
+
+message NOAKCDKAAFB {
+	bool DOFNEAPHMKH = 9; // offset: 24
+	uint32 ADMJAHDJDDJ = 11; // offset: 28
+}
+
+enum PFKHKAMBHBN {
+	PFKHKAMBHBN_NLCDGIPGFDJ = 0;
+	PFKHKAMBHBN_LOOAKNHDBLL = 1;
+	PFKHKAMBHBN_CCKPNCIBDGP = 2;
+	PFKHKAMBHBN_JKNPMIMBGML = 3;
+}
+
+message PGGMPDIMLAE {
+	repeated uint32 ILNFEABHHCH = 1978; // offset: 24
+}
+
+message PLBAMNCLBHB {
+	uint32 NBMNPGKEIIH = 5; // offset: 40
+	repeated DNLKMHLAPHC MALDOMHPILM = 11; // offset: 24
+	bool HIKMFMJCNKP = 14; // offset: 44
+	repeated MMBBHFNJILI HIILDALHIMD = 15; // offset: 16
+}
+
+message RogueMagicAreaUpdateScNotify {
+	repeated IFCNLKPPPHK DANNIDIPFAL = 1; // offset: 24
+}
+
+message RogueMagicAutoDressInMagicUnitChangeScNotify {
+	bool GBEMCAHPBKP = 4; // offset: 24
+}
+
+message RogueMagicAutoDressInUnitCsReq {
+	repeated uint32 JDJFHIMPIPK = 7; // offset: 16
+}
+
+message RogueMagicAutoDressInUnitScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message RogueMagicBattleFailSettleInfoScNotify {
+	EEILAINOLPO IDCMACCPCBH = 1; // offset: 16
+	FKFOIDMNDFG BFLLJJBHLDF = 3; // offset: 24
+}
+
+message RogueMagicEnableTalentCsReq {
+	uint32 CKHCLKOALKE = 8; // offset: 24
+}
+
+message RogueMagicEnableTalentScRsp {
+	DFGAIOOGPPA IHJKLHGMKBI = 5; // offset: 24
+	uint32 retcode = 8; // offset: 32
+}
+
+message RogueMagicEnterCsReq {
+}
+
+message RogueMagicEnterLayerCsReq {
+	uint32 BJHMFOAGMBF = 11; // offset: 24
+	uint32 KHBLMAOPLLN = 15; // offset: 28
+}
+
+message RogueMagicEnterLayerScRsp {
+	uint32 retcode = 5; // offset: 32
+	EEILAINOLPO IDCMACCPCBH = 12; // offset: 16
+}
+
+message RogueMagicEnterRoomCsReq {
+	uint32 JOJCPKNIJOH = 7; // offset: 28
+	uint32 KHBLMAOPLLN = 13; // offset: 24
+}
+
+message RogueMagicEnterRoomScRsp {
+	EEILAINOLPO IDCMACCPCBH = 2; // offset: 16
+	uint32 retcode = 9; // offset: 32
+}
+
+message RogueMagicEnterScRsp {
+	GCBCKOKEAJH PHGJIJELKDB = 1; // offset: 24
+	uint32 retcode = 4; // offset: 40
+	EEILAINOLPO IDCMACCPCBH = 14; // offset: 32
+}
+
+message RogueMagicGetMiscRealTimeDataCsReq {
+}
+
+message RogueMagicGetMiscRealTimeDataScRsp {
+	NOAKCDKAAFB BNLLEJPCIGD = 2; // offset: 32
+	EJHDAJAGFIJ KDDGKLNGNEA = 8; // offset: 24
+	uint32 retcode = 12; // offset: 40
+}
+
+message RogueMagicLeaveCsReq {
+}
+
+message RogueMagicLeaveScRsp {
+	uint32 retcode = 8; // offset: 32
+	EEILAINOLPO IDCMACCPCBH = 9; // offset: 24
+}
+
+message RogueMagicLevelInfoUpdateScNotify {
+	uint32 BJHMFOAGMBF = 1; // offset: 40
+	JAMINGBJHBK reason = 4; // offset: 36
+	PFKHKAMBHBN status = 5; // offset: 32
+	repeated GPEPGKCPBPB NNFFPJOLDHK = 6; // offset: 16
+	uint32 JDPHADIIAPE = 11; // offset: 48
+	uint32 JJLEDNENPJK = 13; // offset: 44
+}
+
+message RogueMagicQueryCsReq {
+}
+
+message RogueMagicQueryScRsp {
+	CILKBJMGNGL LFLCDNGALME = 6; // offset: 32
+	GCBCKOKEAJH PHGJIJELKDB = 11; // offset: 16
+	uint32 retcode = 12; // offset: 40
+}
+
+message RogueMagicReviveAvatarCsReq {
+	repeated uint32 NOEPBNMJFGL = 12; // offset: 16
+	uint32 interacted_prop_entity_id = 13; // offset: 32
+}
+
+message RogueMagicReviveAvatarScRsp {
+	uint32 retcode = 11; // offset: 32
+	ItemCostData LNIEFKBMIPD = 15; // offset: 16
+}
+
+message RogueMagicReviveCostUpdateScNotify {
+	ItemCostData LNIEFKBMIPD = 12; // offset: 16
+}
+
+message RogueMagicScepterDressInUnitCsReq {
+	uint32 GCAHKLNGFCK = 1; // offset: 24
+	uint32 LPOLPDBELON = 2; // offset: 32
+	uint32 slot_id = 3; // offset: 28
+}
+
+message RogueMagicScepterDressInUnitScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message RogueMagicScepterTakeOffUnitCsReq {
+	repeated uint32 JDJFHIMPIPK = 3; // offset: 24
+	uint32 GCAHKLNGFCK = 9; // offset: 32
+}
+
+message RogueMagicScepterTakeOffUnitScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message RogueMagicSetAutoDressInMagicUnitCsReq {
+	bool GBEMCAHPBKP = 2; // offset: 24
+}
+
+message RogueMagicSetAutoDressInMagicUnitScRsp {
+	bool GBEMCAHPBKP = 4; // offset: 28
+	uint32 retcode = 8; // offset: 24
+}
+
+message RogueMagicSettleCsReq {
+}
+
+message RogueMagicSettleScRsp {
+	GPHMAJPGGEK IEHPMHOFBNJ = 2; // offset: 16
+	uint32 retcode = 4; // offset: 56
+	FKFOIDMNDFG BFLLJJBHLDF = 11; // offset: 24
+	EEILAINOLPO IDCMACCPCBH = 13; // offset: 32
+	ItemList IIOMCJPCFML = 15; // offset: 40
+}
+
+message RogueMagicStartCsReq {
+	uint32 area_id = 1; // offset: 44
+	repeated uint32 NOEPBNMJFGL = 4; // offset: 16
+	repeated uint32 OCEGEKKFLAL = 9; // offset: 24
+	uint32 IEOFONJHFDJ = 11; // offset: 40
+}
+
+message RogueMagicStartScRsp {
+	EEILAINOLPO IDCMACCPCBH = 6; // offset: 16
+	GCBCKOKEAJH PHGJIJELKDB = 7; // offset: 32
+	uint32 retcode = 9; // offset: 40
+}
+
+message RogueMagicStoryInfoUpdateScNotify {
+	uint32 BNHAIKILAJK = 3; // offset: 24
+}
+
+message RogueMagicUnitComposeCsReq {
+	repeated uint32 LLMAPPDKOPI = 9; // offset: 16
+}
+
+message RogueMagicUnitComposeScRsp {
+	uint32 retcode = 4; // offset: 24
+}

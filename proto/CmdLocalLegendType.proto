@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ACIHMMBKMIM {
+	AvatarType avatar_type = 11; // offset: 28
+	uint32 avatar_id = 12; // offset: 24
+}
+
+enum CmdLocalLegendType {
+	CmdLocalLegendType_NLCDGIPGFDJ = 0;
+	CmdLocalLegendType_LocalLegendDataChangeNotify = 6579;
+	CmdLocalLegendType_EnterLocalLegendLevelCsReq = 6591;
+	CmdLocalLegendType_GetLocalLegendDataScRsp = 6592;
+	CmdLocalLegendType_EnterLocalLegendLevelScRsp = 6583;
+	CmdLocalLegendType_GetLocalLegendDataCsReq = 6600;
+}
+
+message EnterLocalLegendLevelCsReq {
+	uint32 DBKHHCGGKNN = 3; // offset: 36
+	repeated ACIHMMBKMIM avatar_list = 5; // offset: 24
+	uint32 group_id = 14; // offset: 32
+}
+
+message EnterLocalLegendLevelScRsp {
+	uint32 group_id = 4; // offset: 36
+	uint32 DBKHHCGGKNN = 5; // offset: 32
+	SceneBattleInfo battle_info = 8; // offset: 24
+	uint32 retcode = 15; // offset: 40
+}
+
+message GetLocalLegendDataCsReq {
+}
+
+message GetLocalLegendDataScRsp {
+	uint32 retcode = 6; // offset: 32
+	repeated JJEFLBCLBFN level_data_list = 15; // offset: 24
+}
+
+message JJEFLBCLBFN {
+	uint32 FFGFINDLMCF = 1; // offset: 32
+	uint32 group_id = 4; // offset: 28
+	uint32 DBKHHCGGKNN = 9; // offset: 24
+}
+
+message LocalLegendDataChangeNotify {
+	JJEFLBCLBFN level_data = 9; // offset: 16
+}

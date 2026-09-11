@@ -1,0 +1,350 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum ABLCCPHIOMI {
+	ABLCCPHIOMI_KFIKMPOPBFD = 0;
+	ABLCCPHIOMI_MCOJHEKMHIL = 1;
+	ABLCCPHIOMI_GJGNJHPOFOL = 2;
+	ABLCCPHIOMI_JONELAAFDEA = 3;
+	ABLCCPHIOMI_DMBKGPBNBPO = 4;
+	ABLCCPHIOMI_NGBOPLGBCNK = 5;
+}
+
+enum AMDMKHKOHNF {
+	AMDMKHKOHNF_CCLMEHJMPGC = 0;
+	AMDMKHKOHNF_FDEAJLPGEOJ = 1;
+	AMDMKHKOHNF_KNHNJMABEBB = 2;
+	AMDMKHKOHNF_EGLAFFEKPHG = 3;
+	AMDMKHKOHNF_LMBDFFBHDOK = 4;
+	AMDMKHKOHNF_DPFACDOOILN = 5;
+}
+
+message BEOGFNDKCIL {
+	uint32 PIFNIJHPLJC = 1; // offset: 24
+}
+
+message BGEJHKFILME {
+}
+
+message BHMEPBAGOFF {
+	uint32 PBEPLKMNAKF = 2; // offset: 60
+	uint64 FIKHCEBOPMI = 3; // offset: 48
+	IPGIJFNAFLC KNBGBCEBLDF = 4; // offset: 24
+	AMDMKHKOHNF cur_state = 7; // offset: 40
+	uint32 NAOKGNGBHAO = 8; // offset: 56
+	int32 HIJJDGBOMDL = 9; // offset: 44
+	repeated KLGJDILNNDH BFCGOELLNIP = 10; // offset: 16
+}
+
+message CDPEFGCIGFB {
+}
+
+enum CKGOFMFNIPP {
+	CKGOFMFNIPP_HGBBGFBCCJJ = 0;
+	CKGOFMFNIPP_MLJFKFACNND = 1;
+	CKGOFMFNIPP_NNAMMGLFFCG = 2;
+	CKGOFMFNIPP_OBLIOOOLFEE = 3;
+	CKGOFMFNIPP_FAIALBOJMFN = 4;
+	CKGOFMFNIPP_BMJKLMCDPLG = 5;
+}
+
+enum CmdFightMatch3Type {
+	CmdFightMatch3Type_NHGDFLDLJLJ = 0;
+	CmdFightMatch3Type_FightMatch3RoyaleRankUpdateNotify = 30181;
+	CmdFightMatch3Type_FightMatch3TurnEndScNotify = 30160;
+	CmdFightMatch3Type_FightMatch3OpponentDataScNotify = 30156;
+	CmdFightMatch3Type_FightMatch3SoloDataUpdateNotify = 30111;
+	CmdFightMatch3Type_FightMatch3ChatScRsp = 30115;
+	CmdFightMatch3Type_FightMatch3SoloUseItemNotify = 30138;
+	CmdFightMatch3Type_FightMatch3StartCountDownScNotify = 30105;
+	CmdFightMatch3Type_FightMatch3SoloSwapNotify = 30117;
+	CmdFightMatch3Type_FightMatch3RoyaleDataUpdateNotify = 30107;
+	CmdFightMatch3Type_FightMatch3RoyaleDataScRsp = 30185;
+	CmdFightMatch3Type_FightMatch3SwapScRsp = 30158;
+	CmdFightMatch3Type_FightMatch3DataScRsp = 30125;
+	CmdFightMatch3Type_JAMEPLPKJBB = 30168;
+	CmdFightMatch3Type_MOHONNNIKGF = 30119;
+	CmdFightMatch3Type_LAEHKICDGPJ = 30178;
+	CmdFightMatch3Type_FightMatch3SoloDataScRsp = 30164;
+	CmdFightMatch3Type_EDHOJDAAGJL = 30183;
+	CmdFightMatch3Type_AEMOIILIOIF = 30161;
+	CmdFightMatch3Type_FightMatch3ForceUpdateNotify = 30139;
+	CmdFightMatch3Type_FightMatch3SoloAnimEndScRsp = 30112;
+	CmdFightMatch3Type_HBHIODOPENH = 30134;
+	CmdFightMatch3Type_FightMatch3ChatScNotify = 30142;
+	CmdFightMatch3Type_CFIDMGINPBI = 30116;
+	CmdFightMatch3Type_GBPLKHLHFDB = 30121;
+	CmdFightMatch3Type_FightMatch3UseItemScRsp = 30108;
+	CmdFightMatch3Type_FightMatch3SoloPreTurnEndScRsp = 30104;
+	CmdFightMatch3Type_FightMatch3TurnStartScNotify = 30175;
+}
+
+message DFLIHGGNBDB {
+	uint32 row = 12; // offset: 24
+	uint32 EDIGEANPBNL = 13; // offset: 28
+}
+
+enum DIKCFAICOHB {
+	DIKCFAICOHB_EJDLGGAGBEA = 0;
+	DIKCFAICOHB_PINPGFJKDPH = 1;
+	DIKCFAICOHB_EMPKDJGKDBI = 2;
+	DIKCFAICOHB_AOIOAKGHGHG = 3;
+	DIKCFAICOHB_ECEHHJJGFED = 4;
+	DIKCFAICOHB_GHBHAPNLJEJ = 5;
+}
+
+message DLBGONGJBNC {
+	uint32 FMEHKPKHGJA = 2; // offset: 32
+	uint32 PNGHFKLCNBE = 5; // offset: 28
+	uint32 ODFEDCPLNEM = 7; // offset: 24
+	uint32 DGGCFDKJDPO = 12; // offset: 36
+}
+
+message EEFDJLPDCFO {
+	uint32 PBEPLKMNAKF = 2; // offset: 28
+	uint32 DPJLMFBADMM = 4; // offset: 24
+	uint32 EMLBKOKEAOH = 10; // offset: 32
+}
+
+enum FDICBBEGKEO {
+	FDICBBEGKEO_NLCDGIPGFDJ = 0;
+	FDICBBEGKEO_EHNBEPDHBKC = 1;
+	FDICBBEGKEO_CBLMHGEJLMP = 2;
+	FDICBBEGKEO_NHEMIPGKGCJ = 3;
+}
+
+message FHAPLEMDKGN {
+}
+
+enum FNCFIHAFGGN {
+	FNCFIHAFGGN_NLCDGIPGFDJ = 0;
+	FNCFIHAFGGN_HBHCKEGINEN = 1;
+	FNCFIHAFGGN_DDJCFCLNCIM = 2;
+}
+
+message FOJDKLCHCKG {
+	uint32 NAOKGNGBHAO = 2; // offset: 44
+	IPGIJFNAFLC KNBGBCEBLDF = 4; // offset: 16
+	int32 HIJJDGBOMDL = 5; // offset: 40
+	uint64 FIKHCEBOPMI = 7; // offset: 56
+	repeated LPHCHEJEMPD BFCGOELLNIP = 9; // offset: 24
+	IFFKDFPJECM cur_state = 12; // offset: 48
+}
+
+message FightMatch3ChatScNotify {
+	uint32 PIFNIJHPLJC = 4; // offset: 28
+	uint32 OBJCJGPIHAD = 7; // offset: 24
+}
+
+message FightMatch3ChatScRsp {
+	uint32 retcode = 3; // offset: 24
+	uint32 PIFNIJHPLJC = 4; // offset: 28
+}
+
+message FightMatch3DataScRsp {
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 2; // offset: 16
+	JECNOELJLKO data = 6; // offset: 24
+	uint32 retcode = 14; // offset: 40
+}
+
+message FightMatch3ForceUpdateNotify {
+	JECNOELJLKO data = 10; // offset: 16
+}
+
+message FightMatch3OpponentDataScNotify {
+	uint32 score = 2; // offset: 48
+	NHHJAONHDDG state = 3; // offset: 32
+	uint32 hp = 10; // offset: 40
+	uint32 IFOCJCOCDBH = 11; // offset: 36
+	uint32 BPBMJBIDIIC = 13; // offset: 44
+	repeated DLBGONGJBNC KJPFENPNFBP = 15; // offset: 24
+}
+
+message FightMatch3RoyaleDataScRsp {
+	FOJDKLCHCKG KHEFAHCPHBL = 8; // offset: 24
+	uint32 retcode = 11; // offset: 40
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 13; // offset: 32
+}
+
+message FightMatch3RoyaleDataUpdateNotify {
+	DIKCFAICOHB reason = 5; // offset: 32
+	FOJDKLCHCKG KHEFAHCPHBL = 14; // offset: 24
+}
+
+message FightMatch3RoyaleRankUpdateNotify {
+	uint32 NAOKGNGBHAO = 9; // offset: 32
+	repeated LPHCHEJEMPD BFCGOELLNIP = 15; // offset: 16
+}
+
+message FightMatch3SoloAnimEndScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message FightMatch3SoloDataScRsp {
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 3; // offset: 32
+	uint32 retcode = 4; // offset: 40
+	BHMEPBAGOFF data = 15; // offset: 24
+}
+
+message FightMatch3SoloDataUpdateNotify {
+	CKGOFMFNIPP reason = 9; // offset: 32
+	BHMEPBAGOFF data = 10; // offset: 16
+}
+
+message FightMatch3SoloPreTurnEndScRsp {
+	uint32 retcode = 9; // offset: 24
+}
+
+message FightMatch3SoloSwapNotify {
+	IPGIJFNAFLC LLCPOHADBKB = 6; // offset: 24
+	OKIPFIENKIF PBAPICNDIDN = 10; // offset: 32
+}
+
+message FightMatch3SoloUseItemNotify {
+	PKBDAKMLDMC PBAPICNDIDN = 1; // offset: 16
+	IPGIJFNAFLC LLCPOHADBKB = 10; // offset: 24
+}
+
+message FightMatch3StartCountDownScNotify {
+	JECNOELJLKO data = 12; // offset: 16
+}
+
+message FightMatch3SwapScRsp {
+	IPGIJFNAFLC IHBOHKKCGCP = 2; // offset: 16
+	uint32 EAFFACCBAAA = 3; // offset: 40
+	uint32 retcode = 5; // offset: 32
+	bool BDCNNNNLLHJ = 9; // offset: 36
+}
+
+message FightMatch3TurnEndScNotify {
+	JECNOELJLKO JMIOMLJDCNN = 3; // offset: 32
+	JECNOELJLKO ENJMGOJPNOE = 14; // offset: 24
+}
+
+message FightMatch3TurnStartScNotify {
+	JECNOELJLKO EHIELLKLPCK = 10; // offset: 24
+}
+
+message FightMatch3UseItemScRsp {
+	IPGIJFNAFLC LLCPOHADBKB = 1; // offset: 16
+	uint32 retcode = 3; // offset: 32
+	uint32 LLAADJHJMBH = 12; // offset: 36
+}
+
+message GMGABLBKJMC {
+	FDICBBEGKEO buff_type = 7; // offset: 28
+	uint32 param = 10; // offset: 24
+}
+
+enum IFFKDFPJECM {
+	IFFKDFPJECM_KFDDOBPEJMF = 0;
+	IFFKDFPJECM_DOJNFGNKFGP = 1;
+	IFFKDFPJECM_BBCFLEDLBBB = 2;
+	IFFKDFPJECM_GOIMMOHGCIH = 3;
+	IFFKDFPJECM_ADJOCBGIJHP = 4;
+}
+
+message IPGIJFNAFLC {
+	repeated MNOOMFIAFPF op_list = 1; // offset: 32
+	repeated uint32 MNCPGDNOIAM = 2; // offset: 56
+	uint32 DJJODJAAIGA = 3; // offset: 88
+	uint32 JJJBLAJDEDC = 4; // offset: 76
+	LAJGLHCCNED JDFPKAMFHAP = 5; // offset: 48
+	uint32 IGDOFKLAILH = 6; // offset: 92
+	repeated DLBGONGJBNC item_list = 7; // offset: 40
+	uint32 energy_info = 8; // offset: 80
+	uint32 score_id = 9; // offset: 84
+	NHHJAONHDDG LHNIIOHNIFL = 11; // offset: 72
+	uint32 LIKMIMCFPKC = 12; // offset: 96
+	uint32 cur_hp = 13; // offset: 64
+	repeated GMGABLBKJMC buff_list = 14; // offset: 24
+	uint32 FHEFKOGAMHK = 15; // offset: 68
+}
+
+message JBILGCPCJOD {
+	uint32 DHJANOFGDNP = 1; // offset: 48
+	uint32 score_id = 2; // offset: 36
+	repeated DLBGONGJBNC item_list = 3; // offset: 16
+	uint32 IFOCJCOCDBH = 5; // offset: 40
+	uint32 OPHFDHGBLPJ = 6; // offset: 32
+	uint32 hp = 11; // offset: 44
+	bool BKFONKNLCHP = 12; // offset: 60
+	uint32 rank = 13; // offset: 52
+	NHHJAONHDDG state = 14; // offset: 56
+}
+
+message JECNOELJLKO {
+	int32 HIJJDGBOMDL = 2; // offset: 56
+	uint64 FIKHCEBOPMI = 3; // offset: 48
+	PFPHJFEGDAA cur_state = 4; // offset: 64
+	IPGIJFNAFLC KNBGBCEBLDF = 5; // offset: 16
+	repeated uint32 LPOPKEGOLHB = 7; // offset: 32
+	repeated JBILGCPCJOD BFCGOELLNIP = 11; // offset: 24
+	uint32 BPBMJBIDIIC = 13; // offset: 60
+}
+
+message JFJDMGOMJOF {
+	IPGIJFNAFLC KGOCFEINBIN = 2; // offset: 24
+	ABLCCPHIOMI JNIEIKOKBGK = 8; // offset: 32
+}
+
+message KLGJDILNNDH {
+	uint32 score_id = 1; // offset: 48
+	LAJGLHCCNED JDFPKAMFHAP = 4; // offset: 16
+	repeated DLBGONGJBNC item_list = 5; // offset: 24
+	bool ANMLAPADELO = 7; // offset: 53
+	uint32 OPHFDHGBLPJ = 8; // offset: 44
+	uint32 IGDOFKLAILH = 9; // offset: 68
+	uint32 DHJANOFGDNP = 10; // offset: 64
+	uint32 energy_info = 11; // offset: 40
+	bool OCLBMMNNMFC = 13; // offset: 52
+	uint32 FHEFKOGAMHK = 14; // offset: 56
+	NHHJAONHDDG LHNIIOHNIFL = 15; // offset: 60
+}
+
+message LPHCHEJEMPD {
+	uint32 score_id = 1; // offset: 24
+	uint32 rank = 6; // offset: 32
+	uint32 DHJANOFGDNP = 7; // offset: 36
+	NHHJAONHDDG state = 12; // offset: 28
+}
+
+message MNOOMFIAFPF {
+	FNCFIHAFGGN op_type = 11; // offset: 24
+	uint32 MPKCANFHCHG = 15; // offset: 28
+}
+
+enum NHHJAONHDDG {
+	NHHJAONHDDG_LCNJHOKLMPN = 0;
+	NHHJAONHDDG_OFGBFHHIFAM = 1;
+	NHHJAONHDDG_JJBEPKLOLCP = 2;
+	NHHJAONHDDG_OPCKNBHNBOA = 3;
+}
+
+message OKIPFIENKIF {
+	repeated JFJDMGOMJOF DGKLOCJHKNH = 3; // offset: 40
+	DFLIHGGNBDB OPMGDNNAEJF = 5; // offset: 16
+	uint32 EAFFACCBAAA = 6; // offset: 48
+	DFLIHGGNBDB GGCMCDDGEIB = 13; // offset: 24
+}
+
+enum PFPHJFEGDAA {
+	PFPHJFEGDAA_HGFFCFFBGDB = 0;
+	PFPHJFEGDAA_FOFLFMBMOMA = 1;
+	PFPHJFEGDAA_DHHGMKAOALN = 2;
+	PFPHJFEGDAA_CGKCEONNAGM = 3;
+	PFPHJFEGDAA_MJLCFPEKNPA = 4;
+	PFPHJFEGDAA_NAIHAJOLEID = 5;
+}
+
+message PKBDAKMLDMC {
+	repeated DFLIHGGNBDB GNABNEDKPHH = 5; // offset: 32
+	uint32 MMLNAMPFAKA = 8; // offset: 40
+	repeated JFJDMGOMJOF DGKLOCJHKNH = 9; // offset: 24
+	uint32 use_item_id = 10; // offset: 44
+}
+
+message PLHPJCKDEDI {
+}

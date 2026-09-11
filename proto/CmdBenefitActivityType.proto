@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BenefitData {
+	uint32 JALHKMEOOPN = 8; // offset: 32
+	uint32 status = 10; // offset: 40
+	OPGKKPEDKCL config = 13; // offset: 16
+	uint32 level = 14; // offset: 36
+}
+
+enum CmdBenefitActivityType {
+	CmdBenefitActivityType_NLCDGIPGFDJ = 0;
+	CmdBenefitActivityType_TakeBenefitActivityRewardScRsp = 4881;
+	CmdBenefitActivityType_GetBenefitActivityInfoScRsp = 4856;
+	CmdBenefitActivityType_TakeBenefitActivityRewardCsReq = 4870;
+	CmdBenefitActivityType_JoinBenefitActivityScRsp = 4882;
+	CmdBenefitActivityType_GetBenefitActivityInfoCsReq = 4884;
+	CmdBenefitActivityType_JoinBenefitActivityCsReq = 4879;
+}
+
+message GetBenefitActivityInfoCsReq {
+}
+
+message GetBenefitActivityInfoScRsp {
+	uint32 retcode = 10; // offset: 36
+	repeated BenefitData HNFFFDEGOEB = 14; // offset: 24
+	bool GHHLLCEMAOP = 15; // offset: 32
+}
+
+message ICGOLPHCKIL {
+	ItemList item_list = 3; // offset: 16
+	uint32 level = 7; // offset: 32
+}
+
+message JoinBenefitActivityCsReq {
+	uint32 JALHKMEOOPN = 5; // offset: 24
+}
+
+message JoinBenefitActivityScRsp {
+	uint32 JALHKMEOOPN = 1; // offset: 24
+	uint32 retcode = 3; // offset: 28
+}
+
+message LuckyKoiInfoList {
+	string LHAPDMPPOMP = 4; // offset: 24
+	uint32 head_icon = 8; // offset: 40
+	string ELBEDNGJKDD = 15; // offset: 16
+}
+
+message OIEAMBAGHBK {
+	uint32 JALHKMEOOPN = 1; // offset: 32
+	ItemList item_list = 2; // offset: 24
+	bool OOFKOIMLCPA = 7; // offset: 36
+}
+
+message OKKEJHPLMLA {
+	bool OOFKOIMLCPA = 3; // offset: 28
+	uint32 JALHKMEOOPN = 15; // offset: 24
+}
+
+message OPGKKPEDKCL {
+	repeated ICGOLPHCKIL EGGJFCELHNK = 3; // offset: 24
+	uint64 begin_time = 4; // offset: 56
+	uint64 end_time = 6; // offset: 40
+	repeated LuckyKoiInfoList JEMFDEEFPFM = 8; // offset: 16
+	uint64 EGGJMKCABEF = 11; // offset: 64
+	uint32 MACLJJCIDEJ = 15; // offset: 48
+}
+
+message TakeBenefitActivityRewardCsReq {
+	bool LJEGPIJGMLG = 11; // offset: 32
+	repeated OKKEJHPLMLA switch_list = 14; // offset: 24
+}
+
+message TakeBenefitActivityRewardScRsp {
+	ItemList JJOKIIKIHNL = 4; // offset: 32
+	uint32 retcode = 5; // offset: 40
+	repeated OIEAMBAGHBK switch_list = 15; // offset: 16
+}

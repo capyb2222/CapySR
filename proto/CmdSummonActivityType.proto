@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdSummonActivityType {
+	CmdSummonActivityType_NLCDGIPGFDJ = 0;
+	CmdSummonActivityType_EnterSummonActivityStageScRsp = 7569;
+	CmdSummonActivityType_GetSummonActivityDataCsReq = 7562;
+	CmdSummonActivityType_EnterSummonActivityStageCsReq = 7570;
+	CmdSummonActivityType_GetSummonActivityDataScRsp = 7563;
+	CmdSummonActivityType_SummonActivityBattleEndScNotify = 7564;
+}
+
+message EnterSummonActivityStageCsReq {
+	uint32 DBKHHCGGKNN = 4; // offset: 44
+	repeated OOAJJMEGIFO avatar_list = 9; // offset: 16
+	OOAJJMEGIFO NLJCJIGLGHE = 12; // offset: 32
+	uint32 group_id = 15; // offset: 40
+}
+
+message EnterSummonActivityStageScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 DBKHHCGGKNN = 4; // offset: 36
+	SceneBattleInfo battle_info = 5; // offset: 16
+	uint32 group_id = 9; // offset: 40
+}
+
+message GetSummonActivityDataCsReq {
+}
+
+message GetSummonActivityDataScRsp {
+	repeated ILHFAFGOJAC IDLCLMMAIHP = 10; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+message ILHFAFGOJAC {
+	uint32 difficulty_level = 10; // offset: 24
+	uint32 star = 11; // offset: 32
+	uint32 group_id = 13; // offset: 28
+}
+
+message OOAJJMEGIFO {
+	AvatarType avatar_type = 3; // offset: 28
+	uint32 avatar_id = 13; // offset: 24
+}
+
+message SummonActivityBattleEndScNotify {
+	uint32 group_id = 1; // offset: 36
+	uint32 round = 5; // offset: 32
+	uint32 difficulty_level = 8; // offset: 24
+	uint32 star = 9; // offset: 28
+}

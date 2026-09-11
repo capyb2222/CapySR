@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ChangeScriptEmotionCsReq {
+	uint32 script_id = 1; // offset: 32
+	uint32 BLKFCFGMMBD = 2; // offset: 24
+	HeartDialEmotionType target_emotion_type = 12; // offset: 28
+}
+
+message ChangeScriptEmotionScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 script_id = 7; // offset: 28
+	HeartDialEmotionType emotion_type = 9; // offset: 24
+}
+
+enum CmdHeartdialType {
+	CmdHeartdialType_NLCDGIPGFDJ = 0;
+	CmdHeartdialType_GetHeartDialInfoScRsp = 6325;
+	CmdHeartdialType_HeartDialTraceScriptCsReq = 6315;
+	CmdHeartdialType_FinishEmotionDialoguePerformanceCsReq = 6358;
+	CmdHeartdialType_SubmitEmotionItemScRsp = 6316;
+	CmdHeartdialType_ChangeScriptEmotionScRsp = 6375;
+	CmdHeartdialType_GetHeartDialInfoCsReq = 6334;
+	CmdHeartdialType_ChangeScriptEmotionCsReq = 6305;
+	CmdHeartdialType_SubmitEmotionItemCsReq = 6360;
+	CmdHeartdialType_HeartDialScriptChangeScNotify = 6383;
+	CmdHeartdialType_HeartDialTraceScriptScRsp = 6342;
+	CmdHeartdialType_FinishEmotionDialoguePerformanceScRsp = 6356;
+}
+
+message EAJEMNNNEBM {
+	uint32 CNHLAAHDPGA = 6; // offset: 28
+	uint32 LLIOEMOBFGD = 12; // offset: 24
+}
+
+message FinishEmotionDialoguePerformanceCsReq {
+	uint32 script_id = 3; // offset: 24
+	uint32 dialogue_id = 4; // offset: 32
+	uint32 BLKFCFGMMBD = 10; // offset: 28
+}
+
+message FinishEmotionDialoguePerformanceScRsp {
+	ItemList reward_list = 4; // offset: 24
+	uint32 retcode = 6; // offset: 36
+	uint32 dialogue_id = 9; // offset: 32
+	uint32 script_id = 14; // offset: 40
+}
+
+message GetHeartDialInfoCsReq {
+}
+
+message GetHeartDialInfoScRsp {
+	uint32 retcode = 1; // offset: 52
+	repeated HeartDialDialogueInfo dialogue_info_list = 3; // offset: 16
+	repeated HeartDialScriptInfo script_info_list = 4; // offset: 32
+	repeated EAJEMNNNEBM EBLMNLBBFNL = 9; // offset: 40
+	HeartDialUnlockStatus unlock_status = 14; // offset: 48
+}
+
+message HeartDialDialogueInfo {
+	uint32 dialogue_id = 9; // offset: 28
+	bool GDPHOIMONLN = 13; // offset: 24
+}
+
+enum HeartDialEmotionType {
+	HEART_DIAL_EMOTION_TYPE_PEACE = 0;
+	HEART_DIAL_EMOTION_TYPE_ANGER = 1;
+	HEART_DIAL_EMOTION_TYPE_HAPPY = 2;
+	HEART_DIAL_EMOTION_TYPE_SAD = 3;
+}
+
+message HeartDialScriptChangeScNotify {
+	repeated EAJEMNNNEBM EBLMNLBBFNL = 7; // offset: 16
+	repeated HeartDialDialogueInfo changed_dialogue_info_list = 8; // offset: 32
+	HeartDialUnlockStatus unlock_status = 11; // offset: 48
+	repeated HeartDialScriptInfo changed_script_info_list = 12; // offset: 24
+}
+
+message HeartDialScriptInfo {
+	bool EEKCKFGHGEH = 1; // offset: 25
+	HeartDialStepType step = 3; // offset: 36
+	HeartDialEmotionType cur_emotion_type = 7; // offset: 28
+	uint32 script_id = 8; // offset: 32
+	bool LHCOJIEBFFM = 13; // offset: 24
+}
+
+enum HeartDialStepType {
+	HeartDialStepType_COEEJALELPF = 0;
+	HeartDialStepType_BADPBGFJPNN = 1;
+	HeartDialStepType_game_lock_info = 2;
+	HeartDialStepType_CCJMKNNHKKE = 3;
+	HeartDialStepType_BEJEBBNFGPM = 4;
+	HeartDialStepType_NGNFOIHNLMJ = 5;
+}
+
+message HeartDialTraceScriptCsReq {
+	EAJEMNNNEBM NDPMEMLJGCK = 2; // offset: 16
+}
+
+message HeartDialTraceScriptScRsp {
+	uint32 retcode = 6; // offset: 32
+	EAJEMNNNEBM NDPMEMLJGCK = 11; // offset: 16
+}
+
+enum HeartDialUnlockStatus {
+	HEART_DIAL_UNLOCK_STATUS_LOCK = 0;
+	HEART_DIAL_UNLOCK_STATUS_UNLOCK_SINGLE = 1;
+	HEART_DIAL_UNLOCK_STATUS_UNLOCK_ALL = 2;
+}
+
+message SubmitEmotionItemCsReq {
+	ItemList item_list = 13; // offset: 16
+	uint32 script_id = 15; // offset: 32
+}
+
+message SubmitEmotionItemScRsp {
+	uint32 retcode = 6; // offset: 28
+	uint32 script_id = 12; // offset: 24
+}

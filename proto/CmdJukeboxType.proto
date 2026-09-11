@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdJukeboxType {
+	CmdJukeboxType_NLCDGIPGFDJ = 0;
+	CmdJukeboxType_GetJukeboxDataCsReq = 3134;
+	CmdJukeboxType_UnlockBackGroundMusicCsReq = 3160;
+	CmdJukeboxType_PlayBackGroundMusicCsReq = 3105;
+	CmdJukeboxType_PlayBackGroundMusicScRsp = 3175;
+	CmdJukeboxType_JDOHJBCOMKN = 3158;
+	CmdJukeboxType_GetJukeboxDataScRsp = 3125;
+	CmdJukeboxType_UnlockBackGroundMusicScRsp = 3116;
+	CmdJukeboxType_CKILMDLNFAP = 3156;
+}
+
+message EGDFPDHNOKO {
+	uint32 JKFCKJNHLHI = 6; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message FKLMGEFILDI {
+	uint32 JKFCKJNHLHI = 4; // offset: 24
+}
+
+message GetJukeboxDataCsReq {
+}
+
+message GetJukeboxDataScRsp {
+	repeated LHHGCDLCJDA IOKAJIBHLMP = 4; // offset: 16
+	uint32 retcode = 10; // offset: 40
+	MNCBEDBDDHL GFFOBALDBPM = 12; // offset: 32
+}
+
+message LHHGCDLCJDA {
+	uint32 group_id = 5; // offset: 28
+	bool BIMDKNLMICG = 8; // offset: 32
+	uint32 id = 11; // offset: 24
+}
+
+message PlayBackGroundMusicCsReq {
+	MNCBEDBDDHL IKJNIKIGFLF = 13; // offset: 16
+}
+
+message PlayBackGroundMusicScRsp {
+	MNCBEDBDDHL GFFOBALDBPM = 13; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message UnlockBackGroundMusicCsReq {
+	repeated uint32 CHODMKMCLLL = 10; // offset: 16
+}
+
+message UnlockBackGroundMusicScRsp {
+	repeated LHHGCDLCJDA IOKAJIBHLMP = 1; // offset: 24
+	repeated uint32 BPFGBEBPEDP = 10; // offset: 16
+	uint32 retcode = 11; // offset: 40
+}

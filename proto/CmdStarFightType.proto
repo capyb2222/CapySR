@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdStarFightType {
+	CmdStarFightType_NLCDGIPGFDJ = 0;
+	CmdStarFightType_StartStarFightLevelScRsp = 7169;
+	CmdStarFightType_GetStarFightDataCsReq = 7162;
+	CmdStarFightType_StarFightDataChangeNotify = 7164;
+	CmdStarFightType_StartStarFightLevelCsReq = 7170;
+	CmdStarFightType_GetStarFightDataScRsp = 7163;
+}
+
+message EBGJAKBKPAN {
+	AvatarType avatar_type = 6; // offset: 24
+	uint32 avatar_id = 11; // offset: 28
+}
+
+message GetStarFightDataCsReq {
+}
+
+message GetStarFightDataScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated JFGCABMMKAB JJIDNKDKMLE = 14; // offset: 16
+}
+
+message JFGCABMMKAB {
+	uint32 KDNBADEGDNK = 4; // offset: 28
+	uint32 group_id = 5; // offset: 32
+	uint32 CEOEOEBOLNN = 9; // offset: 40
+	bool NDBGPGODBPH = 12; // offset: 24
+	uint32 EBDDDCBKPAC = 13; // offset: 36
+}
+
+message StarFightDataChangeNotify {
+	JFGCABMMKAB KDKKNFGPNAB = 5; // offset: 24
+	uint32 group_id = 10; // offset: 32
+}
+
+message StartStarFightLevelCsReq {
+	uint32 DBKHHCGGKNN = 9; // offset: 36
+	repeated EBGJAKBKPAN avatar_list = 11; // offset: 24
+	uint32 group_id = 13; // offset: 32
+}
+
+message StartStarFightLevelScRsp {
+	uint32 DBKHHCGGKNN = 1; // offset: 40
+	uint32 group_id = 8; // offset: 36
+	uint32 retcode = 11; // offset: 32
+	SceneBattleInfo battle_info = 12; // offset: 24
+}

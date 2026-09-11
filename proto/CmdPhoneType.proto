@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+
+enum CmdPhoneType {
+	CmdPhoneType_NLCDGIPGFDJ = 0;
+	CmdPhoneType_SelectPhoneThemeCsReq = 5116;
+	CmdPhoneType_UnlockPhoneCaseScNotify = 5142;
+	CmdPhoneType_UnlockPhoneThemeScNotify = 5156;
+	CmdPhoneType_GetPhoneDataCsReq = 5134;
+	CmdPhoneType_SelectPhoneThemeScRsp = 5158;
+	CmdPhoneType_GetPhoneDataScRsp = 5125;
+	CmdPhoneType_SelectPhoneCaseCsReq = 5183;
+	CmdPhoneType_SelectChatBubbleScRsp = 5175;
+	CmdPhoneType_SelectChatBubbleCsReq = 5105;
+	CmdPhoneType_UnlockChatBubbleScNotify = 5160;
+	CmdPhoneType_SelectPhoneCaseScRsp = 5115;
+}
+
+message GetPhoneDataCsReq {
+}
+
+message GetPhoneDataScRsp {
+	uint32 cur_chat_bubble = 5; // offset: 60
+	repeated uint32 owned_phone_cases = 6; // offset: 40
+	uint32 cur_phone_theme = 10; // offset: 48
+	repeated uint32 owned_chat_bubbles = 11; // offset: 16
+	uint32 cur_phone_case = 12; // offset: 56
+	repeated uint32 owned_phone_themes = 14; // offset: 24
+	uint32 retcode = 15; // offset: 52
+}
+
+message SelectChatBubbleCsReq {
+	uint32 bubble_id = 7; // offset: 24
+}
+
+message SelectChatBubbleScRsp {
+	uint32 retcode = 10; // offset: 28
+	uint32 NGJMMMBJFHD = 11; // offset: 24
+	uint32 cur_chat_bubble = 12; // offset: 32
+}
+
+message SelectPhoneCaseCsReq {
+	uint32 phone_case_id = 4; // offset: 24
+}
+
+message SelectPhoneCaseScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 NAMPHKPIOBA = 8; // offset: 24
+	uint32 cur_phone_case = 11; // offset: 28
+}
+
+message SelectPhoneThemeCsReq {
+	uint32 theme_id = 1; // offset: 24
+}
+
+message SelectPhoneThemeScRsp {
+	uint32 NNOHELHPJOM = 5; // offset: 24
+	uint32 cur_phone_theme = 6; // offset: 28
+	uint32 retcode = 7; // offset: 32
+}
+
+message UnlockChatBubbleScNotify {
+	uint32 bubble_id = 4; // offset: 24
+}
+
+message UnlockPhoneCaseScNotify {
+	uint32 phone_case_id = 14; // offset: 24
+}
+
+message UnlockPhoneThemeScNotify {
+	uint32 theme_id = 5; // offset: 24
+}

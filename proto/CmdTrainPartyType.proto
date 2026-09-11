@@ -1,0 +1,623 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AAAKPGJDCFJ {
+	uint32 OOCOFCBJOJD = 2; // offset: 48
+	uint32 EAFFACCBAAA = 5; // offset: 56
+	repeated uint32 HFJBMJHAHPE = 9; // offset: 16
+	repeated KICEGHDKACP CFHOJCBDFPE = 13; // offset: 24
+	uint32 DMAAMCIPPAM = 14; // offset: 52
+	repeated LMKECAPDMAC skill_list = 15; // offset: 40
+}
+
+message AHHMLENLDEF {
+	ECDINHEHKOJ KNMADMBFEDB = 3; // offset: 40
+	CAIHACOKAJO KIOEJHHABKC = 4; // offset: 24
+	BGPPDMIPDDH category = 5; // offset: 84
+	repeated BDGGEHGLFAC JHFBMEKEMMK = 8; // offset: 56
+	repeated ELBILFGFDHA EEOEFLKFNIM = 9; // offset: 32
+	repeated CPKCMMPFCGE LICJODMHBHA = 10; // offset: 64
+	repeated DKIGCLFPGFO COBENBOBPKD = 12; // offset: 48
+	uint32 score_id = 13; // offset: 80
+	uint32 CELHPMMLHGL = 14; // offset: 72
+	uint32 total_score = 15; // offset: 76
+}
+
+message AIOCPFLCNLB {
+	uint32 area_id = 2; // offset: 36
+	uint32 GKENFCLLLJC = 10; // offset: 40
+	repeated IDBCDHIOKEG FOOMIPJJKOG = 13; // offset: 16
+	uint32 progress = 15; // offset: 32
+}
+
+message AMEJEFBKPCH {
+	LHLBGJLFFKK event_type = 4; // offset: 32
+	uint32 event_id = 8; // offset: 36
+	repeated MDJAPHPOABA KFNMIEMBJGD = 15; // offset: 16
+}
+
+message AreaStepInfo {
+	uint32 GKENFCLLLJC = 3; // offset: 32
+	repeated IDBCDHIOKEG BKKLGCLOBCD = 7; // offset: 24
+}
+
+message BAKFOMADBCJ {
+	uint32 BKPFHFGIEPE = 5; // offset: 24
+}
+
+message BDGGEHGLFAC {
+	uint32 KLKAIFEDLNK = 2; // offset: 24
+	TrainPartyMtSkillBriefType skill_type = 9; // offset: 32
+	uint32 skill_id = 13; // offset: 28
+}
+
+enum BGPPDMIPDDH {
+	BGPPDMIPDDH_IIHEIDCFALE = 0;
+	BGPPDMIPDDH_ODFNPPACBCI = 1;
+	BGPPDMIPDDH_ABNPBGJGAHD = 2;
+	BGPPDMIPDDH_HCFKOJHOLIK = 3;
+	BGPPDMIPDDH_BCDLKDKDAFH = 4;
+	BGPPDMIPDDH_GIOFBNENIJM = 5;
+	BGPPDMIPDDH_MKMJJPHDOBH = 6;
+	BGPPDMIPDDH_KOGGGJLBHEN = 7;
+	BGPPDMIPDDH_NNPJFBFILEL = 8;
+}
+
+message BHBJLGFHLHM {
+	uint32 LNLOHDJIFPK = 4; // offset: 44
+	IEDLKIGJLEM EMGMFOBLAFN = 5; // offset: 24
+	bool DOFBGHGHDJA = 12; // offset: 40
+	ECDINHEHKOJ KNMADMBFEDB = 13; // offset: 16
+}
+
+message BHOPIKPAMPJ {
+	AreaDynamicInfo OOFPPPCEIDP = 6; // offset: 24
+	uint32 area_id = 15; // offset: 32
+}
+
+message CAIHACOKAJO {
+	uint32 ODOBGIEGGEO = 1; // offset: 40
+	repeated uint32 AEGPLACJFIO = 3; // offset: 32
+	ItemList ELMCGFMGILI = 13; // offset: 16
+}
+
+message CBJGONHJAAC {
+	uint32 area_id = 3; // offset: 32
+	repeated uint32 FOOMIPJJKOG = 8; // offset: 24
+}
+
+message CEFEIJFPCKE {
+	repeated uint32 switch_list = 3; // offset: 24
+	uint32 MNLAMKJIAOC = 14; // offset: 32
+}
+
+message CKPNGMLENFA {
+	repeated uint32 LKNGKJCFFBH = 13; // offset: 16
+}
+
+message CNFPBAJNIEL {
+	uint32 JBEEKBJMIIA = 8; // offset: 28
+	uint32 area_id = 12; // offset: 24
+}
+
+message CNLAOMCKFKD {
+	uint32 unique_id = 4; // offset: 24
+	uint32 NDEBMEGNCKN = 6; // offset: 32
+	uint32 param = 11; // offset: 36
+	uint32 GDNEHLEOMOM = 14; // offset: 28
+}
+
+message CPKCMMPFCGE {
+	uint32 unique_id = 4; // offset: 32
+	repeated BDGGEHGLFAC PBFNPODNDID = 12; // offset: 24
+	uint32 DDAGDNNDCDI = 13; // offset: 36
+}
+
+enum CmdTrainPartyType {
+	CmdTrainPartyType_NLCDGIPGFDJ = 0;
+	CmdTrainPartyType_TrainPartyGamePlayStartCsReq = 8081;
+	CmdTrainPartyType_TrainPartyTakeBuildLevelAwardScRsp = 8049;
+	CmdTrainPartyType_TrainPartyGetDataScRsp = 8025;
+	CmdTrainPartyType_TrainPartyHandlePendingActionScRsp = 8039;
+	CmdTrainPartyType_TrainPartyBuildDiyScRsp = 8064;
+	CmdTrainPartyType_TrainPartyBuildDiyCsReq = 8068;
+	CmdTrainPartyType_TrainPartyAddBuildDynamicBuffCsReq = 8082;
+	CmdTrainPartyType_TrainPartyBuildStartStepScRsp = 8008;
+	CmdTrainPartyType_TrainPartyBuildSelfDisplayAreaDiyScRsp = 8047;
+	CmdTrainPartyType_IEGOOFAOIDK = 8078;
+	CmdTrainPartyType_TrainPartyBuildStartStepCsReq = 8061;
+	CmdTrainPartyType_AGHNFFMFIOE = 8032;
+	CmdTrainPartyType_TrainPartyMoveScNotify = 8060;
+	CmdTrainPartyType_CDDGCNFBFMI = 8003;
+	CmdTrainPartyType_TrainPartyGamePlayStartScRsp = 8051;
+	CmdTrainPartyType_TrainPartyBuildRoomScNotify = 8084;
+	CmdTrainPartyType_TrainPartyUseCardScRsp = 8075;
+	CmdTrainPartyType_TrainPartyGamePlaySettleNotify = 8093;
+	CmdTrainPartyType_TrainPartySetBadgeAutoFillCsReq = 8026;
+	CmdTrainPartyType_GFKCHNBEIIK = 8017;
+	CmdTrainPartyType_TrainPartyEnterCsReq = 8011;
+	CmdTrainPartyType_TrainPartySetBadgeAutoFillScRsp = 8080;
+	CmdTrainPartyType_TrainPartyGetDataCsReq = 8034;
+	CmdTrainPartyType_TrainPartyBuildSelfDisplayAreaDiyScNotify = 8070;
+	CmdTrainPartyType_TrainPartySettleNotify = 8058;
+	CmdTrainPartyType_TrainPartyUseCardCsReq = 8005;
+	CmdTrainPartyType_TrainPartyTakeBuildLevelAwardCsReq = 8022;
+	CmdTrainPartyType_OBHINPCABDB = 8029;
+	CmdTrainPartyType_TrainPartyHandlePendingActionCsReq = 8042;
+	CmdTrainPartyType_TrainPartySyncUpdateScNotify = 8083;
+	CmdTrainPartyType_TrainPartyBuildingUpdateNotify = 8021;
+	CmdTrainPartyType_TrainPartyBuildSelfDisplayAreaDiyCsReq = 8096;
+	CmdTrainPartyType_TrainPartyLeaveCsReq = 8038;
+}
+
+message DBGHCHPONOH {
+	uint32 retcode = 7; // offset: 24
+}
+
+message DJBJMHKMOMB {
+	BGPPDMIPDDH JAPPKIFAHPH = 1; // offset: 24
+	uint32 level = 4; // offset: 28
+}
+
+message DJKACFOFFAH {
+	repeated DKIGCLFPGFO COBENBOBPKD = 3; // offset: 24
+	repeated BDGGEHGLFAC CIKDPHGPIGK = 6; // offset: 16
+	uint32 OENPDHNALLA = 9; // offset: 48
+	repeated ELBILFGFDHA EEOEFLKFNIM = 12; // offset: 40
+}
+
+message DKIGCLFPGFO {
+	uint32 num = 2; // offset: 28
+	uint32 passenger_id = 12; // offset: 24
+}
+
+message DMFMMKJOCNJ {
+	LMKECAPDMAC CBKINAFEDJC = 9; // offset: 24
+}
+
+message DNIAFCGKEOP {
+	uint32 retcode = 3; // offset: 24
+	uint32 buff_id = 4; // offset: 28
+}
+
+message DOCMDCPJIEH {
+	uint32 star_num = 4; // offset: 28
+	uint32 BHEJCEJHLIB = 9; // offset: 24
+}
+
+message ECDINHEHKOJ {
+	uint32 GAIEFCFBNPA = 2; // offset: 32
+	uint32 EBENOMJDOOF = 5; // offset: 44
+	uint32 FJONJANIOIK = 10; // offset: 48
+	uint32 CGIGAAKLCKM = 11; // offset: 36
+	uint32 GMBDHLCGOBI = 12; // offset: 40
+	repeated uint32 BHKJIFAFHFN = 15; // offset: 16
+}
+
+message ELBILFGFDHA {
+	uint32 unique_id = 6; // offset: 28
+	uint32 passenger_id = 10; // offset: 24
+	uint32 GPIGNHPKFFB = 13; // offset: 32
+}
+
+message EMEEKFKDPFD {
+	repeated uint32 GHPFANGEMAN = 8; // offset: 24
+}
+
+message EPHKIEHONGB {
+	HJLECIIEKGI KAIDKOHAAGI = 2; // offset: 32
+	AAAKPGJDCFJ NIMJPDMFBHN = 5; // offset: 40
+	HOKCDEEABII LDAEAHOHMBB = 7; // offset: 16
+	PNLLCBKLBLE HEBCOOCAHOL = 12; // offset: 24
+	uint32 IDBDBICPBBG = 15; // offset: 56
+}
+
+message FAHBCNPNBNC {
+	uint32 NLJMJCGFFMD = 8; // offset: 24
+}
+
+message FDDJJCFNFOJ {
+	uint32 retcode = 12; // offset: 24
+}
+
+message FFMMFBMOBEG {
+	oneof MNLCHEJKDHO {
+		FAHBCNPNBNC CNGOKIKBGAJ = 88; // offset: 24
+		PPLKBFMCGLD LLCOCEJHKLD = 121; // offset: 24
+		AIOCPFLCNLB MFNELHNLNGI = 1762; // offset: 24
+		DOCMDCPJIEH FHBMGFFBOLP = 1667; // offset: 24
+		NFNKNNFJILK FCKNCNDEKAE = 583; // offset: 24
+		CNFPBAJNIEL NEFBGMNGKBN = 147; // offset: 24
+		IOJLDHECLIH BJMFDAFLNEC = 430; // offset: 24
+		BAKFOMADBCJ LCNJLPDDFEE = 1739; // offset: 24
+		IGNNGONLFAJ FPMNNMMPOKL = 1736; // offset: 24
+		OIIPJFDNPAH ODGCBIDOGND = 655; // offset: 24
+	}
+}
+
+message FLPMBEPBPGN {
+	repeated LMKECAPDMAC skill_list = 13; // offset: 24
+}
+
+message GAGGCODGDLB {
+	int64 time = 2; // offset: 32
+	uint32 prop_id = 7; // offset: 24
+}
+
+message GMCPCKHHPOB {
+	MKIIBIMNIGK src = 3; // offset: 36
+	oneof MNLCHEJKDHO {
+		IEDLKIGJLEM EMGMFOBLAFN = 166; // offset: 16
+		HBACEFIACOI BEEMEFMJEAA = 1554; // offset: 16
+		HPAGFCCNCHE BPNEOPLHEBK = 1463; // offset: 16
+		MJMPOLBBFNA OEDJEOAECAC = 344; // offset: 16
+		MEDCHLCIOEI JPBBDGJBHKN = 1616; // offset: 16
+		DMFMMKJOCNJ CNLGPLJFMKA = 1053; // offset: 16
+		BHBJLGFHLHM BELKGEJFOIF = 119; // offset: 16
+		FLPMBEPBPGN EFJKKFNNCGN = 1550; // offset: 16
+		MGOLOIGOAMB KEOOMCJAHMG = 651; // offset: 16
+		EMEEKFKDPFD HOHNMNGNCMG = 432; // offset: 16
+	}
+}
+
+message HBACEFIACOI {
+	repeated LMAKFCIHCMA EBAIMMGLGFO = 10; // offset: 24
+}
+
+message HJLECIIEKGI {
+	uint32 queue_position = 8; // offset: 32
+	oneof FGLIODAJFML {
+		AMEJEFBKPCH KLONPDNKBJF = 2043; // offset: 16
+		OGAFHKMJELA AKDJGIJMHPJ = 2019; // offset: 16
+		JEBGFIJPAPG LGBJDFHBIND = 2030; // offset: 16
+	}
+}
+
+message HLNFNACOFFF {
+	repeated KICEGHDKACP CFHOJCBDFPE = 2; // offset: 32
+	uint32 KHFHCLBHAPD = 7; // offset: 40
+	repeated CEFEIJFPCKE DICAIJCHICB = 10; // offset: 16
+}
+
+message HOKCDEEABII {
+	ECDINHEHKOJ KNMADMBFEDB = 5; // offset: 16
+	repeated CNLAOMCKFKD IEDKELDFHLP = 8; // offset: 32
+	uint32 FJPEIFMFPAN = 9; // offset: 40
+	uint32 IDCJPIJHNCL = 10; // offset: 44
+}
+
+message HPAGFCCNCHE {
+	HJLECIIEKGI FMIGOKIDKJL = 9; // offset: 24
+}
+
+message IAKFBFJCHFB {
+	uint32 unique_id = 5; // offset: 28
+	uint32 EAFFACCBAAA = 8; // offset: 32
+	uint32 card_id = 10; // offset: 24
+}
+
+message IDBCDHIOKEG {
+	uint32 DNLIGEOFPEL = 7; // offset: 28
+	JIIEHEBIBMO status = 10; // offset: 24
+}
+
+message IEDLKIGJLEM {
+	repeated IAKFBFJCHFB LONFKFCFDND = 2; // offset: 16
+}
+
+message IGNNGONLFAJ {
+	repeated CBJGONHJAAC area_list = 14; // offset: 16
+}
+
+message IOJLDHECLIH {
+	int64 time = 6; // offset: 32
+	uint32 diy_dynamic_id = 12; // offset: 24
+}
+
+message JCPMKHCPCPN {
+	uint32 GPIGNHPKFFB = 3; // offset: 24
+	uint32 DMJGCIIBPJK = 9; // offset: 28
+}
+
+message JEBGFIJPAPG {
+	uint32 JGHCFCGEIEO = 8; // offset: 32
+	repeated LMKECAPDMAC PBLDCDDFKIE = 15; // offset: 16
+}
+
+enum JIIEHEBIBMO {
+	JIIEHEBIBMO_CIJCGPBOFJP = 0;
+	JIIEHEBIBMO_BHPKNHCHOJF = 1;
+	JIIEHEBIBMO_HEIMDAGNDLO = 2;
+	JIIEHEBIBMO_MJHBDAKIJDP = 3;
+}
+
+message KDBJBEJPGOO {
+	repeated LMKECAPDMAC skill_list = 14; // offset: 24
+}
+
+message KICEGHDKACP {
+	uint32 FPKJONKIFLI = 9; // offset: 32
+	uint32 passenger_id = 11; // offset: 36
+	JCPMKHCPCPN GNBKDCHLDGL = 14; // offset: 16
+}
+
+enum LHLBGJLFFKK {
+	LHLBGJLFFKK_KGHKHLKDEBK = 0;
+	LHLBGJLFFKK_AKGDAFFKANP = 1;
+	LHLBGJLFFKK_KNJDGIMKJME = 2;
+	LHLBGJLFFKK_DODHMJBMHAF = 3;
+}
+
+message LMAKFCIHCMA {
+	uint32 passenger_id = 4; // offset: 32
+	JCPMKHCPCPN GNBKDCHLDGL = 7; // offset: 24
+}
+
+message LMKECAPDMAC {
+	uint32 max_level = 10; // offset: 24
+	uint32 skill_level = 12; // offset: 28
+	uint32 skill_id = 13; // offset: 32
+}
+
+message MDJAPHPOABA {
+	uint32 HAFOKMHCGFM = 6; // offset: 28
+	bool is_selected = 9; // offset: 24
+}
+
+message MDOIMCNFDLC {
+	uint32 event_id = 11; // offset: 24
+}
+
+message MEDCHLCIOEI {
+	repeated CNLAOMCKFKD IEDKELDFHLP = 1; // offset: 16
+}
+
+message MGOLOIGOAMB {
+	TrainPartyPassenger IALIECEAFJB = 11; // offset: 24
+}
+
+message MJMPOLBBFNA {
+	uint32 EAFFACCBAAA = 9; // offset: 24
+}
+
+enum MKIIBIMNIGK {
+	MKIIBIMNIGK_EFBKDLIJKAG = 0;
+	MKIIBIMNIGK_MGFHDNJAKKM = 1;
+	MKIIBIMNIGK_NGAAHFBKMFM = 2;
+	MKIIBIMNIGK_EBJCJAJDINC = 3;
+	MKIIBIMNIGK_IDMGAGLJMLK = 4;
+	MKIIBIMNIGK_IPFPPCLNIHO = 5;
+}
+
+message MOCNDOCEOJM {
+	repeated uint32 LKNGKJCFFBH = 4; // offset: 24
+}
+
+message NFNKNNFJILK {
+	uint32 IOJOIOHIEAB = 3; // offset: 24
+}
+
+message OGAFHKMJELA {
+	uint32 OENPDHNALLA = 3; // offset: 64
+	repeated DKIGCLFPGFO COBENBOBPKD = 4; // offset: 16
+	uint32 total_score = 7; // offset: 56
+	uint32 CELHPMMLHGL = 10; // offset: 48
+	uint32 CLMFKHAJKLH = 11; // offset: 60
+	repeated ELBILFGFDHA EEOEFLKFNIM = 12; // offset: 40
+	repeated DJBJMHKMOMB JPOOHONHFJI = 14; // offset: 32
+	uint32 reach_point = 15; // offset: 52
+}
+
+message OLBKADIKIGL {
+	HLNFNACOFFF CBFPJAJAKGI = 3; // offset: 24
+}
+
+message PFAIANENDEE {
+	uint32 BFPAFELCMGF = 10; // offset: 24
+}
+
+message PNLLCBKLBLE {
+	uint32 LNLOHDJIFPK = 1; // offset: 36
+	bool DOFBGHGHDJA = 12; // offset: 32
+	IEDLKIGJLEM LONFKFCFDND = 14; // offset: 24
+}
+
+message PPLKBFMCGLD {
+	repeated IDBCDHIOKEG FOOMIPJJKOG = 1; // offset: 24
+	uint32 BPGBEEOHPLJ = 2; // offset: 32
+}
+
+message TrainPartyAddBuildDynamicBuffCsReq {
+}
+
+message TrainPartyArea {
+	repeated AreaDynamicInfo dynamic_info = 6; // offset: 56
+	repeated uint32 static_prop_id_list = 7; // offset: 16
+	AreaStepInfo area_step_info = 8; // offset: 24
+	uint32 area_id = 9; // offset: 64
+	uint32 progress = 10; // offset: 68
+	repeated uint32 verify_step_id_list = 12; // offset: 40
+	repeated uint32 step_id_list = 14; // offset: 32
+}
+
+message TrainPartyBuildDiyCsReq {
+	uint32 diy_dynamic_id = 3; // offset: 28
+	uint32 dice_slot_id = 11; // offset: 32
+	uint32 area_id = 14; // offset: 24
+}
+
+message TrainPartyBuildDiyScRsp {
+	uint32 retcode = 2; // offset: 36
+	uint32 area_id = 10; // offset: 32
+	repeated BHOPIKPAMPJ JKPJFKCBIEM = 12; // offset: 24
+}
+
+message TrainPartyBuildRoomScNotify {
+	TrainPartyInfo CPMHKECPBOJ = 15; // offset: 16
+}
+
+message TrainPartyBuildSelfDisplayAreaDiyCsReq {
+	OIIPJFDNPAH ACLKMFCDMED = 5; // offset: 16
+}
+
+message TrainPartyBuildSelfDisplayAreaDiyScNotify {
+	TrainPartyInfo train_party_data = 12; // offset: 16
+}
+
+message TrainPartyBuildSelfDisplayAreaDiyScRsp {
+	uint32 retcode = 5; // offset: 32
+	OIIPJFDNPAH ACLKMFCDMED = 8; // offset: 16
+}
+
+message TrainPartyBuildStartStepCsReq {
+	uint32 DNLIGEOFPEL = 1; // offset: 36
+	AreaDynamicInfo PFICNBHIHBA = 3; // offset: 16
+	uint32 GKENFCLLLJC = 5; // offset: 32
+	uint32 area_id = 9; // offset: 40
+}
+
+message TrainPartyBuildStartStepScRsp {
+	uint32 retcode = 1; // offset: 28
+	uint32 cur_fund = 5; // offset: 24
+}
+
+message TrainPartyBuildingUpdateNotify {
+	repeated FFMMFBMOBEG OOABOBHEKEH = 14; // offset: 16
+}
+
+message TrainPartyData {
+	TrainPartyInfo train_party_info = 2; // offset: 40
+	bool LNMFDPFOKFF = 5; // offset: 48
+	uint32 unlock_area_num = 6; // offset: 52
+	uint32 record_id = 11; // offset: 56
+	TrainPartyPassengerInfo passenger_info = 13; // offset: 16
+	EPHKIEHONGB HCJJPLKELGC = 15; // offset: 32
+}
+
+message TrainPartyEnterCsReq {
+}
+
+message TrainPartyGamePlaySettleNotify {
+	uint32 unlock_area_num = 2; // offset: 40
+	TrainPartyPassengerInfo ENBJCMPCMLK = 5; // offset: 16
+	repeated uint32 CEJPCMHEEMN = 7; // offset: 32
+	uint32 record_id = 13; // offset: 44
+}
+
+message TrainPartyGamePlayStartCsReq {
+	uint32 IDBDBICPBBG = 15; // offset: 24
+}
+
+message TrainPartyGamePlayStartScRsp {
+	EPHKIEHONGB FJKHJADDKLD = 2; // offset: 16
+	uint32 retcode = 13; // offset: 32
+}
+
+message TrainPartyGetDataCsReq {
+}
+
+message TrainPartyGetDataScRsp {
+	TrainPartyData train_party_data = 7; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+message TrainPartyHandlePendingActionCsReq {
+	uint32 queue_position = 12; // offset: 32
+	oneof KILBFAAFDPD {
+		MDOIMCNFDLC KLONPDNKBJF = 401; // offset: 16
+		PFAIANENDEE LGBJDFHBIND = 1032; // offset: 16
+		CKPNGMLENFA NELLGPKHIKE = 194; // offset: 16
+		MOCNDOCEOJM NMEFKABDHAN = 781; // offset: 16
+	}
+}
+
+message TrainPartyHandlePendingActionScRsp {
+	uint32 queue_position = 4; // offset: 52
+	uint32 retcode = 10; // offset: 44
+	HLNFNACOFFF CBFPJAJAKGI = 11; // offset: 16
+	bool HMNAOPOKLGE = 15; // offset: 48
+	oneof KILBFAAFDPD {
+		OLBKADIKIGL EEBFCLFOBPG = 985; // offset: 24
+		KDBJBEJPGOO OMLNCJEGJAC = 1223; // offset: 24
+		AHHMLENLDEF BHMJDNEOBNK = 1595; // offset: 24
+		DJKACFOFFAH IGMEPOBLFFB = 1996; // offset: 24
+	}
+}
+
+message TrainPartyInfo {
+	OIIPJFDNPAH CMCNNJKJNPK = 2; // offset: 40
+	uint32 BHEJCEJHLIB = 3; // offset: 64
+	uint32 BKPFHFGIEPE = 4; // offset: 48
+	repeated TrainPartyArea area_list = 8; // offset: 16
+	bool IEEAPCFKOJC = 9; // offset: 52
+	uint32 cur_fund = 10; // offset: 68
+	uint32 star_num = 13; // offset: 60
+	uint32 JJGKIPDGOGP = 14; // offset: 56
+	repeated GAGGCODGDLB MHABCMLHCGD = 15; // offset: 24
+}
+
+message TrainPartyLeaveCsReq {
+}
+
+message TrainPartyMoveScNotify {
+	uint32 DNGKGLFMGGE = 10; // offset: 32
+	repeated CNLAOMCKFKD JABPLBJAKKM = 15; // offset: 24
+}
+
+enum TrainPartyMtSkillBriefType {
+	TrainPartyMtSkillBriefType_KMtSkillNone = 0;
+	TrainPartyMtSkillBriefType_KMtSkillModifyBase = 1;
+	TrainPartyMtSkillBriefType_KMtSkillModifyRatio = 2;
+	TrainPartyMtSkillBriefType_KMtSkillMultiplyRatio = 3;
+	TrainPartyMtSkillBriefType_KMtSkillSelfDestroy = 4;
+}
+
+message TrainPartyPassenger {
+	uint32 passenger_id = 2; // offset: 32
+	bool JGDNJOFHCNC = 6; // offset: 36
+	uint32 record_id = 7; // offset: 40
+	repeated uint32 GHPFANGEMAN = 15; // offset: 24
+}
+
+message TrainPartyPassengerInfo {
+	repeated TrainPartyPassenger passenger_info_list = 2; // offset: 24
+	repeated uint32 GHPFANGEMAN = 14; // offset: 16
+}
+
+message TrainPartySetBadgeAutoFillCsReq {
+	bool PELJACANAFH = 1; // offset: 24
+}
+
+message TrainPartySetBadgeAutoFillScRsp {
+	bool PELJACANAFH = 2; // offset: 24
+	uint32 retcode = 10; // offset: 28
+}
+
+message TrainPartySettleNotify {
+	uint32 FGIHKKKOGJD = 8; // offset: 32
+	HLNFNACOFFF CBFPJAJAKGI = 11; // offset: 16
+}
+
+message TrainPartySyncUpdateScNotify {
+	repeated GMCPCKHHPOB JKPJFKCBIEM = 3; // offset: 16
+}
+
+message TrainPartyTakeBuildLevelAwardCsReq {
+}
+
+message TrainPartyTakeBuildLevelAwardScRsp {
+	uint32 FPHFHCGNNGM = 2; // offset: 32
+	ItemList item_list = 9; // offset: 16
+	uint32 retcode = 14; // offset: 36
+}
+
+message TrainPartyUseCardCsReq {
+	uint32 FGIHKKKOGJD = 2; // offset: 24
+}
+
+message TrainPartyUseCardScRsp {
+	uint32 FGIHKKKOGJD = 7; // offset: 24
+	uint32 retcode = 8; // offset: 28
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BOPOBHGDIKN {
+	uint32 OBLCIENDLED = 7; // offset: 24
+}
+
+enum CmdRaidCollectionType {
+	CmdRaidCollectionType_NLCDGIPGFDJ = 0;
+	CmdRaidCollectionType_RaidCollectionDataCsReq = 6950;
+	CmdRaidCollectionType_RaidCollectionEnterNextRaidScRsp = 6944;
+	CmdRaidCollectionType_RaidCollectionDataScRsp = 6956;
+	CmdRaidCollectionType_RaidCollectionEnterNextRaidCsReq = 6948;
+}
+
+message RaidCollectionDataCsReq {
+}
+
+message RaidCollectionDataScRsp {
+	uint32 retcode = 3; // offset: 32
+	repeated BOPOBHGDIKN challenge_list = 10; // offset: 24
+}
+
+message RaidCollectionEnterNextRaidCsReq {
+	uint32 raid_id = 8; // offset: 32
+	repeated uint32 avatar_list = 9; // offset: 24
+	uint32 world_level = 13; // offset: 36
+	uint32 is_save = 14; // offset: 40
+}
+
+message RaidCollectionEnterNextRaidScRsp {
+	GEGLJDELBHA scene = 8; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}

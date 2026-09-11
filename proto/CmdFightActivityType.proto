@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CDABDPPPHBN {
+	uint32 ALALEBDJGHA = 3; // offset: 40
+	uint32 group_id = 4; // offset: 32
+	repeated uint32 LINOMGEDMHC = 11; // offset: 16
+	uint32 CJPDGBPLFIG = 14; // offset: 36
+}
+
+enum CmdFightActivityType {
+	CmdFightActivityType_NLCDGIPGFDJ = 0;
+	CmdFightActivityType_GetFightActivityDataScRsp = 3625;
+	CmdFightActivityType_TakeFightActivityRewardScRsp = 3658;
+	CmdFightActivityType_FightActivityDataChangeScNotify = 3605;
+	CmdFightActivityType_GetFightActivityDataCsReq = 3634;
+	CmdFightActivityType_TakeFightActivityRewardCsReq = 3616;
+	CmdFightActivityType_EnterFightActivityStageScRsp = 3660;
+	CmdFightActivityType_EnterFightActivityStageCsReq = 3675;
+}
+
+message DOIBLFFDHDG {
+	AvatarType avatar_type = 9; // offset: 28
+	uint32 avatar_id = 14; // offset: 24
+}
+
+message EnterFightActivityStageCsReq {
+	repeated uint32 avatar_list = 4; // offset: 40
+	repeated DOIBLFFDHDG MACCJKCGGII = 7; // offset: 32
+	uint32 group_id = 8; // offset: 52
+	repeated uint32 item_list = 14; // offset: 24
+	uint32 DBKHHCGGKNN = 15; // offset: 48
+}
+
+message EnterFightActivityStageScRsp {
+	uint32 DBKHHCGGKNN = 5; // offset: 36
+	SceneBattleInfo battle_info = 7; // offset: 24
+	uint32 retcode = 14; // offset: 32
+	uint32 group_id = 15; // offset: 40
+}
+
+message FightActivityDataChangeScNotify {
+	repeated CDABDPPPHBN FALBALFNOFF = 8; // offset: 32
+	map<uint32, uint32> EDGPAOJEENN = 15; // offset: 24
+}
+
+message GetFightActivityDataCsReq {
+}
+
+message GetFightActivityDataScRsp {
+	uint32 world_level = 3; // offset: 48
+	repeated CDABDPPPHBN FALBALFNOFF = 5; // offset: 16
+	bool CFDBDGEFJJN = 8; // offset: 44
+	map<uint32, uint32> EDGPAOJEENN = 12; // offset: 32
+	uint32 retcode = 15; // offset: 40
+}
+
+message TakeFightActivityRewardCsReq {
+	uint32 group_id = 7; // offset: 28
+	uint32 difficulty_level = 12; // offset: 24
+}
+
+message TakeFightActivityRewardScRsp {
+	ItemList reward = 1; // offset: 24
+	uint32 group_id = 2; // offset: 36
+	uint32 retcode = 4; // offset: 40
+	uint32 DBKHHCGGKNN = 12; // offset: 32
+}

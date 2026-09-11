@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CancelMatchCsReq {
+}
+
+message CancelMatchScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+enum CmdMatchType {
+	CmdMatchType_NLCDGIPGFDJ = 0;
+	CmdMatchType_CancelMatchScRsp = 7331;
+	CmdMatchType_StartMatchScRsp = 7306;
+	CmdMatchType_StartMatchCsReq = 7334;
+	CmdMatchType_GetCrossInfoCsReq = 7332;
+	CmdMatchType_CancelMatchCsReq = 7320;
+	CmdMatchType_GetCrossInfoScRsp = 7316;
+}
+
+message GetCrossInfoCsReq {
+}
+
+message GetCrossInfoScRsp {
+	FightGameMode GJNMHILINHC = 1; // offset: 28
+	uint64 room_id = 5; // offset: 32
+	uint64 FGNFDGAKKAP = 6; // offset: 40
+	uint32 retcode = 9; // offset: 24
+}
+
+message StartMatchCsReq {
+	LobbyGameExtInfo JIDKDPPPDPF = 4; // offset: 24
+	FightGameMode GJNMHILINHC = 6; // offset: 32
+}
+
+message StartMatchScRsp {
+	uint32 retcode = 10; // offset: 24
+}

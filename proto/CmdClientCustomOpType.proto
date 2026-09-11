@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+
+enum CmdClientCustomOpType {
+	CmdClientCustomOpType_GGKMFAFOINP = 0;
+	CmdClientCustomOpType_HPLPMDEJOJK = 9832;
+}
+
+message HMMHDEKAHEA {
+	oneof NEBNJDMFELO {
+		bool IHPJDDCIIDB = 5; // offset: 24
+	}
+}

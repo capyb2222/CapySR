@@ -1,0 +1,191 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message APCDHOBPBHA {
+	uint32 stage_id = 1; // offset: 24
+}
+
+message BCKBEMGGGIF {
+	uint32 EECIJBLGLNG = 15; // offset: 24
+}
+
+message CEOJGIDJLOA {
+	HGMNDBFCBLL DLFHABGGHFF = 1; // offset: 24
+}
+
+enum CmdMultiplayerType {
+	CmdMultiplayerType_NLCDGIPGFDJ = 0;
+	CmdMultiplayerType_MatchPlayDataChangeNtf = 1039;
+	CmdMultiplayerType_GetFriendRankingInfoCsReq = 1061;
+	CmdMultiplayerType_GetMatchPlayDataCsReq = 1015;
+	CmdMultiplayerType_FightGameStateCsReq = 1034;
+	CmdMultiplayerType_MGJGKJAODIO = 1075;
+	CmdMultiplayerType_FightGameStartScNotify = 1058;
+	CmdMultiplayerType_IABBOIKMDLB = 1056;
+	CmdMultiplayerType_SelfRankChangeNtf = 1068;
+	CmdMultiplayerType_GetFriendRankingInfoRsp = 1008;
+	CmdMultiplayerType_MultiplayerGetFightGateCsReq = 1005;
+	CmdMultiplayerType_FightGameStateScRsp = 1025;
+	CmdMultiplayerType_KPJFFMGAIBC = 1016;
+	CmdMultiplayerType_MultiplayerMatch3FinishScNotify = 1083;
+	CmdMultiplayerType_DJGHCGCPHCD = 1060;
+	CmdMultiplayerType_MultiplayerGetMatchPlayDataScRsp = 1042;
+}
+
+message DGLBOFKGGLL {
+	uint32 EECIJBLGLNG = 9; // offset: 24
+}
+
+message DLCJPINDIAC {
+	uint32 uid = 8; // offset: 40
+	uint32 PPOAGPGEAFH = 13; // offset: 36
+	oneof KKNBOACNCON {
+		DGLBOFKGGLL BJKBADEMEOE = 12; // offset: 24
+		PLICOOFLBIB KCICNNFJEAC = 2; // offset: 24
+		BCKBEMGGGIF LENBIENEFIB = 6; // offset: 24
+		GKJHNGLHOBA ONNAKPKDLHO = 3; // offset: 24
+	}
+}
+
+message ECOAKLBOLDA {
+	uint32 CBFFGFBEFMF = 2; // offset: 24
+	uint32 EECIJBLGLNG = 14; // offset: 28
+}
+
+message EDLENJAPMBJ {
+	uint32 stage_id = 1; // offset: 28
+	TeamTowersGameType DLFHABGGHFF = 2; // offset: 24
+}
+
+message FightGameStartScNotify {
+	BFBHKJLJJBJ KAEDKFOMADJ = 3; // offset: 24
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 8; // offset: 16
+}
+
+message FightGameStateCsReq {
+}
+
+message FightGameStateScRsp {
+	uint32 retcode = 3; // offset: 48
+	BFBHKJLJJBJ KAEDKFOMADJ = 4; // offset: 32
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 12; // offset: 16
+	OFFMCODMKDL room_ext_info = 15; // offset: 40
+}
+
+message GKJHNGLHOBA {
+	bool GLEJFCIOMKC = 2; // offset: 28
+	uint32 CJPDGBPLFIG = 4; // offset: 32
+	uint32 EECIJBLGLNG = 10; // offset: 24
+}
+
+message GetFriendRankingInfoCsReq {
+	FightGameMode GJNMHILINHC = 7; // offset: 24
+}
+
+message GetFriendRankingInfoRsp {
+	FightGameMode GJNMHILINHC = 3; // offset: 36
+	uint32 retcode = 9; // offset: 32
+	repeated DLCJPINDIAC MLPHLIHFGKG = 11; // offset: 24
+}
+
+message GetMatchPlayDataCsReq {
+	repeated FightGameMode LCCHAKBKAHL = 4; // offset: 16
+}
+
+message HFFCEACMEIG {
+	BFBHKJLJJBJ KAEDKFOMADJ = 13; // offset: 16
+}
+
+message HGLDJBNCABP {
+	uint32 mode = 1; // offset: 32
+	repeated uint32 JDJHFJKPLCN = 2; // offset: 16
+}
+
+message HPGIGMPBIBO {
+	uint32 port = 4; // offset: 40
+	string gate_server_address = 5; // offset: 24
+	uint64 FGNFDGAKKAP = 8; // offset: 48
+	uint32 retcode = 12; // offset: 44
+	string fight_token = 15; // offset: 32
+}
+
+message IHGLPGLPDFF {
+}
+
+message JCNLJNELKEO {
+	uint32 EECIJBLGLNG = 6; // offset: 24
+}
+
+message JJAGFPLDCAF {
+	uint32 retcode = 9; // offset: 24
+}
+
+message JJIJAMHKNGO {
+	uint32 CJPDGBPLFIG = 9; // offset: 32
+	uint32 EECIJBLGLNG = 12; // offset: 24
+	bool GLEJFCIOMKC = 13; // offset: 28
+}
+
+message MatchPlayDataChangeNtf {
+	PNEGDOHOLDN KMCDHFGJFNJ = 9; // offset: 16
+}
+
+message MultiplayerGetFightGateCsReq {
+}
+
+message MultiplayerGetMatchPlayDataScRsp {
+	repeated PNEGDOHOLDN JBMEEGGOLKN = 3; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message MultiplayerMatch3FinishScNotify {
+	NPPEMMILLCO reason = 6; // offset: 28
+	uint32 BCAKPNCHIIJ = 15; // offset: 24
+}
+
+message NFDHOCKEPGD {
+	uint32 LOPNADHJKBF = 1; // offset: 24
+}
+
+message OFFMCODMKDL {
+	oneof CGIFMOFGECO {
+		NFDHOCKEPGD lobby_grid_fight_info = 1001; // offset: 24
+		CEOJGIDJLOA GOKJCFBPHCJ = 1002; // offset: 24
+		APCDHOBPBHA FNNOPJBPLPF = 1003; // offset: 24
+		EDLENJAPMBJ MPNPIIHHFPN = 1004; // offset: 24
+		HGLDJBNCABP ICGJCKLHLAB = 1005; // offset: 24
+	}
+}
+
+message OOAHBHODMHG {
+	uint32 HBONKLEOEEI = 2; // offset: 24
+	uint32 LALGADHLMCB = 3; // offset: 32
+	uint32 count = 8; // offset: 28
+}
+
+message PJLEILDLONN {
+	uint32 EECIJBLGLNG = 6; // offset: 32
+	repeated OOAHBHODMHG DBINCLPHEFN = 10; // offset: 24
+}
+
+message PLICOOFLBIB {
+	uint32 EECIJBLGLNG = 10; // offset: 24
+}
+
+message PNEGDOHOLDN {
+	uint32 panel_id = 5; // offset: 36
+	FightGameMode GJNMHILINHC = 14; // offset: 40
+	oneof AELHFLGJMJN {
+		PJLEILDLONN ODLONPLECJB = 12; // offset: 16
+		ECOAKLBOLDA OCGCLKAHGBK = 13; // offset: 16
+		JCNLJNELKEO ICNFMLIAAKE = 8; // offset: 16
+		JJIJAMHKNGO GMDCKAOEGNF = 4; // offset: 16
+	}
+}
+
+message SelfRankChangeNtf {
+	FightGameMode GJNMHILINHC = 13; // offset: 32
+	repeated DLCJPINDIAC MLPHLIHFGKG = 14; // offset: 16
+}

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AcceptMultipleExpeditionCsReq {
+	repeated ExpeditionInfo expedition = 10; // offset: 24
+}
+
+message AcceptMultipleExpeditionScRsp {
+	uint32 retcode = 2; // offset: 40
+	int64 BJMGDBCHEAN = 5; // offset: 48
+	repeated ExpeditionInfo accept_multi_expedition = 12; // offset: 32
+	repeated ItemList DJOBNPIAEJP = 13; // offset: 16
+}
+
+enum CmdExpeditionType {
+	CmdExpeditionType_NLCDGIPGFDJ = 0;
+	CmdExpeditionType_GetExpeditionDataScRsp = 2506;
+	CmdExpeditionType_DFJDNLNFKLG = 2526;
+	CmdExpeditionType_AcceptMultipleExpeditionCsReq = 2525;
+	CmdExpeditionType_AcceptMultipleExpeditionScRsp = 2523;
+	CmdExpeditionType_GetExpeditionDataCsReq = 2534;
+	CmdExpeditionType_TakeMultipleExpeditionRewardScRsp = 2518;
+	CmdExpeditionType_TakeMultipleExpeditionRewardCsReq = 2502;
+}
+
+message ExpeditionInfo {
+	uint32 id = 15; // offset: 24
+}
+
+message GetExpeditionDataCsReq {
+}
+
+message GetExpeditionDataScRsp {
+	uint32 retcode = 3; // offset: 40
+	repeated uint32 CAALNNFJIAH = 4; // offset: 16
+	repeated ExpeditionInfo expedition_info = 6; // offset: 32
+	uint32 total_expedition_count = 7; // offset: 44
+	int64 BJMGDBCHEAN = 9; // offset: 48
+}
+
+message HKCILGGEEFM {
+	repeated uint32 CAALNNFJIAH = 1; // offset: 24
+	int64 BJMGDBCHEAN = 2; // offset: 48
+	uint32 total_expedition_count = 13; // offset: 40
+	repeated ExpeditionInfo expedition_info = 14; // offset: 32
+}
+
+message TakeMultipleExpeditionRewardCsReq {
+}
+
+message TakeMultipleExpeditionRewardScRsp {
+	repeated uint32 NPCMKBNJABA = 8; // offset: 32
+	int64 BJMGDBCHEAN = 10; // offset: 48
+	uint32 retcode = 12; // offset: 40
+	repeated ItemList DJOBNPIAEJP = 15; // offset: 16
+}

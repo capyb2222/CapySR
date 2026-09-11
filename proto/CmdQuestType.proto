@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BICDPPOGHND {
+	uint32 PLDKENJLKME = 11; // offset: 24
+}
+
+message BatchGetQuestDataScRsp {
+	uint32 retcode = 5; // offset: 32
+	repeated Quest quest_list = 9; // offset: 16
+}
+
+enum CmdQuestType {
+	CmdQuestType_NLCDGIPGFDJ = 0;
+	CmdQuestType_TakeQuestOptionalRewardCsReq = 939;
+	CmdQuestType_GetQuestRecordCsReq = 958;
+	CmdQuestType_QuestRecordScNotify = 983;
+	CmdQuestType_OIHECCNGJKO = 905;
+	CmdQuestType_OJKCEKKDLEL = 968;
+	CmdQuestType_FinishQuestCsReq = 915;
+	CmdQuestType_GetQuestRecordScRsp = 956;
+	CmdQuestType_BatchGetQuestDataScRsp = 964;
+	CmdQuestType_TakeQuestOptionalRewardScRsp = 961;
+	CmdQuestType_TakeQuestRewardScRsp = 975;
+	CmdQuestType_GetQuestDataCsReq = 934;
+	CmdQuestType_GetQuestDataScRsp = 925;
+	CmdQuestType_CFHHFHMGAGL = 942;
+}
+
+message ECLGDFGGOFH {
+	uint32 progress = 3; // offset: 28
+	uint32 MNLAMKJIAOC = 15; // offset: 24
+}
+
+message EMHALMBFHKG {
+	repeated uint32 ODJIJFJCHHB = 2; // offset: 24
+}
+
+message FinishQuestCsReq {
+	uint32 quest_id = 7; // offset: 24
+	uint32 prop_id = 8; // offset: 32
+	uint32 group_id = 11; // offset: 28
+}
+
+message GetQuestDataCsReq {
+}
+
+message GetQuestDataScRsp {
+	uint32 retcode = 8; // offset: 32
+	repeated Quest quest_list = 10; // offset: 24
+}
+
+message GetQuestRecordCsReq {
+}
+
+message GetQuestRecordScRsp {
+	repeated ECLGDFGGOFH AOOFGCNFBPL = 1; // offset: 16
+	uint32 retcode = 6; // offset: 32
+}
+
+message JGAONCGEIND {
+	repeated uint32 MDCDGIGBNFD = 15; // offset: 16
+}
+
+message QuestRecordScNotify {
+	ECLGDFGGOFH HLMPJLDBPJP = 5; // offset: 24
+}
+
+message TakeQuestOptionalRewardCsReq {
+	uint32 optional_reward_id = 4; // offset: 28
+	uint32 quest_id = 7; // offset: 24
+}
+
+message TakeQuestOptionalRewardScRsp {
+	ItemList reward = 1; // offset: 16
+	uint32 retcode = 3; // offset: 36
+	uint32 quest_id = 4; // offset: 32
+}
+
+message TakeQuestRewardScRsp {
+	ItemList reward = 3; // offset: 40
+	repeated uint32 quest_id_list = 5; // offset: 24
+	uint32 retcode = 9; // offset: 48
+	repeated uint32 succ_quest_id_list = 13; // offset: 16
+}

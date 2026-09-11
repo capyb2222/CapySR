@@ -1,0 +1,1984 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum ACOKICDKFCI {
+	ACOKICDKFCI_LHLEHMPKDPB = 0;
+	ACOKICDKFCI_LKKKMLMOMDI = 1;
+	ACOKICDKFCI_KJLFGHAFPFP = 2;
+	ACOKICDKFCI_FJDHALMPDAO = 3;
+	ACOKICDKFCI_MJMCGPFLDIM = 4;
+}
+
+message AFCBKJEFKPG {
+	bool MHBFIGLMLFG = 1; // offset: 44
+	GridFightDropInfo CLHLMNAPLNC = 4; // offset: 24
+	uint32 id = 8; // offset: 52
+	repeated uint32 CBACAMKJFMI = 10; // offset: 32
+	BGMLEJCOFPK CCDGGDMHMLF = 12; // offset: 48
+	IBBDHFAEFNH status = 14; // offset: 56
+	uint32 progress = 15; // offset: 40
+}
+
+message AFPJPEABFKH {
+	uint32 EAKBFELDDBF = 15; // offset: 24
+}
+
+message AGGDDAJLAEB {
+	uint32 INLHPJMOOMO = 13; // offset: 24
+	double IDONFFOACIL = 14; // offset: 32
+}
+
+message AKHEHAMBLEB {
+	int64 KAHFEFACFIE = 12; // offset: 24
+	int64 start_time = 13; // offset: 32
+}
+
+message ALNFEBKHCFC {
+	uint32 retcode = 9; // offset: 24
+}
+
+enum BGMLEJCOFPK {
+	BGMLEJCOFPK_NLCDGIPGFDJ = 0;
+	BGMLEJCOFPK_ENPLACDLJGA = 1;
+	BGMLEJCOFPK_DACEMIDFHOG = 2;
+}
+
+message BJALEHOMFKH {
+	uint32 effect_id = 7; // offset: 32
+	uint32 trait_id = 9; // offset: 36
+	repeated uint32 OLPPMEAMFFO = 12; // offset: 16
+}
+
+message BJFLPMNPFFK {
+	uint32 MDNAGANGNKK = 11; // offset: 24
+}
+
+message BKIKOGNAECK {
+	uint32 PEBCBLBLMPH = 4; // offset: 24
+	uint32 DNMFNFCLOOM = 5; // offset: 28
+}
+
+message BPENENIMEFE {
+	bool IJJDEHIPOEL = 5; // offset: 32
+	GridFightDropInfo GHBBCIIPHKJ = 7; // offset: 16
+	uint32 quest_id = 12; // offset: 36
+}
+
+message CCGJDDBKIDE {
+	message OAKDCENFILP {
+		enum BBFEFIPJMEB {
+			BBFEFIPJMEB_OHDJNICJKLK = 0;
+			BBFEFIPJMEB_NCBOLDFDGNL = 1;
+			BBFEFIPJMEB_EKGPCJLBINA = 2;
+		}
+	}
+	OAKDCENFILP.BBFEFIPJMEB type = 6; // offset: 24
+	uint32 IMJBFLJPMJB = 8; // offset: 28
+}
+
+message CCKPBIKOIBB {
+	uint32 LKMEMKLGIIK = 3; // offset: 24
+}
+
+message CEHDAMJJFOE {
+	uint32 ENNOJCBAJEN = 4; // offset: 32
+	uint32 MDNAGANGNKK = 8; // offset: 24
+	uint32 JNJBMFJHBHD = 13; // offset: 28
+}
+
+message CENBJOMMJGD {
+	uint32 item_count = 3; // offset: 24
+	uint32 item_type = 14; // offset: 28
+}
+
+message CFFDCICDAKK {
+	repeated BPENENIMEFE EKBOGBMPAPJ = 3; // offset: 16
+}
+
+message CNBHPJFFLEF {
+	repeated uint32 OJNEFBJHCCK = 1; // offset: 24
+	bool is_effect = 12; // offset: 32
+}
+
+message CNOAPAMNDOA {
+	repeated NBNLDHBELLO LFJLNAHJNBE = 1; // offset: 24
+	repeated LHCOHLJIAII KGOEHKJIONM = 12; // offset: 32
+	uint32 retcode = 15; // offset: 40
+}
+
+message CheckTextCsReq {
+	string OHNAIHACIKH = 6; // offset: 24
+}
+
+enum CmdGridFightType {
+	CmdGridFightType_NLCDGIPGFDJ = 0;
+	CmdGridFightType_LMFPABAMKKO = 8704;
+	CmdGridFightType_GridFightPermanentTalentResetScRsp = 8547;
+	CmdGridFightType_GridFightLockShopScRsp = 8484;
+	CmdGridFightType_GridFightBuyGoodsCsReq = 8454;
+	CmdGridFightType_GridFightUpdateGameRefScRsp = 8557;
+	CmdGridFightType_GridFightGetArchiveScRsp = 8735;
+	CmdGridFightType_GridFightSeasonTalentResetScRsp = 8440;
+	CmdGridFightType_OOFHGFDNGIB = 8427;
+	CmdGridFightType_GridFightSummonProjectionCsReq = 8707;
+	CmdGridFightType_GridFightUpdateEquipTrackScRsp = 8705;
+	CmdGridFightType_GridFightUseConsumableCsReq = 8672;
+	CmdGridFightType_MBDNJFEKFIG = 8526;
+	CmdGridFightType_GridFightUpdateGameRefCsReq = 8782;
+	CmdGridFightType_PKCFJGCOBEC = 8630;
+	CmdGridFightType_GridFightGetFormationCsReq = 8503;
+	CmdGridFightType_GridFightUpdateEquipTrackPriorityCsReq = 8560;
+	CmdGridFightType_GridFightEquipCraftCsReq = 8748;
+	CmdGridFightType_GridFightBuyExpScRsp = 8420;
+	CmdGridFightType_HPIMCHMAPGA = 8439;
+	CmdGridFightType_FavourArchiveScRsp = 8529;
+	CmdGridFightType_GridFightEquipDressCsReq = 8655;
+	CmdGridFightType_GridFightGetArchiveCsReq = 8648;
+	CmdGridFightType_GridFightDestroyWeeklyRewardCsReq = 8437;
+	CmdGridFightType_GridFightStartGamePlayCsReq = 8794;
+	CmdGridFightType_GridFightStartGamePlayScRsp = 8717;
+	CmdGridFightType_ILONCLKIMJM = 8775;
+	CmdGridFightType_GridFightRefreshShopScRsp = 8656;
+	CmdGridFightType_GridFightDestroyWeeklyRewardScRsp = 8636;
+	CmdGridFightType_GridFightGetOrbScRsp = 8492;
+	CmdGridFightType_GridFightSeasonTalentEnableScRsp = 8664;
+	CmdGridFightType_GridFightQuitSettleCsReq = 8462;
+	CmdGridFightType_GridFightEnterBattleStageCsReq = 8722;
+	CmdGridFightType_GridFightSyncVirtualItemNotify = 8721;
+	CmdGridFightType_GridFightUseForgeCsReq = 8765;
+	CmdGridFightType_GridFightRefreshShopCsReq = 8459;
+	CmdGridFightType_GridFightEquipCraftScRsp = 8550;
+	CmdGridFightType_GridFightBackToPrepareCsReq = 8619;
+	CmdGridFightType_GridFightTrackTraitScRsp = 8776;
+	CmdGridFightType_JECFGBFCEMB = 8669;
+	CmdGridFightType_GridFightPermanentTalentEnableCsReq = 8452;
+	CmdGridFightType_GridFightSeasonTalentEnableCsReq = 8458;
+	CmdGridFightType_GetGameFormationScRsp = 8629;
+	CmdGridFightType_HLHAJEGJMIA = 8422;
+	CmdGridFightType_GridFightBuyExpCsReq = 8668;
+	CmdGridFightType_GridFightUpdateEliteBranchSelectCsReq = 8486;
+	CmdGridFightType_HFOGOFPDKEL = 8513;
+	CmdGridFightType_GridFightSyncKeepWinCntNotify = 8425;
+	CmdGridFightType_GridFightSeasonTalentResetCsReq = 8568;
+	CmdGridFightType_GridFightFinishTutorialScRsp = 8622;
+	CmdGridFightType_GridFightRecycleRoleCsReq = 8718;
+	CmdGridFightType_AJAHEIHGNKD = 8490;
+	CmdGridFightType_GridFightUpdateEquipTrackCsReq = 8666;
+	CmdGridFightType_GridFightEquipDressScRsp = 8790;
+	CmdGridFightType_GridFightSyncUpdateResultScNotify = 8711;
+	CmdGridFightType_GridFightFinishTutorialCsReq = 8537;
+	CmdGridFightType_GridFightTakeWeeklyRewardCsReq = 8593;
+	CmdGridFightType_GridFightEnterBattleStageScRsp = 8719;
+	CmdGridFightType_GridFightLockShopCsReq = 8449;
+	CmdGridFightType_GridFightUseHackOptionScRsp = 8445;
+	CmdGridFightType_UpdateGameFormation = 8455;
+	CmdGridFightType_GridFightQuitLeaveGamePlayScRsp = 8671;
+	CmdGridFightType_GridFightResumeGamePlayCsReq = 8416;
+	CmdGridFightType_CheckTextCsReq = 8646;
+	CmdGridFightType_GridFightHandlePendingActionScRsp = 8757;
+	CmdGridFightType_GridFightUpdatePosScRsp = 8543;
+	CmdGridFightType_GridFightPermanentTalentEnableScRsp = 8699;
+	CmdGridFightType_GridFightGetOrbCsReq = 8741;
+	CmdGridFightType_GridFightSeasonHandBookNotify = 8751;
+	CmdGridFightType_GridFightQuitSettleScRsp = 8574;
+	CmdGridFightType_GridFightSummonProjectionScRsp = 8412;
+	CmdGridFightType_GridFightUseConsumableScRsp = 8569;
+	CmdGridFightType_UpdateGameFormationScRsp = 8536;
+	CmdGridFightType_GridFightUseForgeScRsp = 8495;
+	CmdGridFightType_GridFightEndBattleStageNotify = 8429;
+	CmdGridFightType_GridFightWeeklyExtraSeasonExpScRsp = 8410;
+	CmdGridFightType_GridFightPermanentTalentResetCsReq = 8565;
+	CmdGridFightType_GridFightBuyGoodsScRsp = 8546;
+	CmdGridFightType_GridFightUseHackOptionCsReq = 8606;
+	CmdGridFightType_MJHFMIJKHIP = 8677;
+	CmdGridFightType_GridFightOpenOrbResultScNotify = 8552;
+	CmdGridFightType_GridFightGetDataScRsp = 8580;
+	CmdGridFightType_GridFightResumeGamePlayScRsp = 8783;
+	CmdGridFightType_GridFightQuitLeaveGamePlayCsReq = 8528;
+	CmdGridFightType_ICBHFOJFMOF = 8559;
+	CmdGridFightType_GridFightHandlePendingActionCsReq = 8477;
+	CmdGridFightType_GridFightTrackTraitCsReq = 8488;
+	CmdGridFightType_GridFightUpdateEquipTrackPriorityScRsp = 8599;
+	CmdGridFightType_GridFightRecycleRoleScRsp = 8627;
+	CmdGridFightType_GridFightTakeWeeklyRewardScRsp = 8769;
+	CmdGridFightType_FavourArchiveCsReq = 8540;
+	CmdGridFightType_GridFightUpdatePosCsReq = 8743;
+	CmdGridFightType_GridFightTraitUpdateScRsp = 8485;
+	CmdGridFightType_GridFightUpdateEliteBranchSelectScRsp = 8679;
+	CmdGridFightType_GridFightSettleNotify = 8739;
+	CmdGridFightType_GridFightGetDataCsReq = 8680;
+	CmdGridFightType_GridFightTraitUpdateCsReq = 8762;
+}
+
+message EJEFKJGAKOO {
+	uint32 effect_id = 5; // offset: 32
+	uint32 MENFBEDCBHB = 8; // offset: 28
+	uint32 trait_id = 15; // offset: 24
+}
+
+message ELPPDAHKLBE {
+}
+
+message ENDFBBDFFDH {
+}
+
+message EPELDFBCCEK {
+	uint32 BGFFICLCKHE = 4; // offset: 28
+	uint32 priority = 6; // offset: 24
+}
+
+message EPKFPIDHMOC {
+	uint32 MDNAGANGNKK = 11; // offset: 24
+	uint32 JFCJNHNBMCB = 13; // offset: 28
+}
+
+message FAFBDGCEAHD {
+	uint32 AFKKLDMAEDJ = 6; // offset: 28
+	uint32 trait_id = 13; // offset: 24
+}
+
+message FBDLJKEBPHM {
+	uint32 MDNAGANGNKK = 1; // offset: 32
+	map<uint32, uint32> JPIHLKGCBPC = 11; // offset: 16
+	uint32 role_id = 13; // offset: 36
+}
+
+message FBFBMMAAFCP {
+	uint32 EMFCEMPHOPI = 4; // offset: 24
+	uint32 NBPFMFMKJHI = 15; // offset: 28
+}
+
+message FCABIGNMAPL {
+	uint32 CKKDAEMFDPA = 2; // offset: 24
+}
+
+message FHBHIHJAOPB {
+	uint32 DCAHJELNJNP = 3; // offset: 28
+	uint32 ODDKKGOJHFO = 7; // offset: 32
+	uint32 DMLFGGDECDN = 14; // offset: 24
+}
+
+message FKILNIGOKBF {
+	uint32 role_id = 7; // offset: 24
+}
+
+message FKJMGFOPHHN {
+	uint32 LCLPEJHEAID = 8; // offset: 32
+	repeated FLFHACPLDJE CKJAKKNOHEK = 11; // offset: 16
+}
+
+message FLFHACPLDJE {
+	oneof OFJBCEDFLKL {
+		PGECGKEKFNC BDPIMPJOJBK = 12; // offset: 24
+		uint32 gold = 10; // offset: 24
+	}
+}
+
+message FNNFHNKHIDD {
+	uint32 PFIKCNFBGHE = 2; // offset: 24
+}
+
+message FPHPFJLAJDK {
+	uint32 LKMEMKLGIIK = 6; // offset: 28
+	uint32 unique_id = 11; // offset: 24
+	uint32 pos = 14; // offset: 32
+}
+
+message FavourArchiveCsReq {
+	bool IECKKCHJMLP = 10; // offset: 24
+	uint32 BAAGDILLLME = 13; // offset: 28
+}
+
+message FavourArchiveScRsp {
+	uint32 BAAGDILLLME = 1; // offset: 24
+	uint32 retcode = 2; // offset: 28
+	bool IECKKCHJMLP = 10; // offset: 32
+}
+
+message GEBBMDCOLCH {
+	repeated EPKFPIDHMOC CONJCEMAHGN = 10; // offset: 24
+}
+
+message GEIBJKJDOHO {
+	repeated uint32 FJBFGEIGMHF = 6; // offset: 16
+	uint32 trait_id = 7; // offset: 36
+	uint32 effect_id = 11; // offset: 32
+}
+
+message GFOMAIAIDFA {
+	uint32 IEOGEFBLNEL = 5; // offset: 24
+}
+
+message GHMLCIMANAM {
+	uint32 HDCJFJNBNBA = 1; // offset: 32
+	repeated uint32 GEJEJNNMGGP = 2; // offset: 16
+	ACOKICDKFCI BGEAMGMALCL = 5; // offset: 36
+}
+
+message GILMFECEBFE {
+	uint32 PEBCBLBLMPH = 10; // offset: 24
+	uint32 EOPHMLBEPGK = 15; // offset: 28
+}
+
+message GKLDOELMEIN {
+	uint32 unique_id = 2; // offset: 24
+}
+
+message GPCFHMLMDHC {
+	uint32 unique_id = 11; // offset: 24
+}
+
+message GetGameFormationScRsp {
+	uint32 DACKJGDGMLN = 1; // offset: 32
+	uint32 retcode = 4; // offset: 36
+	repeated HENDEHGPKMF FEBFMFMLHPO = 12; // offset: 16
+}
+
+message GridFightAffixInfo {
+	uint32 affix_id = 8; // offset: 24
+	bool PNJCLPNFIGA = 12; // offset: 28
+}
+
+message GridFightArchiveData {
+	bool IECKKCHJMLP = 3; // offset: 40
+	GridFightFinishInfo BFLLJJBHLDF = 4; // offset: 24
+	uint32 LJNGPCKPJLF = 5; // offset: 44
+	uint32 PMBNKEFCICH = 9; // offset: 36
+	uint32 GEGMHOMNBDG = 10; // offset: 32
+	uint32 BAAGDILLLME = 14; // offset: 56
+	int64 OBNEAIPKGKL = 15; // offset: 48
+}
+
+message GridFightAugmentActionInfo {
+	repeated GridFightPendingAugmentInfo pending_investment_list = 13; // offset: 16
+}
+
+message GridFightAugmentDamageStatistics {
+	double damage = 3; // offset: 24
+	uint32 augment_id = 9; // offset: 32
+	double secondary_damage = 15; // offset: 40
+}
+
+message GridFightBackToPrepareCsReq {
+}
+
+message GridFightBattleStatisticsInfo {
+	GridFightDamageSttInfo damage_statistics = 1; // offset: 32
+	repeated GridFightSectionRecordInfo FNJNKKMNKIM = 12; // offset: 24
+}
+
+message GridFightBossInfo {
+	repeated GridFightMonsterInfo monster_list = 8; // offset: 16
+}
+
+message GridFightBuyExpCsReq {
+}
+
+message GridFightBuyExpScRsp {
+	uint32 retcode = 5; // offset: 24
+}
+
+message GridFightBuyGoodsCsReq {
+	bool buy_all = 13; // offset: 32
+	repeated uint32 goods_index_list = 15; // offset: 16
+}
+
+message GridFightBuyGoodsScRsp {
+	repeated uint32 goods_index_list = 8; // offset: 16
+	uint32 retcode = 12; // offset: 32
+}
+
+message GridFightCampInfo {
+	uint32 camp_id = 8; // offset: 24
+}
+
+message GridFightConsumableCopyTargetInfo {
+	uint32 role_unique_id = 14; // offset: 24
+}
+
+message GridFightConsumableInfo {
+	uint32 round_cnt = 3; // offset: 24
+	uint32 num = 8; // offset: 28
+	uint32 group_id = 12; // offset: 32
+	uint32 item_id = 14; // offset: 36
+}
+
+message GridFightConsumableRecommendTargetInfo {
+	uint32 role_unique_id = 8; // offset: 24
+}
+
+message GridFightConsumableRemoveTargetInfo {
+	uint32 role_unique_id = 8; // offset: 24
+}
+
+message GridFightConsumableRollTargetInfo {
+	uint32 role_unique_id = 4; // offset: 24
+	uint32 equipment_unique_id = 8; // offset: 28
+}
+
+message GridFightConsumableTargetInfo {
+	oneof NEBNJDMFELO {
+		GridFightConsumableRemoveTargetInfo remove_target = 1588; // offset: 24
+		GridFightConsumableRollTargetInfo roll_target = 1213; // offset: 24
+		GridFightConsumableUpgradeTargetInfo upgrade_target = 355; // offset: 24
+		GridFightConsumableCopyTargetInfo copy_target = 1580; // offset: 24
+		GridFightConsumableRecommendTargetInfo recommend_target = 887; // offset: 24
+	}
+}
+
+message GridFightConsumableUpdateInfo {
+	uint32 group_id = 1; // offset: 24
+	int32 item_stack_count = 8; // offset: 28
+	uint32 item_id = 9; // offset: 40
+	uint32 num = 12; // offset: 36
+	uint32 round_cnt = 15; // offset: 32
+}
+
+message GridFightConsumableUpgradeTargetInfo {
+	uint32 equipment_unique_id = 12; // offset: 24
+}
+
+message GridFightContextData {
+	repeated uint32 initial_equipment_id_list = 8; // offset: 24
+}
+
+message GridFightContextValueInfo {
+	map<string, uint32> context_value_map = 5; // offset: 16
+	uint32 context_value_version = 12; // offset: 32
+}
+
+message GridFightCountItemInfo {
+	uint32 count = 8; // offset: 24
+}
+
+message GridFightCurrentInfo {
+	GridFightGameData game_data = 2; // offset: 48
+	uint32 division_id = 3; // offset: 60
+	uint32 season = 5; // offset: 64
+	GridFightPendingAction pending_action = 7; // offset: 32
+	GridFightContextData context_data = 8; // offset: 40
+	repeated GridFightGameInfo game_info_list = 9; // offset: 16
+	uint32 unique_id = 10; // offset: 56
+	bool is_overlock = 15; // offset: 68
+}
+
+message GridFightCurrentTask {
+	uint32 NLIDEKJOFMG = 1; // offset: 28
+	uint32 progress = 3; // offset: 24
+}
+
+message GridFightDamageSttInfo {
+	repeated GridFightRoleDamageStatistics role_statistics = 2; // offset: 24
+	repeated GridFightTraitDamageStatistics trait_statistics = 13; // offset: 32
+	repeated GridFightAugmentDamageStatistics augment_statistics = 15; // offset: 16
+}
+
+message GridFightDestroyWeeklyRewardCsReq {
+	repeated uint32 GDCFLPLFJCI = 7; // offset: 24
+}
+
+message GridFightDestroyWeeklyRewardScRsp {
+	uint32 retcode = 12; // offset: 32
+	NDLNIKCCALK MGBNEAHCDMA = 14; // offset: 24
+}
+
+message GridFightEliteBranchActionInfo {
+	uint32 reroll_count = 2; // offset: 24
+	uint32 free_reroll_count = 4; // offset: 28
+}
+
+message GridFightEliteBranchRerollActionRequest {
+}
+
+message GridFightEliteBranchSelectActionRequest {
+	uint32 elite_branch_id = 2; // offset: 24
+}
+
+message GridFightEliteBranchSyncInfo {
+	uint32 elite_branch_id = 15; // offset: 24
+}
+
+message GridFightEmptyGameItemInfo {
+}
+
+message GridFightEncounterInfo {
+	uint32 encounter_id = 8; // offset: 44
+	repeated GridFightMonsterWaveInfo monster_wave_list = 9; // offset: 16
+	GridFightDropInfo drop_info = 10; // offset: 24
+	uint32 penalty_rule_id = 13; // offset: 40
+	uint32 enemy_difficulty_add = 15; // offset: 48
+}
+
+message GridFightEndBattleStageNotify {
+	uint32 chapter_id = 2; // offset: 64
+	uint32 keep_win_count = 4; // offset: 68
+	uint32 section_id = 5; // offset: 80
+	uint32 keep_win_gold = 6; // offset: 84
+	map<uint32, GridFightDropInfo> drop_item_map = 7; // offset: 48
+	uint32 progress_percent = 8; // offset: 60
+	uint32 interest_gold = 9; // offset: 108
+	bool is_perfect_finish = 10; // offset: 76
+	GridFightDamageSttInfo damage_statistics = 11; // offset: 24
+	uint32 route_id = 12; // offset: 88
+	uint32 previous_keep_win_count = 66; // offset: 56
+	uint32 basic_gold = 186; // offset: 96
+	uint32 lineup_hp_before = 628; // offset: 104
+	uint32 max_lineup_hp = 854; // offset: 100
+	repeated GridFightHpModifyInfo hp_modify_list = 1572; // offset: 40
+	GridFightLevelUpdateInfo level_update_info = 1607; // offset: 32
+	uint32 lineup_hp_after = 1732; // offset: 72
+	uint32 dead_line_percent = 2009; // offset: 92
+}
+
+message GridFightEnterBattleStageCsReq {
+}
+
+message GridFightEnterBattleStageScRsp {
+	SceneBattleInfo battle_info = 2; // offset: 24
+	uint32 retcode = 3; // offset: 32
+}
+
+message GridFightEquipCraftCsReq {
+	uint32 target_equipment_id = 3; // offset: 36
+	repeated uint32 material_unique_id_list = 5; // offset: 24
+	uint32 track_id = 10; // offset: 40
+	GridFightEquipCraftSource source = 12; // offset: 32
+}
+
+message GridFightEquipCraftScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+enum GridFightEquipCraftSource {
+	GridFightEquipCraftSource_KGridFightEquipCraftSourceNone = 0;
+	GridFightEquipCraftSource_KGridFightEquipCraftSourceManual = 1;
+	GridFightEquipCraftSource_KGridFightEquipCraftSourceTrack = 2;
+	GridFightEquipCraftSource_KGridFightEquipCraftSourceRecommend = 3;
+}
+
+message GridFightEquipDressCsReq {
+	uint32 role_unique_id = 5; // offset: 32
+	uint32 equipment_unique_id = 6; // offset: 28
+	GridFightEquipDressSource source = 10; // offset: 24
+}
+
+message GridFightEquipDressScRsp {
+	uint32 retcode = 3; // offset: 24
+}
+
+enum GridFightEquipDressSource {
+	GridFightEquipDressSource_None = 0;
+	GridFightEquipDressSource_Manual = 1;
+	GridFightEquipDressSource_Recommend = 2;
+}
+
+enum GridFightEquipTrackSource {
+	GridFightEquipTrackSource_KGridFightEquipTrackSourceNone = 0;
+	GridFightEquipTrackSource_KGridFightEquipTrackSourceRecommend = 1;
+	GridFightEquipTrackSource_KGridFightEquipTrackSourceGuide = 2;
+	GridFightEquipTrackSource_KGridFightEquipTrackSourceTraitEffect = 3;
+}
+
+message GridFightEquipmentInfo {
+	uint32 unique_id = 4; // offset: 44
+	bool IODIJBEHEGF = 8; // offset: 32
+	map<uint32, uint32> convert_property_to_fixpoint = 9; // offset: 24
+	uint32 grid_fight_equipment_id = 11; // offset: 40
+	uint32 source = 14; // offset: 36
+}
+
+message GridFightFinishInfo {
+	repeated GridFightGamePortalBuffInfo portal_buff_info_list = 7; // offset: 72
+	uint32 settle_rank = 8; // offset: 176
+	repeated GridGameTraitInfo grid_fight_trait_info = 9; // offset: 88
+	repeated GridGameAugmentInfo sync_augment_info = 11; // offset: 112
+	GridFightSettleBasicInfo basic = 13; // offset: 152
+	repeated GridFightRoleDamageStatistics role_statistics = 14; // offset: 128
+	repeated GridFightTraitDamageStatistics trait_statistics = 209; // offset: 32
+	bool DBODGPBOIHC = 295; // offset: 161
+	GridFightBossInfo boss_info = 426; // offset: 16
+	repeated GridFightEquipmentInfo grid_fight_equipment_list = 427; // offset: 40
+	repeated GridFightAffixInfo affix_info_list = 463; // offset: 120
+	GridFightSettleReason reason = 527; // offset: 168
+	uint32 AKEGLJLCFPH = 593; // offset: 164
+	repeated GridGameNpcInfo grid_game_npc_list = 665; // offset: 80
+	uint32 MBMJNEDIFFC = 674; // offset: 172
+	repeated uint32 HGAGKFEKBDA = 675; // offset: 24
+	GridFightContextData context_data = 698; // offset: 96
+	repeated uint32 MHLBIBGKIOB = 934; // offset: 56
+	GridFightSettleAvatarInfo avatar_info = 951; // offset: 64
+	repeated GridFightAugmentDamageStatistics augment_statistics = 1147; // offset: 136
+	repeated GridGameRoleInfo grid_game_role_list = 1262; // offset: 104
+	repeated FPHPFJLAJDK KCOMPKMJCMC = 1329; // offset: 48
+	bool is_overlock = 2002; // offset: 160
+}
+
+message GridFightFinishTutorialCsReq {
+	uint32 EGAPEGCKDFJ = 12; // offset: 24
+}
+
+message GridFightFinishTutorialScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message GridFightForgeEquipmentInfo {
+	uint32 grid_fight_equipment_id = 7; // offset: 24
+}
+
+message GridFightForgeGoodsInfo {
+	oneof OFJBCEDFLKL {
+		GridFightForgeEquipmentInfo equipment_goods_info = 6; // offset: 24
+	}
+}
+
+message GridFightForgeRoleActionInfo {
+	repeated PGECGKEKFNC CKJAKKNOHEK = 13; // offset: 16
+	uint32 LCLPEJHEAID = 15; // offset: 32
+}
+
+message GridFightGameAugmentAdd {
+	GridGameAugmentInfo update_augment_info = 2; // offset: 16
+}
+
+message GridFightGameAugmentSync {
+	repeated GridGameAugmentInfo sync_augment_info = 3; // offset: 16
+}
+
+message GridFightGameAugmentUpdate {
+	GridGameAugmentInfo update_augment_info = 10; // offset: 24
+}
+
+message GridFightGameBasicInfo {
+	uint32 gold = 1; // offset: 128
+	repeated uint32 ONHDKLIMLNM = 2; // offset: 32
+	uint32 level_exp = 3; // offset: 88
+	uint32 deposit_per_interest = 4; // offset: 92
+	repeated RoleTrackEquipmentInfo MIIDIMOCPEB = 5; // offset: 24
+	uint32 off_field_max_count = 6; // offset: 100
+	uint32 lineup_hp = 7; // offset: 132
+	uint32 bench_overflow_size = 8; // offset: 112
+	uint32 buy_exp_cost = 9; // offset: 136
+	uint32 max_lineup_hp = 10; // offset: 124
+	uint32 CPKLHPJMMDO = 11; // offset: 96
+	uint32 player_level = 12; // offset: 120
+	uint32 max_interest_gold = 13; // offset: 116
+	uint32 max_avatar_count = 14; // offset: 104
+	uint32 max_active_role_count = 15; // offset: 108
+	string ANIBGAAIAHF = 252; // offset: 16
+	GridFightLockInfo lock_info = 285; // offset: 56
+	repeated uint32 module_id_list = 824; // offset: 80
+	string GBGOBPOOPGO = 1024; // offset: 64
+	repeated uint32 JCMCCGHFIAN = 1526; // offset: 40
+	GridFightSyncCurrentTaskInfo current_task_info = 1604; // offset: 72
+}
+
+message GridFightGameData {
+	repeated GridFightGameItemInfo game_item_list = 9; // offset: 16
+}
+
+message GridFightGameInfo {
+	oneof LEOIAOFBBFA {
+		GridFightGameBasicInfo basic_info = 13; // offset: 24
+		GridFightGameItemsInfo items_info = 12; // offset: 24
+		GridFightGameShopInfo shop_info = 14; // offset: 24
+		GridFightLevelInfo level_info = 2; // offset: 24
+		GridFightGameOrbInfo orb_info = 1; // offset: 24
+		GridFightGameAugmentSync augment_info = 6; // offset: 24
+		GridFightGameTraitInfo trait_info = 3; // offset: 24
+		GridFightGameTeamInfo team_info = 9; // offset: 24
+		GridFightContextValueInfo context_value_info = 4; // offset: 24
+		GridFightPrayQuestInfo pray_quest_info = 10; // offset: 24
+	}
+}
+
+enum GridFightGameItemCategory {
+	JDCAPBNPOOK_NLCDGIPGFDJ = 0;
+	JDCAPBNPOOK_ENPLACDLJGA = 1;
+	JDCAPBNPOOK_NMEEOHMGPKD = 2;
+	JDCAPBNPOOK_OMKPENOHLII = 4;
+	GridFightGameItemCategory_Type5 = 5;
+	JDCAPBNPOOK_MCPIKEHDMND = 101;
+	JDCAPBNPOOK_LDPMDPAGCHM = 102;
+	JDCAPBNPOOK_EGCGFGDILBC = 103;
+	JDCAPBNPOOK_HAEHIHOCLJD = 104;
+	GridFightGameItemCategory_Type105 = 105;
+	JDCAPBNPOOK_MLOMHPFOMLO = 106;
+	GridFightGameItemCategory_Type107 = 107;
+	JDCAPBNPOOK_GGMPEGMEHPD = 108;
+	GridFightGameItemCategory_HackConsole = 109;
+	JDCAPBNPOOK_ONPNOPLOAGH = 110;
+	GridFightGameItemCategory_Type111 = 111;
+	JDCAPBNPOOK_DICKKDIAEND = 112;
+	JDCAPBNPOOK_LKPOOOLNAJC = 113;
+}
+
+message GridFightGameItemDescriptor {
+	repeated uint32 parameter_list = 1; // offset: 16
+	GridFightGameItemCategory category = 10; // offset: 32
+}
+
+message GridFightGameItemInfo {
+	uint32 unique_id = 2; // offset: 40
+	GridFightGameItemDescriptor descriptor = 15; // offset: 24
+	oneof FMEKLFFDPGG {
+		LFOCLBEMIEM HAGAEFMEHBA = 161; // offset: 16
+		AKHEHAMBLEB FHKFMFKNMCH = 563; // offset: 16
+		ONLFOIONDAF CHHEGLGPCCH = 1868; // offset: 16
+		FBFBMMAAFCP IJAFFOCBKJI = 1452; // offset: 16
+		GridFightCountItemInfo count_info = 1885; // offset: 16
+		IPGCHDECCNB FCPGFBADIAL = 1909; // offset: 16
+		LHMLIGPHOKP LJBBFDMAEOH = 463; // offset: 16
+		HHNBCLPNDFI LFBGLMMDMCD = 648; // offset: 16
+		FHBHIHJAOPB GLGPBLLICAG = 1850; // offset: 16
+		ELPPDAHKLBE DNLGBJLPDCE = 1614; // offset: 16
+		GridFightPlayerLevelProgressionInfo player_level_progression = 809; // offset: 16
+		CNBHPJFFLEF PDHEDGGOPGL = 1463; // offset: 16
+		HDOLIECDHAO BBGLCDJPLMF = 227; // offset: 16
+		OPJALEIKFAC EJEEHDPBHLI = 991; // offset: 16
+		GridFightEmptyGameItemInfo empty_info = 1301; // offset: 16
+		FAFBDGCEAHD FKBIGANCEPD = 707; // offset: 16
+		PIKKAEBHIKF NPHCPBDKLCH = 17; // offset: 16
+		AGGDDAJLAEB CLFNPNNIFGE = 1433; // offset: 16
+		FBDLJKEBPHM AOGFFCECKPK = 1217; // offset: 16
+		OHBLOLLNHIC CMBMNLHAECG = 1445; // offset: 16
+		ILDEFHMIDKP LBFBINFMGNF = 1228; // offset: 16
+		FCABIGNMAPL FLELIBAJPEC = 767; // offset: 16
+		GILMFECEBFE PNMLHBJOABC = 1694; // offset: 16
+		GridFightSingleValueItemInfo single_value_info = 749; // offset: 16
+		KBEKJKNCMCL KPHBBLHOPHF = 1267; // offset: 16
+		HCIFBGJCPDM OAJOEEODJAO = 93; // offset: 16
+		HPMNCENLCAB KHNNNFBIAMA = 189; // offset: 16
+		GridFightHackStateInfo hack_state_info = 1484; // offset: 16
+		GFOMAIAIDFA PDADFOGABLJ = 1080; // offset: 16
+		PPBJJJMJOBN IBNBALOPKMM = 1063; // offset: 16
+		IEOMGIBLHJB INDGPPMDFND = 1949; // offset: 16
+		GridFightRoleHistoryInfo role_history_info = 932; // offset: 16
+		KPMOCBIIMHH NIOCABOLGLO = 1012; // offset: 16
+		CEHDAMJJFOE PGCBFHOPLEP = 2024; // offset: 16
+		BKIKOGNAECK KEHCIIEOLMD = 495; // offset: 16
+		HEHOBDGMMJM INHGPDPNILL = 1890; // offset: 16
+		GHMLCIMANAM BKAFGJDFMLF = 1995; // offset: 16
+		PIFMLFKCOOG GBHONNJKEHL = 673; // offset: 16
+	}
+}
+
+message GridFightGameItemSyncInfo {
+	repeated GridFightEquipmentInfo grid_fight_equipment_list = 2; // offset: 32
+	repeated GridFightConsumableUpdateInfo update_grid_fight_consumable_list = 14; // offset: 24
+}
+
+message GridFightGameItemsInfo {
+	repeated GridFightConsumableInfo grid_fight_consumable_list = 1; // offset: 24
+	repeated GridFightEquipmentInfo grid_fight_equipment_list = 15; // offset: 32
+}
+
+message GridFightGameOrbInfo {
+	repeated GridGameOrbInfo grid_game_orb_list = 4; // offset: 32
+	repeated PFBCBNMKFAK ODCMJGHEOMG = 11; // offset: 24
+}
+
+message GridFightGamePortalBuffInfo {
+	uint32 portal_buff_id = 4; // offset: 24
+}
+
+message GridFightGameShopInfo {
+	uint32 shop_id = 4; // offset: 48
+	GridFightRarityWeightInfo rarity_weight_info = 5; // offset: 16
+	uint32 refresh_cost = 6; // offset: 56
+	bool locked = 9; // offset: 52
+	repeated GridFightShopGoodsInfo goods_list = 10; // offset: 40
+	repeated uint32 role_pool_list = 13; // offset: 32
+}
+
+message GridFightGameTeamInfo {
+	repeated GridGameRoleInfo grid_game_role_list = 5; // offset: 16
+	repeated FPHPFJLAJDK KCOMPKMJCMC = 6; // offset: 48
+	repeated GridGameNpcInfo grid_game_npc_list = 7; // offset: 40
+	repeated GridGameForgeItemInfo forge_item_list = 10; // offset: 56
+	repeated uint32 PLEIPHJGFIE = 13; // offset: 24
+}
+
+message GridFightGameTraitInfo {
+	repeated GridFightRoleSwitchEntry role_switch_list = 10; // offset: 32
+	repeated GridGameTraitInfo grid_fight_trait_info = 12; // offset: 24
+}
+
+message GridFightGetArchiveCsReq {
+	MLJIILDNDPL type = 14; // offset: 24
+}
+
+message GridFightGetArchiveScRsp {
+	repeated GridFightArchiveData MCGGPONOCKC = 3; // offset: 24
+	uint32 retcode = 5; // offset: 36
+	MLJIILDNDPL type = 9; // offset: 32
+}
+
+message GridFightGetDataCsReq {
+}
+
+message GridFightGetDataScRsp {
+	uint32 retcode = 9; // offset: 40
+	GridFightSystemInfo system_info = 11; // offset: 16
+	GridFightCurrentInfo current_info = 12; // offset: 24
+}
+
+message GridFightGetFormationCsReq {
+}
+
+message GridFightGetOrbCsReq {
+	bool take_all = 13; // offset: 32
+	repeated uint32 orb_unique_id_list = 15; // offset: 24
+}
+
+message GridFightGetOrbScRsp {
+	uint32 retcode = 15; // offset: 24
+}
+
+message GridFightHackStateInfo {
+	uint32 minimum_enemy_hp_percent = 1; // offset: 32
+	uint32 enemy_hp_percent = 6; // offset: 40
+	repeated uint32 remaining_action_count_list = 7; // offset: 16
+	uint32 enhance_option_id = 12; // offset: 36
+	uint32 maximum_enemy_hp_percent = 15; // offset: 44
+}
+
+message GridFightHandBookAugmentInfo {
+	repeated uint32 seen_augment_id_list = 4; // offset: 16
+	repeated uint32 unlocked_augment_id_list = 13; // offset: 24
+}
+
+message GridFightHandBookEquipInfo {
+	repeated uint32 grid_fight_item_list = 5; // offset: 24
+}
+
+message GridFightHandBookInfo {
+	GridFightHandBookMonsterInfo monster_info = 2; // offset: 16
+	GridFightHandBookEquipInfo equip_info = 9; // offset: 48
+	GridFightHandBookAugmentInfo augment_info = 10; // offset: 24
+	GridFightHandBookRoleInfo role_info = 13; // offset: 40
+	GridFightHandBookPortalInfo portal_info = 14; // offset: 32
+}
+
+message GridFightHandBookMonsterInfo {
+	repeated uint32 monster_id_list = 8; // offset: 24
+}
+
+message GridFightHandBookPortalInfo {
+	repeated uint32 unlocked_portal_id_list = 10; // offset: 32
+	repeated uint32 seen_portal_id_list = 11; // offset: 24
+}
+
+message GridFightHandBookRoleInfo {
+	repeated uint32 role_id_list = 9; // offset: 24
+}
+
+message GridFightHandlePendingActionCsReq {
+	uint32 queue_position = 12; // offset: 32
+	oneof FGLIODAJFML {
+		GridFightPortalBuffSelectAction portal_select_action = 1844; // offset: 16
+		GridFightPortalBuffRerollAction portal_reroll_action = 1652; // offset: 16
+		GridFightInvestmentSelectActionRequest investment_select_action = 1200; // offset: 16
+		GridFightInvestmentRerollActionRequest investment_reroll_action = 130; // offset: 16
+		GKLDOELMEIN PKHJLKNGCGH = 1592; // offset: 16
+		GridFightEliteBranchSelectActionRequest elite_branch_select_action = 1696; // offset: 16
+		GridFightTraitEffectSelectEnhanceActionRequest trait_effect_select_enhance_action = 632; // offset: 16
+		NNFPCAPDENH KEBDKGKEJDD = 522; // offset: 16
+		GridFightRoundBeginActionRequest round_begin_action = 774; // offset: 16
+		GridFightReturnPreparationActionRequest return_preparation_action = 835; // offset: 16
+		GridFightSupplySelectActionRequest supply_select_action = 471; // offset: 16
+		GridFightSupplyRerollActionRequest supply_reroll_action = 181; // offset: 16
+		PDKGKIDCBKA HOKCPPPLJIO = 1579; // offset: 16
+		GridFightEliteBranchRerollActionRequest elite_branch_reroll_action = 455; // offset: 16
+		GridFightRecommendEquipmentSelectActionRequest recommend_equipment_select_action = 1376; // offset: 16
+		LFONAPFHAOB HHNHGJMOGDD = 566; // offset: 16
+		FNNFHNKHIDD CFDIPFKBFJB = 1143; // offset: 16
+		IDOJADMFGKF NFBJINKLLLK = 1753; // offset: 16
+		EJEFKJGAKOO LAJGNNBOLDG = 1586; // offset: 16
+		FKILNIGOKBF LFIDNOAECMN = 1925; // offset: 16
+		KCCPHHGCPMP IOHJGOENAPF = 943; // offset: 16
+	}
+}
+
+message GridFightHandlePendingActionScRsp {
+	uint32 queue_position = 14; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message GridFightHpModifyInfo {
+	int32 previous_hp = 5; // offset: 32
+	uint32 source_id = 6; // offset: 36
+	int32 current_hp = 7; // offset: 28
+	GridFightUpdateGlobalHpReason reason = 9; // offset: 24
+	uint32 change_value = 15; // offset: 40
+}
+
+message GridFightInvestmentRerollActionRequest {
+	uint32 augment_id = 2; // offset: 24
+}
+
+message GridFightInvestmentSelectActionRequest {
+	uint32 augment_id = 3; // offset: 24
+}
+
+message GridFightLayerData {
+	uint32 selected_elite_branch_id = 2; // offset: 36
+	uint32 fight_camp_id = 4; // offset: 32
+	repeated GridFightEncounterInfo encounter_list = 7; // offset: 24
+}
+
+message GridFightLayerInfo {
+	bool completed = 10; // offset: 36
+	oneof EFECLPJFOCM {
+		GridFightLayerData data = 325; // offset: 24
+	}
+}
+
+message GridFightLevelDisplayInfo {
+	uint32 max_exp = 7; // offset: 28
+	uint32 exp = 9; // offset: 32
+	uint32 level = 15; // offset: 24
+}
+
+message GridFightLevelInfo {
+	GridFightSectionProgressInfo section_progress_info = 2; // offset: 48
+	repeated GridFightGamePortalBuffInfo grid_fight_portal_buff_list = 3; // offset: 72
+	repeated GridFightCampInfo camp_info_list = 5; // offset: 16
+	uint32 route_id = 6; // offset: 88
+	GridFightBossInfo boss_info = 8; // offset: 64
+	repeated GridFightAffixInfo affix_info_list = 9; // offset: 24
+	uint32 section_id = 11; // offset: 80
+	GridFightLayerInfo layer_info = 13; // offset: 40
+	GridFightBattleStatisticsInfo battle_statistics_info = 14; // offset: 56
+	uint32 chapter_id = 15; // offset: 84
+}
+
+message GridFightLevelSyncInfo {
+	uint32 chapter_id = 8; // offset: 32
+	uint32 section_id = 10; // offset: 36
+	GridFightLayerInfo layer_info = 15; // offset: 24
+}
+
+message GridFightLevelUpdateInfo {
+	GridFightLevelDisplayInfo current_level_info = 2; // offset: 32
+	GridFightLevelDisplayInfo previous_level_info = 13; // offset: 16
+	uint32 added_exp = 14; // offset: 40
+}
+
+message GridFightLineupHpSyncInfo {
+	uint32 max_hp = 6; // offset: 24
+	uint32 current_hp = 13; // offset: 28
+}
+
+message GridFightLockInfo {
+	GridFightLockReason lock_reason = 9; // offset: 28
+	GridFightLockType lock_type = 12; // offset: 24
+}
+
+enum GridFightLockReason {
+	GridFightLockReason_None = 0;
+	GridFightLockReason_Reserved1 = 1;
+	GridFightLockReason_Reserved2 = 2;
+	GridFightLockReason_PendingAction = 3;
+}
+
+message GridFightLockShopCsReq {
+	bool is_lock = 3; // offset: 24
+}
+
+message GridFightLockShopScRsp {
+	uint32 retcode = 2; // offset: 24
+}
+
+enum GridFightLockType {
+	GridFightLockType_None = 0;
+	GridFightLockType_Gameplay = 6;
+	GridFightLockType_Reserved7 = 7;
+	GridFightLockType_Reserved8 = 8;
+}
+
+message GridFightMonsterInfo {
+	uint32 role_star = 1; // offset: 28
+	uint32 unknown_field_5 = 2; // offset: 40
+	uint32 monster_id = 4; // offset: 32
+	uint32 IMDKLKONINF = 9; // offset: 36
+	uint32 MIPDAFDLJPB = 12; // offset: 24
+}
+
+message GridFightMonsterWaveInfo {
+	repeated GridFightMonsterInfo monster_list = 8; // offset: 16
+	uint32 wave_id = 14; // offset: 32
+}
+
+message GridFightOpenOrbResultScNotify {
+	uint32 unique_id = 1; // offset: 32
+	GridFightDropInfo drop_info = 2; // offset: 16
+}
+
+message GridFightOrbSyncInfo {
+	uint32 orb_item_id = 3; // offset: 24
+	uint32 unique_id = 7; // offset: 28
+}
+
+message GridFightPendingAction {
+	uint32 queue_position = 13; // offset: 36
+	oneof FGLIODAJFML {
+		GridFightPortalBuffActionInfo portal_action = 765; // offset: 16
+		GridFightAugmentActionInfo investment_action = 1520; // offset: 16
+		NGNKIIOHBAI PKHJLKNGCGH = 1776; // offset: 16
+		GridFightEliteBranchActionInfo elite_branch_action = 1811; // offset: 16
+		GridFightTraitEffectSelectEnhanceActionInfo trait_effect_select_enhance_action = 1580; // offset: 16
+		GridFightRoundBeginActionInfo round_begin_action = 1338; // offset: 16
+		GridFightReturnPreparationActionInfo return_preparation_action = 1517; // offset: 16
+		GridFightSupplyActionInfo supply_action = 2024; // offset: 16
+		MHJIOJNNPDM HOKCPPPLJIO = 857; // offset: 16
+		GridFightRecommendEquipmentActionInfo recommend_equipment_action = 331; // offset: 16
+		GridFightForgeRoleActionInfo HHNHGJMOGDD = 308; // offset: 16
+		FKJMGFOPHHN CFDIPFKBFJB = 1118; // offset: 16
+		GEIBJKJDOHO LAJGNNBOLDG = 245; // offset: 16
+		BJALEHOMFKH LFIDNOAECMN = 1378; // offset: 16
+		CFFDCICDAKK IOHJGOENAPF = 1632; // offset: 16
+	}
+}
+
+message GridFightPendingAugmentInfo {
+	uint32 augment_id = 8; // offset: 24
+	uint32 reroll_count = 12; // offset: 32
+	uint32 free_reroll_count = 14; // offset: 28
+}
+
+message GridFightPermanentGameInfo {
+	GridFightTalentInfo talent = 6; // offset: 16
+}
+
+message GridFightPermanentTalentEnableCsReq {
+	uint32 FGCLPKIDGFK = 2; // offset: 24
+}
+
+message GridFightPermanentTalentEnableScRsp {
+	uint32 CKHCLKOALKE = 3; // offset: 28
+	uint32 retcode = 8; // offset: 24
+}
+
+message GridFightPermanentTalentResetCsReq {
+}
+
+message GridFightPermanentTalentResetScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message GridFightPlayerLevelProgressionInfo {
+	map<uint32, uint32> level_up_exp_by_level = 14; // offset: 24
+}
+
+message GridFightPlayerLevelSyncInfo {
+	uint32 exp = 3; // offset: 24
+	uint32 level = 9; // offset: 32
+	uint32 max_level = 13; // offset: 28
+}
+
+message GridFightPortalBuffActionInfo {
+	uint32 free_reroll_count = 2; // offset: 40
+	uint32 reroll_count = 8; // offset: 36
+	repeated uint32 portal_id_list = 9; // offset: 16
+	uint32 select_count = 11; // offset: 32
+}
+
+message GridFightPortalBuffRerollAction {
+}
+
+message GridFightPortalBuffSelectAction {
+	uint32 portal_id = 9; // offset: 24
+}
+
+message GridFightPortalBuffUpdateInfo {
+	uint32 portal_buff_id = 11; // offset: 24
+}
+
+message GridFightPosInfo {
+	uint32 pos = 4; // offset: 28
+	uint32 unique_id = 15; // offset: 24
+}
+
+message GridFightPrayQuestInfo {
+	repeated uint32 completed_quest_id_list = 4; // offset: 32
+	repeated AFCBKJEFKPG quest_list = 8; // offset: 16
+}
+
+message GridFightQuitLeaveGamePlayCsReq {
+}
+
+message GridFightQuitLeaveGamePlayScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message GridFightQuitSettleCsReq {
+}
+
+message GridFightQuitSettleScRsp {
+	uint32 retcode = 1; // offset: 24
+}
+
+message GridFightRarityWeightEntry {
+	uint32 rarity = 3; // offset: 28
+	uint32 weight = 4; // offset: 24
+}
+
+message GridFightRarityWeightInfo {
+	repeated GridFightRarityWeightEntry entry_list = 2; // offset: 24
+}
+
+message GridFightRecommendEquipmentActionInfo {
+	repeated uint32 equipment_id_list = 1; // offset: 24
+}
+
+message GridFightRecommendEquipmentSelectActionRequest {
+	uint32 equipment_id = 7; // offset: 24
+}
+
+message GridFightRecycleRoleCsReq {
+	uint32 unique_id = 2; // offset: 24
+}
+
+message GridFightRecycleRoleScRsp {
+	uint32 retcode = 13; // offset: 24
+}
+
+message GridFightRefreshShopCsReq {
+}
+
+message GridFightRefreshShopScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message GridFightResumeGamePlayCsReq {
+	uint32 unique_id = 1; // offset: 24
+}
+
+message GridFightResumeGamePlayScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message GridFightReturnPreparationActionInfo {
+}
+
+message GridFightReturnPreparationActionRequest {
+}
+
+message GridFightRoleDamageStatistics {
+	bool is_trial_role = 3; // offset: 40
+	repeated uint32 grid_fight_equipment_list = 4; // offset: 16
+	uint32 role_id = 8; // offset: 36
+	uint32 role_star = 12; // offset: 32
+	bool is_back_position = 13; // offset: 41
+	double total_damage = 15; // offset: 48
+}
+
+message GridFightRoleGoodsInfo {
+	uint32 role_star = 6; // offset: 28
+	uint32 role_id = 15; // offset: 24
+}
+
+message GridFightRoleHistoryInfo {
+	repeated IFPAJBFOHLN ICDHAPACGEH = 8; // offset: 16
+}
+
+message GridFightRoleSwitchEntry {
+	uint32 current_role_id = 2; // offset: 32
+	repeated uint32 role_id_list = 3; // offset: 24
+}
+
+message GridFightRoleSwitchInfo {
+	repeated GridFightRoleSwitchEntry role_switch_list = 15; // offset: 24
+}
+
+message GridFightRoundBeginActionInfo {
+}
+
+message GridFightRoundBeginActionRequest {
+}
+
+message GridFightSavedValueUpdate {
+	map<string, uint32> saved_values = 12; // offset: 24
+}
+
+message GridFightSeasonExpInfo {
+	uint32 level = 14; // offset: 24
+	uint32 exp = 15; // offset: 28
+}
+
+message GridFightSeasonHandBookNotify {
+	oneof KKNBOACNCON {
+		GridFightHandBookRoleInfo role_info = 793; // offset: 24
+		GridFightHandBookEquipInfo LNLDBNIGODI = 2018; // offset: 24
+		GridFightHandBookAugmentInfo ODEJBBALEOA = 335; // offset: 24
+		GridFightHandBookPortalInfo HLHCCONOKCL = 761; // offset: 24
+		GridFightHandBookMonsterInfo monster_info = 233; // offset: 24
+	}
+}
+
+message GridFightSeasonTalentEnableCsReq {
+	uint32 FGCLPKIDGFK = 15; // offset: 24
+}
+
+message GridFightSeasonTalentEnableScRsp {
+	uint32 CKHCLKOALKE = 2; // offset: 28
+	uint32 retcode = 8; // offset: 24
+}
+
+message GridFightSeasonTalentResetCsReq {
+}
+
+message GridFightSeasonTalentResetScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message GridFightSectionProgressInfo {
+	repeated JKPOIHGIFFG section_list = 1; // offset: 24
+}
+
+message GridFightSectionRecordInfo {
+	uint32 chapter_id = 6; // offset: 32
+	uint32 node_type = 8; // offset: 44
+	uint32 section_id = 15; // offset: 40
+	oneof MMHKPJJNHDK {
+		KEEPBBDICFN GFCEGEPFCDB = 1939; // offset: 16
+	}
+}
+
+message GridFightSettleAvatarInfo {
+	repeated uint32 grid_fight_avatar_list = 13; // offset: 16
+}
+
+message GridFightSettleBasicInfo {
+	uint32 section_id = 2; // offset: 32
+	uint32 max_lineup_hp = 4; // offset: 56
+	uint32 lineup_hp = 5; // offset: 44
+	repeated uint32 FMEOHKHGMJM = 6; // offset: 16
+	uint32 route_id = 7; // offset: 36
+	uint32 battles_finished = 10; // offset: 40
+	uint32 division_id = 11; // offset: 52
+	uint32 chapter_id = 13; // offset: 48
+}
+
+message GridFightSettleNotify {
+	uint32 KEJGCDOGEDD = 3; // offset: 32
+	uint32 EDHKHJAPMKA = 9; // offset: 36
+	uint32 season_exp = 10; // offset: 60
+	uint32 highest_division_id = 11; // offset: 44
+	uint32 division_id = 12; // offset: 56
+	uint32 GEBGGMAGDJB = 15; // offset: 52
+	GridFightFinishInfo finish_info = 1348; // offset: 16
+	uint32 MNNKKEPCPPL = 1508; // offset: 48
+	uint32 CGKNDIJMOCJ = 1558; // offset: 40
+}
+
+enum GridFightSettleReason {
+	GridFightSettleReason_Unknown = 0;
+	GridFightSettleReason_Quit = 1;
+	GridFightSettleReason_Defeat = 2;
+	GridFightSettleReason_Victory = 3;
+	GridFightSettleReason_Complete = 4;
+}
+
+message GridFightShopGoodsInfo {
+	uint32 price = 11; // offset: 40
+	bool sold_out = 12; // offset: 36
+	oneof AELHFLGJMJN {
+		GridFightRoleGoodsInfo role_goods_info = 801; // offset: 24
+		GridFightSpecialGoodsInfo special_goods_info = 1071; // offset: 24
+		CCKPBIKOIBB INBCCAIFHNL = 823; // offset: 24
+	}
+}
+
+message GridFightShopSyncInfo {
+	repeated GridFightShopGoodsInfo goods_list = 4; // offset: 16
+	bool ABGEKPJHHIA = 5; // offset: 48
+	uint32 shop_id = 6; // offset: 40
+	GridFightRarityWeightInfo rarity_weight_info = 10; // offset: 24
+	uint32 refresh_cost = 12; // offset: 44
+}
+
+message GridFightSingleValueItemInfo {
+	uint32 KHHFIEPDHHD = 6; // offset: 24
+}
+
+message GridFightSpecialGoodsInfo {
+	uint32 special_goods_id = 5; // offset: 24
+}
+
+message GridFightStartGamePlayCsReq {
+	uint32 season = 6; // offset: 32
+	bool is_overlock = 7; // offset: 28
+	uint32 division_id = 12; // offset: 24
+}
+
+message GridFightStartGamePlayScRsp {
+	uint32 retcode = 3; // offset: 32
+	GridFightCurrentInfo current_info = 14; // offset: 16
+}
+
+message GridFightStaticGameInfo {
+	GridFightHandBookInfo handbook = 3; // offset: 32
+	GridFightSeasonExpInfo exp = 5; // offset: 24
+	uint32 season = 7; // offset: 52
+	uint32 division_id = 8; // offset: 48
+	uint32 tutorial_completion = 9; // offset: 60
+	GridFightTalentInfo season_talent = 11; // offset: 16
+	uint32 sub_season = 14; // offset: 64
+	uint32 weekly_progress = 15; // offset: 56
+}
+
+message GridFightSummonProjectionCsReq {
+	uint32 LKMEMKLGIIK = 15; // offset: 24
+}
+
+message GridFightSummonProjectionScRsp {
+	uint32 retcode = 15; // offset: 24
+}
+
+message GridFightSupplyActionInfo {
+	uint32 select_count = 1; // offset: 40
+	repeated GridFightSupplyRoleInfo supply_role_info_list = 6; // offset: 24
+	uint32 free_reroll_count = 8; // offset: 36
+	uint32 IONLFBNMOFP = 10; // offset: 32
+	uint32 reroll_count = 15; // offset: 44
+}
+
+message GridFightSupplyRerollActionRequest {
+}
+
+message GridFightSupplyRoleInfo {
+	repeated uint32 grid_fight_item_list = 3; // offset: 24
+	uint32 role_id = 5; // offset: 32
+}
+
+message GridFightSupplySelectActionRequest {
+	repeated uint32 select_supply_indexes = 15; // offset: 24
+}
+
+message GridFightSyncCurrentTaskInfo {
+	GridFightCurrentTask ONPCDAELHGP = 7; // offset: 32
+	repeated uint32 CAMMIIJDEKP = 13; // offset: 24
+}
+
+message GridFightSyncData {
+	oneof MNLCHEJKDHO {
+		GridGameRoleInfo add_role_info = 1740; // offset: 24
+		GridGameRoleInfo update_role_info = 1718; // offset: 24
+		uint32 remove_role_unique_id = 1219; // offset: 24
+		GridFightGameItemSyncInfo add_game_item_info = 476; // offset: 24
+		GridFightGameItemSyncInfo update_game_item_info = 632; // offset: 24
+		GridFightGameItemSyncInfo remove_game_item_info = 690; // offset: 24
+		uint32 item_value = 90; // offset: 24
+		GridFightPlayerLevelSyncInfo player_level = 958; // offset: 24
+		GridFightLineupHpSyncInfo lineup_hp = 424; // offset: 24
+		uint32 max_active_role_count = 555; // offset: 24
+		GridFightShopSyncInfo shop_info = 938; // offset: 24
+		GridFightPendingAction pending_action = 866; // offset: 24
+		GridFightPortalBuffUpdateInfo portal_update = 2025; // offset: 24
+		GridFightLevelSyncInfo level_info = 1250; // offset: 24
+		GridFightOrbSyncInfo orb_info = 84; // offset: 24
+		GridFightSectionRecordInfo section_record = 312; // offset: 24
+		GridFightGameAugmentUpdate LEADDFOJFKD = 1285; // offset: 24
+		uint32 MDDKJGPJOAF = 908; // offset: 24
+		uint32 finish_pending_action_pos = 1902; // offset: 24
+		uint32 KNFOCCPOJEA = 496; // offset: 24
+		uint32 BEPMODICONA = 492; // offset: 24
+		GridFightTraitSyncInfo trait_info = 1045; // offset: 24
+		GridFightTraitTrackSyncInfo HGNDMOODNKF = 236; // offset: 24
+		uint32 keep_win_count = 638; // offset: 24
+		uint32 MICEOJBAKGN = 1947; // offset: 24
+		uint32 JLOCMDIDPCI = 645; // offset: 24
+		uint32 CPKLHPJMMDO = 1561; // offset: 24
+		GridFightDamageSttInfo damage_stat = 1963; // offset: 24
+		GridFightEliteBranchSyncInfo elite_branch_sync_info = 1608; // offset: 24
+		GridGameNpcInfo EJMDHDJCGDI = 1432; // offset: 24
+		GridGameNpcInfo DHLEOLKNAMI = 1082; // offset: 24
+		uint32 NJCEFEJBEOP = 599; // offset: 24
+		GridGameForgeItemInfo add_forge_item_info = 1595; // offset: 24
+		GridGameForgeItemInfo update_forge_item_info = 1806; // offset: 24
+		uint32 remove_forge_unique_id = 581; // offset: 24
+		GridFightGameAugmentAdd add_augment_info = 1353; // offset: 24
+		MDKHMNKAECP BMGFDIKDOBE = 724; // offset: 24
+		GridFightGameItemInfo game_data_item_info = 1457; // offset: 24
+		uint32 remove_orb_unique_id = 1829; // offset: 24
+		uint32 DGEOHFLHAHI = 2018; // offset: 24
+		JPGKBLDLADF LDKDJAEJMPA = 478; // offset: 24
+		GridFightLockInfo lock_info = 913; // offset: 24
+		uint32 KALKCJFFJIK = 1160; // offset: 24
+		FPHPFJLAJDK GOJINGMMAIL = 1107; // offset: 24
+		FPHPFJLAJDK CPCJGHCGLIJ = 436; // offset: 24
+		uint32 DEKGKLGIDGI = 278; // offset: 24
+		PFBCBNMKFAK AHMMHGHNHMI = 1020; // offset: 24
+		uint32 OOAGJADOJNB = 602; // offset: 24
+		uint32 CDKJHJNFDIH = 254; // offset: 24
+		uint32 LDPPDHGNCHL = 1375; // offset: 24
+		GridFightSavedValueUpdate saved_value_update = 899; // offset: 24
+		GridFightSettleAvatarInfo PPJFPNMIFHL = 170; // offset: 24
+		uint32 LOGJNAICJPA = 744; // offset: 24
+		GridFightAffixInfo MHFOELCFJGK = 810; // offset: 24
+		GridFightRoleSwitchInfo role_switch_info = 452; // offset: 24
+		HJCAJKHNCDH CKNDFNACIPO = 893; // offset: 24
+	}
+}
+
+message GridFightSyncKeepWinCntNotify {
+	uint32 keep_win_count = 4; // offset: 24
+}
+
+message GridFightSyncResultData {
+	repeated uint32 effect_param_list = 1; // offset: 16
+	GridFightUpdateSrcType update_source = 2; // offset: 40
+	repeated GridFightSyncData update_dynamic_list = 9; // offset: 32
+}
+
+message GridFightSyncUpdateResultScNotify {
+	repeated GridFightSyncResultData result_list = 5; // offset: 24
+}
+
+message GridFightSyncVirtualItemNotify {
+	repeated CENBJOMMJGD item_list = 6; // offset: 16
+}
+
+message GridFightSystemInfo {
+	GridFightPermanentGameInfo permanent_info = 3; // offset: 32
+	GridFightStaticGameInfo static_info = 11; // offset: 16
+}
+
+message GridFightTakeWeeklyRewardCsReq {
+	repeated uint32 JKCEBHFIENI = 14; // offset: 16
+}
+
+message GridFightTakeWeeklyRewardScRsp {
+	NDLNIKCCALK MGBNEAHCDMA = 3; // offset: 32
+	uint32 retcode = 10; // offset: 48
+	repeated uint32 NGKOFMBBGNL = 11; // offset: 16
+	ItemList ENGHMIAMPLG = 13; // offset: 24
+}
+
+message GridFightTalentInfo {
+	repeated uint32 talent_id_list = 15; // offset: 24
+}
+
+message GridFightTrackTraitCsReq {
+	bool BJDOINAHDLN = 8; // offset: 28
+	uint32 COPNJMBGNDO = 13; // offset: 24
+}
+
+message GridFightTrackTraitScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message GridFightTraitDamageStatistics {
+	uint32 trait_id = 3; // offset: 36
+	uint32 layer = 8; // offset: 32
+	double damage = 11; // offset: 24
+}
+
+message GridFightTraitEffectInfo {
+	uint32 effect_id = 12; // offset: 36
+	oneof NEBNJDMFELO {
+		uint32 trait_core_role = 627; // offset: 24
+		NBPEJFHIKJL avatar_core_info = 76; // offset: 24
+		uint32 ECEMNCJBFOP = 1371; // offset: 24
+		GridFightTraitElationEffectUpdate JLCLHAKNMLL = 1438; // offset: 24
+		BJFLPMNPFFK MPHGIPCONLF = 1936; // offset: 24
+		HJCFNEPJKDM KJFIOEPKOBM = 416; // offset: 24
+		LDMNIHIFDFG KOEPOCADLDI = 695; // offset: 24
+	}
+}
+
+message GridFightTraitEffectSelectEnhanceActionInfo {
+	uint32 effect_id = 1; // offset: 44
+	repeated uint32 enhance_index_list = 2; // offset: 24
+	bool is_optional = 3; // offset: 48
+	repeated uint32 enhance_option_id_list = 7; // offset: 16
+	uint32 trait_id = 10; // offset: 40
+}
+
+message GridFightTraitEffectSelectEnhanceActionRequest {
+	uint32 enhance_option_id = 14; // offset: 24
+}
+
+message GridFightTraitElationEffectUpdate {
+	map<uint32, uint32> BANBECDCDHG = 7; // offset: 32
+	uint32 DNNCAGJIOAP = 12; // offset: 40
+	repeated FHCEIOHLADG POJGKJENENA = 14; // offset: 24
+}
+
+message GridFightTraitSyncInfo {
+	uint32 trait_id = 6; // offset: 36
+	bool is_recover = 12; // offset: 32
+	GridFightTraitEffectInfo trait_effect_info = 14; // offset: 16
+}
+
+message GridFightTraitTrackSyncInfo {
+	bool GHJLDDEDJLI = 1; // offset: 32
+	repeated uint32 ONHDKLIMLNM = 7; // offset: 16
+}
+
+message GridFightTraitUpdateCsReq {
+	uint32 effect_id = 9; // offset: 40
+	uint32 trait_id = 14; // offset: 32
+	oneof NEBNJDMFELO {
+		GPCFHMLMDHC FFBEPFLBHPL = 1827; // offset: 24
+		AFPJPEABFKH JLCLHAKNMLL = 1194; // offset: 24
+		MHKNPBJDFIC LFIDNOAECMN = 871; // offset: 24
+	}
+}
+
+message GridFightTraitUpdateScRsp {
+	uint32 retcode = 14; // offset: 24
+}
+
+message GridFightUpdateEliteBranchSelectCsReq {
+	uint32 elite_branch_id = 6; // offset: 24
+}
+
+message GridFightUpdateEliteBranchSelectScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message GridFightUpdateEquipTrackCsReq {
+	GridFightEquipTrackSource source = 5; // offset: 32
+	repeated HLHHLIGPNOM DKEIDONNDCJ = 15; // offset: 16
+}
+
+message GridFightUpdateEquipTrackPriorityCsReq {
+	repeated EPELDFBCCEK BFCMLCJMLOL = 11; // offset: 24
+}
+
+message GridFightUpdateEquipTrackPriorityScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message GridFightUpdateEquipTrackScRsp {
+	uint32 retcode = 10; // offset: 24
+}
+
+message GridFightUpdateGameRefCsReq {
+	string EGCPAOEAGLF = 8; // offset: 32
+	string PEOODHOAJMP = 10; // offset: 24
+}
+
+message GridFightUpdateGameRefScRsp {
+	uint32 retcode = 7; // offset: 40
+	string EGCPAOEAGLF = 14; // offset: 32
+	string PEOODHOAJMP = 15; // offset: 24
+}
+
+enum GridFightUpdateGlobalHpReason {
+	GridFightUpdateGlobalHpReason_KUpdateGlobalHpNone = 0;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpBaseCost = 1;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpExtraCost = 2;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpThresholdCost = 3;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpEffectCost = 4;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpAugment = 5;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpPrayQuest = 6;
+	GridFightUpdateGlobalHpReason_KSubGlobalHpEquip = 7;
+	GridFightUpdateGlobalHpReason_KAddGlobalHpTalent = 101;
+	GridFightUpdateGlobalHpReason_KAddGlobalHpAugment = 102;
+	GridFightUpdateGlobalHpReason_KAddGlobalHpFinalBattleTurn = 103;
+	GridFightUpdateGlobalHpReason_KSetGlobalHpRevive = 201;
+}
+
+message GridFightUpdatePosCsReq {
+	repeated GridFightPosInfo pos_info_list = 7; // offset: 24
+}
+
+message GridFightUpdatePosScRsp {
+	uint32 retcode = 1; // offset: 32
+	repeated GridFightPosInfo pos_info_list = 2; // offset: 24
+}
+
+enum GridFightUpdateSrcType {
+	GridFightUpdateSrcType_KGridFightSrcNone = 0;
+	GridFightUpdateSrcType_KGridFightSrcUseOrb = 1;
+	GridFightUpdateSrcType_KGridFightSrcInitialSupplySelect = 2;
+	GridFightUpdateSrcType_KGridFightSrcSelectPortalBuff = 3;
+	GridFightUpdateSrcType_KGridFightSrcSelectAugment = 4;
+	GridFightUpdateSrcType_KGridFightSrcTraitEffectUpdate = 5;
+	GridFightUpdateSrcType_KGridFightSrcEnterNode = 6;
+	GridFightUpdateSrcType_KGridFightSrcManualRefreshGoods = 7;
+	GridFightUpdateSrcType_KGridFightSrcBuyGoods = 8;
+	GridFightUpdateSrcType_KGridFightSrcMergeRole = 9;
+	GridFightUpdateSrcType_KGridFightSrcAugment = 10;
+	GridFightUpdateSrcType_KGridFightSrcPortalBuff = 11;
+	GridFightUpdateSrcType_KGridFightSrcTalent = 12;
+	GridFightUpdateSrcType_KGridFightSrcCraftEquip = 13;
+	GridFightUpdateSrcType_KGridFightSrcDressEquip = 14;
+	GridFightUpdateSrcType_KGridFightSrcAffix = 15;
+	GridFightUpdateSrcType_KGridFightSrcUseForge = 16;
+	GridFightUpdateSrcType_KGridFightSrcSelectSupply = 17;
+	GridFightUpdateSrcType_KGridFightSrcBattleEnd = 18;
+	GridFightUpdateSrcType_KGridFightSrcEliteBranchBattleBonus = 19;
+	GridFightUpdateSrcType_KGridFightSrcCopyRole = 20;
+	GridFightUpdateSrcType_KGridFightSrcDivision = 21;
+	GridFightUpdateSrcType_KGridFightSrcSpecialGoods = 22;
+	GridFightUpdateSrcType_KGridFightSrcEquipModifier = 23;
+	GridFightUpdateSrcType_KGridFightSrcPreInitialSupplySelect = 24;
+	GridFightUpdateSrcType_KGridFightSrcRecycleRole = 25;
+	GridFightUpdateSrcType_KGridFightSrcUseConsumable = 26;
+	GridFightUpdateSrcType_KGridFightSrcAddCrown = 27;
+	GridFightUpdateSrcType_KGridFightSrcBuyExp = 28;
+	GridFightUpdateSrcType_KGridFightSrcTraitEffectSelectEnhance = 29;
+	GridFightUpdateSrcType_KGridFightSrcTutorial = 30;
+	GridFightUpdateSrcType_KGridFightSrcActivityModule = 31;
+	GridFightUpdateSrcType_KGridFightSrcPresent = 32;
+	GridFightUpdateSrcType_KGridFightSrcSpecialCraftEquip = 33;
+	GridFightUpdateSrcType_KGridFightSrcPrayQuest = 34;
+	GridFightUpdateSrcType_KGridFightSrcPrayQuestAccept = 35;
+	GridFightUpdateSrcType_KGridFightSrcPrayQuestFinish = 36;
+}
+
+message GridFightUseConsumableCsReq {
+	uint32 item_id = 4; // offset: 32
+	GridFightConsumableTargetInfo target = 5; // offset: 16
+	uint32 group_id = 12; // offset: 36
+}
+
+message GridFightUseConsumableScRsp {
+	uint32 retcode = 9; // offset: 24
+}
+
+message GridFightUseForgeCsReq {
+	uint32 forge_target_index = 7; // offset: 28
+	uint32 unique_id = 15; // offset: 24
+}
+
+message GridFightUseForgeScRsp {
+	uint32 retcode = 5; // offset: 24
+}
+
+message GridFightUseHackOptionCsReq {
+	uint32 enemy_hp_percent = 8; // offset: 28
+	uint32 option_id = 14; // offset: 24
+}
+
+message GridFightUseHackOptionScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message GridFightWeeklyExtraSeasonExpScRsp {
+	uint32 ACDOIGCBGEB = 12; // offset: 24
+}
+
+message GridGameAugmentInfo {
+	bool NEKJGIDPCAI = 2; // offset: 29
+	bool is_active = 5; // offset: 28
+	uint32 augment_id = 8; // offset: 24
+}
+
+message GridGameForgeItemInfo {
+	repeated GridFightForgeGoodsInfo forge_goods_list = 2; // offset: 24
+	uint32 unique_id = 10; // offset: 40
+	uint32 pos = 12; // offset: 36
+	uint32 forge_item_id = 13; // offset: 32
+}
+
+message GridGameNpcInfo {
+	uint32 pos = 2; // offset: 32
+	repeated uint32 PNJIPHJJONG = 11; // offset: 16
+	uint32 unique_id = 14; // offset: 40
+	uint32 id = 15; // offset: 36
+}
+
+message GridGameOrbInfo {
+	uint32 orb_item_id = 10; // offset: 28
+	uint32 unique_id = 13; // offset: 24
+}
+
+message GridGameRoleInfo {
+	uint32 pos = 1; // offset: 52
+	uint32 unique_id = 3; // offset: 48
+	repeated uint32 equipped_equipment_unique_id_list = 6; // offset: 16
+	uint32 id = 7; // offset: 56
+	map<uint32, uint32> convert_property_to_fixpoint = 8; // offset: 40
+	uint32 role_star = 10; // offset: 60
+	map<string, uint32> grid_fight_value_init_component = 11; // offset: 32
+}
+
+message GridGameTraitInfo {
+	uint32 CGIEODOGAIE = 3; // offset: 44
+	uint32 AFKKLDMAEDJ = 4; // offset: 40
+	uint32 trait_id = 8; // offset: 48
+	repeated GridFightTraitEffectInfo trait_effect_list = 11; // offset: 32
+	repeated uint32 member_role_unique_id_list = 13; // offset: 16
+	uint32 layer = 14; // offset: 52
+}
+
+message HCIFBGJCPDM {
+}
+
+message HDOLIECDHAO {
+}
+
+message HEHOBDGMMJM {
+	repeated uint32 grid_fight_avatar_list = 6; // offset: 16
+	uint32 trait_id = 12; // offset: 32
+}
+
+message HENDEHGPKMF {
+	uint32 dice_slot_id = 1; // offset: 56
+	string name = 2; // offset: 40
+	string KFPMJKCOJAJ = 4; // offset: 32
+	bytes JLFIAFKGCOJ = 5; // offset: 24
+	string MILBDIPBJGP = 6; // offset: 16
+}
+
+message HHNBCLPNDFI {
+	repeated uint32 DIKFEBAJMEK = 6; // offset: 24
+}
+
+message HJCAJKHNCDH {
+	oneof MNLCHEJKDHO {
+		AFCBKJEFKPG AIGPJLHBNEH = 7; // offset: 16
+		AFCBKJEFKPG JNIOBAPDKLN = 11; // offset: 16
+		uint32 MLAGBPIANKG = 8; // offset: 16
+	}
+}
+
+message HJCFNEPJKDM {
+	repeated uint32 JMLAMKFMKON = 2; // offset: 24
+}
+
+message HKOAOCKBBJA {
+	uint32 dice_slot_id = 15; // offset: 24
+}
+
+message HLHHLIGPNOM {
+	GridFightEquipTrackSource source = 1; // offset: 40
+	bool BJDOINAHDLN = 2; // offset: 44
+	uint32 priority = 4; // offset: 48
+	uint32 BGFFICLCKHE = 5; // offset: 52
+	repeated uint32 MCJMHBIECMN = 6; // offset: 32
+	repeated uint32 grid_fight_item_list = 8; // offset: 16
+}
+
+message HPMNCENLCAB {
+	uint32 role_id = 11; // offset: 24
+}
+
+enum IBBDHFAEFNH {
+	IBBDHFAEFNH_NLCDGIPGFDJ = 0;
+	IBBDHFAEFNH_BMOOGBNPEAA = 1;
+	IBBDHFAEFNH_CIHFGJDCHIA = 2;
+	IBBDHFAEFNH_PJPFIHFAHGO = 3;
+}
+
+message IDOJADMFGKF {
+	uint32 ratio = 8; // offset: 24
+}
+
+message IEOMGIBLHJB {
+	uint32 IIJHFJFPIHK = 2; // offset: 24
+	uint32 NFFHCBDFABA = 10; // offset: 28
+}
+
+message IFPAJBFOHLN {
+	uint32 DCAHJELNJNP = 3; // offset: 24
+	uint32 role_id = 8; // offset: 32
+	uint32 section_id = 12; // offset: 28
+}
+
+message ILDEFHMIDKP {
+	uint32 CKKDAEMFDPA = 10; // offset: 24
+}
+
+message IPGCHDECCNB {
+	uint32 PIJBIFAIFOA = 3; // offset: 28
+	uint32 CLBEEGLKMIM = 8; // offset: 32
+	uint32 node_type = 14; // offset: 24
+}
+
+message JKGILKGILAI {
+	uint32 DACKJGDGMLN = 8; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}
+
+message JKPOIHGIFFG {
+	uint32 section_id = 2; // offset: 24
+	uint32 DCAHJELNJNP = 14; // offset: 28
+}
+
+message JPGKBLDLADF {
+	oneof MNLCHEJKDHO {
+		uint32 AOKPCNJJBAO = 4; // offset: 16
+		GridFightCurrentTask KBBOAJPMNCN = 13; // offset: 16
+		uint32 CEPEHNEOIOH = 15; // offset: 16
+	}
+}
+
+message KBEKJKNCMCL {
+	repeated uint32 CAOADMAKKPM = 12; // offset: 16
+}
+
+message KCCPHHGCPMP {
+	uint32 JLLFIDAMBCN = 2; // offset: 24
+}
+
+message KEEPBBDICFN {
+	uint32 PDIAOLDMBLL = 1; // offset: 24
+	uint32 LOGHLGKIFEN = 8; // offset: 28
+}
+
+message KNDOLAFNJED {
+}
+
+message KPMOCBIIMHH {
+	uint32 role_id = 2; // offset: 32
+	uint32 MDNAGANGNKK = 3; // offset: 24
+	uint32 IEOGEFBLNEL = 6; // offset: 28
+}
+
+message LDMNIHIFDFG {
+	uint32 BPJKHDNBPOE = 6; // offset: 24
+}
+
+message LFDIMJCMNDJ {
+	uint32 PLDKENJLKME = 9; // offset: 24
+}
+
+message LFOCLBEMIEM {
+	uint32 section_id = 2; // offset: 32
+	uint32 node_type = 9; // offset: 28
+	uint32 ELPODIAAGEK = 10; // offset: 36
+	uint32 DCAHJELNJNP = 12; // offset: 24
+}
+
+message LFONAPFHAOB {
+	uint32 PFIKCNFBGHE = 2; // offset: 24
+}
+
+message LHCOHLJIAII {
+	uint32 role_id = 7; // offset: 24
+	uint32 num = 13; // offset: 28
+}
+
+message LHMLIGPHOKP {
+	repeated uint32 DIKFEBAJMEK = 3; // offset: 16
+}
+
+message MCIPOMDGBCA {
+	GridFightCurrentInfo GEKOGKHOFNG = 1; // offset: 16
+	uint32 PLDKENJLKME = 12; // offset: 32
+}
+
+message MDKHMNKAECP {
+	repeated RoleTrackEquipmentInfo MIIDIMOCPEB = 8; // offset: 16
+}
+
+message MHJIOJNNPDM {
+	repeated uint32 KBECJMLLCEJ = 14; // offset: 16
+}
+
+message MHKNPBJDFIC {
+	uint32 role_id = 11; // offset: 24
+}
+
+enum MLJIILDNDPL {
+	MLJIILDNDPL_LAHJFEFDOBC = 0;
+	MLJIILDNDPL_NJOBADDLBGK = 1;
+	MLJIILDNDPL_FAGECPGMPEH = 2;
+}
+
+message NBNLDHBELLO {
+	uint32 weight = 6; // offset: 28
+	uint32 role_id = 13; // offset: 24
+}
+
+message NBPEJFHIKJL {
+	repeated uint32 OLPPMEAMFFO = 3; // offset: 24
+}
+
+message NDLNIKCCALK {
+	repeated uint32 OPLNKCOLCKJ = 2; // offset: 24
+	bool BPFFFCMMMCH = 4; // offset: 32
+	uint32 EDHKHJAPMKA = 7; // offset: 36
+	int64 end_time = 8; // offset: 40
+	int64 start_time = 12; // offset: 48
+}
+
+message NGNKIIOHBAI {
+	uint32 effect_id = 6; // offset: 36
+	repeated uint32 OLPPMEAMFFO = 14; // offset: 16
+	uint32 trait_id = 15; // offset: 32
+}
+
+message NNFPCAPDENH {
+}
+
+message OENNAOAFAMA {
+	uint32 JBDFEHDFKNO = 5; // offset: 24
+	uint32 retcode = 7; // offset: 28
+	uint32 DACKJGDGMLN = 9; // offset: 32
+}
+
+message OFADBBMPDMM {
+	uint32 PLDKENJLKME = 13; // offset: 24
+}
+
+message OHBLOLLNHIC {
+	uint32 role_id = 1; // offset: 32
+	bool ANDIPJEDGMG = 8; // offset: 36
+	uint32 HOHDOFKJJDJ = 12; // offset: 28
+	uint32 trait_id = 13; // offset: 24
+}
+
+message ONLFOIONDAF {
+	int64 start_time = 1; // offset: 24
+	uint32 PNFOOPNCDCH = 2; // offset: 44
+	uint32 JJNGGKPAKME = 5; // offset: 32
+	uint32 interval = 6; // offset: 40
+	bool JMCJKPPKAIF = 10; // offset: 36
+}
+
+message OPJALEIKFAC {
+}
+
+message PDKGKIDCBKA {
+	uint32 BCIGPPFMLJB = 11; // offset: 24
+}
+
+message PFBCBNMKFAK {
+	uint32 CMEHHMEEKPO = 4; // offset: 32
+	uint32 unique_id = 9; // offset: 28
+	uint32 DOJDFBENBEC = 14; // offset: 24
+}
+
+message PGECGKEKFNC {
+	uint32 LPFGIGJDLFM = 2; // offset: 24
+	uint32 role_id = 5; // offset: 28
+}
+
+message PIFMLFKCOOG {
+	uint32 MJGCDMOFALP = 2; // offset: 24
+}
+
+message PIKKAEBHIKF {
+	uint32 PGEBCGLDNMN = 2; // offset: 24
+}
+
+message PPBJJJMJOBN {
+	uint32 BINKJCPGOAB = 3; // offset: 24
+	uint32 BLAEAAFANBM = 13; // offset: 28
+}
+
+message RoleTrackEquipmentInfo {
+	uint32 priority = 1; // offset: 40
+	GridFightEquipTrackSource source = 5; // offset: 44
+	repeated uint32 grid_fight_item_list = 6; // offset: 24
+	uint32 BGFFICLCKHE = 12; // offset: 48
+	repeated uint32 MCJMHBIECMN = 13; // offset: 16
+}
+
+message UpdateGameFormationScRsp {
+	uint32 slot_id = 1; // offset: 56
+	string name = 7; // offset: 32
+	string MILBDIPBJGP = 8; // offset: 16
+	string KFPMJKCOJAJ = 10; // offset: 48
+	bool KLLEKHPJGLE = 11; // offset: 60
+	bytes JLFIAFKGCOJ = 12; // offset: 24
+}

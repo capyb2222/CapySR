@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BuyGoodsCsReq {
+	uint32 shop_id = 1; // offset: 48
+	uint32 goods_num = 3; // offset: 44
+	repeated uint32 ALHBEKKLJKK = 4; // offset: 16
+	uint32 goods_id = 9; // offset: 40
+	uint32 item_id = 13; // offset: 32
+	uint32 interacted_prop_entity_id = 15; // offset: 36
+}
+
+message BuyGoodsScRsp {
+	uint32 goods_buy_times = 2; // offset: 44
+	uint32 goods_id = 4; // offset: 40
+	uint32 retcode = 9; // offset: 36
+	uint32 shop_id = 10; // offset: 32
+	ItemList return_item_list = 14; // offset: 24
+}
+
+message CityShopInfoScNotify {
+	uint32 exp = 3; // offset: 24
+	uint32 shop_id = 10; // offset: 32
+	uint32 level = 11; // offset: 28
+	uint64 taken_level_reward = 14; // offset: 40
+}
+
+enum CmdShopType {
+	CmdShopType_NLCDGIPGFDJ = 0;
+	CmdShopType_CityShopInfoScNotify = 1558;
+	CmdShopType_GetShopListCsReq = 1534;
+	CmdShopType_GetShopListScRsp = 1525;
+	CmdShopType_BuyGoodsCsReq = 1505;
+	CmdShopType_TakeCityShopRewardScRsp = 1516;
+	CmdShopType_BuyGoodsScRsp = 1575;
+	CmdShopType_TakeCityShopRewardCsReq = 1560;
+}
+
+message GetShopListCsReq {
+	uint32 shop_type = 12; // offset: 24
+}
+
+message GetShopListScRsp {
+	uint32 retcode = 2; // offset: 32
+	uint32 shop_type = 8; // offset: 36
+	repeated Shop shop_list = 11; // offset: 24
+}
+
+message Goods {
+	int64 begin_time = 2; // offset: 48
+	uint32 item_id = 6; // offset: 36
+	uint32 goods_id = 7; // offset: 40
+	int64 end_time = 10; // offset: 24
+	uint32 buy_times = 13; // offset: 32
+}
+
+message Shop {
+	uint32 city_level = 1; // offset: 64
+	uint64 city_taken_level_reward = 2; // offset: 56
+	int64 begin_time = 6; // offset: 32
+	uint32 shop_id = 11; // offset: 44
+	int64 end_time = 13; // offset: 48
+	uint32 city_exp = 14; // offset: 40
+	repeated Goods goods_list = 15; // offset: 24
+}
+
+message TakeCityShopRewardCsReq {
+	uint32 level = 5; // offset: 28
+	uint32 shop_id = 11; // offset: 24
+}
+
+message TakeCityShopRewardScRsp {
+	uint32 level = 3; // offset: 32
+	ItemList reward = 5; // offset: 16
+	uint32 retcode = 10; // offset: 40
+	uint32 shop_id = 15; // offset: 36
+}

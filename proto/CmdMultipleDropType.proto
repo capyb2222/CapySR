@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+
+message BMJHAHOLEGH {
+	uint32 total_count = 4; // offset: 32
+	uint32 KFBIODICKGC = 9; // offset: 36
+	uint32 panel_id = 13; // offset: 28
+	uint32 NEKCONMFFFE = 15; // offset: 24
+}
+
+enum CmdMultipleDropType {
+	CmdMultipleDropType_NLCDGIPGFDJ = 0;
+	CmdMultipleDropType_MultipleDropInfoScNotify = 4605;
+	CmdMultipleDropType_GetPlayerReturnMultiDropInfoCsReq = 4675;
+	CmdMultipleDropType_GetMultipleDropInfoCsReq = 4634;
+	CmdMultipleDropType_GetPlayerReturnMultiDropInfoScRsp = 4660;
+	CmdMultipleDropType_GetMultipleDropInfoScRsp = 4625;
+	CmdMultipleDropType_MultipleDropInfoNotify = 4616;
+}
+
+message GCLPBMPOHLI {
+	uint32 LFOHEBCNMDP = 2; // offset: 36
+	uint32 FAOAGKPPNGN = 9; // offset: 32
+	uint32 panel_id = 10; // offset: 28
+	uint32 JMGPFEGLCGG = 15; // offset: 24
+}
+
+message GetMultipleDropInfoCsReq {
+}
+
+message GetMultipleDropInfoScRsp {
+	uint32 retcode = 4; // offset: 40
+	repeated NGLOBFBCGBB MOPAGKNEMOD = 6; // offset: 16
+	repeated BMJHAHOLEGH FAFFFJGJHHC = 13; // offset: 32
+}
+
+message GetPlayerReturnMultiDropInfoCsReq {
+}
+
+message GetPlayerReturnMultiDropInfoScRsp {
+	repeated BMJHAHOLEGH FAFFFJGJHHC = 6; // offset: 24
+	GCLPBMPOHLI HDLIGGEMOKM = 12; // offset: 32
+	uint32 retcode = 15; // offset: 40
+}
+
+message MultipleDropInfoNotify {
+	repeated BMJHAHOLEGH FAFFFJGJHHC = 5; // offset: 32
+	repeated GCLPBMPOHLI JGALOGDBCKI = 11; // offset: 40
+	repeated NGLOBFBCGBB MOPAGKNEMOD = 15; // offset: 24
+}
+
+message MultipleDropInfoScNotify {
+	repeated NGLOBFBCGBB MOPAGKNEMOD = 13; // offset: 16
+}
+
+message NGLOBFBCGBB {
+	uint32 CLLFACKFNBO = 1; // offset: 28
+	uint32 id = 14; // offset: 24
+}

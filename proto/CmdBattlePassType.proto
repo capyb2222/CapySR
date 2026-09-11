@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BattlePassInfoNotify {
+	uint64 PDODOAOHMAC = 1; // offset: 104
+	uint64 AIMGGFNLIEK = 2; // offset: 48
+	uint64 ICPCCGPEJMP = 4; // offset: 64
+	uint64 CHJKOFANIKA = 6; // offset: 80
+	uint32 exp = 7; // offset: 72
+	uint32 level = 8; // offset: 56
+	uint64 OKPOHIHPOKI = 9; // offset: 96
+	BpTierType DELEGHOCLMO = 10; // offset: 44
+	uint64 DAFMMPKFOEA = 11; // offset: 88
+	uint32 AECHNDNNMLF = 12; // offset: 40
+	uint32 POJDILFNJAH = 13; // offset: 60
+	uint64 NJDCMGOJOLE = 14; // offset: 32
+	uint64 CBLNJDCICBC = 15; // offset: 24
+}
+
+enum BpRewardType {
+	BpRewardType_BpRewaradTypeNone = 0;
+	BpRewardType_BpRewaradTypeFree = 1;
+	BpRewardType_BpRewaradTypePremium1 = 2;
+	BpRewardType_BpRewaradTypePremium2 = 3;
+	BpRewardType_BpRewaradTypePremiumOptional = 4;
+}
+
+enum BpTierType {
+	BpTierType_None = 0;
+	BpTierType_Free = 1;
+	BpTierType_Premium1 = 2;
+	BpTierType_Premium2 = 3;
+}
+
+message BuyBpLevelCsReq {
+	uint32 IGOOJKMPMDC = 10; // offset: 24
+}
+
+message BuyBpLevelScRsp {
+	uint32 retcode = 1; // offset: 24
+}
+
+enum CmdBattlePassType {
+	CmdBattlePassType_NLCDGIPGFDJ = 0;
+	CmdBattlePassType_TakeAllRewardScRsp = 3083;
+	CmdBattlePassType_TakeBpRewardScRsp = 3060;
+	CmdBattlePassType_BattlePassInfoNotify = 3034;
+	CmdBattlePassType_BuyBpLevelScRsp = 3058;
+	CmdBattlePassType_TakeAllRewardCsReq = 3056;
+	CmdBattlePassType_BuyBpLevelCsReq = 3016;
+	CmdBattlePassType_TakeBpRewardCsReq = 3075;
+}
+
+message OptionalReward {
+	uint32 level = 1; // offset: 28
+	uint32 optional_reward_id = 4; // offset: 24
+}
+
+message TakeAllRewardCsReq {
+	repeated OptionalReward EIKKALADEHM = 4; // offset: 16
+}
+
+message TakeAllRewardScRsp {
+	ItemList reward = 6; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message TakeBpRewardCsReq {
+	uint32 level = 5; // offset: 32
+	BpRewardType type = 7; // offset: 24
+	uint32 optional_reward_id = 13; // offset: 28
+}
+
+message TakeBpRewardScRsp {
+	ItemList reward = 10; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}

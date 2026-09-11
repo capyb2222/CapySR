@@ -1,0 +1,254 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CDCCPHILOCC {
+	uint32 uid = 1; // offset: 28
+	uint32 monster_id = 2; // offset: 24
+}
+
+message CJDIAHDLCNJ {
+	uint32 uid = 1; // offset: 48
+	uint32 damage_hp = 2; // offset: 60
+	bool is_final_hit = 3; // offset: 44
+	uint32 over_kill_damage_hp = 4; // offset: 40
+	string battle_replay_key = 5; // offset: 16
+	repeated GOFFDNPBHIK avatar_list = 6; // offset: 24
+	uint32 assist_score = 7; // offset: 64
+	uint32 damage_score = 8; // offset: 56
+	uint32 final_hit_score = 9; // offset: 52
+}
+
+enum CmdPunkLordType {
+	CmdPunkLordType_NLCDGIPGFDJ = 0;
+	CmdPunkLordType_GetKilledPunkLordMonsterDataCsReq = 3219;
+	CmdPunkLordType_SharePunkLordMonsterScRsp = 3216;
+	CmdPunkLordType_PunkLordBattleResultScNotify = 3204;
+	CmdPunkLordType_GetPunkLordMonsterDataScRsp = 3225;
+	CmdPunkLordType_TakeKilledPunkLordMonsterScoreCsReq = 3293;
+	CmdPunkLordType_StartPunkLordRaidScRsp = 3275;
+	CmdPunkLordType_PunkLordMonsterKilledNotify = 3251;
+	CmdPunkLordType_GetPunkLordDataScRsp = 3221;
+	CmdPunkLordType_GetKilledPunkLordMonsterDataScRsp = 3285;
+	CmdPunkLordType_GetPunkLordMonsterDataCsReq = 3234;
+	CmdPunkLordType_GetPunkLordBattleRecordCsReq = 3229;
+	CmdPunkLordType_TakePunkLordPointRewardCsReq = 3261;
+	CmdPunkLordType_PunkLordRaidTimeOutScNotify = 3211;
+	CmdPunkLordType_SummonPunkLordMonsterScRsp = 3256;
+	CmdPunkLordType_PunkLordMonsterInfoScNotify = 3268;
+	CmdPunkLordType_StartPunkLordRaidCsReq = 3205;
+	CmdPunkLordType_TakePunkLordPointRewardScRsp = 3208;
+	CmdPunkLordType_SharePunkLordMonsterCsReq = 3260;
+	CmdPunkLordType_GetPunkLordBattleRecordScRsp = 3222;
+	CmdPunkLordType_PunkLordDataChangeNotify = 3203;
+	CmdPunkLordType_TakeKilledPunkLordMonsterScoreScRsp = 3273;
+	CmdPunkLordType_SummonPunkLordMonsterCsReq = 3258;
+	CmdPunkLordType_GetPunkLordDataCsReq = 3264;
+}
+
+message FGFGINEFBBK {
+	bool APCMAIJPPEH = 1; // offset: 48
+	uint32 FJKDAFHKPGC = 2; // offset: 36
+	uint32 world_level = 3; // offset: 40
+	uint32 monster_id = 7; // offset: 32
+	int64 create_time = 11; // offset: 24
+	uint32 config_id = 14; // offset: 44
+}
+
+message GMDHIALLILJ {
+	repeated CJDIAHDLCNJ GAIKBNPIFLM = 1; // offset: 24
+}
+
+message GOFFDNPBHIK {
+	uint32 avatar_id = 1; // offset: 24
+	uint32 avatar_level = 2; // offset: 28
+}
+
+message GetKilledPunkLordMonsterDataCsReq {
+}
+
+message GetKilledPunkLordMonsterDataScRsp {
+	uint32 retcode = 6; // offset: 40
+	repeated FGFGINEFBBK CPPDAIMLDGB = 7; // offset: 32
+	repeated CDCCPHILOCC BLLLCPONFBE = 8; // offset: 24
+}
+
+message GetPunkLordBattleRecordCsReq {
+	CDCCPHILOCC KHOLBEGBFOM = 4; // offset: 24
+}
+
+message GetPunkLordBattleRecordScRsp {
+	CDCCPHILOCC KHOLBEGBFOM = 7; // offset: 24
+	uint32 retcode = 9; // offset: 48
+	repeated CJDIAHDLCNJ GAIKBNPIFLM = 10; // offset: 16
+	repeated TryDownLoadReplay HLCIMLHMEKI = 15; // offset: 32
+}
+
+message GetPunkLordDataCsReq {
+}
+
+message GetPunkLordDataScRsp {
+	uint32 BPCOIOLGEMK = 1; // offset: 32
+	uint32 retcode = 4; // offset: 36
+	uint32 GIIIFDGFJPG = 7; // offset: 52
+	uint32 KCBPBMOJOKJ = 8; // offset: 48
+	uint32 MGBHJPPJHEA = 9; // offset: 60
+	repeated uint32 IEPPNGMCKJH = 10; // offset: 24
+	uint32 LCAFKPGBDOL = 11; // offset: 56
+	int64 NEOGLPEGBHE = 15; // offset: 40
+}
+
+message GetPunkLordMonsterDataCsReq {
+}
+
+message GetPunkLordMonsterDataScRsp {
+	uint32 retcode = 4; // offset: 32
+	repeated JEIAEAEGEBJ PBLBBDBDLEK = 8; // offset: 24
+}
+
+message JEIAEAEGEBJ {
+	PunkLordAttackerStatus HCEENPENFGI = 1; // offset: 40
+	GMDHIALLILJ FDJHMFAGEOA = 4; // offset: 32
+	PunkLordMonsterBasicInfo basic_info = 8; // offset: 24
+	uint32 HDHIFJNJOBK = 12; // offset: 44
+}
+
+enum PAKHPLAHGBN {
+	PAKHPLAHGBN_NLCDGIPGFDJ = 0;
+	PAKHPLAHGBN_FIOLLIOEAJC = 1;
+	PAKHPLAHGBN_CJMELLLIEDE = 2;
+	PAKHPLAHGBN_COGCFDFAKON = 3;
+}
+
+enum PunkLordAttackerStatus {
+	PunkLordAttackerStatus_None = 0;
+	PunkLordAttackerStatus_Attacked = 1;
+	PunkLordAttackerStatus_Attacking = 2;
+	PunkLordAttackerStatus_AttackedAndAttacking = 3;
+}
+
+message PunkLordBattleResultScNotify {
+	CJDIAHDLCNJ FDJHMFAGEOA = 6; // offset: 32
+	uint32 damage_score = 7; // offset: 48
+	PunkLordMonsterBasicInfo ONICJOAOEMA = 8; // offset: 24
+	uint32 final_hit_score = 10; // offset: 44
+	uint32 assist_score = 11; // offset: 40
+}
+
+message PunkLordDataChangeNotify {
+	uint32 BPCOIOLGEMK = 7; // offset: 32
+	uint32 MGBHJPPJHEA = 8; // offset: 28
+	uint32 GIIIFDGFJPG = 9; // offset: 24
+}
+
+message PunkLordMonsterBasicInfo {
+	uint32 uid = 1; // offset: 48
+	uint32 monster_id = 2; // offset: 28
+	uint32 config_id = 3; // offset: 40
+	uint32 world_level = 4; // offset: 32
+	int64 create_time = 5; // offset: 56
+	uint32 left_hp = 6; // offset: 52
+	uint32 attacker_num = 7; // offset: 36
+	PunkLordShareType share_type = 8; // offset: 24
+	bool APCMAIJPPEH = 9; // offset: 44
+}
+
+message PunkLordMonsterInfoScNotify {
+	PunkLordMonsterBasicInfo basic_info = 6; // offset: 32
+	CJDIAHDLCNJ FDJHMFAGEOA = 10; // offset: 40
+	repeated uint32 FNMGMNABAJG = 11; // offset: 24
+	PAKHPLAHGBN reason = 15; // offset: 48
+}
+
+message PunkLordMonsterKilledNotify {
+	FGFGINEFBBK PEBMDFAGJAM = 13; // offset: 24
+}
+
+message PunkLordRaidTimeOutScNotify {
+	PunkLordMonsterBasicInfo ONICJOAOEMA = 13; // offset: 16
+}
+
+enum PunkLordShareType {
+	PunkLordShareType_None = 0;
+	PunkLordShareType_Friend = 1;
+	PunkLordShareType_All = 2;
+}
+
+message ReplayInfo {
+	uint64 LMFBCHEHOLO = 1; // offset: 48
+	PBIEFHKNAFA replay_type = 2; // offset: 76
+	uint32 stage_id = 3; // offset: 72
+	uint32 uid = 4; // offset: 56
+	string nickname = 5; // offset: 16
+	uint32 head_icon = 6; // offset: 44
+	string replay_name = 7; // offset: 32
+	uint64 create_time = 8; // offset: 64
+	uint32 KLIFGJOILEE = 9; // offset: 40
+	uint32 PBNIENNCNOP = 10; // offset: 60
+}
+
+message SharePunkLordMonsterCsReq {
+	PunkLordShareType share_type = 2; // offset: 32
+	uint32 uid = 3; // offset: 24
+	uint32 monster_id = 14; // offset: 28
+}
+
+message SharePunkLordMonsterScRsp {
+	uint32 uid = 1; // offset: 32
+	uint32 monster_id = 10; // offset: 24
+	uint32 retcode = 12; // offset: 36
+	PunkLordShareType share_type = 14; // offset: 28
+}
+
+message StartPunkLordRaidCsReq {
+	uint32 uid = 2; // offset: 32
+	uint32 monster_id = 4; // offset: 28
+	bool IDMPMEOCJIK = 14; // offset: 24
+}
+
+message StartPunkLordRaidScRsp {
+	GEGLJDELBHA scene = 1; // offset: 40
+	repeated uint32 FNMGMNABAJG = 2; // offset: 16
+	JEIAEAEGEBJ ONICJOAOEMA = 4; // offset: 24
+	uint32 retcode = 7; // offset: 56
+	int64 PEAMKPJKIEL = 10; // offset: 48
+	bool IDMPMEOCJIK = 13; // offset: 60
+}
+
+message SummonPunkLordMonsterCsReq {
+}
+
+message SummonPunkLordMonsterScRsp {
+	uint32 retcode = 2; // offset: 32
+	JEIAEAEGEBJ ONICJOAOEMA = 7; // offset: 16
+}
+
+message TakeKilledPunkLordMonsterScoreCsReq {
+	CDCCPHILOCC HMOKDPHFBFM = 1; // offset: 24
+	bool EKNOELBGANH = 8; // offset: 32
+}
+
+message TakeKilledPunkLordMonsterScoreScRsp {
+	bool LOMGNMFAPGE = 5; // offset: 40
+	repeated CDCCPHILOCC DFJFJNPCIPA = 9; // offset: 24
+	uint32 retcode = 11; // offset: 32
+	uint32 score_id = 13; // offset: 36
+}
+
+message TakePunkLordPointRewardCsReq {
+	uint32 level = 10; // offset: 28
+	bool LEFJBFMDEGK = 12; // offset: 24
+}
+
+message TakePunkLordPointRewardScRsp {
+	uint32 retcode = 9; // offset: 40
+	uint32 level = 11; // offset: 32
+	ItemList reward = 14; // offset: 16
+	bool LEFJBFMDEGK = 15; // offset: 36
+}
+
+message TryDownLoadReplay {
+	string battle_replay_key = 1; // offset: 24
+	ReplayInfo replay_info = 2; // offset: 32
+}

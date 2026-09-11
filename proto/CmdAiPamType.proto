@@ -1,0 +1,282 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ABMNFJJDDOE {
+	uint32 ILBJLIENCLB = 1; // offset: 32
+	repeated BJNCNELEOMO MPMNLICFHMC = 2; // offset: 24
+}
+
+message AiPamAskSettlementScNotify {
+	MDGIOENHBEJ EIADGIMDNMO = 8; // offset: 16
+}
+
+message AiPamMotionScNotify {
+	repeated string BLCCBDPODFM = 14; // offset: 16
+}
+
+message AiPamResponseFeedbackCommentCsReq {
+	string IMNOJNCGGNI = 1; // offset: 24
+	uint32 OLLBLNAGMPC = 12; // offset: 32
+}
+
+message AiPamResponseFeedbackCommentScRsp {
+	uint32 retcode = 6; // offset: 24
+}
+
+message AiPamResponseFeedbackCsReq {
+	bool IAJAOMAKAHA = 1; // offset: 24
+	FKNKNLGMACL role = 4; // offset: 28
+	bool NMMJBGFDNAI = 8; // offset: 25
+}
+
+message AiPamResponseFeedbackScRsp {
+	bool IAJAOMAKAHA = 1; // offset: 29
+	uint32 retcode = 2; // offset: 32
+	FKNKNLGMACL role = 8; // offset: 24
+	bool NMMJBGFDNAI = 15; // offset: 28
+}
+
+message AiPamSendMsgCsReq {
+	FKNKNLGMACL role = 2; // offset: 36
+	bool LOODCBCFNMJ = 4; // offset: 32
+	bool CLDBFBNOLNP = 12; // offset: 34
+	MessageChatData content = 13; // offset: 24
+	bool GFIJJLNOOOM = 14; // offset: 33
+}
+
+message AiPamSendMsgScRsp {
+	uint32 retcode = 7; // offset: 24
+	FKNKNLGMACL role = 13; // offset: 28
+}
+
+message BALHBDBHHON {
+	GOECDMPJMCM OAMKPPGDDIM = 1; // offset: 24
+}
+
+message BJNCNELEOMO {
+	uint32 item_id = 1; // offset: 24
+	uint32 item_count = 2; // offset: 28
+}
+
+message BKHLGPCDLGL {
+	uint32 retcode = 13; // offset: 24
+}
+
+enum CmdAiPamType {
+	CmdAiPamType_JCDCNPPCNEO = 0;
+	CmdAiPamType_TriggerAiPamSpeakScRsp = 9523;
+	CmdAiPamType_GetAiPamChatHistoryScRsp = 9529;
+	CmdAiPamType_AiPamMotionScNotify = 9538;
+	CmdAiPamType_AiPamAskSettlementScNotify = 9521;
+	CmdAiPamType_AiPamSendMsgScRsp = 9506;
+	CmdAiPamType_EFAJNIOONGI = 9519;
+	CmdAiPamType_PFFAMBOFBBJ = 9507;
+	CmdAiPamType_GetAiPamChatHistoryCsReq = 9531;
+	CmdAiPamType_GGCFEOOGKPE = 9539;
+	CmdAiPamType_UpdateAiPamSettingsCsReq = 9502;
+	CmdAiPamType_GetAiPamNextQuestionScRsp = 9516;
+	CmdAiPamType_AiPamResponseFeedbackCommentCsReq = 9508;
+	CmdAiPamType_RecvAiPamChatEventScNotify = 9520;
+	CmdAiPamType_GetAiPamChatInfoScRsp = 9548;
+	CmdAiPamType_AiPamSendMsgCsReq = 9534;
+	CmdAiPamType_OIJHPHDNJFD = 9542;
+	CmdAiPamType_UpdateAiPamSettingsScRsp = 9518;
+	CmdAiPamType_AiPamResponseFeedbackCsReq = 9514;
+	CmdAiPamType_TriggerAiPamSpeakCsReq = 9525;
+	CmdAiPamType_AiPamResponseFeedbackCommentScRsp = 9547;
+	CmdAiPamType_AiPamResponseFeedbackScRsp = 9540;
+	CmdAiPamType_GetAiPamNextQuestionCsReq = 9532;
+	CmdAiPamType_GetAiPamChatInfoCsReq = 9504;
+}
+
+message DEHDGGEDJHI {
+	ChatMessageData stop_desc = 1; // offset: 16
+}
+
+message DNPDLODGAHA {
+	uint32 avatar_id = 1; // offset: 40
+	HJNPOBAMKKF FLFNBPLNNBL = 2; // offset: 16
+	HJNPOBAMKKF LLMDKAHFIIJ = 3; // offset: 24
+}
+
+message DOPJFJCLIAH {
+	bool LJOEMLOJDDP = 1; // offset: 24
+	bool JLNEBLAKKOB = 2; // offset: 25
+}
+
+message DPKPGPPHHBM {
+	uint32 avatar_id = 1; // offset: 32
+	repeated PLHPNBIMIOK MDLGEIGFFEG = 2; // offset: 16
+}
+
+message EIICHLNCAKK {
+	uint32 avatar_id = 1; // offset: 32
+	repeated ABMNFJJDDOE CNIMHMAPDII = 2; // offset: 24
+	uint32 HPJAAOPDIOL = 3; // offset: 40
+	uint32 JFCLHPFCMHP = 4; // offset: 36
+}
+
+message FAIFDBLLGKK {
+	KDNCOBMFFEB event_type = 1; // offset: 48
+	string ACFENKABBKK = 2; // offset: 24
+	uint32 JKIHICLOPKM = 3; // offset: 40
+	FKNKNLGMACL role = 4; // offset: 44
+	oneof FCIDKEAOIBG {
+		DEHDGGEDJHI stop_desc = 11; // offset: 32
+		DOPJFJCLIAH LMJCPMFPHLK = 12; // offset: 32
+		BALHBDBHHON FHDMHKOMEFO = 13; // offset: 32
+		IAGGIFBOFDF FIFCCCJOLNE = 14; // offset: 32
+	}
+}
+
+enum FKNKNLGMACL {
+	FKNKNLGMACL_NLCDGIPGFDJ = 0;
+	FKNKNLGMACL_LMBIMAOBGPO = 1;
+	FKNKNLGMACL_NPDOGNAPCEE = 2;
+}
+
+enum GOECDMPJMCM {
+	GOECDMPJMCM_NLCDGIPGFDJ = 0;
+	GOECDMPJMCM_IKKJHNHKFOG = 1;
+	GOECDMPJMCM_FFBIEEHPKND = 2;
+	GOECDMPJMCM_JFNMPEJEIOH = 3;
+}
+
+message GetAiPamChatHistoryCsReq {
+	uint32 target_side = 11; // offset: 24
+}
+
+message GetAiPamChatHistoryScRsp {
+	uint32 retcode = 2; // offset: 32
+	repeated ChatMessageData JPCMGNGNONJ = 4; // offset: 16
+	uint32 target_side = 11; // offset: 36
+}
+
+message GetAiPamChatInfoCsReq {
+}
+
+message GetAiPamChatInfoScRsp {
+	repeated FAIFDBLLGKK BJLHDBPPILI = 2; // offset: 24
+	uint32 JKIHICLOPKM = 3; // offset: 48
+	uint32 retcode = 8; // offset: 40
+	bool AGANFJKBFMA = 12; // offset: 45
+	bool OKCIPPLKGCD = 13; // offset: 44
+	bool LOCNGFLCENG = 14; // offset: 46
+	string ACFENKABBKK = 15; // offset: 16
+}
+
+message GetAiPamNextQuestionCsReq {
+	FKNKNLGMACL role = 2; // offset: 24
+}
+
+message GetAiPamNextQuestionScRsp {
+	uint32 retcode = 7; // offset: 36
+	FKNKNLGMACL role = 13; // offset: 32
+	repeated NEKAOLPJKEE KDOHKGKBFCH = 15; // offset: 24
+}
+
+message HGGMNLNJPHG {
+	uint32 retcode = 10; // offset: 24
+}
+
+message IAGGIFBOFDF {
+}
+
+message IJJKHFPLLIF {
+	uint32 avatar_id = 1; // offset: 40
+	repeated LJEMPEHADKJ HGAIDOLJKDL = 2; // offset: 16
+	repeated LJEMPEHADKJ FLOKEJHHPPO = 3; // offset: 32
+}
+
+message IOFKKOEJFHI {
+	PJCMNENIEHH game_mode = 1; // offset: 32
+	repeated JOLHIMGJGBO lineup_list = 2; // offset: 24
+}
+
+message JFCPFBLKJAB {
+	oneof PONFIKAJHFD {
+		IJJKHFPLLIF lineup = 10; // offset: 16
+		DNPDLODGAHA LCMADDIMION = 11; // offset: 16
+		DPKPGPPHHBM PAGPNOKLNOM = 12; // offset: 16
+		EIICHLNCAKK BEGAIBBJHHD = 13; // offset: 16
+		IOFKKOEJFHI HCAAHIGINOM = 14; // offset: 16
+	}
+}
+
+enum KDNCOBMFFEB {
+	KDNCOBMFFEB_NLCDGIPGFDJ = 0;
+	KDNCOBMFFEB_BDOEMDGHHEP = 1;
+	KDNCOBMFFEB_stop_desc = 2;
+	KDNCOBMFFEB_LMJCPMFPHLK = 3;
+	KDNCOBMFFEB_FHDMHKOMEFO = 4;
+	KDNCOBMFFEB_FCKIHKAIIIJ = 5;
+}
+
+message KIIKHMMDHKP {
+	repeated NGBBCMBMOLI MIEFCFLJLAH = 8; // offset: 24
+}
+
+message KKNGAGGAJKC {
+	string EDMBJCBKBIM = 1; // offset: 16
+	string OIBPLFNJOEM = 2; // offset: 24
+	string DMHFFKNLILH = 3; // offset: 32
+}
+
+message LHNMDFOPMKN {
+	JFCPFBLKJAB return_data = 3; // offset: 16
+	string BLDMFDKDJDM = 8; // offset: 24
+}
+
+message LJEMPEHADKJ {
+	repeated uint32 avatar_id_list = 1; // offset: 24
+}
+
+message MDGIOENHBEJ {
+	string title = 1; // offset: 24
+	string OAPACMJOIKC = 2; // offset: 32
+	uint32 ENHLKLFLCKG = 3; // offset: 48
+	KKNGAGGAJKC tag = 4; // offset: 16
+}
+
+message NEKAOLPJKEE {
+	string POLADDGLAEH = 1; // offset: 24
+}
+
+message NGBBCMBMOLI {
+	uint32 avatar_id = 1; // offset: 24
+	bool CLFMFEHJKEJ = 2; // offset: 30
+	bool GGPIFKGAPPB = 3; // offset: 31
+	bool AOOEIHOPALH = 4; // offset: 29
+	bool LIEKGCNNIHA = 5; // offset: 28
+}
+
+message PLHPNBIMIOK {
+	uint32 KAJCFPKEGBP = 1; // offset: 28
+	uint32 JHFFAALHEAI = 2; // offset: 24
+}
+
+message RecvAiPamChatEventScNotify {
+	FAIFDBLLGKK OOOACLEFDGM = 1; // offset: 16
+}
+
+message TriggerAiPamSpeakCsReq {
+	uint32 JMPPMNAONHM = 10; // offset: 24
+	FKNKNLGMACL role = 13; // offset: 28
+}
+
+message TriggerAiPamSpeakScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 JMPPMNAONHM = 2; // offset: 28
+	FKNKNLGMACL role = 14; // offset: 24
+}
+
+message UpdateAiPamSettingsCsReq {
+	bool LOCNGFLCENG = 6; // offset: 24
+}
+
+message UpdateAiPamSettingsScRsp {
+	bool LOCNGFLCENG = 2; // offset: 24
+	uint32 retcode = 5; // offset: 28
+}

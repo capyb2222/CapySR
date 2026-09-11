@@ -1,0 +1,51 @@
+{
+  "server": {
+    "name": "CapySR",
+    "http": { "bind": "0.0.0.0", "port": 21000, "public_host": "127.0.0.1" },
+    "game": { "bind": "0.0.0.0", "port": 23301, "public_host": "127.0.0.1" }
+  },
+  "log": {
+    "level": "debug",
+    "color": true,
+    "file": "logs/capysr.log",
+    "packets": true,
+    "packet_bodies": false
+  },
+  "hotfix": {
+    "file": "config/hotfix.json",
+    "send_resource_urls": true,
+    "enable_design_data_update": true,
+    "enable_video_update": true,
+    "fetch_remote": false
+  },
+  "player": {
+    "uid": 1337,
+    "name": "Capybara",
+    "signature": "powered by CapySR",
+    "level": 70,
+    "world_level": 6,
+    "head_icon": 201001,
+    "stamina": 240,
+    "hcoin": 999999,
+    "scoin": 99999999,
+    "mcoin": 0
+  },
+  "gameplay": {
+    "battle_source": "auto",
+    "global_buffs": true,
+    "unlock_all_challenges": true,
+    "main_character": 8008,
+    "march_type": 1224
+  },
+  "paths": {
+    "srtools_file": "data/freesr-data.json",
+    "player_file": "data/player.json",
+    "data_sources": [
+      "resources/excel",
+      "resources/excel-beta"
+    ],
+    "scene_res": "resources/res.json",
+    "anchors": "resources/Anchor.json",
+    "resources": "resources"
+  }
+}

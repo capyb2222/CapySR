@@ -1,0 +1,225 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdTreasureDungeonType {
+	CmdTreasureDungeonType_NLCDGIPGFDJ = 0;
+	CmdTreasureDungeonType_OpenTreasureDungeonGridScRsp = 4464;
+	CmdTreasureDungeonType_TreasureDungeonDataScNotify = 4434;
+	CmdTreasureDungeonType_QuitTreasureDungeonScRsp = 4419;
+	CmdTreasureDungeonType_TreasureDungeonFinishScNotify = 4425;
+	CmdTreasureDungeonType_QuitTreasureDungeonCsReq = 4404;
+	CmdTreasureDungeonType_GetTreasureDungeonActivityDataScRsp = 4439;
+	CmdTreasureDungeonType_InteractTreasureDungeonGridCsReq = 4411;
+	CmdTreasureDungeonType_InteractTreasureDungeonGridScRsp = 4417;
+	CmdTreasureDungeonType_EnterTreasureDungeonScRsp = 4408;
+	CmdTreasureDungeonType_UseTreasureDungeonItemCsReq = 4438;
+	CmdTreasureDungeonType_FightTreasureDungeonMonsterCsReq = 4421;
+	CmdTreasureDungeonType_GetTreasureDungeonActivityDataCsReq = 4442;
+	CmdTreasureDungeonType_EnterTreasureDungeonCsReq = 4461;
+	CmdTreasureDungeonType_OpenTreasureDungeonGridCsReq = 4468;
+	CmdTreasureDungeonType_UseTreasureDungeonItemScRsp = 4478;
+	CmdTreasureDungeonType_FightTreasureDungeonMonsterScRsp = 4412;
+}
+
+message DCMCLHJINBD {
+	bool is_entered = 1; // offset: 37
+	uint32 EICEKDBENKM = 4; // offset: 44
+	bool has_passed = 6; // offset: 36
+	uint32 defence_add = 7; // offset: 28
+	uint32 MIAFMBHCMOG = 8; // offset: 32
+	uint32 attack_add = 10; // offset: 24
+	uint32 NKMNCCFFBAB = 13; // offset: 40
+}
+
+message ENGHACADBKI {
+	uint32 LDMHLKGILOD = 8; // offset: 36
+	uint32 EGKLFMCHLCO = 9; // offset: 28
+	uint32 FFKDFODDBDN = 10; // offset: 40
+	uint32 FMIFPFAHFBL = 11; // offset: 24
+	TreasureDungeonRecordType type = 14; // offset: 32
+}
+
+message EnterTreasureDungeonCsReq {
+	uint32 EICEKDBENKM = 1; // offset: 32
+	repeated IOKGDDDHHPD avatar_list = 13; // offset: 16
+}
+
+message EnterTreasureDungeonScRsp {
+	PPONNIHFJAP IMHNGDFGJJA = 13; // offset: 16
+	uint32 retcode = 15; // offset: 32
+}
+
+message FFMOAGPPHGP {
+	uint32 KHJKDLNAMIP = 2; // offset: 32
+	SpBarInfo sp_bar = 6; // offset: 24
+	uint32 avatar_id = 9; // offset: 44
+	uint32 avatar_type = 11; // offset: 36
+	uint32 hp = 13; // offset: 40
+}
+
+message FightTreasureDungeonMonsterCsReq {
+	repeated IOKGDDDHHPD avatar_list = 1; // offset: 16
+	uint32 GDNEHLEOMOM = 8; // offset: 36
+	uint32 EICEKDBENKM = 13; // offset: 32
+}
+
+message FightTreasureDungeonMonsterScRsp {
+	uint32 retcode = 7; // offset: 32
+	SceneBattleInfo battle_info = 11; // offset: 24
+}
+
+message GetTreasureDungeonActivityDataCsReq {
+}
+
+message GetTreasureDungeonActivityDataScRsp {
+	repeated DCMCLHJINBD NFEJLHOCFMC = 2; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message IHBMPCIIGJD {
+	bool BBBINMPJCGI = 3; // offset: 39
+	uint32 OHCCEFIALGL = 4; // offset: 32
+	bool can_interact = 6; // offset: 37
+	bool DBMFBJCHNKN = 8; // offset: 38
+	uint32 GDNEHLEOMOM = 9; // offset: 40
+	bool is_locked = 14; // offset: 36
+	uint32 EILBAOLILAM = 15; // offset: 44
+	repeated KMCCCOKIOFD buff_list = 1788; // offset: 24
+}
+
+message IOKGDDDHHPD {
+	uint32 avatar_id = 10; // offset: 24
+	AvatarType avatar_type = 14; // offset: 28
+}
+
+message InteractTreasureDungeonGridCsReq {
+	uint32 EICEKDBENKM = 7; // offset: 24
+	uint32 GDNEHLEOMOM = 14; // offset: 32
+	uint32 param = 15; // offset: 28
+}
+
+message InteractTreasureDungeonGridScRsp {
+	uint32 retcode = 2; // offset: 32
+	PPONNIHFJAP IMHNGDFGJJA = 9; // offset: 16
+}
+
+message JDLIPNFGEID {
+	uint32 avatar_type = 11; // offset: 24
+	uint32 avatar_id = 13; // offset: 28
+}
+
+message JGNNOJEEBLP {
+	uint32 buff_id = 8; // offset: 28
+	uint32 MODPKCCOAJL = 12; // offset: 24
+}
+
+message KMCCCOKIOFD {
+	uint32 JBGENFIKGGF = 3; // offset: 36
+	uint32 EGKLFMCHLCO = 7; // offset: 28
+	uint32 buff_id = 9; // offset: 24
+	uint32 FBNBPPHOGLI = 10; // offset: 40
+	uint32 GDNEHLEOMOM = 15; // offset: 32
+}
+
+message NPPFFMBNGBP {
+	uint32 item_id = 4; // offset: 24
+	uint32 item_count = 13; // offset: 28
+}
+
+message OpenTreasureDungeonGridCsReq {
+	uint32 GDNEHLEOMOM = 3; // offset: 24
+	uint32 EICEKDBENKM = 13; // offset: 28
+}
+
+message OpenTreasureDungeonGridScRsp {
+	uint32 retcode = 1; // offset: 32
+	PPONNIHFJAP IMHNGDFGJJA = 12; // offset: 24
+}
+
+message PPONNIHFJAP {
+	uint32 map_id = 1; // offset: 100
+	uint32 KJNKBKLCGHJ = 3; // offset: 104
+	uint32 EICEKDBENKM = 5; // offset: 92
+	uint32 attack_add = 6; // offset: 88
+	uint32 defence_add = 7; // offset: 84
+	uint32 DIPLENNGJII = 9; // offset: 80
+	repeated ENGHACADBKI HFLOPHNBKGN = 10; // offset: 64
+	uint32 MIAFMBHCMOG = 11; // offset: 112
+	repeated IHBMPCIIGJD IEDKELDFHLP = 14; // offset: 56
+	repeated NPPFFMBNGBP item_list = 200; // offset: 40
+	bool IGJCGAGHDPP = 289; // offset: 98
+	repeated FFMOAGPPHGP avatar_list = 595; // offset: 32
+	repeated JGNNOJEEBLP buff_list = 638; // offset: 72
+	repeated JDLIPNFGEID FDOILGLIFIB = 811; // offset: 24
+	uint32 HCEGFNHMMOD = 878; // offset: 108
+	bool NBNPGEAMFJP = 1028; // offset: 96
+	bool MNEIFMEDFGC = 1265; // offset: 97
+	repeated FFMOAGPPHGP PBNEHHOBBFC = 1628; // offset: 16
+}
+
+message QuitTreasureDungeonCsReq {
+	uint32 EICEKDBENKM = 2; // offset: 24
+	bool KEAAGAIAHLA = 15; // offset: 28
+}
+
+message QuitTreasureDungeonScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message TreasureDungeonDataScNotify {
+	PPONNIHFJAP IMHNGDFGJJA = 6; // offset: 24
+}
+
+message TreasureDungeonFinishScNotify {
+	uint32 EICEKDBENKM = 1; // offset: 44
+	uint32 DEHGKCLNNAP = 7; // offset: 40
+	map<uint32, uint32> IMALNDJDDNO = 8; // offset: 32
+	map<uint32, uint32> NLMHKDPJEFO = 9; // offset: 24
+	uint32 DJCNKLMCABG = 11; // offset: 52
+	uint32 MIAFMBHCMOG = 12; // offset: 48
+	bool is_win = 14; // offset: 56
+}
+
+enum TreasureDungeonRecordType {
+	TreasureDungeonRecordType_TreasureDungeonRecordNone = 0;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddHp = 1;
+	TreasureDungeonRecordType_TreasureDungeonRecordSubHp = 2;
+	TreasureDungeonRecordType_TreasureDungeonRecordSubHpNoExplore = 3;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddAttack = 5;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddDefence = 6;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddExplore = 9;
+	TreasureDungeonRecordType_TreasureDungeonRecordSubExplore = 10;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddExploreOverflow = 11;
+	TreasureDungeonRecordType_TreasureDungeonRecordSummon = 15;
+	TreasureDungeonRecordType_TreasureDungeonRecordKill = 16;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddTrialAvatar = 20;
+	TreasureDungeonRecordType_TreasureDungeonRecordAddBuff = 24;
+	TreasureDungeonRecordType_TreasureDungeonRecordUnlockDoor = 25;
+	TreasureDungeonRecordType_TreasureDungeonRecordEnemyEnhance = 27;
+	TreasureDungeonRecordType_TreasureDungeonRecordEnemyWeaken = 28;
+	TreasureDungeonRecordType_TreasureDungeonRecordEnemyAuraRemove = 29;
+	TreasureDungeonRecordType_TreasureDungeonRecordSpecialMonsterRun = 30;
+	TreasureDungeonRecordType_TreasureDungeonRecordSpecialMonsterKill = 31;
+	TreasureDungeonRecordType_TreasureDungeonRecordBattleBuffTriggerSuccess = 33;
+	TreasureDungeonRecordType_TreasureDungeonRecordBattleBuffTriggerFail = 34;
+	TreasureDungeonRecordType_TreasureDungeonRecordBattleBuffAddExplore = 35;
+	TreasureDungeonRecordType_TreasureDungeonRecordBattleBuffOpenGrid = 36;
+	TreasureDungeonRecordType_TreasureDungeonRecordBattleBuffAddItem = 37;
+	TreasureDungeonRecordType_TreasureDungeonRecordAvatarDead = 40;
+	TreasureDungeonRecordType_TreasureDungeonRecordTrialAvatarDead = 41;
+	TreasureDungeonRecordType_TreasureDungeonRecordAllAvatarDead = 42;
+	TreasureDungeonRecordType_TreasureDungeonRecordOpenItemChest = 43;
+}
+
+message UseTreasureDungeonItemCsReq {
+	uint32 GDNEHLEOMOM = 2; // offset: 32
+	uint32 item_id = 7; // offset: 24
+	uint32 EICEKDBENKM = 14; // offset: 28
+}
+
+message UseTreasureDungeonItemScRsp {
+	uint32 retcode = 1; // offset: 32
+	PPONNIHFJAP IMHNGDFGJJA = 8; // offset: 16
+}

@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+
+message MainMissionMcvSnapshot {
+	uint32 main_mission_id = 1; // offset: 32
+	MissionCustomValueSnapshotList custom_value_list = 2; // offset: 24
+}
+
+message MainMissionSnapshot {
+	uint32 main_mission_id = 1; // offset: 32
+	repeated SubMissionSnapshot sub_mission_list = 2; // offset: 16
+}
+
+message MissionCustomValueSnapshot {
+	uint32 custom_value = 1; // offset: 32
+	string mcv_key = 2; // offset: 24
+}
+
+message MissionCustomValueSnapshotList {
+	repeated MissionCustomValueSnapshot custom_value_list = 1; // offset: 16
+}
+
+message MissionSnapshot {
+	repeated MainMissionMcvSnapshot server_mcv_list = 1; // offset: 32
+	repeated MainMissionMcvSnapshot client_mcv_list = 2; // offset: 24
+	MainMissionSnapshot tracking_main_mission = 3; // offset: 40
+	bool has_mission_audio_snapshot = 4; // offset: 64
+	string cur_audio_emotion_state = 5; // offset: 16
+	string cur_sound_effect_state = 6; // offset: 48
+}
+
+enum MissionSyncRecord {
+	MissionSyncRecord_DOJFCPKAJEN = 0;
+	MissionSyncRecord_HPBMPLFIGDO = 1;
+	MissionSyncRecord_BBFKOIKPIOA = 2;
+	MissionSyncRecord_LPJJPGJPMKA = 3;
+	MissionSyncRecord_JCIHFNMKAKK = 4;
+	MissionSyncRecord_EGDIDGJEOCG = 11;
+	MissionSyncRecord_JPJOOPBLLHO = 12;
+	MissionSyncRecord_EBINJEAEFOE = 13;
+	MissionSyncRecord_BJLCBIGLBIM = 14;
+	MissionSyncRecord_KPDHHAPIIGM = 15;
+}
+
+message SubMissionSnapshot {
+	uint32 sub_mission_id = 1; // offset: 24
+}

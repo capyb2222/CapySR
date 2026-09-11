@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+
+enum CmdTrackPhotoActivityType {
+	CmdTrackPhotoActivityType_NLCDGIPGFDJ = 0;
+	CmdTrackPhotoActivityType_StartTrackPhotoStageCsReq = 7554;
+	CmdTrackPhotoActivityType_QuitTrackPhotoStageScRsp = 7558;
+	CmdTrackPhotoActivityType_SettleTrackPhotoStageScRsp = 7559;
+	CmdTrackPhotoActivityType_QuitTrackPhotoStageCsReq = 7555;
+	CmdTrackPhotoActivityType_GetTrackPhotoActivityDataScRsp = 7553;
+	CmdTrackPhotoActivityType_GetTrackPhotoActivityDataCsReq = 7552;
+	CmdTrackPhotoActivityType_SettleTrackPhotoStageCsReq = 7560;
+	CmdTrackPhotoActivityType_StartTrackPhotoStageScRsp = 7557;
+}
+
+message GetTrackPhotoActivityDataCsReq {
+}
+
+message GetTrackPhotoActivityDataScRsp {
+	repeated IFBJJJOBGHB PEDCKGNNPAJ = 1; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message IFBJJJOBGHB {
+	uint32 stage_id = 13; // offset: 28
+	uint32 max_score = 15; // offset: 24
+}
+
+message PNICDFFMDDB {
+	uint32 entity_id = 7; // offset: 28
+	bool ADGCOJLMGAH = 14; // offset: 24
+}
+
+message QuitTrackPhotoStageCsReq {
+	uint32 stage_id = 4; // offset: 24
+}
+
+message QuitTrackPhotoStageScRsp {
+	uint32 retcode = 11; // offset: 24
+}
+
+message SettleTrackPhotoStageCsReq {
+	uint32 cost_time = 10; // offset: 32
+	repeated PNICDFFMDDB PIGLHELGMIJ = 11; // offset: 24
+	uint32 stage_id = 15; // offset: 36
+}
+
+message SettleTrackPhotoStageScRsp {
+	uint32 stage_id = 4; // offset: 36
+	uint32 retcode = 10; // offset: 32
+	repeated PNICDFFMDDB PIGLHELGMIJ = 13; // offset: 24
+	uint32 score_id = 15; // offset: 40
+}
+
+message StartTrackPhotoStageCsReq {
+	bool LCPPNDPKHPH = 5; // offset: 24
+	uint32 stage_id = 13; // offset: 28
+}
+
+message StartTrackPhotoStageScRsp {
+	uint32 trans_no = 9; // offset: 28
+	uint32 retcode = 11; // offset: 24
+}

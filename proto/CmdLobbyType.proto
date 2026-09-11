@@ -1,0 +1,203 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ANFMHBGNNEG {
+	PJMGBLIFDFP room_ext_info = 9; // offset: 24
+}
+
+enum CmdLobbyType {
+	CmdLobbyType_NLCDGIPGFDJ = 0;
+	CmdLobbyType_LobbyJoinCsReq = 7370;
+	CmdLobbyType_LobbyGetInfoScRsp = 7352;
+	CmdLobbyType_CNLPNHLGIBG = 7361;
+	CmdLobbyType_CGNHPMEHMMF = 7397;
+	CmdLobbyType_LobbyCreateCsReq = 7384;
+	CmdLobbyType_LobbyInviteScRsp = 7390;
+	CmdLobbyType_OJNIMDFCMAM = 7369;
+	CmdLobbyType_LobbyInviteCsReq = 7364;
+	CmdLobbyType_LobbyModifyPlayerInfoCsReq = 7366;
+	CmdLobbyType_LobbyJoinScRsp = 7381;
+	CmdLobbyType_LobbyKickOutCsReq = 7376;
+	CmdLobbyType_NCACLCLAGPM = 7392;
+	CmdLobbyType_ACOHEGOOIJA = 7382;
+	CmdLobbyType_LobbyStartFightCsReq = 7379;
+	CmdLobbyType_LobbyKickOutScRsp = 7354;
+	CmdLobbyType_LobbyInteractCsReq = 7368;
+	CmdLobbyType_LobbyGetInfoCsReq = 7373;
+	CmdLobbyType_LobbyQuitCsReq = 7358;
+	CmdLobbyType_LobbyInteractScNotify = 7357;
+	CmdLobbyType_LobbyInteractScRsp = 7388;
+	CmdLobbyType_LobbySyncInfoScNotify = 7398;
+	CmdLobbyType_LobbyCreateScRsp = 7356;
+}
+
+message GBAKEFGOLCB {
+	uint32 stage_id = 1; // offset: 28
+	uint32 CDNNHONKELJ = 2; // offset: 24
+}
+
+message GHGECAINBLA {
+	uint32 PLDKENJLKME = 14; // offset: 24
+}
+
+message GJBGNMGGDLE {
+	uint32 retcode = 12; // offset: 24
+}
+
+message HCLAEGGMCFK {
+	uint32 LOPNADHJKBF = 1; // offset: 24
+}
+
+message HFAAFFDPBIL {
+	uint32 stage_id = 1; // offset: 32
+	TeamTowersGameType DLFHABGGHFF = 2; // offset: 24
+	uint32 CDNNHONKELJ = 3; // offset: 28
+}
+
+message JDHEDGIGKBM {
+	uint32 PLDKENJLKME = 14; // offset: 24
+}
+
+message JFNBOEMFIJD {
+	uint32 mode = 1; // offset: 24
+}
+
+message KIGJGMLAMGH {
+	uint32 retcode = 1; // offset: 24
+}
+
+message LobbyCreateCsReq {
+	FightGameMode GJNMHILINHC = 1; // offset: 40
+	LobbyGameExtInfo JIDKDPPPDPF = 2; // offset: 32
+	uint32 HDJFGMGAOOF = 7; // offset: 44
+	PJMGBLIFDFP room_ext_info = 9; // offset: 16
+}
+
+message LobbyCreateScRsp {
+	FightGameMode GJNMHILINHC = 6; // offset: 56
+	uint32 HDJFGMGAOOF = 7; // offset: 48
+	uint32 retcode = 8; // offset: 52
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 10; // offset: 16
+	uint64 room_id = 11; // offset: 40
+	PJMGBLIFDFP room_ext_info = 13; // offset: 32
+}
+
+message LobbyGetInfoCsReq {
+}
+
+message LobbyGetInfoScRsp {
+	FightGameMode GJNMHILINHC = 4; // offset: 56
+	PJMGBLIFDFP room_ext_info = 5; // offset: 32
+	uint64 room_id = 8; // offset: 48
+	uint32 retcode = 9; // offset: 40
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 12; // offset: 16
+	uint32 HDJFGMGAOOF = 13; // offset: 44
+}
+
+message LobbyInteractCsReq {
+	LobbyInteractType DNBKKDBFFAJ = 3; // offset: 24
+	uint32 EJPHNNPLCJI = 7; // offset: 28
+}
+
+message LobbyInteractScNotify {
+	uint32 CPOCELOLNHL = 7; // offset: 28
+	LobbyInteractType DNBKKDBFFAJ = 10; // offset: 24
+}
+
+message LobbyInteractScRsp {
+	uint32 retcode = 4; // offset: 24
+	uint32 EJPHNNPLCJI = 15; // offset: 28
+}
+
+enum LobbyInteractType {
+	LobbyInteractType_None = 0;
+	LobbyInteractType_RemindPrepare = 1;
+}
+
+message LobbyInviteCsReq {
+	repeated uint32 AJILNMPDMGB = 14; // offset: 24
+}
+
+message LobbyInviteScRsp {
+	repeated uint32 uid_list = 3; // offset: 24
+	uint32 retcode = 8; // offset: 32
+}
+
+message LobbyJoinCsReq {
+	uint64 room_id = 1; // offset: 40
+	LobbyGameExtInfo JIDKDPPPDPF = 9; // offset: 16
+	string JKJCIPFMOHG = 10; // offset: 24
+}
+
+message LobbyJoinScRsp {
+	PJMGBLIFDFP room_ext_info = 2; // offset: 32
+	uint64 room_id = 3; // offset: 56
+	uint32 retcode = 9; // offset: 44
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 10; // offset: 16
+	FightGameMode GJNMHILINHC = 11; // offset: 48
+	uint32 HDJFGMGAOOF = 15; // offset: 40
+}
+
+message LobbyKickOutCsReq {
+	uint32 uid = 6; // offset: 24
+}
+
+message LobbyKickOutScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message LobbyModifyPlayerInfoCsReq {
+	LobbyGameExtInfo JIDKDPPPDPF = 10; // offset: 16
+	LobbyModifyType type = 12; // offset: 32
+	uint32 GMGJFJCDGGN = 14; // offset: 36
+}
+
+enum LobbyModifyType {
+	LobbyModifyType_None = 0;
+	LobbyModifyType_Idle = 1;
+	LobbyModifyType_Ready = 2;
+	LobbyModifyType_Operating = 3;
+	LobbyModifyType_CancelMatch = 4;
+	LobbyModifyType_Match = 5;
+	LobbyModifyType_QuitLobby = 6;
+	LobbyModifyType_KickOut = 7;
+	LobbyModifyType_TimeOut = 8;
+	LobbyModifyType_JoinLobby = 9;
+	LobbyModifyType_LobbyDismiss = 10;
+	LobbyModifyType_MatchTimeOut = 11;
+	LobbyModifyType_FightStart = 12;
+	LobbyModifyType_Logout = 13;
+	LobbyModifyType_FightEnd = 14;
+	LobbyModifyType_FightRoomDestroyInInit = 15;
+	LobbyModifyType_LobbyStartFight = 16;
+	LobbyModifyType_LobbyStartFightTimeout = 17;
+	LobbyModifyType_LobbyRoomExtInfo = 18;
+}
+
+message LobbyQuitCsReq {
+}
+
+message LobbyStartFightCsReq {
+}
+
+message LobbySyncInfoScNotify {
+	uint32 uid = 1; // offset: 32
+	LobbyModifyType type = 13; // offset: 36
+	repeated LMLNNHKJEIP DFLEOIGPLNM = 14; // offset: 16
+}
+
+message ONNHDODIIED {
+	HGMNDBFCBLL DLFHABGGHFF = 1; // offset: 24
+}
+
+message PJMGBLIFDFP {
+	oneof CGIFMOFGECO {
+		HCLAEGGMCFK lobby_grid_fight_info = 1001; // offset: 16
+		ONNHDODIIED GOKJCFBPHCJ = 1002; // offset: 16
+		GBAKEFGOLCB FNNOPJBPLPF = 1003; // offset: 16
+		HFAAFFDPBIL MPNPIIHHFPN = 1004; // offset: 16
+		JFNBOEMFIJD ICGJCKLHLAB = 1005; // offset: 16
+	}
+}

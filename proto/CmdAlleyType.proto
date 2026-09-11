@@ -1,0 +1,280 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message ActivityRaidPlacingGameCsReq {
+	AlleyPlacingShip GPOMFKNHCPB = 9; // offset: 16
+	oneof EFJLHNMJEED {
+		uint32 GFHGCDEJFIE = 5; // offset: 32
+		uint32 CAAHDGFMNNO = 1; // offset: 32
+	}
+}
+
+message ActivityRaidPlacingGameScRsp {
+	uint32 retcode = 2; // offset: 32
+	oneof EFJLHNMJEED {
+		uint32 GFHGCDEJFIE = 10; // offset: 24
+		uint32 CAAHDGFMNNO = 11; // offset: 24
+	}
+}
+
+message AlleyEventChangeNotify {
+	CEKIFBMPEFH OOOACLEFDGM = 2; // offset: 16
+	uint32 KHANHNFACLN = 11; // offset: 32
+}
+
+message AlleyEventEffectNotify {
+	uint32 MONFBLGFKGB = 11; // offset: 24
+}
+
+enum AlleyEventState {
+	AlleyEventState_AlleyStateNone = 0;
+	AlleyEventState_AlleyEventDoing = 1;
+	AlleyEventState_AlleyEventFinish = 2;
+	AlleyEventState_AlleyEventRewarded = 3;
+}
+
+message AlleyFundsScNotify {
+	uint32 cur_fund = 8; // offset: 24
+}
+
+message AlleyOrderChangedScNotify {
+	KPBAIEMEFFH NGKPDFJBNMF = 11; // offset: 16
+}
+
+message AlleyPlacingGameCsReq {
+	uint32 CAAHDGFMNNO = 2; // offset: 56
+	uint32 JJGKLHLMMNC = 4; // offset: 36
+	uint32 BNPKLKIENIK = 5; // offset: 44
+	AlleyPlacingShip GPOMFKNHCPB = 8; // offset: 16
+	uint32 cost_time = 9; // offset: 48
+	uint32 BEAKGBHFLPJ = 10; // offset: 52
+	uint32 JFALDHKOAOL = 11; // offset: 40
+	uint32 DPPOHBGCAGF = 12; // offset: 60
+	uint32 IDILDCBMECI = 15; // offset: 32
+}
+
+message AlleyPlacingGameScRsp {
+	uint32 retcode = 3; // offset: 40
+	uint32 JKBINMNFPKK = 4; // offset: 28
+	uint32 BIJPMOBEIJC = 6; // offset: 32
+	uint32 event_id = 8; // offset: 44
+	uint32 CIBNBDLMEIC = 9; // offset: 24
+	uint32 LFMHGMJELEE = 14; // offset: 36
+	uint32 AJBEOCIEPKP = 15; // offset: 48
+}
+
+message AlleyPlacingShip {
+	repeated CBBPDLPAIPL goods_list = 3; // offset: 24
+	uint32 ship_id = 6; // offset: 32
+}
+
+message AlleyShipUnlockScNotify {
+	uint32 FNCLCJCBPLA = 1; // offset: 24
+}
+
+message AlleyShipmentEventEffectsScNotify {
+	PICDJHEPJLC JBFIFNPJNHA = 5; // offset: 24
+}
+
+message AlleyTakeEventRewardCsReq {
+	uint32 event_id = 1; // offset: 24
+}
+
+message AlleyTakeEventRewardScRsp {
+	uint32 retcode = 1; // offset: 32
+	ItemList reward = 8; // offset: 16
+}
+
+message BOLCGIOGIBP {
+	ItemList reward = 1; // offset: 16
+	uint32 LLEPGPKGBGM = 2; // offset: 32
+	uint32 map_id = 3; // offset: 36
+	uint32 max_score = 5; // offset: 48
+	uint32 FMCPHDJEIDC = 11; // offset: 52
+	uint32 EFBOOJGNKOH = 13; // offset: 40
+	uint32 AAMKNOOMEOO = 15; // offset: 44
+}
+
+message CBBPDLPAIPL {
+	uint32 goods_id = 11; // offset: 32
+	repeated GHMINCEANHG NJKDKIEBGHG = 13; // offset: 16
+}
+
+message CEKIFBMPEFH {
+	AlleyEventState state = 1; // offset: 28
+	uint32 FHMBKAPPAGO = 7; // offset: 24
+	uint32 event_id = 15; // offset: 32
+}
+
+enum CmdAlleyType {
+	CmdAlleyType_NLCDGIPGFDJ = 0;
+	CmdAlleyType_AlleyPlacingGameCsReq = 4761;
+	CmdAlleyType_LogisticsGameScRsp = 4775;
+	CmdAlleyType_MONJHMOILDM = 4712;
+	CmdAlleyType_AlleyEventChangeNotify = 4783;
+	CmdAlleyType_PrestigeLevelUpCsReq = 4738;
+	CmdAlleyType_AlleyFundsScNotify = 4704;
+	CmdAlleyType_GetAlleyInfoScRsp = 4725;
+	CmdAlleyType_GetSaveLogisticsMapScRsp = 4703;
+	CmdAlleyType_SaveLogisticsScRsp = 4781;
+	CmdAlleyType_ActivityRaidPlacingGameScRsp = 4730;
+	CmdAlleyType_AlleyOrderChangedScNotify = 4711;
+	CmdAlleyType_AlleyEventEffectNotify = 4715;
+	CmdAlleyType_GetSaveLogisticsMapCsReq = 4773;
+	CmdAlleyType_LogisticsInfoScNotify = 4751;
+	CmdAlleyType_AlleyPlacingGameScRsp = 4708;
+	CmdAlleyType_LogisticsDetonateStarSkiffScRsp = 4740;
+	CmdAlleyType_AlleyShipmentEventEffectsScNotify = 4793;
+	CmdAlleyType_LogisticsDetonateStarSkiffCsReq = 4784;
+	CmdAlleyType_AlleyShipUnlockScNotify = 4785;
+	CmdAlleyType_GetAlleyInfoCsReq = 4734;
+	CmdAlleyType_ActivityRaidPlacingGameCsReq = 4741;
+	CmdAlleyType_LogisticsGameCsReq = 4705;
+	CmdAlleyType_TakePrestigeRewardCsReq = 4742;
+	CmdAlleyType_GCHGEKDJMJM = 4707;
+	CmdAlleyType_StartAlleyEventScRsp = 4756;
+	CmdAlleyType_PrestigeLevelUpScRsp = 4778;
+	CmdAlleyType_TakePrestigeRewardScRsp = 4739;
+	CmdAlleyType_GHICLFBGFDL = 4721;
+	CmdAlleyType_LogisticsScoreRewardSyncInfoScNotify = 4779;
+	CmdAlleyType_AlleyTakeEventRewardCsReq = 4782;
+	CmdAlleyType_StartAlleyEventCsReq = 4758;
+	CmdAlleyType_AlleyTakeEventRewardScRsp = 4732;
+	CmdAlleyType_MLKIKMBONLC = 4719;
+}
+
+message ENOABFIPHOB {
+	repeated IODAFIBPAGM MDNBOBFGKFN = 12; // offset: 16
+}
+
+message GDGEIAHNDAD {
+	repeated uint32 IFOKHMFNNNF = 4; // offset: 48
+	repeated BOLCGIOGIBP ALOOPKCJFEA = 10; // offset: 24
+	repeated JEEHGNIBIFE OELPOFLBMIE = 12; // offset: 16
+	repeated IODAFIBPAGM CFNKOBKJKNK = 15; // offset: 32
+}
+
+message GHMINCEANHG {
+	uint32 LMKJLEOPKKL = 5; // offset: 28
+	uint32 JAKMMNIEBGJ = 11; // offset: 24
+}
+
+message GetAlleyInfoCsReq {
+}
+
+message GetAlleyInfoScRsp {
+	repeated uint32 AMHAEPILIKF = 3; // offset: 32
+	repeated CEKIFBMPEFH PMIFFBHOOOO = 4; // offset: 72
+	uint32 level = 5; // offset: 80
+	GDGEIAHNDAD NFJKAILEFAD = 6; // offset: 48
+	uint32 cur_fund = 8; // offset: 84
+	uint32 retcode = 9; // offset: 88
+	repeated uint32 LAANLLFBLDP = 10; // offset: 16
+	PICDJHEPJLC EEAACLBJODA = 11; // offset: 56
+	KPBAIEMEFFH HAMAOOBGMLO = 14; // offset: 40
+	repeated uint32 KENFKICLMGJ = 15; // offset: 64
+}
+
+message GetSaveLogisticsMapCsReq {
+}
+
+message GetSaveLogisticsMapScRsp {
+	repeated IODAFIBPAGM CFNKOBKJKNK = 4; // offset: 24
+	uint32 retcode = 10; // offset: 32
+}
+
+message IODAFIBPAGM {
+	repeated JOMEGNGJKJK JNGNGMJCAAI = 2; // offset: 24
+	uint32 map_id = 12; // offset: 36
+	uint32 cost_time = 13; // offset: 32
+}
+
+message JEEHGNIBIFE {
+	uint32 map_id = 8; // offset: 24
+	uint32 APNAFLBGENA = 9; // offset: 28
+}
+
+message JOMEGNGJKJK {
+	repeated uint32 GADMAOCHBKN = 1; // offset: 24
+	repeated uint32 BPCADEMEGNP = 3; // offset: 40
+	uint32 ANHEOHPNKKC = 4; // offset: 48
+	uint32 EBNNNMFGHBJ = 5; // offset: 52
+	repeated uint32 OGDKJPDFFAI = 12; // offset: 32
+	uint32 CJHLDCAGKND = 13; // offset: 60
+	uint32 shop_id = 14; // offset: 56
+}
+
+message KPBAIEMEFFH {
+	uint32 BCOAIDIFBBG = 1; // offset: 48
+	uint32 EBOMMHDNBJL = 4; // offset: 44
+	repeated uint32 EPEELMJDJKP = 6; // offset: 16
+	bool FPDGKFHFIEE = 12; // offset: 52
+	repeated uint32 DNLGMDCMFGF = 13; // offset: 32
+	uint32 OCNLDDNIHOH = 15; // offset: 40
+}
+
+message LogisticsDetonateStarSkiffCsReq {
+}
+
+message LogisticsDetonateStarSkiffScRsp {
+	uint32 retcode = 12; // offset: 24
+}
+
+message LogisticsGameCsReq {
+	repeated IODAFIBPAGM MDNBOBFGKFN = 9; // offset: 24
+	bool CNCJKGEDEII = 14; // offset: 32
+}
+
+message LogisticsGameScRsp {
+	repeated BOLCGIOGIBP ALOOPKCJFEA = 1; // offset: 16
+	uint32 retcode = 5; // offset: 40
+	uint32 event_id = 7; // offset: 36
+	bool CNCJKGEDEII = 13; // offset: 32
+}
+
+message LogisticsInfoScNotify {
+	GDGEIAHNDAD NFJKAILEFAD = 13; // offset: 16
+}
+
+message LogisticsScoreRewardSyncInfoScNotify {
+	repeated BOLCGIOGIBP ALOOPKCJFEA = 14; // offset: 16
+}
+
+message PICDJHEPJLC {
+	map<uint32, uint32> PCDFIOCMJFE = 6; // offset: 24
+	uint32 LEGCBILEEHK = 9; // offset: 32
+}
+
+message PrestigeLevelUpCsReq {
+}
+
+message PrestigeLevelUpScRsp {
+	uint32 level = 10; // offset: 28
+	uint32 retcode = 15; // offset: 24
+}
+
+message SaveLogisticsScRsp {
+	uint32 retcode = 9; // offset: 32
+	repeated IODAFIBPAGM MDNBOBFGKFN = 10; // offset: 24
+}
+
+message StartAlleyEventCsReq {
+	uint32 event_id = 1; // offset: 24
+}
+
+message StartAlleyEventScRsp {
+	uint32 event_id = 2; // offset: 28
+	uint32 retcode = 13; // offset: 24
+}
+
+message TakePrestigeRewardCsReq {
+	uint32 level = 10; // offset: 24
+}
+
+message TakePrestigeRewardScRsp {
+	uint32 retcode = 6; // offset: 36
+	uint32 level = 7; // offset: 32
+	ItemList reward = 12; // offset: 24
+}

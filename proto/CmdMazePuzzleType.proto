@@ -1,0 +1,188 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AIPNFBBDNEO {
+	uint32 BAKMHAPCNCJ = 15; // offset: 24
+}
+
+message ANDPLLAKCLE {
+	uint32 IJCJBDDGGJF = 11; // offset: 24
+}
+
+message BAGCLEDHOBD {
+	uint32 BAKMHAPCNCJ = 14; // offset: 24
+}
+
+message ChenLingGameBoyChangeSettingsScRsp {
+	uint32 retcode = 1; // offset: 24
+	bool EBAFPOLLJIA = 9; // offset: 28
+}
+
+message ChenLingGameBoyGetFriendRankingInfoCsReq {
+	uint32 FPEDPMAHHND = 14; // offset: 24
+}
+
+message ChenLingGameBoyGetFriendRankingInfoScRsp {
+	repeated NBHDCJHGKCN BEDHEKAGAPE = 1; // offset: 16
+	uint32 IJCJBDDGGJF = 5; // offset: 32
+	bool EBAFPOLLJIA = 11; // offset: 36
+	uint32 retcode = 12; // offset: 40
+}
+
+enum CmdMazePuzzleType {
+	CmdMazePuzzleType_NLCDGIPGFDJ = 0;
+	CmdMazePuzzleType_ChenLingGameBoyGetFriendRankingInfoCsReq = 9079;
+	CmdMazePuzzleType_BDFOHFOJBKK = 9098;
+	CmdMazePuzzleType_IPNFOOJJGMC = 9057;
+	CmdMazePuzzleType_GetFiveDimMiniGameDataScRsp = 9058;
+	CmdMazePuzzleType_SetChenLingGameBoyCheatStatusScRsp = 9064;
+	CmdMazePuzzleType_LCKLCFFIFCC = 9088;
+	CmdMazePuzzleType_MazeCrossFloorConditionChangeScNotify = 9089;
+	CmdMazePuzzleType_ChenLingGameBoyGetFriendRankingInfoScRsp = 9082;
+	CmdMazePuzzleType_SetChenLingGameBoyCheatCodeInputStatusScRsp = 9054;
+	CmdMazePuzzleType_CCOKCJODLJI = 9069;
+	CmdMazePuzzleType_IKIEALJFGLL = 9066;
+	CmdMazePuzzleType_EEICODKONDH = 9076;
+	CmdMazePuzzleType_FinishFiveDimMiniGameScRsp = 9075;
+	CmdMazePuzzleType_FinishFiveDimMiniGameCsReq = 9097;
+	CmdMazePuzzleType_GetFiveDimFluteDataCsReq = 9073;
+	CmdMazePuzzleType_FiveDimFluteDataChangeNotify = 9092;
+	CmdMazePuzzleType_FinishChenLingGameBoyCsReq = 9070;
+	CmdMazePuzzleType_GetChenLingGameBoyDataScRsp = 9056;
+	CmdMazePuzzleType_FinishChenLingGameBoyScRsp = 9081;
+	CmdMazePuzzleType_GetFiveDimFluteDataScRsp = 9052;
+	CmdMazePuzzleType_ChenLingGameBoyChangeSettingsScRsp = 9061;
+	CmdMazePuzzleType_NBOOGOBHMOE = 9068;
+	CmdMazePuzzleType_GetChenLingGameBoyDataCsReq = 9084;
+	CmdMazePuzzleType_GetFiveDimMiniGameDataCsReq = 9090;
+}
+
+message EGJJHFIPCNB {
+	uint32 retcode = 4; // offset: 28
+	uint32 BAKMHAPCNCJ = 9; // offset: 24
+}
+
+message EMDKLICDPKK {
+	uint32 IJCJBDDGGJF = 4; // offset: 24
+	bool HIEMHCBHKEO = 15; // offset: 28
+}
+
+message FinishChenLingGameBoyCsReq {
+	repeated uint32 CJKAGEDKAFL = 1; // offset: 16
+	bool BOHDCEOOLBA = 5; // offset: 32
+	uint32 IJCJBDDGGJF = 6; // offset: 36
+	uint64 BEJCJJCLJHL = 9; // offset: 40
+	bool HOPOJGBFGEG = 10; // offset: 33
+}
+
+message FinishChenLingGameBoyScRsp {
+	uint32 retcode = 1; // offset: 48
+	uint64 BEJCJJCLJHL = 2; // offset: 56
+	uint64 HLNODEFLOCF = 4; // offset: 40
+	ItemList reward = 8; // offset: 32
+	repeated uint32 DDDGOAEEODC = 10; // offset: 24
+	uint32 IJCJBDDGGJF = 11; // offset: 52
+}
+
+message FinishFiveDimMiniGameCsReq {
+	uint32 score_id = 1; // offset: 48
+	uint32 IPDDIKPHGPE = 2; // offset: 56
+	uint32 FKFGIGAPJNF = 3; // offset: 40
+	uint32 BAJHKGJPFED = 4; // offset: 32
+	uint32 gold = 6; // offset: 52
+	float JAPBBDENKGM = 7; // offset: 44
+	uint32 OCFCOJMIMFD = 9; // offset: 60
+	string uuid = 11; // offset: 24
+	uint32 AKCLEAJAEPA = 12; // offset: 68
+	uint32 CHMBABEJKGE = 13; // offset: 64
+	uint32 MGBDFKKMNOL = 15; // offset: 36
+}
+
+message FinishFiveDimMiniGameScRsp {
+	uint32 gold = 1; // offset: 40
+	uint32 retcode = 2; // offset: 56
+	uint32 AKCLEAJAEPA = 4; // offset: 48
+	uint32 score_id = 5; // offset: 44
+	uint32 BAJHKGJPFED = 6; // offset: 52
+	ItemList KAFIKBEFKDH = 8; // offset: 24
+	float JAPBBDENKGM = 9; // offset: 68
+	uint32 MGBDFKKMNOL = 10; // offset: 64
+	uint32 CHMBABEJKGE = 11; // offset: 60
+	ItemList DHBABIBHNOG = 12; // offset: 16
+	bool ILAFNJNAFIM = 15; // offset: 72
+}
+
+message FiveDimFluteDataChangeNotify {
+	repeated uint32 AOBGMMAIMHJ = 1; // offset: 24
+	repeated uint32 NFOBNDJIEPL = 13; // offset: 32
+}
+
+message GetChenLingGameBoyDataCsReq {
+	uint32 FPEDPMAHHND = 6; // offset: 24
+}
+
+message GetChenLingGameBoyDataScRsp {
+	uint32 retcode = 12; // offset: 32
+	JBOBHIPHGPB game_data = 15; // offset: 24
+}
+
+message GetFiveDimFluteDataCsReq {
+}
+
+message GetFiveDimFluteDataScRsp {
+	uint32 retcode = 3; // offset: 40
+	repeated uint32 NFOBNDJIEPL = 12; // offset: 16
+	repeated uint32 AOBGMMAIMHJ = 14; // offset: 32
+}
+
+message GetFiveDimMiniGameDataCsReq {
+}
+
+message GetFiveDimMiniGameDataScRsp {
+	uint32 retcode = 5; // offset: 32
+	repeated IKHLECEJHPO content_package_list = 13; // offset: 24
+}
+
+message IKHLECEJHPO {
+	uint32 BAJHKGJPFED = 7; // offset: 24
+	uint32 OFNNJJNAHHH = 14; // offset: 28
+}
+
+message JAIGKNCMOLK {
+	bool NJBJCFLEIAP = 2; // offset: 24
+}
+
+message JBOBHIPHGPB {
+	uint32 IJCJBDDGGJF = 6; // offset: 36
+	uint64 HLNODEFLOCF = 8; // offset: 40
+	bool OOMILCOFGPN = 12; // offset: 33
+	bool HIEMHCBHKEO = 14; // offset: 32
+	repeated uint32 CJKAGEDKAFL = 15; // offset: 16
+}
+
+message MazeCrossFloorConditionChangeScNotify {
+	repeated uint32 HLLLIKPGOFG = 2; // offset: 16
+}
+
+message NBHDCJHGKCN {
+	uint64 BEJCJJCLJHL = 2; // offset: 24
+	uint32 uid = 10; // offset: 32
+	uint32 IJCJBDDGGJF = 15; // offset: 36
+}
+
+message NCGFPOKHMBL {
+	uint32 BAKMHAPCNCJ = 6; // offset: 24
+	uint32 retcode = 15; // offset: 28
+}
+
+message SetChenLingGameBoyCheatCodeInputStatusScRsp {
+	JBOBHIPHGPB game_data = 10; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}
+
+message SetChenLingGameBoyCheatStatusScRsp {
+	uint32 retcode = 2; // offset: 32
+	JBOBHIPHGPB game_data = 3; // offset: 16
+}

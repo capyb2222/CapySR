@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdFeverTimeActivityType {
+	CmdFeverTimeActivityType_NLCDGIPGFDJ = 0;
+	CmdFeverTimeActivityType_FeverTimeActivityBattleEndScNotify = 7160;
+	CmdFeverTimeActivityType_EnterFeverTimeActivityStageCsReq = 7152;
+	CmdFeverTimeActivityType_GetFeverTimeActivityDataScRsp = 7154;
+	CmdFeverTimeActivityType_EnterFeverTimeActivityStageScRsp = 7153;
+	CmdFeverTimeActivityType_GetFeverTimeActivityDataCsReq = 7159;
+}
+
+message EnterFeverTimeActivityStageCsReq {
+	uint32 id = 4; // offset: 36
+	repeated KPNHGDGLICN avatar_list = 6; // offset: 24
+	uint32 CJHDABDKGHP = 7; // offset: 32
+	uint32 MFLAIMHFABP = 13; // offset: 40
+}
+
+message EnterFeverTimeActivityStageScRsp {
+	uint32 retcode = 4; // offset: 36
+	uint32 id = 11; // offset: 32
+	SceneBattleInfo battle_info = 12; // offset: 16
+}
+
+message FeverTimeActivityBattleEndScNotify {
+	uint32 id = 2; // offset: 28
+	uint32 FAJDFFHODIP = 3; // offset: 36
+	FeverTimeBattleRank LDDHCPLNKKA = 8; // offset: 32
+	uint32 turn_left = 13; // offset: 24
+}
+
+enum FeverTimeBattleRank {
+	FeverTimeBattleRank_C = 0;
+	FeverTimeBattleRank_B = 1;
+	FeverTimeBattleRank_A = 2;
+	FeverTimeBattleRank_S = 3;
+	FeverTimeBattleRank_Ss = 4;
+}
+
+message GetFeverTimeActivityDataCsReq {
+}
+
+message GetFeverTimeActivityDataScRsp {
+	repeated JBMJOIPJPLH GNDEFEAEDNJ = 1; // offset: 16
+	uint32 retcode = 2; // offset: 32
+}
+
+message JBMJOIPJPLH {
+	FeverTimeBattleRank OINGNAJMFNL = 3; // offset: 32
+	uint32 OFBEDJIAEOA = 4; // offset: 28
+	uint32 DJFGDMIDEHJ = 15; // offset: 24
+}

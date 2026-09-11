@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdAdventureType {
+	CmdAdventureType_NLCDGIPGFDJ = 0;
+	CmdAdventureType_QuickStartCocoonStageScRsp = 1316;
+	CmdAdventureType_QuickStartCocoonStageCsReq = 1360;
+	CmdAdventureType_QuickStartFarmElementCsReq = 1358;
+	CmdAdventureType_GetFarmStageGachaInfoScRsp = 1375;
+	CmdAdventureType_FarmElementSweepCsReq = 1342;
+	CmdAdventureType_QuickStartFarmElementScRsp = 1356;
+	CmdAdventureType_GetFarmStageGachaInfoCsReq = 1305;
+	CmdAdventureType_FarmElementSweepScRsp = 1339;
+	CmdAdventureType_CocoonSweepCsReq = 1383;
+	CmdAdventureType_CocoonSweepScRsp = 1315;
+}
+
+message CocoonSweepCsReq {
+	uint32 world_level = 7; // offset: 28
+	uint32 cocoon_id = 11; // offset: 24
+}
+
+message CocoonSweepScRsp {
+	ItemList multiple_drop_data = 1; // offset: 32
+	ItemList drop_data = 2; // offset: 16
+	uint32 retcode = 3; // offset: 40
+	uint32 NCEFJFOHGBI = 11; // offset: 48
+	uint32 cocoon_id = 13; // offset: 44
+}
+
+message FarmElementSweepCsReq {
+	uint32 PAOFHFLFFHD = 7; // offset: 24
+	uint32 world_level = 9; // offset: 28
+}
+
+message FarmElementSweepScRsp {
+	ItemList multiple_drop_data = 3; // offset: 24
+	uint32 retcode = 7; // offset: 36
+	uint32 PAOFHFLFFHD = 14; // offset: 32
+}
+
+message FarmStageGachaInfo {
+	int64 end_time = 5; // offset: 24
+	int64 begin_time = 9; // offset: 40
+	uint32 gacha_id = 12; // offset: 32
+}
+
+message GetFarmStageGachaInfoCsReq {
+	repeated uint32 farm_stage_gacha_id_list = 15; // offset: 24
+}
+
+message GetFarmStageGachaInfoScRsp {
+	repeated FarmStageGachaInfo farm_stage_gacha_info_list = 4; // offset: 16
+	uint32 retcode = 8; // offset: 32
+}
+
+message QuickStartCocoonStageCsReq {
+	uint32 world_level = 1; // offset: 36
+	uint32 wave = 3; // offset: 44
+	uint32 HECCOBFBJFI = 6; // offset: 32
+	uint32 cocoon_id = 7; // offset: 40
+	NAJKNJLJPEP CBJCKEIGGNL = 11; // offset: 24
+}
+
+message QuickStartCocoonStageScRsp {
+	uint32 wave = 3; // offset: 36
+	uint32 cocoon_id = 4; // offset: 32
+	SceneBattleInfo battle_info = 11; // offset: 24
+	uint32 retcode = 13; // offset: 40
+}
+
+message QuickStartFarmElementCsReq {
+	uint32 PAOFHFLFFHD = 2; // offset: 32
+	uint32 world_level = 11; // offset: 28
+	uint32 HECCOBFBJFI = 14; // offset: 24
+}
+
+message QuickStartFarmElementScRsp {
+	SceneBattleInfo battle_info = 3; // offset: 16
+	uint32 retcode = 5; // offset: 40
+	uint32 world_level = 6; // offset: 36
+	uint32 PAOFHFLFFHD = 12; // offset: 32
+}

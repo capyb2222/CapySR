@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+
+message BOMPFHOMMBH {
+	uint32 num = 1; // offset: 32
+	uint32 target = 11; // offset: 28
+	uint32 item_id = 14; // offset: 24
+}
+
+enum CmdActivityRewardStatType {
+	CmdActivityRewardStatType_HBPEDDCOJDB = 0;
+	CmdActivityRewardStatType_GetActivityRewardCountDataScRsp = 9117;
+	CmdActivityRewardStatType_GetActivityHotDataCsReq = 9112;
+	CmdActivityRewardStatType_GetAllActivityRewardCountDataScRsp = 9119;
+	CmdActivityRewardStatType_GetActivityHotDataScRsp = 9113;
+	CmdActivityRewardStatType_GetAllActivityRewardCountDataCsReq = 9120;
+	CmdActivityRewardStatType_GetActivityRewardCountDataCsReq = 9114;
+}
+
+message EFGIHHJGCFA {
+	uint32 panel_id = 1; // offset: 32
+	repeated BOMPFHOMMBH PGMDGPEKDGB = 15; // offset: 24
+}
+
+message GetActivityHotDataCsReq {
+}
+
+message GetActivityHotDataScRsp {
+	repeated EFGIHHJGCFA content_package_list = 6; // offset: 24
+	uint32 retcode = 9; // offset: 32
+}
+
+message GetActivityRewardCountDataCsReq {
+	repeated uint32 DDMEHPDHPLM = 13; // offset: 16
+}
+
+message GetActivityRewardCountDataScRsp {
+	repeated EFGIHHJGCFA content_package_list = 7; // offset: 24
+	uint32 retcode = 15; // offset: 32
+}
+
+message GetAllActivityRewardCountDataCsReq {
+}
+
+message GetAllActivityRewardCountDataScRsp {
+	repeated EFGIHHJGCFA content_package_list = 2; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}

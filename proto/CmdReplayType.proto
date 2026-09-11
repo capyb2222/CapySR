@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdReplayType {
+	CmdReplayType_NLCDGIPGFDJ = 0;
+	CmdReplayType_GetReplayTokenScRsp = 3525;
+	CmdReplayType_GetReplayTokenCsReq = 3534;
+}
+
+message GetReplayTokenCsReq {
+	uint32 PBNIENNCNOP = 1; // offset: 44
+	uint32 KLIFGJOILEE = 2; // offset: 48
+	string LMFFNNIGMMO = 6; // offset: 32
+	uint32 stage_id = 8; // offset: 52
+	string GIMGDNJPPDJ = 14; // offset: 24
+	PBIEFHKNAFA replay_type = 15; // offset: 40
+}
+
+message GetReplayTokenScRsp {
+	uint32 retcode = 3; // offset: 40
+	string GIMGDNJPPDJ = 7; // offset: 24
+	string token = 9; // offset: 16
+	uint32 stage_id = 12; // offset: 48
+	PBIEFHKNAFA replay_type = 14; // offset: 44
+}

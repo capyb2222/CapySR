@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdDailyActiveType {
+	CmdDailyActiveType_NLCDGIPGFDJ = 0;
+	CmdDailyActiveType_TakeApRewardScRsp = 3325;
+	CmdDailyActiveType_TakeAllApRewardCsReq = 3316;
+	CmdDailyActiveType_TakeApRewardCsReq = 3334;
+	CmdDailyActiveType_GetDailyActiveInfoScRsp = 3375;
+	CmdDailyActiveType_GetDailyActiveInfoCsReq = 3305;
+	CmdDailyActiveType_DailyActiveInfoNotify = 3360;
+	CmdDailyActiveType_TakeAllApRewardScRsp = 3358;
+}
+
+message DailyActiveInfoNotify {
+	repeated uint32 daily_active_quest_id_list = 1; // offset: 24
+	repeated DailyActivityInfo daily_active_level_list = 2; // offset: 16
+	uint32 daily_active_point = 15; // offset: 40
+}
+
+message DailyActivityInfo {
+	uint32 world_level = 3; // offset: 32
+	uint32 level = 9; // offset: 24
+	uint32 daily_active_point = 12; // offset: 28
+	bool is_has_taken = 15; // offset: 36
+}
+
+message GetDailyActiveInfoCsReq {
+}
+
+message GetDailyActiveInfoScRsp {
+	uint32 daily_active_point = 4; // offset: 44
+	uint32 retcode = 9; // offset: 40
+	repeated uint32 daily_active_quest_id_list = 10; // offset: 24
+	repeated DailyActivityInfo daily_active_level_list = 11; // offset: 16
+}
+
+message TakeAllApRewardCsReq {
+}
+
+message TakeAllApRewardScRsp {
+	uint32 retcode = 2; // offset: 40
+	ItemList reward = 8; // offset: 24
+	repeated uint32 take_reward_level_list = 13; // offset: 32
+}
+
+message TakeApRewardCsReq {
+	uint32 level = 3; // offset: 24
+}
+
+message TakeApRewardScRsp {
+	uint32 level = 3; // offset: 36
+	ItemList reward = 7; // offset: 24
+	uint32 retcode = 11; // offset: 32
+}

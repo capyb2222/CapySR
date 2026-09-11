@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdFightType {
+	CmdFightType_NLCDGIPGFDJ = 0;
+	CmdFightType_EHGEBECOEJO = 30060;
+	CmdFightType_FightGeneralScNotify = 30015;
+	CmdFightType_FightLeaveScNotify = 30005;
+	CmdFightType_FightGeneralScRsp = 30083;
+	CmdFightType_FightSessionStopScNotify = 30058;
+	CmdFightType_INICAJCFINI = 30034;
+	CmdFightType_FightHeartBeatScRsp = 30016;
+	CmdFightType_FightEnterScRsp = 30025;
+	CmdFightType_MGKEDPLBGEM = 30056;
+}
+
+message FightEnterScRsp {
+	uint64 PAFLIMGAALD = 1; // offset: 32
+	uint32 retcode = 4; // offset: 24
+	uint64 PCJNCPJKBGI = 6; // offset: 40
+	uint32 MLKLBJJHGIO = 11; // offset: 28
+}
+
+message FightGeneralScNotify {
+	uint64 AFMHLAGCIGD = 3; // offset: 32
+	uint32 server_tick = 9; // offset: 40
+	uint32 OMFPICKPOCP = 12; // offset: 44
+	bytes LNBKFFIDEEJ = 15; // offset: 24
+}
+
+message FightGeneralScRsp {
+	bytes LNBKFFIDEEJ = 3; // offset: 16
+	uint32 OMFPICKPOCP = 8; // offset: 36
+	uint32 retcode = 12; // offset: 32
+}
+
+message FightHeartBeatScRsp {
+	uint64 PIJPBDFJJEE = 4; // offset: 32
+	uint32 retcode = 9; // offset: 40
+	uint64 AFMHLAGCIGD = 12; // offset: 24
+}
+
+message FightLeaveScNotify {
+	uint32 GCOPDPOLECJ = 11; // offset: 24
+}
+
+message FightSessionStopScNotify {
+	BFBHKJLJJBJ KAEDKFOMADJ = 10; // offset: 24
+}
+
+message KIJEFPFAIJC {
+	uint32 MLKLBJJHGIO = 3; // offset: 60
+	uint32 platform = 4; // offset: 32
+	string fight_token = 6; // offset: 24
+	uint32 account_ip_port = 9; // offset: 56
+	uint32 client_res_version = 10; // offset: 44
+	uint32 account_ip = 12; // offset: 40
+	uint64 PMLOIOIAHCF = 13; // offset: 48
+	uint32 uid = 14; // offset: 36
+}
+
+message MCKLINCMDKK {
+	uint32 OMFPICKPOCP = 1; // offset: 32
+	bytes LNBKFFIDEEJ = 14; // offset: 24
+}
+
+message OEAMNAAJJHI {
+	uint64 client_time_ms = 6; // offset: 24
+}

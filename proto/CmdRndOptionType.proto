@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+
+enum CmdRndOptionType {
+	CmdRndOptionType_NLCDGIPGFDJ = 0;
+	CmdRndOptionType_DailyFirstMeetPamCsReq = 3405;
+	CmdRndOptionType_DailyFirstMeetPamScRsp = 3475;
+	CmdRndOptionType_GetRndOptionCsReq = 3434;
+	CmdRndOptionType_GetRndOptionScRsp = 3425;
+}
+
+message DailyFirstMeetPamCsReq {
+}
+
+message DailyFirstMeetPamScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message GetRndOptionCsReq {
+	uint32 id = 14; // offset: 24
+}
+
+message GetRndOptionScRsp {
+	repeated uint32 EFLOILNLFIC = 6; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}

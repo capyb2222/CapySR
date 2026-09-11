@@ -1,0 +1,305 @@
+[
+  {
+    "GroupID": 3001,
+    "GroupName": {
+      "Hash": 4153661169282237429
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203001,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3001.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3001.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3001.png"
+  },
+  {
+    "GroupID": 3002,
+    "GroupName": {
+      "Hash": 3837795850746322866
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203002,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3002.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3002.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3002.png"
+  },
+  {
+    "GroupID": 3003,
+    "GroupName": {
+      "Hash": 14270836675033200152
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203003,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3003.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3003.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3003.png"
+  },
+  {
+    "GroupID": 3004,
+    "GroupName": {
+      "Hash": 16941847423296692140
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203004,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3004.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3004.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3004.png"
+  },
+  {
+    "GroupID": 3005,
+    "GroupName": {
+      "Hash": 1190272352446865946
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203005,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3005.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3005.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3005.png"
+  },
+  {
+    "GroupID": 3006,
+    "GroupName": {
+      "Hash": 2982306436579286848
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203006,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3006.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3006.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3006.png"
+  },
+  {
+    "GroupID": 3007,
+    "GroupName": {
+      "Hash": 4436707647024475007
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203007,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3007.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3007.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3007.png"
+  },
+  {
+    "GroupID": 3008,
+    "GroupName": {
+      "Hash": 2382038192594102534
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203008,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3008.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3008.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3008.png"
+  },
+  {
+    "GroupID": 3009,
+    "GroupName": {
+      "Hash": 9720070708997728757
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203009,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3009.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3009.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3009.png"
+  },
+  {
+    "GroupID": 3010,
+    "GroupName": {
+      "Hash": 7202173714085819324
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203010,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3010.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3010.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3010.png"
+  },
+  {
+    "GroupID": 3011,
+    "GroupName": {
+      "Hash": 3849524204010008797
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203011,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3011.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3011.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3011.png"
+  },
+  {
+    "GroupID": 3012,
+    "GroupName": {
+      "Hash": 5032202057153207641
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203012,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3012.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3012.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3012.png"
+  },
+  {
+    "GroupID": 3013,
+    "GroupName": {
+      "Hash": 15365469229813184920
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203013,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3006.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3006.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3006.png"
+  },
+  {
+    "GroupID": 3014,
+    "GroupName": {
+      "Hash": 1365386809779441725
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203014,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3013.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3013.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3013.png"
+  },
+  {
+    "GroupID": 3015,
+    "GroupName": {
+      "Hash": 1755747459011546459
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203015,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3014.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3014.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3014.png"
+  },
+  {
+    "GroupID": 3016,
+    "GroupName": {
+      "Hash": 5818005662920543463
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203016,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3015.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3015.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3015.png"
+  },
+  {
+    "GroupID": 3017,
+    "GroupName": {
+      "Hash": 8447240050000249965
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203017,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3016.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3016.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3016.png"
+  },
+  {
+    "GroupID": 3018,
+    "GroupName": {
+      "Hash": 8928672940922141092
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203018,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3017.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3017.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3017.png",
+    "TierceID": 30185
+  },
+  {
+    "GroupID": 3019,
+    "GroupName": {
+      "Hash": 3447612609323601082
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203019,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3018.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3018.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3018.png",
+    "TierceID": 30195
+  },
+  {
+    "GroupID": 3020,
+    "GroupName": {
+      "Hash": 5310118120627179371
+    },
+    "RewardLineGroupID": 3000,
+    "PreMissionID": 4020103,
+    "ScheduleDataID": 203020,
+    "MazeBuffID": 3031001,
+    "BackGroundPath": "",
+    "TabPicPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3019.png",
+    "TabPicSelectPath": "SpriteOutput/TabIcon/Abyss/ChallengeBossTabIcon_3019.png",
+    "ChallengeGroupType": "Boss",
+    "ThemePicPath": "SpriteOutput/DailyMission/Banner/ChallengeBossBanner_3019.png",
+    "TierceID": 30205
+  }
+]

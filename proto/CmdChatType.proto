@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message BatchMarkChatEmojiCsReq {
+	repeated uint32 GGNABOANAPC = 8; // offset: 24
+}
+
+message BatchMarkChatEmojiScRsp {
+	repeated uint32 marked_emoji_id_list = 1; // offset: 16
+	uint32 retcode = 11; // offset: 32
+}
+
+enum ChatType {
+	ChatType_None = 0;
+	ChatType_Private = 1;
+	ChatType_Group = 2;
+}
+
+enum CmdChatType {
+	CmdChatType_NLCDGIPGFDJ = 0;
+	CmdChatType_RevcMsgScNotify = 3905;
+	CmdChatType_GetChatEmojiListScRsp = 3915;
+	CmdChatType_SendMsgCsReq = 3934;
+	CmdChatType_GetLoginChatInfoScRsp = 3964;
+	CmdChatType_MarkChatEmojiCsReq = 3942;
+	CmdChatType_GetChatFriendHistoryCsReq = 3958;
+	CmdChatType_GetPrivateChatHistoryScRsp = 3916;
+	CmdChatType_GetPrivateChatHistoryCsReq = 3960;
+	CmdChatType_BatchMarkChatEmojiCsReq = 3961;
+	CmdChatType_GetChatFriendHistoryScRsp = 3956;
+	CmdChatType_MarkChatEmojiScRsp = 3939;
+	CmdChatType_SendMsgScRsp = 3925;
+	CmdChatType_BatchMarkChatEmojiScRsp = 3908;
+	CmdChatType_GetLoginChatInfoCsReq = 3968;
+	CmdChatType_GetChatEmojiListCsReq = 3983;
+}
+
+message FriendHistoryInfo {
+	int64 last_send_time = 1; // offset: 24
+	uint32 contact_side = 8; // offset: 32
+}
+
+message GetChatEmojiListCsReq {
+}
+
+message GetChatEmojiListScRsp {
+	repeated uint32 chat_emoji_list = 6; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message GetChatFriendHistoryCsReq {
+}
+
+message GetChatFriendHistoryScRsp {
+	repeated FriendHistoryInfo friend_history_info = 6; // offset: 24
+	uint32 retcode = 12; // offset: 32
+}
+
+message GetLoginChatInfoCsReq {
+}
+
+message GetLoginChatInfoScRsp {
+	repeated uint32 contact_id_list = 9; // offset: 16
+	uint32 retcode = 11; // offset: 32
+}
+
+message GetPrivateChatHistoryCsReq {
+	uint32 contact_side = 4; // offset: 24
+	uint32 target_side = 10; // offset: 28
+}
+
+message GetPrivateChatHistoryScRsp {
+	uint32 retcode = 2; // offset: 36
+	repeated ChatMessageData chat_message_list = 4; // offset: 16
+	uint32 target_side = 14; // offset: 40
+	uint32 contact_side = 15; // offset: 32
+}
+
+message MarkChatEmojiCsReq {
+	uint32 emoji_id = 4; // offset: 28
+	bool is_remove_id = 13; // offset: 24
+}
+
+message MarkChatEmojiScRsp {
+	uint32 emoji_id = 1; // offset: 24
+	bool is_remove_id = 5; // offset: 28
+	uint32 retcode = 6; // offset: 32
+}
+
+message RevcMsgScNotify {
+	ChatMessageData recv_message_data = 8; // offset: 24
+	ChatType chat_type = 9; // offset: 36
+	uint32 source_uid = 15; // offset: 32
+}
+
+message SendMsgCsReq {
+	repeated uint32 target_list = 1; // offset: 16
+	MessageChatData message_datas = 6; // offset: 32
+	ChatType chat_type = 12; // offset: 40
+}
+
+message SendMsgScRsp {
+	uint32 retcode = 3; // offset: 24
+	uint64 end_time = 4; // offset: 32
+}

@@ -1,0 +1,216 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message CLDOIEGCNLD {
+	uint32 avatar_id = 1; // offset: 40
+	uint32 avatar_type = 2; // offset: 48
+	uint32 slot = 3; // offset: 44
+	uint32 level = 4; // offset: 56
+	uint32 skin_id = 5; // offset: 52
+	ChallengeBossEquipmentInfo equipment = 6; // offset: 32
+	ChallengeBossAvatarRelicInfo OKCGHKDMFAM = 7; // offset: 16
+}
+
+message ChallengeTierceChallengeInfo {
+	uint32 stage_index = 4; // offset: 48
+	uint32 challenge_id = 6; // offset: 40
+	ChallengeTiercePendingStageSettle IIHFEDLHOPI = 13; // offset: 24
+	bool is_single_stage = 14; // offset: 44
+	repeated LineupInfo lineup_list = 15; // offset: 32
+}
+
+message ChallengeTierceData {
+	bool is_passed = 1; // offset: 56
+	repeated ChallengeTierceStageData result_list = 2; // offset: 48
+	repeated ChallengeTierceStageInfo stage_info_list = 4; // offset: 16
+	ChallengeTierceRecord record = 6; // offset: 24
+	repeated uint32 finished_target_list = 8; // offset: 40
+	uint32 challenge_id = 11; // offset: 60
+}
+
+message ChallengeTierceMedal {
+	uint32 group_id = 12; // offset: 24
+}
+
+message ChallengeTiercePendingStageSettle {
+	uint32 MMCPICGKOGD = 10; // offset: 28
+	uint32 OPNPMBJDKNB = 11; // offset: 24
+	uint32 NEDGGMGMLGO = 14; // offset: 32
+	uint32 BIEPFFBBJHG = 259; // offset: 36
+	uint32 DPDNPCBNENI = 823; // offset: 44
+	uint32 EKKLCBKNAED = 1196; // offset: 40
+}
+
+message ChallengeTierceRecord {
+	uint32 used_cycle_count = 3; // offset: 24
+	uint32 total_score = 9; // offset: 28
+}
+
+message ChallengeTierceRecordInfo {
+	repeated ChallengeTierceStageRecord result_list = 1; // offset: 32
+	repeated uint32 finished_target_list = 6; // offset: 16
+	uint32 challenge_id = 9; // offset: 40
+	bool is_passed = 12; // offset: 44
+}
+
+message ChallengeTierceReward {
+	uint32 HEJANCCDGAP = 5; // offset: 32
+	ItemList reward = 9; // offset: 24
+}
+
+message ChallengeTierceStageClear {
+	uint32 challenge_id = 5; // offset: 32
+	repeated uint32 LICPEKHDJGK = 9; // offset: 24
+}
+
+message ChallengeTierceStageData {
+	repeated BattleTarget battle_target_list = 2; // offset: 16
+	BattleEndStatus end_status = 3; // offset: 56
+	uint32 IBECKONIICF = 5; // offset: 40
+	uint32 stage_index = 9; // offset: 44
+	uint32 score_id = 10; // offset: 52
+	uint32 INLLMKEDGLC = 11; // offset: 48
+	GLLFJFJBIBC lineup = 15; // offset: 24
+}
+
+message ChallengeTierceStageInfo {
+	uint32 buff_id = 2; // offset: 40
+	repeated AvatarIdentifier lineup = 6; // offset: 32
+	repeated uint32 peak_avatar_id_list = 10; // offset: 16
+	uint32 stage_index = 13; // offset: 44
+}
+
+message ChallengeTierceStageLineupInfo {
+	repeated AvatarIdentifier lineup = 4; // offset: 16
+	uint32 buff_id = 6; // offset: 32
+}
+
+message ChallengeTierceStageRecord {
+	uint32 IBECKONIICF = 1; // offset: 32
+	uint32 INLLMKEDGLC = 12; // offset: 36
+	uint32 score_id = 13; // offset: 28
+	uint32 stage_index = 14; // offset: 24
+}
+
+message ChallengeTierceSyncAllStage {
+	repeated ChallengeTierceStageData GBMBAHHDONN = 1; // offset: 16
+	ChallengeTierceRecord EGEHLOPFELK = 2; // offset: 40
+	uint32 challenge_id = 6; // offset: 56
+	repeated ChallengeTierceReward DJOBNPIAEJP = 13; // offset: 24
+	repeated uint32 finished_target_list = 178; // offset: 32
+	bool is_passed = 1600; // offset: 60
+}
+
+message ChallengeTierceSyncNotify {
+	oneof MMCGBGDJIPN {
+		ChallengeTierceSyncSingleStage IANBCDJPDJF = 15; // offset: 24
+		ChallengeTierceSyncAllStage DFNNKENBOEN = 8; // offset: 24
+		ChallengeTierceStageClear IBFHHKHNEFL = 4; // offset: 24
+		ChallengeTiercePendingStageSettle IIHFEDLHOPI = 14; // offset: 24
+		ChallengeTierceMedal medal = 12; // offset: 24
+	}
+}
+
+message ChallengeTierceSyncSingleStage {
+	ChallengeTierceStageData stage_data = 8; // offset: 16
+	bool is_passed = 1224; // offset: 40
+	repeated uint32 finished_target_list = 1927; // offset: 24
+}
+
+enum CmdChallengeTierceType {
+	CmdChallengeTierceType_NLCDGIPGFDJ = 0;
+	CmdChallengeTierceType_GetChallengeTierceControllerScRsp = 8982;
+	CmdChallengeTierceType_GetChallengeTierceDataScRsp = 8994;
+	CmdChallengeTierceType_StartChallengeTierceCsReq = 8983;
+	CmdChallengeTierceType_ChallengeTierceSyncNotify = 8976;
+	CmdChallengeTierceType_StartNextChallengeTierceCsReq = 8974;
+	CmdChallengeTierceType_ConfirmChallengeTierceStageSettleScRsp = 8986;
+	CmdChallengeTierceType_GetChallengeTierceControllerCsReq = 8991;
+	CmdChallengeTierceType_GetChallengeTierceDataCsReq = 8979;
+	CmdChallengeTierceType_LeaveChallengeTierceScRsp = 8997;
+	CmdChallengeTierceType_SetChallengeTierceLineupCsReq = 8978;
+	CmdChallengeTierceType_RestartChallengeTierceCsReq = 8990;
+	CmdChallengeTierceType_RestartChallengeTierceScRsp = 8977;
+	CmdChallengeTierceType_StartNextChallengeTierceScRsp = 8980;
+	CmdChallengeTierceType_SetChallengeTierceLineupScRsp = 8999;
+	CmdChallengeTierceType_StartChallengeTierceScRsp = 8973;
+	CmdChallengeTierceType_LeaveChallengeTierceCsReq = 8998;
+	CmdChallengeTierceType_ConfirmChallengeTierceStageSettleCsReq = 8987;
+}
+
+message ConfirmChallengeTierceStageSettleCsReq {
+	bool IOBCIMIPEOM = 9; // offset: 24
+}
+
+message ConfirmChallengeTierceStageSettleScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message GLLFJFJBIBC {
+	repeated CLDOIEGCNLD MNABNJOEHLF = 1; // offset: 24
+}
+
+message GetChallengeTierceControllerCsReq {
+}
+
+message GetChallengeTierceControllerScRsp {
+	ChallengeTierceChallengeInfo challenge_tierce_info = 3; // offset: 24
+	ChallengeTierceRecordInfo OHPGEHKFABM = 4; // offset: 16
+	uint32 retcode = 14; // offset: 40
+}
+
+message GetChallengeTierceDataCsReq {
+}
+
+message GetChallengeTierceDataScRsp {
+	repeated ChallengeTierceData challenge_info_list = 4; // offset: 24
+	uint32 retcode = 8; // offset: 32
+}
+
+message LeaveChallengeTierceCsReq {
+}
+
+message LeaveChallengeTierceScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message RestartChallengeTierceCsReq {
+}
+
+message RestartChallengeTierceScRsp {
+	uint32 retcode = 8; // offset: 32
+	SceneInfo GFACJIPNIAN = 15; // offset: 16
+}
+
+message SetChallengeTierceLineupCsReq {
+	uint32 challenge_id = 1; // offset: 32
+	repeated ChallengeTierceStageLineupInfo stage_info_list = 15; // offset: 24
+}
+
+message SetChallengeTierceLineupScRsp {
+	uint32 retcode = 1; // offset: 24
+}
+
+message StartChallengeTierceCsReq {
+	bool is_single_stage = 5; // offset: 40
+	uint32 stage_index = 10; // offset: 32
+	repeated ChallengeTierceStageLineupInfo stage_info_list = 12; // offset: 24
+	uint32 challenge_id = 15; // offset: 36
+}
+
+message StartChallengeTierceScRsp {
+	ChallengeTierceChallengeInfo challenge_tierce_info = 4; // offset: 24
+	SceneInfo scene = 9; // offset: 32
+	uint32 retcode = 12; // offset: 40
+}
+
+message StartNextChallengeTierceCsReq {
+}
+
+message StartNextChallengeTierceScRsp {
+	uint32 retcode = 1; // offset: 40
+	SceneInfo scene = 9; // offset: 24
+	ChallengeTierceChallengeInfo challenge_tierce_info = 13; // offset: 32
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+enum CmdWorldUnlockType {
+	CmdWorldUnlockType_None = 0;
+	CmdWorldUnlockType_WorldUnlockCsReq = 7626;
+	CmdWorldUnlockType_WorldUnlockScRsp = 7627;
+}
+
+message WorldUnlockCsReq {
+	uint32 CFDCEEMIOCO = 5; // offset: 24
+}
+
+message WorldUnlockScRsp {
+	uint32 retcode = 5; // offset: 24
+	uint32 CFDCEEMIOCO = 8; // offset: 28
+}

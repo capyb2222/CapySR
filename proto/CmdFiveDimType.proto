@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+enum CmdFiveDimType {
+	CmdFiveDimType_NLCDGIPGFDJ = 0;
+	CmdFiveDimType_EnterFiveDimGameScRsp = 2258;
+	CmdFiveDimType_GetFiveDimGameDataScRsp = 2267;
+	CmdFiveDimType_UpdateFiveDimGameDataCsReq = 2263;
+	CmdFiveDimType_FiveDimGameTransferScRsp = 2262;
+	CmdFiveDimType_UpdateFiveDimGameDataScRsp = 2255;
+	CmdFiveDimType_FiveDimJumpEnergyChangeScNotify = 2259;
+	CmdFiveDimType_GetFiveDimMoneyDataScRsp = 2252;
+	CmdFiveDimType_FiveDimGameDataUpdateScNotify = 2270;
+	CmdFiveDimType_GetFiveDimMoneyScRsp = 2256;
+	CmdFiveDimType_GetFiveDimGameDataCsReq = 2275;
+	CmdFiveDimType_LeaveFiveDimGameCsReq = 2254;
+	CmdFiveDimType_GetFiveDimMoneyCsReq = 2257;
+	CmdFiveDimType_FiveDimMoneyChangeScNotify = 2253;
+	CmdFiveDimType_LeaveFiveDimGameScRsp = 2271;
+	CmdFiveDimType_FiveDimGameTransferCsReq = 2260;
+	CmdFiveDimType_EnterFiveDimGameCsReq = 2266;
+	CmdFiveDimType_GetFiveDimMoneyDataCsReq = 2274;
+}
+
+message EnterFiveDimGameCsReq {
+	AHCLMAGAHPN PPJFMBIGIGB = 6; // offset: 16
+	MotionInfo HKGDHOPGCKF = 7; // offset: 32
+	BLPHONLBNBO OEIBHLMDJKA = 8; // offset: 40
+}
+
+message EnterFiveDimGameScRsp {
+	uint32 retcode = 7; // offset: 24
+}
+
+message FiveDimGameDataUpdateScNotify {
+	bool HBJLJJAJHOI = 2; // offset: 36
+	DGHPIDMDOJM CFDIKLBINHK = 7; // offset: 16
+	uint32 client_pos_version = 14; // offset: 32
+}
+
+message FiveDimGameTransferCsReq {
+	KFDEPBCLENF KEHGFMAMEPD = 1; // offset: 40
+	AHCLMAGAHPN PPJFMBIGIGB = 3; // offset: 32
+	uint32 COGDLBMPPNM = 10; // offset: 44
+	BLPHONLBNBO OEIBHLMDJKA = 12; // offset: 16
+}
+
+message FiveDimGameTransferScRsp {
+	uint32 retcode = 8; // offset: 24
+}
+
+message FiveDimJumpEnergyChangeScNotify {
+	uint32 CPFCMKLCMFG = 14; // offset: 24
+}
+
+message FiveDimMoneyChangeScNotify {
+	uint32 OEPCCMAPFFH = 12; // offset: 28
+	uint32 KFBJGFJHGEK = 13; // offset: 24
+}
+
+message GetFiveDimGameDataCsReq {
+}
+
+message GetFiveDimGameDataScRsp {
+	uint32 CPFCMKLCMFG = 3; // offset: 44
+	repeated uint32 KEGAOHGOALD = 6; // offset: 24
+	uint32 retcode = 12; // offset: 40
+	DGHPIDMDOJM CFDIKLBINHK = 15; // offset: 32
+}
+
+message GetFiveDimMoneyCsReq {
+	uint32 DDAEPENMNIF = 12; // offset: 24
+}
+
+message GetFiveDimMoneyDataCsReq {
+}
+
+message GetFiveDimMoneyDataScRsp {
+	uint32 OEPCCMAPFFH = 3; // offset: 32
+	uint32 retcode = 11; // offset: 24
+	uint32 KFBJGFJHGEK = 14; // offset: 28
+}
+
+message GetFiveDimMoneyScRsp {
+	uint32 GJHKPIGEIIO = 4; // offset: 32
+	uint32 JIDCDLCBKHG = 7; // offset: 24
+	uint32 retcode = 14; // offset: 28
+}
+
+enum KFDEPBCLENF {
+	KFDEPBCLENF_NLCDGIPGFDJ = 0;
+	KFDEPBCLENF_KALJCABDJLC = 1;
+	KFDEPBCLENF_HJJDLPHHFPA = 2;
+}
+
+message LeaveFiveDimGameCsReq {
+	MotionInfo HKGDHOPGCKF = 3; // offset: 16
+	KFDEPBCLENF KEHGFMAMEPD = 8; // offset: 36
+	uint32 PJLKEHONHED = 13; // offset: 40
+	uint32 COGDLBMPPNM = 15; // offset: 32
+}
+
+message LeaveFiveDimGameScRsp {
+	uint32 client_pos_version = 7; // offset: 28
+	uint32 retcode = 8; // offset: 24
+}
+
+message UpdateFiveDimGameDataCsReq {
+	uint32 GABODFDMPMM = 8; // offset: 32
+	AHCLMAGAHPN PPJFMBIGIGB = 11; // offset: 16
+}
+
+message UpdateFiveDimGameDataScRsp {
+	uint32 retcode = 8; // offset: 24
+}

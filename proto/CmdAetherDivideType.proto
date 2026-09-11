@@ -1,0 +1,233 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AetherDivideFinishChallengeScNotify {
+	uint32 challenge_id = 12; // offset: 24
+}
+
+message AetherDivideLineupScNotify {
+	OCCAABPFBLF lineup = 1; // offset: 16
+}
+
+message AetherDivideRefreshEndlessCsReq {
+}
+
+message AetherDivideRefreshEndlessScNotify {
+	uint32 JAOAHONIBJI = 5; // offset: 24
+}
+
+message AetherDivideRefreshEndlessScRsp {
+	uint32 retcode = 11; // offset: 28
+	uint32 JAOAHONIBJI = 15; // offset: 24
+}
+
+message AetherDivideSkillItemScNotify {
+	uint32 item_id = 3; // offset: 24
+	uint32 num = 5; // offset: 28
+}
+
+message AetherDivideSpiritExpUpCsReq {
+	uint32 APGDJGPGGMO = 2; // offset: 24
+	uint32 NCAOMBHCGNA = 3; // offset: 32
+	uint32 FHAEENDPAAG = 5; // offset: 28
+}
+
+message AetherDivideSpiritExpUpScRsp {
+	GHBICGMEFPL IAGNGEGKDOL = 3; // offset: 24
+	uint32 retcode = 14; // offset: 32
+}
+
+message AetherDivideSpiritInfoScNotify {
+	repeated GHBICGMEFPL FGBAPJKDFOC = 15; // offset: 16
+}
+
+message AetherDivideTainerInfoScNotify {
+	uint32 FOCACJHLKDB = 6; // offset: 24
+}
+
+message AetherDivideTakeChallengeRewardCsReq {
+	uint32 group_id = 9; // offset: 24
+}
+
+message AetherDivideTakeChallengeRewardScRsp {
+	uint32 group_id = 4; // offset: 32
+	uint32 retcode = 12; // offset: 36
+	ItemList reward = 14; // offset: 16
+}
+
+message BGPNJKENONA {
+}
+
+enum CmdAetherDivideType {
+	CmdAetherDivideType_NLCDGIPGFDJ = 0;
+	CmdAetherDivideType_AetherDivideSpiritInfoScNotify = 4821;
+	CmdAetherDivideType_AetherDivideTakeChallengeRewardScRsp = 4824;
+	CmdAetherDivideType_LeaveAetherDivideSceneScRsp = 4831;
+	CmdAetherDivideType_DDLDIFLGGKH = 4834;
+	CmdAetherDivideType_TakeOffSkillCoreCsReq = 4823;
+	CmdAetherDivideType_EquipAetherDividePassiveSkillCsReq = 4847;
+	CmdAetherDivideType_AetherDivideFinishChallengeScNotify = 4813;
+	CmdAetherDivideType_GetAetherDivideChallengeInfoCsReq = 4812;
+	CmdAetherDivideType_AetherDivideTakeChallengeRewardCsReq = 4828;
+	CmdAetherDivideType_AetherDivideTainerInfoScNotify = 4815;
+	CmdAetherDivideType_AetherDivideRefreshEndlessCsReq = 4835;
+	CmdAetherDivideType_StartAetherDivideChallengeBattleCsReq = 4816;
+	CmdAetherDivideType_AetherDivideSpiritExpUpScRsp = 4839;
+	CmdAetherDivideType_SetAetherDivideLineUpCsReq = 4840;
+	CmdAetherDivideType_StartAetherDivideStageBattleCsReq = 4807;
+	CmdAetherDivideType_EquipSkillCoreScRsp = 4825;
+	CmdAetherDivideType_AetherDivideSpiritExpUpCsReq = 4842;
+	CmdAetherDivideType_AetherDivideSkillItemScNotify = 4809;
+	CmdAetherDivideType_TakeOffSkillCoreScRsp = 4802;
+	CmdAetherDivideType_StartAetherDivideStageBattleScRsp = 4819;
+	CmdAetherDivideType_SwitchAetherDivideLineUpSlotCsReq = 4818;
+	CmdAetherDivideType_GetAetherDivideInfoScRsp = 4814;
+	CmdAetherDivideType_LeaveAetherDivideSceneCsReq = 4820;
+	CmdAetherDivideType_StartAetherDivideChallengeBattleScRsp = 4811;
+	CmdAetherDivideType_AetherDivideLineupScNotify = 4817;
+	CmdAetherDivideType_StartAetherDivideSceneBattleScRsp = 4832;
+	CmdAetherDivideType_SetAetherDivideLineUpScRsp = 4808;
+	CmdAetherDivideType_GetAetherDivideInfoCsReq = 4848;
+	CmdAetherDivideType_SwitchAetherDivideLineUpSlotScRsp = 4838;
+	CmdAetherDivideType_AetherDivideRefreshEndlessScNotify = 4833;
+	CmdAetherDivideType_AetherDivideRefreshEndlessScRsp = 4843;
+	CmdAetherDivideType_EnterAetherDivideSceneScRsp = 4806;
+	CmdAetherDivideType_GetAetherDivideChallengeInfoScRsp = 4805;
+	CmdAetherDivideType_StartAetherDivideSceneBattleCsReq = 4829;
+}
+
+message DMGDLEHEDFB {
+	uint32 item_id = 6; // offset: 24
+	uint32 JMMCEJOKMMG = 8; // offset: 28
+	uint32 num = 13; // offset: 32
+}
+
+message EnterAetherDivideSceneScRsp {
+	uint32 retcode = 1; // offset: 24
+}
+
+message EquipAetherDividePassiveSkillCsReq {
+	uint32 APGDJGPGGMO = 3; // offset: 24
+	uint32 slot = 12; // offset: 28
+	uint32 item_id = 14; // offset: 32
+}
+
+message EquipSkillCoreScRsp {
+	uint32 retcode = 1; // offset: 40
+	DMGDLEHEDFB LCCMCPMCLFH = 9; // offset: 16
+	GHBICGMEFPL IAGNGEGKDOL = 15; // offset: 32
+}
+
+message GHBICGMEFPL {
+	uint32 promotion = 3; // offset: 52
+	uint32 EKKHLMEKJMK = 4; // offset: 40
+	SpBarInfo sp_bar = 6; // offset: 24
+	uint32 APGDJGPGGMO = 10; // offset: 48
+	uint32 exp = 11; // offset: 44
+	repeated POPJNEHGMIH LICLEEICAOE = 13; // offset: 16
+}
+
+message GetAetherDivideChallengeInfoCsReq {
+}
+
+message GetAetherDivideChallengeInfoScRsp {
+	uint32 DIGFECBHCPP = 1; // offset: 40
+	repeated uint32 NADKCDEOIHJ = 3; // offset: 24
+	repeated uint32 OHJHICLJABM = 8; // offset: 16
+	uint32 retcode = 15; // offset: 44
+}
+
+message GetAetherDivideInfoCsReq {
+}
+
+message GetAetherDivideInfoScRsp {
+	repeated OCCAABPFBLF lineup_list = 4; // offset: 40
+	uint32 retcode = 6; // offset: 64
+	uint32 BDNOLFBJBGJ = 10; // offset: 48
+	uint32 NCMLHPAALEP = 11; // offset: 60
+	uint32 JAOAHONIBJI = 12; // offset: 56
+	uint32 FOCACJHLKDB = 13; // offset: 52
+	repeated DMGDLEHEDFB skill_list = 14; // offset: 32
+	repeated GHBICGMEFPL CCHDKJMFNEP = 15; // offset: 16
+}
+
+message LeaveAetherDivideSceneCsReq {
+}
+
+message LeaveAetherDivideSceneScRsp {
+	uint32 retcode = 4; // offset: 24
+}
+
+message OCCAABPFBLF {
+	uint32 slot = 2; // offset: 32
+	repeated uint32 AJHCCDONNEK = 10; // offset: 16
+}
+
+message POPJNEHGMIH {
+	uint32 item_id = 2; // offset: 28
+	uint32 slot = 5; // offset: 24
+}
+
+message SetAetherDivideLineUpCsReq {
+	OCCAABPFBLF lineup = 11; // offset: 24
+}
+
+message SetAetherDivideLineUpScRsp {
+	OCCAABPFBLF lineup = 1; // offset: 16
+	uint32 retcode = 7; // offset: 32
+}
+
+message StartAetherDivideChallengeBattleCsReq {
+	uint32 FDKFIOLMPHA = 2; // offset: 24
+	uint32 challenge_id = 15; // offset: 28
+}
+
+message StartAetherDivideChallengeBattleScRsp {
+	uint32 retcode = 8; // offset: 32
+	AetherDivideBattleInfo battle_info = 14; // offset: 24
+}
+
+message StartAetherDivideSceneBattleCsReq {
+	uint32 cast_entity_id = 3; // offset: 40
+	uint32 attacked_by_entity_id = 5; // offset: 48
+	uint32 skill_index = 9; // offset: 44
+	repeated uint32 assist_monster_entity_id_list = 13; // offset: 24
+	repeated AssistMonsterEntityInfo assist_monster_entity_info = 15; // offset: 32
+}
+
+message StartAetherDivideSceneBattleScRsp {
+	AetherDivideBattleInfo battle_info = 3; // offset: 24
+	uint32 cast_entity_id = 9; // offset: 36
+	uint32 retcode = 13; // offset: 32
+}
+
+message StartAetherDivideStageBattleCsReq {
+	uint32 event_id = 12; // offset: 24
+}
+
+message StartAetherDivideStageBattleScRsp {
+	AetherDivideBattleInfo battle_info = 7; // offset: 24
+	uint32 retcode = 10; // offset: 32
+}
+
+message SwitchAetherDivideLineUpSlotCsReq {
+	uint32 FDKFIOLMPHA = 4; // offset: 24
+}
+
+message SwitchAetherDivideLineUpSlotScRsp {
+	uint32 retcode = 9; // offset: 28
+	uint32 FDKFIOLMPHA = 12; // offset: 24
+}
+
+message TakeOffSkillCoreCsReq {
+	uint32 slot = 1; // offset: 28
+	uint32 APGDJGPGGMO = 7; // offset: 24
+}
+
+message TakeOffSkillCoreScRsp {
+	DMGDLEHEDFB LCCMCPMCLFH = 4; // offset: 32
+	GHBICGMEFPL IAGNGEGKDOL = 8; // offset: 24
+	uint32 retcode = 14; // offset: 40
+}

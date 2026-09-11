@@ -1,0 +1,192 @@
+syntax = "proto3";
+
+
+message AABJNONNLML {
+	uint32 index = 2; // offset: 32
+	repeated uint32 FKGLNIAHGOA = 3; // offset: 16
+	uint32 KDIDDHIDNCG = 6; // offset: 40
+	uint32 HADIHNKDBAD = 12; // offset: 36
+}
+
+message BGAIEEIKOKK {
+	uint32 level_id = 1; // offset: 28
+	uint32 total_score = 3; // offset: 36
+	uint32 star_num = 6; // offset: 24
+	bool has_passed = 13; // offset: 32
+}
+
+message ChenLingFesBusinessDayEndCsReq {
+	uint32 DBODBBOMJAD = 1; // offset: 96
+	repeated AABJNONNLML FBNBEMECJIJ = 2; // offset: 72
+	double happy_progress = 3; // offset: 80
+	repeated EDHOBLLOBNP HDNGJJILDCE = 4; // offset: 32
+	repeated HDLMAPACKNH PJGODPMGMEO = 5; // offset: 56
+	uint32 COJGECEMCFN = 6; // offset: 92
+	repeated PGIEBMKMECE MBFLDKEDBHN = 7; // offset: 24
+	uint32 business_day = 8; // offset: 112
+	uint32 HPHHKJHGMPJ = 9; // offset: 124
+	repeated LECPPIEIENH BAOPBDDEBKP = 10; // offset: 40
+	repeated PGEDFOBAEBC MNLCAOLGEMM = 11; // offset: 48
+	uint32 OCLLAPEHDDH = 12; // offset: 116
+	repeated NPNAEPOKPNE GOKMDCOJPHC = 13; // offset: 16
+	uint32 EJEOGKPEIBF = 15; // offset: 104
+	uint32 fever = 340; // offset: 108
+	uint32 fever_cnt_today = 562; // offset: 120
+	uint32 business_time = 802; // offset: 100
+	uint32 play_time = 831; // offset: 88
+}
+
+message ChenLingFesBusinessDayEndScRsp {
+	uint32 business_day = 9; // offset: 44
+	uint32 retcode = 10; // offset: 40
+	string FGGCAOAPGPA = 11; // offset: 16
+	uint32 FGKPIDLKALL = 13; // offset: 52
+	oneof FBLHECDEHEF {
+		DMHADFNOIGP EHIHHFMGNHH = 5; // offset: 24
+		MOJFFDOILBN GAAHAOGLNPJ = 7; // offset: 24
+	}
+}
+
+message ChenLingFesLevelEndCsReq {
+	uint32 level_id = 4; // offset: 24
+}
+
+message ChenLingFesLevelEndScRsp {
+	uint32 retcode = 1; // offset: 32
+	uint32 level_id = 13; // offset: 36
+	DMHADFNOIGP level_data = 15; // offset: 16
+}
+
+message ChenLingFesLevelLeaveCsReq {
+	uint32 level_id = 12; // offset: 24
+}
+
+message ChenLingFesLevelLeaveScRsp {
+	uint32 level_id = 8; // offset: 24
+	uint32 retcode = 9; // offset: 28
+}
+
+message ChenLingFesLevelResumeCsReq {
+	uint32 level_id = 3; // offset: 24
+}
+
+message ChenLingFesLevelResumeScRsp {
+	uint32 level_id = 2; // offset: 28
+	uint32 FGKPIDLKALL = 5; // offset: 32
+	uint32 retcode = 9; // offset: 24
+}
+
+message ChenLingFesLevelStartCsReq {
+	uint32 level_id = 2; // offset: 24
+}
+
+message ChenLingFesLevelStartScRsp {
+	uint32 retcode = 3; // offset: 44
+	uint32 level_id = 6; // offset: 48
+	string FGGCAOAPGPA = 9; // offset: 16
+	string NLMEEEKBPKO = 12; // offset: 24
+	uint32 FGKPIDLKALL = 13; // offset: 40
+}
+
+message ChenLingFesRaidKickedNotify {
+	uint32 GKJJGKADNLE = 10; // offset: 24
+}
+
+enum CmdChenLingFesType {
+	CmdChenLingFesType_NLCDGIPGFDJ = 0;
+	CmdChenLingFesType_ChenLingFesLevelStartScRsp = 9931;
+	CmdChenLingFesType_ChenLingFesLevelEndCsReq = 9926;
+	CmdChenLingFesType_GetChenLingFesDataScRsp = 9906;
+	CmdChenLingFesType_ChenLingFesLevelEndScRsp = 9904;
+	CmdChenLingFesType_ChenLingFesLevelLeaveCsReq = 9929;
+	CmdChenLingFesType_ChenLingFesLevelResumeCsReq = 9916;
+	CmdChenLingFesType_ChenLingFesLevelStartCsReq = 9920;
+	CmdChenLingFesType_ChenLingFesRaidKickedNotify = 9940;
+	CmdChenLingFesType_ChenLingFesLevelResumeScRsp = 9911;
+	CmdChenLingFesType_ChenLingFesBusinessDayEndCsReq = 9948;
+	CmdChenLingFesType_ChenLingFesLevelLeaveScRsp = 9932;
+	CmdChenLingFesType_ChenLingFesBusinessDayEndScRsp = 9914;
+	CmdChenLingFesType_GetChenLingFesDataCsReq = 9934;
+}
+
+message DMHADFNOIGP {
+	repeated MOJFFDOILBN JOJJKJFHMBI = 6; // offset: 24
+	bool is_success = 11; // offset: 32
+}
+
+message EDHOBLLOBNP {
+	repeated uint32 NELBBCIGIGF = 2; // offset: 32
+	uint32 index = 6; // offset: 44
+	uint32 JJPMDBCPJBA = 11; // offset: 40
+	repeated uint32 OBGMKBIOMKB = 15; // offset: 24
+}
+
+message GetChenLingFesDataCsReq {
+}
+
+message GetChenLingFesDataScRsp {
+	OFGLEOIIJBD LAEDNIBCNKF = 5; // offset: 32
+	uint32 retcode = 8; // offset: 40
+	repeated BGAIEEIKOKK PNDPCELOGHG = 10; // offset: 16
+}
+
+message HDLMAPACKNH {
+	uint32 GOCFOJJIAHL = 1; // offset: 28
+	uint32 DIDBBOCNHBJ = 8; // offset: 24
+}
+
+message LECPPIEIENH {
+	uint32 index = 5; // offset: 36
+	repeated uint32 FKGLNIAHGOA = 11; // offset: 16
+	uint32 KDIDDHIDNCG = 13; // offset: 32
+	uint32 JJPMDBCPJBA = 14; // offset: 40
+}
+
+message MOJFFDOILBN {
+	repeated uint32 EMPIEBNCANN = 2; // offset: 16
+	repeated uint32 MNOOFEPDHOO = 4; // offset: 24
+	uint32 star_num = 8; // offset: 40
+	uint32 phase_index = 11; // offset: 48
+	uint32 score_id = 15; // offset: 44
+}
+
+message NPNAEPOKPNE {
+	OPOCANGAEHJ coord = 10; // offset: 16
+	repeated float LIAMHNFAPNL = 12; // offset: 32
+}
+
+message OFGLEOIIJBD {
+	uint32 business_day = 1; // offset: 72
+	repeated PGIEBMKMECE MBFLDKEDBHN = 2; // offset: 24
+	string NLMEEEKBPKO = 3; // offset: 16
+	uint32 HGIICMLANJJ = 4; // offset: 80
+	uint32 PGOFHKLBPKC = 5; // offset: 88
+	uint32 FGKPIDLKALL = 6; // offset: 84
+	uint32 HHINBDNIFBE = 7; // offset: 92
+	repeated NPNAEPOKPNE GOKMDCOJPHC = 8; // offset: 32
+	repeated MOJFFDOILBN JOJJKJFHMBI = 9; // offset: 56
+	string FGGCAOAPGPA = 10; // offset: 48
+	uint32 fever = 11; // offset: 76
+	uint32 PLCPOONCFDG = 13; // offset: 96
+	uint32 level_id = 14; // offset: 100
+	repeated uint32 FJDJCHFDIFL = 15; // offset: 64
+}
+
+message OPOCANGAEHJ {
+	uint32 y = 9; // offset: 28
+	uint32 x = 12; // offset: 24
+}
+
+message PGEDFOBAEBC {
+	uint32 FCFLEFOKLFD = 3; // offset: 32
+	uint32 OMFGAABELHE = 9; // offset: 24
+	uint32 PLFMKDOCPLP = 13; // offset: 28
+}
+
+message PGIEBMKMECE {
+	OPOCANGAEHJ IBLECIJAGBK = 8; // offset: 24
+	repeated float CDMKBCHLPAB = 9; // offset: 16
+	uint32 direction = 10; // offset: 44
+	uint32 score_id = 13; // offset: 40
+	uint32 OMFGAABELHE = 14; // offset: 48
+}

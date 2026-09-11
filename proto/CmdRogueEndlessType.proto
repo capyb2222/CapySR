@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+
+import "Common.proto";
+
+message AJNOEKPLPCL {
+	uint32 cur_layer = 1; // offset: 44
+	uint32 PKKDALHLCLA = 6; // offset: 48
+	uint32 IEOGEFBLNEL = 8; // offset: 40
+	uint32 FMCPHDJEIDC = 9; // offset: 36
+	uint32 DNAPFBANFHJ = 11; // offset: 28
+	uint32 ICKJKIENKFI = 12; // offset: 24
+	bool MJIPOJPBKNB = 14; // offset: 32
+}
+
+message BBCOLCHCEFP {
+	repeated uint32 NOEPBNMJFGL = 2; // offset: 48
+	uint32 map_id = 3; // offset: 68
+	repeated uint32 unfinished_story_line_id_list = 5; // offset: 32
+	uint32 PJKMDLCCHHD = 6; // offset: 56
+	GMIJHCONFIH HAJJBOFCFOO = 7; // offset: 16
+	RogueStatus status = 9; // offset: 60
+	uint32 KNDHMNBIIDF = 13; // offset: 64
+	APNCCNFJBKO JPKACKNNHCA = 15; // offset: 40
+}
+
+message CAEFBGAFKHD {
+	AvatarType avatar_type = 8; // offset: 24
+	uint32 avatar_id = 15; // offset: 28
+}
+
+enum CmdRogueEndlessType {
+	CmdRogueEndlessType_MOLJCEFGPLL = 0;
+	CmdRogueEndlessType_EnterRogueEndlessActivityStageCsReq = 6010;
+	CmdRogueEndlessType_GetRogueEndlessActivityDataCsReq = 6002;
+	CmdRogueEndlessType_TakeRogueEndlessActivityAllBonusRewardScRsp = 6001;
+	CmdRogueEndlessType_EnterRogueEndlessActivityStageScRsp = 6009;
+	CmdRogueEndlessType_TakeRogueEndlessActivityAllBonusRewardCsReq = 6008;
+	CmdRogueEndlessType_TakeRogueEndlessActivityPointRewardScRsp = 6005;
+	CmdRogueEndlessType_TakeRogueEndlessActivityPointRewardCsReq = 6007;
+	CmdRogueEndlessType_RogueEndlessActivityBattleEndScNotify = 6004;
+	CmdRogueEndlessType_GetRogueEndlessActivityDataScRsp = 6003;
+}
+
+message EnterRogueEndlessActivityStageCsReq {
+	repeated CAEFBGAFKHD avatar_list = 5; // offset: 16
+	uint32 MPMMCPMNLID = 14; // offset: 32
+}
+
+message EnterRogueEndlessActivityStageScRsp {
+	uint32 retcode = 6; // offset: 32
+	SceneBattleInfo battle_info = 12; // offset: 24
+}
+
+message GetRogueEndlessActivityDataCsReq {
+}
+
+message GetRogueEndlessActivityDataScRsp {
+	repeated uint32 IEPPNGMCKJH = 1; // offset: 16
+	uint32 IAHEDAAPNEO = 7; // offset: 48
+	uint32 CHIAFOOAIBK = 8; // offset: 40
+	uint32 retcode = 10; // offset: 44
+	repeated HGFJAHILCAA data = 13; // offset: 24
+}
+
+message HGFJAHILCAA {
+	uint32 area_id = 8; // offset: 40
+	BBCOLCHCEFP BHHHNHMMDMH = 10; // offset: 32
+	AJNOEKPLPCL PMKGMLELPPI = 13; // offset: 24
+}
+
+message RogueEndlessActivityBattleEndScNotify {
+	AJNOEKPLPCL PMKGMLELPPI = 15; // offset: 24
+}
+
+message TakeRogueEndlessActivityAllBonusRewardCsReq {
+}
+
+message TakeRogueEndlessActivityAllBonusRewardScRsp {
+	ItemList reward = 4; // offset: 32
+	uint32 CHIAFOOAIBK = 6; // offset: 40
+	uint32 retcode = 13; // offset: 44
+	repeated uint32 IEPPNGMCKJH = 14; // offset: 16
+}
+
+message TakeRogueEndlessActivityPointRewardCsReq {
+	uint32 level = 8; // offset: 24
+	bool LEFJBFMDEGK = 12; // offset: 28
+}
+
+message TakeRogueEndlessActivityPointRewardScRsp {
+	repeated uint32 IEPPNGMCKJH = 2; // offset: 16
+	uint32 CHIAFOOAIBK = 4; // offset: 44
+	uint32 retcode = 8; // offset: 48
+	uint32 level = 10; // offset: 40
+	ItemList reward = 11; // offset: 24
+}
