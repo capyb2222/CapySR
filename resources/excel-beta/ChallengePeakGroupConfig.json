@@ -1,0 +1,274 @@
+{
+  "challenge_peak_group_config": [
+    {
+      "ID": 1,
+      "Title": {
+        "Hash": -504960136,
+        "Hash64": 3550232802813737810
+      },
+      "RecommendID": 1,
+      "ActivityModule": 2100101,
+      "PreLevelIDList": [
+        101,
+        102,
+        103
+      ],
+      "BossLevelID": 104,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W4_Theoroi.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W4_Theoroi_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4001.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4001.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Ultra.png"
+      ]
+    },
+    {
+      "ID": 2,
+      "Title": {
+        "Hash": -101675609,
+        "Hash64": 10349426151264090008
+      },
+      "RecommendID": 2,
+      "ActivityModule": 2100201,
+      "PreLevelIDList": [
+        201,
+        202,
+        203
+      ],
+      "BossLevelID": 204,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W4_DawnsEye.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W4_DawnsEye_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4002.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4002.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4002.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0002/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0002/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0002/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0002/Ultra.png"
+      ]
+    },
+    {
+      "ID": 3,
+      "Title": {
+        "Hash": -1667759550,
+        "Hash64": 7638058374000144758
+      },
+      "RecommendID": 3,
+      "ActivityModule": 2100301,
+      "PreLevelIDList": [
+        301,
+        302,
+        303
+      ],
+      "BossLevelID": 304,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W3_Sunday.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W3_Sunday_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4003.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4003.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4003.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0003/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0003/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0003/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0003/Ultra.png"
+      ]
+    },
+    {
+      "ID": 4,
+      "Title": {
+        "Hash": -1264475023,
+        "Hash64": 5317369650647745266
+      },
+      "RecommendID": 4,
+      "ActivityModule": 2100401,
+      "PreLevelIDList": [
+        401,
+        402,
+        403
+      ],
+      "BossLevelID": 404,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_Vtuber.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_Vtuber_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4004.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4004.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4004.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0004/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0004/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0004/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0004/Ultra.png"
+      ]
+    },
+    {
+      "ID": 5,
+      "Title": {
+        "Hash": 1464408332,
+        "Hash64": 9493455258062325921
+      },
+      "RecommendID": 5,
+      "ActivityModule": 2100501,
+      "PreLevelIDList": [
+        501,
+        502,
+        503
+      ],
+      "BossLevelID": 504,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_Pam.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_Pam_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4005.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4005.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4005.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0005/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0005/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0005/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0005/Ultra.png"
+      ]
+    },
+    {
+      "ID": 6,
+      "Title": {
+        "Hash": 1867692859,
+        "Hash64": 5565801180195930457
+      },
+      "RecommendID": 6,
+      "ActivityModule": 2100601,
+      "PreLevelIDList": [
+        601,
+        602,
+        603
+      ],
+      "BossLevelID": 604,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_Ripper.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_Ripper_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4006.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4006.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4006.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0006/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0006/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0006/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0006/Ultra.png"
+      ]
+    },
+    {
+      "ID": 7,
+      "Title": {
+        "Hash": 301608918,
+        "Hash64": 7011664678968873757
+      },
+      "RecommendID": 7,
+      "ActivityModule": 2100701,
+      "PreLevelIDList": [
+        701,
+        702,
+        703
+      ],
+      "BossLevelID": 704,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_SW_Boss_01.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_SW_01_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4007.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4007.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4007.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0007/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0007/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0007/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0007/Ultra.png"
+      ]
+    },
+    {
+      "ID": 8,
+      "Title": {
+        "Hash": 704893445,
+        "Hash64": 13457040013447238093
+      },
+      "RecommendID": 8,
+      "ActivityModule": 2100801,
+      "PreLevelIDList": [
+        801,
+        802,
+        803
+      ],
+      "BossLevelID": 804,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_Painter.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_Painter_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4008.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4008.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4008.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0008/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0008/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0008/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0008/Ultra.png"
+      ]
+    },
+    {
+      "ID": 9,
+      "Title": {
+        "Hash": -861190496,
+        "Hash64": 556488733392366321
+      },
+      "RecommendID": 9,
+      "ActivityModule": 2100901,
+      "PreLevelIDList": [
+        901,
+        902,
+        903
+      ],
+      "BossLevelID": 904,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W4_IronTombCore.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W4_IronTombCore_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4009.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4009.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4009.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0009/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0009/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0009/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0009/Ultra.png"
+      ]
+    },
+    {
+      "ID": 10,
+      "Title": {
+        "Hash": 1570201704,
+        "Hash64": 4908466715646711625
+      },
+      "RecommendID": 10,
+      "ActivityModule": 2101001,
+      "PreLevelIDList": [
+        1001,
+        1002,
+        1003
+      ],
+      "BossLevelID": 1004,
+      "RewardGroupID": 1,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W5_Fallen.prefab",
+      "BossUI3DAnimatorPath": "UI/UI3D/ChallengePeak/_dependencies/Animator/ChallengePeakBoss_W5_Fallen_AniControl.controller",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4010.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4010.png",
+      "HandBookPanelBannerPath": "SpriteOutput/DailyMission/Banner/ChallengePeakPanelBanner_4010.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0010/Ultra.png"
+      ]
+    }
+  ]
+}

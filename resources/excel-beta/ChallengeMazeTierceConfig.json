@@ -1,0 +1,965 @@
+{
+  "challenge_tierce_config": [
+    {
+      "ID": 5213,
+      "PreChallengeMazeID": 5212,
+      "MapEntranceID": 3014002,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 11,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [5014010],
+      "EventIDList": [30123123],
+      "DamageType": ["Fire", "Imaginary"],
+      "GNOOAGPBNLD": 45,
+      "ChallengeTargetID": [601, 602, 603],
+      "ChallengeTierceTargetID": 600,
+      "RewardID": 101913,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 5313,
+      "PreChallengeMazeID": 5312,
+      "MapEntranceID": 3014101,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 6,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [3024030],
+      "EventIDList": [30124123],
+      "DamageType": ["Physical", "Fire"],
+      "GNOOAGPBNLD": 45,
+      "ChallengeTargetID": [601, 602, 603],
+      "ChallengeTierceTargetID": 600,
+      "RewardID": 101913,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 5413,
+      "PreChallengeMazeID": 5412,
+      "MapEntranceID": 3014401,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 6,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [5024010],
+      "EventIDList": [30126123],
+      "DamageType": ["Physical", "Thunder"],
+      "GNOOAGPBNLD": 45,
+      "ChallengeTargetID": [601, 602, 603],
+      "ChallengeTierceTargetID": 600,
+      "RewardID": 101913,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 5513,
+      "PreChallengeMazeID": 5512,
+      "MapEntranceID": 3012701,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 10,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [5014030],
+      "EventIDList": [30125123],
+      "DamageType": ["Fire"],
+      "GNOOAGPBNLD": 45,
+      "ChallengeTargetID": [601, 602, 603],
+      "ChallengeTierceTargetID": 600,
+      "RewardID": 101913,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122001
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 30185,
+      "PreChallengeMazeID": 30184,
+      "MapEntranceID": 3013102,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 5,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [4034013],
+      "EventIDList": [420464],
+      "DamageType": ["Physical", "Ice", "Thunder", "Quantum"],
+      "ChallengeTargetID": [5001, 5002, 5003],
+      "ChallengeTierceTargetID": 5000,
+      "RewardID": 101713,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 30195,
+      "PreChallengeMazeID": 30194,
+      "MapEntranceID": 3012201,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 8,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [3003015],
+      "EventIDList": [420494],
+      "DamageType": ["Fire", "Ice", "Thunder", "Imaginary"],
+      "ChallengeTargetID": [5001, 5002, 5003],
+      "ChallengeTierceTargetID": 5000,
+      "RewardID": 101713,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 30205,
+      "PreChallengeMazeID": 30204,
+      "MapEntranceID": 3014002,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 11,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [5014014],
+      "EventIDList": [420524],
+      "DamageType": ["Physical", "Fire", "Quantum", "Imaginary"],
+      "ChallengeTargetID": [5001, 5002, 5003],
+      "ChallengeTierceTargetID": 5000,
+      "RewardID": 101713,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 30215,
+      "PreChallengeMazeID": 30214,
+      "MapEntranceID": 3012602,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 7,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [2034012],
+      "EventIDList": [420554],
+      "DamageType": ["Physical", "Fire", "Wind", "Quantum"],
+      "ChallengeTargetID": [5001, 5002, 5003],
+      "ChallengeTierceTargetID": 5000,
+      "RewardID": 101713,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 30225,
+      "PreChallengeMazeID": 30224,
+      "MapEntranceID": 3012602,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 7,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [2034012],
+      "EventIDList": [420554],
+      "DamageType": ["Physical", "Fire", "Wind", "Quantum"],
+      "ChallengeTargetID": [5001, 5002, 5003],
+      "ChallengeTierceTargetID": 5000,
+      "RewardID": 101713,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122003
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 20245,
+      "PreChallengeMazeID": 20244,
+      "MapEntranceID": 3000301,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 9,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [2004010],
+      "EventIDList": [30322043],
+      "DamageType": ["Physical", "Imaginary"],
+      "ChallengeTargetID": [4001, 4002, 4003],
+      "ChallengeTierceTargetID": 4000,
+      "IDBJENCBJHM": 45000,
+      "LDKPJPCMMAE": [4001, 4002],
+      "IMCMJHAMMKK": 102113,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 20255,
+      "PreChallengeMazeID": 20254,
+      "MapEntranceID": 3014003,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 7,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [2024010],
+      "EventIDList": [30323043],
+      "DamageType": ["Fire", "Quantum"],
+      "ChallengeTargetID": [4001, 4002, 4003],
+      "ChallengeTierceTargetID": 4000,
+      "IDBJENCBJHM": 45000,
+      "LDKPJPCMMAE": [4001, 4002],
+      "IMCMJHAMMKK": 102113,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 20265,
+      "PreChallengeMazeID": 20264,
+      "MapEntranceID": 3014201,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 8,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [2034010],
+      "EventIDList": [30324043],
+      "DamageType": ["Fire", "Wind"],
+      "ChallengeTargetID": [4001, 4002, 4003],
+      "ChallengeTierceTargetID": 4000,
+      "IDBJENCBJHM": 45000,
+      "LDKPJPCMMAE": [4001, 4002],
+      "IMCMJHAMMKK": 102113,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    },
+    {
+      "ID": 20275,
+      "PreChallengeMazeID": 20274,
+      "MapEntranceID": 3014201,
+      "LCHKKJDBLGM": [],
+      "MazeGroupID": 8,
+      "ConfigList": [200001],
+      "NpcMonsterIDList": [3024010],
+      "EventIDList": [30325043],
+      "DamageType": ["Physical", "Ice"],
+      "ChallengeTargetID": [4001, 4002, 4003],
+      "ChallengeTierceTargetID": 4000,
+      "IDBJENCBJHM": 45000,
+      "LDKPJPCMMAE": [4001, 4002],
+      "IMCMJHAMMKK": 102113,
+      "EGEEJLHBALB": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1,
+          "ItemNum": 900
+        },
+        {
+          "ItemID": 262,
+          "ItemNum": 700
+        },
+        {
+          "ItemID": 213,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 223,
+          "ItemNum": 12
+        },
+        {
+          "ItemID": 233,
+          "ItemNum": 24
+        },
+        {
+          "ItemID": 261,
+          "ItemNum": 96
+        },
+        {
+          "ItemID": 2,
+          "ItemNum": 380000
+        }
+      ],
+      "OGALGHMIIAH": [
+        {
+          "ItemID": 122002
+        },
+        {
+          "ItemID": 1
+        },
+        {
+          "ItemID": 262
+        },
+        {
+          "ItemID": 213
+        },
+        {
+          "ItemID": 223
+        },
+        {
+          "ItemID": 233
+        },
+        {
+          "ItemID": 261
+        },
+        {
+          "ItemID": 2
+        }
+      ]
+    }
+  ]
+}

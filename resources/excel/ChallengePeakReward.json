@@ -1,0 +1,92 @@
+[
+  {
+    "ID": 1,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_PASS_REWARD",
+    "TypeValue": 1,
+    "RewardID": 102301
+  },
+  {
+    "ID": 2,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_PASS_REWARD",
+    "TypeValue": 2,
+    "RewardID": 102302
+  },
+  {
+    "ID": 3,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_PASS_REWARD",
+    "TypeValue": 3,
+    "RewardID": 102303
+  },
+  {
+    "ID": 4,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_STAR_REWARD",
+    "TypeValue": 3,
+    "RewardID": 102311
+  },
+  {
+    "ID": 5,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_STAR_REWARD",
+    "TypeValue": 6,
+    "RewardID": 102312
+  },
+  {
+    "ID": 6,
+    "RewardGroupID": 1,
+    "RewardType": "MOB_STAR_REWARD",
+    "TypeValue": 9,
+    "RewardID": 102313
+  },
+  {
+    "ID": 7,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_REWARD",
+    "TypeValue": 1,
+    "RewardID": 102321
+  },
+  {
+    "ID": 8,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_REWARD",
+    "TypeValue": 2,
+    "RewardID": 102322
+  },
+  {
+    "ID": 9,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_REWARD",
+    "TypeValue": 3,
+    "RewardID": 102323
+  },
+  {
+    "ID": 10,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_LIMIT_REWARD",
+    "TypeValue": 1,
+    "RewardID": 102201
+  },
+  {
+    "ID": 11,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_LIMIT_REWARD",
+    "TypeValue": 2,
+    "RewardID": 102202
+  },
+  {
+    "ID": 12,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_STAR_LIMIT_REWARD",
+    "TypeValue": 3,
+    "RewardID": 102203
+  },
+  {
+    "ID": 13,
+    "RewardGroupID": 1,
+    "RewardType": "BOSS_COLOR_TARGET_REWARD",
+    "RewardID": 102204
+  }
+]

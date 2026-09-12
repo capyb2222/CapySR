@@ -1,0 +1,218 @@
+{
+  "challenge_peak_boss_config": [
+    {
+      "ID": 104,
+      "HardTitle": {
+        "Hash": -829434279,
+        "Hash64": 7760170859122248016
+      },
+      "BuffList": [
+        3033006,
+        3033007,
+        3033008
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30501022
+      ],
+      "HardTagList": [
+        3033010,
+        3033013,
+        3033019
+      ]
+    },
+    {
+      "ID": 204,
+      "HardTitle": {
+        "Hash": -829434376,
+        "Hash64": 1050453030874697501
+      },
+      "BuffList": [
+        3033020,
+        3033021,
+        3033022
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30502022
+      ],
+      "HardTagList": [
+        3033013,
+        3033019
+      ]
+    },
+    {
+      "ID": 304,
+      "HardTitle": {
+        "Hash": -829434345,
+        "Hash64": 18174992387478714442
+      },
+      "BuffList": [
+        3033032,
+        3033033,
+        3033034
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30503022
+      ],
+      "HardTagList": [
+        3033029,
+        3033040,
+        3033036
+      ]
+    },
+    {
+      "ID": 404,
+      "HardTitle": {
+        "Hash": -829434186,
+        "Hash64": 11316176485030290708
+      },
+      "BuffList": [
+        3033043,
+        3033044,
+        3033045
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30504022
+      ],
+      "HardTagList": [
+        3033026,
+        3033046
+      ]
+    },
+    {
+      "ID": 504,
+      "HardTitle": {
+        "Hash": -829434155,
+        "Hash64": 7086567855550187989
+      },
+      "BuffList": [
+        3033048,
+        3033049,
+        3033050
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30505022
+      ],
+      "HardTagList": [
+        3033018,
+        3033026,
+        3033046
+      ]
+    },
+    {
+      "ID": 604,
+      "HardTitle": {
+        "Hash": -829434252,
+        "Hash64": 6674206141463462266
+      },
+      "BuffList": [
+        3033053,
+        3033054,
+        3033055
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30506022
+      ],
+      "HardTagList": [
+        3033057,
+        3033042
+      ]
+    },
+    {
+      "ID": 704,
+      "HardTitle": {
+        "Hash": -829434221,
+        "Hash64": 4139559719394918406
+      },
+      "BuffList": [
+        3033060,
+        3033061,
+        3033062
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30507022
+      ],
+      "HardTagList": [
+        3033059,
+        3033064
+      ]
+    },
+    {
+      "ID": 804,
+      "HardTitle": {
+        "Hash": -829434046,
+        "Hash64": 92562529814961898
+      },
+      "BuffList": [
+        3033066,
+        3033068,
+        3033067
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30508022
+      ],
+      "HardTagList": [
+        3033070,
+        3033052
+      ]
+    },
+    {
+      "ID": 904,
+      "HardTitle": {
+        "Hash": -829434015,
+        "Hash64": 2996493158462877067
+      },
+      "BuffList": [
+        3033073,
+        3033074,
+        3033087
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30509022
+      ],
+      "HardTagList": [
+        3033059,
+        3033072
+      ]
+    },
+    {
+      "ID": 1004,
+      "HardTitle": {
+        "Hash": 968936817,
+        "Hash64": 15826532082466368205
+      },
+      "BuffList": [
+        3033082,
+        3033083,
+        3033084
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30510022
+      ],
+      "HardTagList": [
+        3033010,
+        3033079,
+        3033081
+      ]
+    }
+  ]
+}
