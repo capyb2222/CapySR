@@ -2,6 +2,8 @@
 
 A server reimplementation written in C++ for a certain anime game with star and rails. Targets the `4.5.5x beta` (usually the latest). This server is in WIP, but you can still use it.
 
+![Screenshot](pearl.png)
+
 ## Requirements
 
 1. Visual Studio 2026 Community (or the smaller Build Tools): https://visualstudio.microsoft.com/downloads/
