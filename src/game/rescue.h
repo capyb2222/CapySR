@@ -23,5 +23,10 @@ namespace rescue {
 // Returns a one-line summary of what was done, for the log and the http reply.
 std::string unstick(net::Session& session, uint32_t entryId);
 
+// The same escape with nobody connected: rewrites the saved spot so the next login
+// starts somewhere else. For the floor the client cannot finish loading at all, where
+// there is no session left to push anything to.
+std::string relocate(uint32_t entryId);
+
 }  // namespace rescue
 }  // namespace game

@@ -1,6 +1,8 @@
 #include "game/rescue.h"
 
+#include "core/config.h"
 #include "core/logger.h"
+#include "data/scene_res.h"
 #include "game/challenge.h"
 #include "game/peak.h"
 #include "game/player.h"
@@ -83,6 +85,27 @@ std::string unstick(net::Session& session, uint32_t entryId) {
     note("pushed entry " + std::to_string(target));
     logging::info("rescue", "uid {}: {}", player->uid(), did);
     return did;
+}
+
+std::string relocate(uint32_t entryId) {
+    if (data::SceneRes::get().byEntry(entryId) == nullptr) {
+        return "entry " + std::to_string(entryId) + " is not in the scene dump";
+    }
+
+    Player player(core::Config::get().player.uid);
+    player.load();
+    // scene::load only re-anchors when the floor changes, and the saved spot may already
+    // be on this one. Clearing the floor forces the entrance anchor -- keeping old
+    // coordinates, or worse (0, 0, 0), drops the player outside the geometry.
+    player.location().floorId = 0;
+    proto::SceneInfo scene;
+    if (!scene::load(player, entryId, 0, true, scene)) {
+        return "entry " + std::to_string(entryId) + " could not be loaded";
+    }
+    player.saveNow();
+
+    logging::info("rescue", "no client connected; the save now starts at entry {}", entryId);
+    return "saved spot moved to entry " + std::to_string(entryId);
 }
 
 }  // namespace rescue

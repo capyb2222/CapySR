@@ -18,7 +18,8 @@ namespace sdk {
 
 void registerAdminRoutes(http::Server& server, net::Gateway& gateway) {
     // GET /unstick            -- push the current scene again
-    // GET /unstick?entry=1000002 -- and move to the Astral Express while doing it
+    // GET /unstick?entry=1000002 -- and move to the Astral Express while doing it,
+    //                            or move the save there when nothing is connected
     //
     // The client has no timeout on a transition it started, so a scene or a battle the
     // server never finished leaves it looking at nothing forever. Pushing a scene is
@@ -34,7 +35,12 @@ void registerAdminRoutes(http::Server& server, net::Gateway& gateway) {
             if (session == nullptr) continue;
             out["sessions"].push_back(game::rescue::unstick(*session, entryId));
         }
-        if (out["sessions"].empty()) {
+        if (out["sessions"].empty() && entryId != 0) {
+            // Nobody is connected, so move the saved spot instead. A client that cannot
+            // finish loading the floor it was left on has no session to rescue, and this
+            // is the only way out of it short of editing the save by hand.
+            out["message"] = game::rescue::relocate(entryId);
+        } else if (out["sessions"].empty()) {
             logging::warn("rescue", "nothing to unstick -- no client is connected");
             out["message"] = "no client is connected";
         } else {
