@@ -7,8 +7,10 @@
 #include "game/challenge.h"
 #include "game/handlers.h"
 #include "game/notify.h"
+#include "game/peak.h"
 #include "game/player.h"
 #include "game/scene.h"
+#include "game/tierce.h"
 #include "net/cmd_ids.h"
 #include "net/handler.h"
 #include "net/session.h"
@@ -30,7 +32,7 @@ bool clearsFodder(const Player& player, uint32_t skillIndex, uint32_t casterEnti
     if (skillIndex == 0 || casterEntityId == 0) return false;
     // A challenge node is not cleared by walking through it, and the caster would be
     // looked up in the overworld squad rather than the challenge team.
-    if (player.challenge().active) return false;
+    if (player.challenge().active || player.peak().active || player.tierce().active) return false;
     std::vector<uint32_t> party = player.lineups().curMembers();
     if (casterEntityId > party.size()) return false;
     uint32_t avatarId = party[casterEntityId - 1];
@@ -62,7 +64,6 @@ void applyChallenge(const Player& player, BattleRequest& request) {
     request.roundsLimit = run.roundsLeft;
     request.scoreSoFar = run.totalScore();
     request.battleTargetIds = config->battleTargetIds;
-    request.allowSrToolsOverride = false;
     switch (config->kind) {
         case data::ChallengeKind::Story:
             request.battleType = "PF";
@@ -153,6 +154,8 @@ void onSceneCastSkill(net::Session& session, const proto::SceneCastSkillCsReq& r
     request.skillIndex = req.skill_index;
     request.monsterEntityIds = monsters;
     applyChallenge(*player, request);
+    tierce::prepareBattle(*player, request);
+    peak::prepareBattle(*player, request);
     rsp.battle_info = battle::create(*player, request);
     report(monsters, proto::MonsterBattleType::MONSTER_BATTLE_TYPE_TRIGGER_BATTLE);
     session.send(cmd::SceneCastSkillScRsp, rsp);
@@ -178,14 +181,14 @@ void onSceneCastSkillCostMp(net::Session& session, const proto::SceneCastSkillCo
     session.send(cmd::SceneCastSkillCostMpScRsp, rsp);
 }
 
-// Calyx and the other farm stages: the cocoon names the stage, so a srtools build
-// must not replace it. `wave` is how many runs were bought, one stage each.
+// Calyx: the one fight a srtools build is allowed to take over, monsters, blessings and
+// all. `wave` is how many runs were bought, one stage each.
 proto::SceneBattleInfo cocoonBattle(Player& player, uint32_t cocoonId, uint32_t wave,
                                     uint32_t worldLevel) {
     BattleRequest request;
     request.cocoonId = cocoonId;
     request.wave = std::max(1u, wave);
-    request.allowSrToolsOverride = false;
+    request.allowSrToolsOverride = true;
 
     const data::CocoonInfo* cocoon = data::Tables::get().cocoon(cocoonId, worldLevel);
     if (cocoon == nullptr || cocoon->stageIds.empty()) {
@@ -230,7 +233,7 @@ void onQuickStartCocoonStage(net::Session& session,
 }
 
 // A Stagnant Shadow started from the Survival Index. PAOFHFLFFHD is the shadow's stage,
-// the key FarmElementSweep uses too; like a calyx, a srtools build must not replace it.
+// the key FarmElementSweep uses too.
 void onQuickStartFarmElement(net::Session& session,
                              const proto::QuickStartFarmElementCsReq& req) {
     Player* player = playerOf(session, "QuickStartFarmElement");
@@ -238,7 +241,6 @@ void onQuickStartFarmElement(net::Session& session,
 
     uint32_t worldLevel = req.world_level != 0 ? req.world_level : player->worldLevel();
     BattleRequest request;
-    request.allowSrToolsOverride = false;
     uint32_t stageId = data::Tables::get().farmElementStage(req.PAOFHFLFFHD, worldLevel);
     if (stageId != 0) request.stageIds.push_back(stageId);
 
@@ -318,10 +320,8 @@ void onReEnterLastElementStage(net::Session& session,
     Player* player = playerOf(session, "ReEnterLastElementStage");
     if (player == nullptr) return;
 
-    // The retry button names the stage it wants replayed, so a srtools build must not
-    // substitute its own -- same rule as a calyx.
+    // The retry button names the stage it wants replayed.
     BattleRequest request;
-    request.allowSrToolsOverride = false;
     if (req.stage_id != 0) request.stageIds.push_back(req.stage_id);
 
     proto::ReEnterLastElementStageScRsp rsp;
@@ -350,6 +350,8 @@ void onPveBattleResult(net::Session& session, const proto::PVEBattleResultCsReq&
     // The monsters are gone from the scene by now, which is how the run tells whether
     // the node it was fighting is finished.
     challenge::battleFinished(session, *player, req);
+    tierce::battleFinished(session, *player, req);
+    peak::battleFinished(session, *player, req);
 
     // The fight was simulated on the client; the server only confirms the outcome.
     proto::PVEBattleResultScRsp rsp;

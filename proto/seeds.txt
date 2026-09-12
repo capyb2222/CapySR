@@ -140,6 +140,12 @@ UpdateGroupPropertyCsReq
 UpdateGroupPropertyScRsp
 GetFirstTalkNpcCsReq
 GetFirstTalkNpcScRsp
+GetFirstTalkByPerformanceNpcCsReq
+GetFirstTalkByPerformanceNpcScRsp
+FinishFirstTalkNpcCsReq
+FinishFirstTalkNpcScRsp
+FinishFirstTalkByPerformanceNpcCsReq
+FinishFirstTalkByPerformanceNpcScRsp
 GetNpcTakenRewardCsReq
 GetNpcTakenRewardScRsp
 ActiveFarmElementCsReq
@@ -194,6 +200,47 @@ TakeChallengeRewardCsReq
 TakeChallengeRewardScRsp
 ChallengeLineupNotify
 ChallengeSettleNotify
+
+# ---- three-node challenge floors (memory of chaos and its siblings, 4.6) ----
+GetChallengeTierceDataCsReq
+GetChallengeTierceDataScRsp
+GetChallengeTierceControllerCsReq
+GetChallengeTierceControllerScRsp
+SetChallengeTierceLineupCsReq
+SetChallengeTierceLineupScRsp
+StartChallengeTierceCsReq
+StartChallengeTierceScRsp
+StartNextChallengeTierceCsReq
+StartNextChallengeTierceScRsp
+RestartChallengeTierceCsReq
+RestartChallengeTierceScRsp
+ConfirmChallengeTierceStageSettleCsReq
+ConfirmChallengeTierceStageSettleScRsp
+LeaveChallengeTierceCsReq
+LeaveChallengeTierceScRsp
+ChallengeTierceSyncNotify
+
+# ---- anomaly arbitration ----
+GetChallengePeakDataCsReq
+GetChallengePeakDataScRsp
+GetCurChallengePeakCsReq
+GetCurChallengePeakScRsp
+SetChallengePeakMobLineupAvatarCsReq
+SetChallengePeakMobLineupAvatarScRsp
+SetChallengePeakBossHardModeCsReq
+SetChallengePeakBossHardModeScRsp
+StartChallengePeakCsReq
+StartChallengePeakScRsp
+ReStartChallengePeakCsReq
+ReStartChallengePeakScRsp
+LeaveChallengePeakCsReq
+LeaveChallengePeakScRsp
+ConfirmChallengePeakSettleCsReq
+ConfirmChallengePeakSettleScRsp
+TakeChallengePeakRewardCsReq
+TakeChallengePeakRewardScRsp
+ChallengePeakGroupDataUpdateScNotify
+ChallengePeakSettleScNotify
 
 # ---- inventory ----
 GetBagCsReq

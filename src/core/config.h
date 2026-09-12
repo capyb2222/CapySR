@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <cstdint>
 #include <string>
 #include <vector>
@@ -58,8 +59,8 @@ struct PathsConfig {
 };
 
 struct GameplayConfig {
-    // auto = a srtools build replaces overworld fights; srtools = it replaces every
-    // fight; stage = never, always use the stage the client asked for.
+    // auto = a srtools build replaces calyx fights and nothing else; srtools = it
+    // replaces every fight; stage = never, always use the stage the client asked for.
     std::string battleSource = "auto";
     bool globalBuffs = true;
     // Report every challenge floor as a full clear. A floor with no stars locks the one
@@ -67,6 +68,16 @@ struct GameplayConfig {
     bool unlockAllChallenges = true;
     uint32_t mainCharacter = 8008;
     uint32_t marchType = 1224;
+    // Missions never reported as finished. A scene group gated on one of these makes
+    // the 4.5.54 client throw inside MissionModule._CheckVerseByMainMission while it
+    // works out which groups to activate, which kills the whole map load: a hang on the
+    // loading screen when entering at login, a fade that rolls straight back otherwise.
+    // Main and sub mission ids both go here.
+    std::vector<uint32_t> skipMissions;
+
+    bool missionSkipped(uint32_t id) const {
+        return std::find(skipMissions.begin(), skipMissions.end(), id) != skipMissions.end();
+    }
 };
 
 struct Config {

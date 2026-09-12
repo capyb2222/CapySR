@@ -3,8 +3,10 @@
 #include "data/scene_res.h"
 #include "game/challenge.h"
 #include "game/handlers.h"
+#include "game/peak.h"
 #include "game/player.h"
 #include "game/scene.h"
+#include "game/tierce.h"
 #include "net/cmd_ids.h"
 #include "net/handler.h"
 #include "net/session.h"
@@ -32,6 +34,8 @@ void onGetCurSceneInfo(net::Session& session, const proto::GetCurSceneInfoCsReq&
     // every monster the dump has in it.
     ChallengeArena storage;
     const ChallengeArena* arena = challenge::arena(*player, storage);
+    if (arena == nullptr) arena = tierce::arena(*player, storage);
+    if (arena == nullptr) arena = peak::arena(*player, storage);
     if (scene::load(*player, player->location().entryId, 0, false, info, arena)) {
         rsp.scene = std::move(info);
     } else {
@@ -49,6 +53,8 @@ void onGetCurSceneInfo(net::Session& session, const proto::GetCurSceneInfoCsReq&
 void onEnterScene(net::Session& session, const proto::EnterSceneCsReq& req) {
     Player* player = playerOf(session, "EnterScene");
     if (player == nullptr) return;
+    logging::debug("scene", "enter {} teleport {} interact {} from entry {}", req.entry_id,
+                   req.teleport_id, req.interact_id, player->location().entryId);
 
     proto::SceneInfo info;
     if (!scene::load(*player, req.entry_id, req.teleport_id, true, info)) {

@@ -104,6 +104,7 @@ bool Config::load(const std::string& path) {
         pick(*it, "unlock_all_challenges", gameplay.unlockAllChallenges);
         pick(*it, "main_character", gameplay.mainCharacter);
         pick(*it, "march_type", gameplay.marchType);
+        pick(*it, "skip_missions", gameplay.skipMissions);
     }
     return true;
 }

@@ -12,6 +12,7 @@
 #include "net/handler.h"
 #include "net/session.h"
 #include "proto/gen/protos.h"
+#include "sdk/routes.h"
 
 namespace game {
 namespace {
@@ -123,16 +124,17 @@ void onGetActivityScheduleConfig(net::Session& session,
     session.send(cmd::GetActivityScheduleConfigScRsp, rsp);
 }
 
-// A "CapySR" tag on the client's version label: Lua in ClientDownloadDataScNotify that
-// rewrites the VersionText object. Only the name -- the native watermark (gateway field
-// 1660) stays off, it prints account data.
+// A "CapySR" tag on the client's version label, with the client version after it: Lua in
+// ClientDownloadDataScNotify that rewrites the VersionText object. The native watermark
+// (gateway field 1660) stays off, it prints account data.
 constexpr std::string_view kWatermarkText = "CapySR";
 constexpr uint32_t kWatermarkFrom = 0xD08C4F;  // caramel
 constexpr uint32_t kWatermarkTo = 0xF6DDA0;    // sand
 
-std::string watermarkLua() {
+// Caramel to sand across `text`, one colour tag per character.
+std::string gradient(std::string_view text) {
     std::string rich;
-    size_t n = kWatermarkText.size();
+    size_t n = text.size();
     for (size_t i = 0; i < n; ++i) {
         double t = n > 1 ? static_cast<double>(i) / static_cast<double>(n - 1) : 0.0;
         auto channel = [&](int shift) {
@@ -144,9 +146,29 @@ std::string watermarkLua() {
         std::snprintf(tag, sizeof(tag), "<color=#%02X%02X%02X>", channel(16), channel(8),
                       channel(0));
         rich += tag;
-        rich += kWatermarkText[i];
+        rich += text[i];
         rich += "</color>";
     }
+    return rich;
+}
+
+// The version comes off a query string, so only what a version is made of gets into
+// the Lua.
+std::string cleanVersion(std::string_view version) {
+    std::string clean;
+    for (char c : version) {
+        bool keep = (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
+                    c == '.' || c == '_' || c == '-';
+        if (keep) clean += c;
+    }
+    return clean;
+}
+
+std::string watermarkLua(std::string_view version) {
+    // Name and version drawn alike, side by side.
+    std::string rich = gradient(kWatermarkText);
+    std::string clean = cleanVersion(version);
+    if (!clean.empty()) rich += " " + gradient("|") + " " + gradient(clean);
     return "pcall(function()\n"
            "    local go = CS.UnityEngine.GameObject.Find(\"VersionText\")\n"
            "    if go == nil then return end\n"
@@ -166,7 +188,7 @@ void sendWatermark(net::Session& session) {
     auto& download = notify.download_data.emplace();
     download.version = ++version;
     download.time = static_cast<int64_t>(util::nowMs() / 1000);
-    download.data = watermarkLua();
+    download.data = watermarkLua(sdk::lastClientVersion());
     session.send(cmd::ClientDownloadDataScNotify, notify);
 }
 
@@ -200,7 +222,10 @@ void registerAllHandlers() {
     registerSceneHandlers();
     registerBattleHandlers();
     registerMissionHandlers();
+    registerTalkHandlers();
     registerChallengeHandlers();
+    registerTierceHandlers();
+    registerPeakHandlers();
     registerModuleHandlers();
     registerMiscHandlers();
     logging::info("game", "{} packet handlers registered, {} answered empty",

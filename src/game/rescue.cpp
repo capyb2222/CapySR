@@ -2,8 +2,10 @@
 
 #include "core/logger.h"
 #include "game/challenge.h"
+#include "game/peak.h"
 #include "game/player.h"
 #include "game/scene.h"
+#include "game/tierce.h"
 #include "net/cmd_ids.h"
 #include "net/session.h"
 #include "proto/gen/protos.h"
@@ -37,9 +39,29 @@ std::string unstick(net::Session& session, uint32_t entryId) {
         logging::info("rescue", "uid {}: {}", player->uid(), did);
         return did;
     }
+    if (player->peak().active && entryId == 0) {
+        peak::leave(session, *player);
+        note("left the arbitration");
+        logging::info("rescue", "uid {}: {}", player->uid(), did);
+        return did;
+    }
+    if (player->tierce().active && entryId == 0) {
+        tierce::leave(session, *player);
+        note("left the challenge floor");
+        logging::info("rescue", "uid {}: {}", player->uid(), did);
+        return did;
+    }
     if (player->challenge().active) {
         player->challenge() = ChallengeRun{};
         note("abandoned the challenge");
+    }
+    if (player->peak().active) {
+        player->peak() = PeakRun{};
+        note("abandoned the arbitration");
+    }
+    if (player->tierce().active) {
+        player->tierce() = TierceRun{};
+        note("abandoned the challenge floor");
     }
 
     uint32_t target = entryId != 0 ? entryId : player->location().entryId;

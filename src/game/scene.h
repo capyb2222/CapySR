@@ -12,17 +12,18 @@ class Player;
 
 // Positions are quantised to 1/1000 of a unit, the way the client sends them.
 struct Position {
-    int32_t x = -26968;
-    int32_t y = 78953;
-    int32_t z = 14457;
-    int32_t rotY = 11858;
+    int32_t x = 42548;
+    int32_t y = 3716;
+    int32_t z = -38422;
+    int32_t rotY = 325717;
 };
 
-// The Astral Express parlour: somewhere every account can stand.
+// Jarilo-VI's Outlying Snow Plains, on the space anchor beside a calyx, so a new
+// account has a fight to hand.
 struct SceneLocation {
-    uint32_t planeId = 20411;
-    uint32_t floorId = 20411001;
-    uint32_t entryId = 2041101;
+    uint32_t planeId = 20101;
+    uint32_t floorId = 20101001;
+    uint32_t entryId = 2010101;
 };
 
 enum class EntityKind : uint8_t { Actor, Npc, Monster, Prop };
@@ -79,6 +80,8 @@ proto::MotionInfo toMotion(const Position& position);
 struct ChallengeArena {
     uint32_t mazeGroupId = 0;
     const std::vector<data::ChallengeMonster>* monsters = nullptr;
+    // The team standing in it, which is not the squad the player walks around with.
+    const std::vector<uint32_t>* party = nullptr;
 };
 
 // Assembles SceneInfo out of the scene dump plus the current party.
@@ -98,6 +101,8 @@ proto::SceneMapInfo mapInfo(const Player& player, uint32_t floorId);
 
 // The party actors as their own group, which is how a lineup edit is pushed.
 proto::SceneEntityGroupInfo actorGroup(Player& player, const Position& at);
+proto::SceneEntityGroupInfo actorGroup(Player& player, const Position& at,
+                                       const std::vector<uint32_t>& members);
 
 }  // namespace scene
 }  // namespace game

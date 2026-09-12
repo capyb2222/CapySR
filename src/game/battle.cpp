@@ -56,7 +56,7 @@ bool useSrToolsBattle(const BattleConfig& config, bool allowOverride) {
     const std::string& source = core::Config::get().gameplay.battleSource;
     if (source == "stage") return false;
     if (source == "srtools") return true;
-    return allowOverride;  // "auto"
+    return allowOverride;  // "auto": the calyx only
 }
 
 // Battle types that need a win condition of their own, or the client hangs on the
@@ -82,6 +82,17 @@ void addBattleTargets(proto::SceneBattleInfo& info, const std::string& battleTyp
         }
     } else if (battleType == "AS") {
         target(1, 90005);
+    } else if (battleType == "AA") {
+        // Every slot present; the fight's own targets go in the fifth, each with the
+        // ceiling it is judged against.
+        for (uint32_t key = 1; key <= 4; ++key) info.battle_target_info[key];
+        for (uint32_t id : targets) {
+            const data::BattleTargetInfo* config = data::Tables::get().battleTarget(id);
+            proto::BattleTarget entry;
+            entry.id = id;
+            entry.total_progress = config != nullptr ? config->param : 0;
+            info.battle_target_info[5].battle_target_list.push_back(entry);
+        }
     }
 }
 
@@ -165,16 +176,19 @@ proto::SceneBattleInfo create(Player& player, const BattleRequest& request) {
     if (useSrToolsBattle(config, request.allowSrToolsOverride)) {
         info.stage_id = config.stageId;
         info.rounds_limit = config.cycleCount;
-        for (const std::vector<BattleMonster>& wave : config.waves) {
-            std::vector<uint32_t> ids;
-            uint32_t level = 1;
-            for (const BattleMonster& monster : wave) {
-                for (uint32_t n = 0; n < std::max(1u, monster.amount); ++n) {
-                    ids.push_back(monster.monsterId);
+        // A calyx sweep buys several runs, one fight each, so the build's waves repeat.
+        for (uint32_t run = 0; run < std::max(1u, request.wave); ++run) {
+            for (const std::vector<BattleMonster>& wave : config.waves) {
+                std::vector<uint32_t> ids;
+                uint32_t level = 1;
+                for (const BattleMonster& monster : wave) {
+                    for (uint32_t n = 0; n < std::max(1u, monster.amount); ++n) {
+                        ids.push_back(monster.monsterId);
+                    }
+                    level = std::max(level, monster.level);
                 }
-                level = std::max(level, monster.level);
+                addWave(info, config.stageId, ids, level);
             }
-            addWave(info, config.stageId, ids, level);
         }
         for (const BattleBuff& blessing : config.blessings) {
             proto::BattleBuff buff = makeBuff(blessing.id, blessing.level, kNoOwner);
@@ -228,6 +242,9 @@ proto::SceneBattleInfo create(Player& player, const BattleRequest& request) {
     // ---- what the floor itself brings ----------------------------------------
     if (request.roundsLimit != 0) info.rounds_limit = request.roundsLimit;
     for (uint32_t buffId : {request.mazeBuffId, request.stageBuffId}) {
+        if (buffId != 0) info.buff_list.push_back(makeBuff(buffId, 1, kNoOwner));
+    }
+    for (uint32_t buffId : request.floorBuffIds) {
         if (buffId != 0) info.buff_list.push_back(makeBuff(buffId, 1, kNoOwner));
     }
     if (!request.battleType.empty()) {

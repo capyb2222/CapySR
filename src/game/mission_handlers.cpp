@@ -7,6 +7,7 @@
 //
 // This is also what unlocks the world: the client gates map regions on finished main
 // missions.
+#include "core/config.h"
 #include "core/logger.h"
 #include "data/excel.h"
 #include "game/handlers.h"
@@ -18,9 +19,20 @@
 namespace game {
 namespace {
 
-void onGetMissionStatus(net::Session& session, const proto::GetMissionStatusCsReq& req) {
-    const data::Tables& tables = data::Tables::get();
+// Everything finished, bar the handful config names -- see gameplay.skip_missions.
+std::vector<uint32_t> finishedMainMissions() {
+    const core::GameplayConfig& gameplay = core::Config::get().gameplay;
+    const std::vector<uint32_t>& all = data::Tables::get().mainMissions();
+    if (gameplay.skipMissions.empty()) return all;
+    std::vector<uint32_t> out;
+    out.reserve(all.size());
+    for (uint32_t id : all) {
+        if (!gameplay.missionSkipped(id)) out.push_back(id);
+    }
+    return out;
+}
 
+void onGetMissionStatus(net::Session& session, const proto::GetMissionStatusCsReq& req) {
     proto::GetMissionStatusScRsp rsp;
     rsp.retcode = 0;
     // Whatever it asked about is finished. There are ~15k sub-missions in the tables,
@@ -32,9 +44,9 @@ void onGetMissionStatus(net::Session& session, const proto::GetMissionStatusCsRe
         mission.progress = 1;
         rsp.sub_mission_status_list.push_back(mission);
     }
-    rsp.finished_main_mission_id_list = tables.mainMissions();
+    rsp.finished_main_mission_id_list = finishedMainMissions();
     // The client cross-checks this against the version it is running.
-    rsp.curversion_finished_main_mission_id_list = tables.mainMissions();
+    rsp.curversion_finished_main_mission_id_list = rsp.finished_main_mission_id_list;
     session.send(cmd::GetMissionStatusScRsp, rsp);
 }
 
@@ -43,7 +55,7 @@ void onGetMissionStatus(net::Session& session, const proto::GetMissionStatusCsRe
 void onGetMissionData(net::Session& session, const proto::GetMissionDataCsReq&) {
     proto::GetMissionDataScRsp rsp;
     rsp.retcode = 0;
-    rsp.finished_main_mission_id_list = data::Tables::get().mainMissions();
+    rsp.finished_main_mission_id_list = finishedMainMissions();
     session.send(cmd::GetMissionDataScRsp, rsp);
 }
 

@@ -49,5 +49,11 @@ bool nextPhase(net::Session& session, Player& player, proto::SceneInfo& out);
 // Ends the run and puts the player back where they started.
 void leave(net::Session& session, Player& player);
 
+// Shared with Anomaly Arbitration, which fights with the same kind of team and leaves
+// the same way.
+proto::LineupInfo extraLineup(const Player& player, const std::vector<uint32_t>& party,
+                              proto::ExtraLineupType type);
+void putBack(net::Session& session, Player& player, uint32_t entryId, const Position& at);
+
 }  // namespace challenge
 }  // namespace game

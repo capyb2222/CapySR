@@ -2,6 +2,7 @@
 
 #include <algorithm>
 
+#include "core/config.h"
 #include "core/logger.h"
 #include "data/excel.h"
 #include "data/scene_res.h"
@@ -105,13 +106,18 @@ proto::LineupInfo lineupInfo(const Player& player) {
 }
 
 proto::SceneEntityGroupInfo actorGroup(Player& player, const Position& at) {
+    return actorGroup(player, at, player.lineups().curMembers());
+}
+
+proto::SceneEntityGroupInfo actorGroup(Player& player, const Position& at,
+                                       const std::vector<uint32_t>& members) {
     proto::MotionInfo motion = toMotion(at);
 
     proto::SceneEntityGroupInfo group;
     group.group_id = 0;
 
     uint32_t slot = 0;
-    for (uint32_t avatarId : player.lineups().curMembers()) {
+    for (uint32_t avatarId : members) {
         SceneEntity entity;
         entity.entityId = slot + 1;
         entity.kind = EntityKind::Actor;
@@ -146,7 +152,12 @@ bool load(Player& player, uint32_t entryId, uint32_t teleportId, bool commit,
     // entrance's own anchor, then any pad on the floor.
     Position spawn = player.position();
     const data::ResTeleport* anchor = teleportId != 0 ? floor->teleport(teleportId) : nullptr;
-    if (anchor == nullptr && floor->floorId != player.location().floorId) {
+    if (teleportId != 0 && anchor == nullptr) {
+        logging::warn("scene", "entry {} has no teleport {}, landing on its entrance", entryId,
+                      teleportId);
+    }
+    // A teleport that asked to go somewhere always moves the player, even on this floor.
+    if (anchor == nullptr && (teleportId != 0 || floor->floorId != player.location().floorId)) {
         const data::EntranceInfo* entrance = data::Tables::get().entrance(entryId);
         uint32_t anchorId = entrance != nullptr ? entrance->startAnchorId : 0;
         anchor = data::SceneRes::get().anchor(entryId, anchorId);
@@ -172,7 +183,10 @@ bool load(Player& player, uint32_t entryId, uint32_t teleportId, bool commit,
     scene.game_mode_type = floor->planeType;
     scene.world_id = fixWorldId(floor->worldId);
     scene.lighten_section_list = floor->sections;
-    scene.leader_entity_id = player.lineups().leaderSlot(player.lineups().curIndex()) + 1;
+    // An arena team is led from its first slot.
+    bool arenaTeam = arena != nullptr && arena->party != nullptr;
+    scene.leader_entity_id =
+        arenaTeam ? 1 : player.lineups().leaderSlot(player.lineups().curIndex()) + 1;
     scene.scene_identifier.emplace().floor_id = floor->floorId;
     for (const auto& [name, value] : floor->savedValues) scene.floor_saved_data[name] = value;
 
@@ -274,10 +288,13 @@ bool load(Player& player, uint32_t entryId, uint32_t teleportId, bool commit,
         }
 
         for (uint32_t chest : group.chests) scene.opened_chests_list.push_back(chest);
+        const core::GameplayConfig& gameplay = core::Config::get().gameplay;
         for (uint32_t mission : group.finishedMainMissions) {
+            if (gameplay.missionSkipped(mission)) continue;
             missions.finished_main_mission_id_list.push_back(mission);
         }
         for (uint32_t mission : group.finishedSubMissions) {
+            if (gameplay.missionSkipped(mission)) continue;
             proto::Mission entry;
             entry.id = mission;
             entry.status = proto::MissionStatus::MissionStatus_MissionFinish;
@@ -292,7 +309,8 @@ bool load(Player& player, uint32_t entryId, uint32_t teleportId, bool commit,
 
     // The party is group 0; its entity ids are slot + 1, which is what
     // SceneCastSkill and leader_entity_id refer to.
-    scene.entity_group_list.push_back(actorGroup(player, spawn));
+    scene.entity_group_list.push_back(arenaTeam ? actorGroup(player, spawn, *arena->party)
+                                                : actorGroup(player, spawn));
 
     out = std::move(scene);
     return true;

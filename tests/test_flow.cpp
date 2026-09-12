@@ -439,6 +439,35 @@ void runFlowTests() {
         }
     }
 
+    // Every npc the client asks about comes back as already met, under the id it asked
+    // about: an empty reply is what leaves an npc with no talk option.
+    {
+        proto::GetFirstTalkNpcCsReq talk;
+        talk.npc_id_list = {1001, 1002, 1003};
+        client.send(cmd::GetFirstTalkNpcCsReq, talk);
+        check(client.await(cmd::GetFirstTalkNpcScRsp, packet), "the npc meet query answers");
+
+        proto::GetFirstTalkNpcScRsp talkRsp;
+        check(parseBody(packet, talkRsp), "the npc meet query parses");
+        check(talkRsp.npc_meet_status_list.size() == 3, "one status per npc asked about");
+        bool echoed = talkRsp.npc_meet_status_list.size() == 3;
+        for (size_t i = 0; i < talkRsp.npc_meet_status_list.size(); ++i) {
+            if (talkRsp.npc_meet_status_list[i].npc_id != talk.npc_id_list[i] ||
+                !talkRsp.npc_meet_status_list[i].is_meet) {
+                echoed = false;
+            }
+        }
+        check(echoed, "each carries its own id and is already met");
+
+        proto::GetNpcTakenRewardCsReq reward;
+        reward.npc_id = 1003;
+        client.send(cmd::GetNpcTakenRewardCsReq, reward);
+        check(client.await(cmd::GetNpcTakenRewardScRsp, packet), "the npc reward query answers");
+        proto::GetNpcTakenRewardScRsp rewardRsp;
+        check(parseBody(packet, rewardRsp), "the npc reward query parses");
+        check(rewardRsp.npc_id == 1003, "about the npc that was asked for");
+    }
+
     // A calyx, the way the Survival Index starts one: no prop to walk up to, just a
     // cocoon id and how many runs were bought.
     {
@@ -616,6 +645,282 @@ void runFlowTests() {
         proto::GetCurChallengeScRsp curRsp;
         check(parseBody(packet, curRsp), "the run parses");
         check(!curRsp.cur_challenge.has(), "and there is no longer one going");
+    }
+
+    // The three-node floor: the packet 4.6 starts Memory of Chaos with. Unlike the older
+    // one it carries its arena in the reply rather than in a notify.
+    {
+        proto::StartChallengeTierceCsReq start;
+        start.challenge_id = 5213;
+        for (uint32_t stage = 0; stage < 3; ++stage) {
+            proto::ChallengeTierceStageLineupInfo info;
+            proto::AvatarIdentifier one;
+            one.id = 8001;
+            proto::AvatarIdentifier two;
+            two.id = 1001;
+            info.lineup.push_back(one);
+            info.lineup.push_back(two);
+            start.stage_info_list.push_back(std::move(info));
+        }
+        client.send(cmd::StartChallengeTierceCsReq, start);
+        check(client.await(cmd::StartChallengeTierceScRsp, packet), "starting the floor answers");
+
+        proto::StartChallengeTierceScRsp startRsp;
+        check(parseBody(packet, startRsp), "the start parses");
+        check(startRsp.retcode == 0, "and was accepted");
+        check(startRsp.scene.has(), "with the arena in the reply itself");
+        check(startRsp.challenge_tierce_info.has(), "and the run");
+        if (startRsp.challenge_tierce_info) {
+            check(startRsp.challenge_tierce_info->challenge_id == 5213, "for the floor asked for");
+            check(startRsp.challenge_tierce_info->stage_index == 0, "starting on its first node");
+            check(startRsp.challenge_tierce_info->lineup_list.size() == 3, "with all three teams");
+        }
+
+        uint32_t nodeMonster = 0;
+        size_t nodeMonsters = 0;
+        if (startRsp.scene) {
+            check(startRsp.scene->entry_id == 3014002, "on the floor's own map entrance");
+            for (const proto::SceneEntityGroupInfo& group : startRsp.scene->entity_group_list) {
+                for (const proto::SceneEntityInfo& entity : group.entity_list) {
+                    if (!entity.npc_monster) continue;
+                    ++nodeMonsters;
+                    nodeMonster = entity.entity_id;
+                }
+            }
+        }
+        check(nodeMonsters == 1, "holding only the node's own monster");
+
+        if (nodeMonster != 0) {
+            proto::SceneCastSkillCsReq cast;
+            cast.cast_entity_id = 1;
+            cast.hit_target_entity_id_list.push_back(nodeMonster);
+            client.send(cmd::SceneCastSkillCsReq, cast);
+            check(client.await(cmd::SceneCastSkillScRsp, packet), "the node's fight answers");
+
+            proto::SceneCastSkillScRsp castRsp;
+            check(parseBody(packet, castRsp), "the node's fight parses");
+            check(castRsp.battle_info.has(), "a fight was started");
+            if (castRsp.battle_info) {
+                // The cycle pool is the tierce row's 45, not the floor's own 30.
+                check(castRsp.battle_info->rounds_limit == 45, "with the floor-wide cycle pool");
+                bool mazeBuff = false;
+                for (const proto::BattleBuff& buff : castRsp.battle_info->buff_list) {
+                    if (buff.id == 3030146) mazeBuff = true;
+                }
+                check(mazeBuff, "and the maze buff of the floor it extends");
+
+                proto::PVEBattleResultCsReq result;
+                result.battle_id = castRsp.battle_info->battle_id;
+                result.stage_id = castRsp.battle_info->stage_id;
+                result.end_status = proto::BattleEndStatus::BATTLE_END_WIN;
+                result.stt.emplace().round_cnt = 5;
+                client.send(cmd::PVEBattleResultCsReq, result);
+                check(client.await(cmd::PVEBattleResultScRsp, packet), "the result answers");
+
+                net::Packet syncPacket;
+                check(client.await(cmd::ChallengeTierceSyncNotify, syncPacket),
+                      "clearing a node reports it");
+            }
+        }
+
+        client.sendEmpty(cmd::StartNextChallengeTierceCsReq);
+        check(client.await(cmd::StartNextChallengeTierceScRsp, packet), "the next node answers");
+        proto::StartNextChallengeTierceScRsp nextRsp;
+        check(parseBody(packet, nextRsp), "the next node parses");
+        check(nextRsp.retcode == 0, "and was accepted");
+        check(nextRsp.scene.has(), "carrying its arena too");
+        check(nextRsp.challenge_tierce_info.has() &&
+                  nextRsp.challenge_tierce_info->stage_index == 1,
+              "on the second node now");
+
+        client.sendEmpty(cmd::LeaveChallengeTierceCsReq);
+        check(client.await(cmd::LeaveChallengeTierceScRsp, packet), "leaving answers");
+        check(client.await(cmd::EnterSceneByServerScNotify, packet), "and puts the player back");
+
+        client.sendEmpty(cmd::GetChallengeTierceDataCsReq);
+        check(client.await(cmd::GetChallengeTierceDataScRsp, packet), "the history answers");
+        proto::GetChallengeTierceDataScRsp dataRsp;
+        check(parseBody(packet, dataRsp), "the history parses");
+        bool remembered = false;
+        for (const proto::ChallengeTierceData& entry : dataRsp.challenge_info_list) {
+            if (entry.challenge_id != 5213) continue;
+            remembered = true;
+            check(!entry.result_list.empty(), "with what the run did on it");
+        }
+        check(remembered, "and the floor is in it");
+    }
+
+    // Anomaly Arbitration: a knight on its own arena -- team, start, fight, settle, retry,
+    // leave -- then season ten's boss on hard, whose arena is newer than the scene dump.
+    {
+        client.sendEmpty(cmd::GetChallengePeakDataCsReq);
+        check(client.await(cmd::GetChallengePeakDataScRsp, packet), "arbitration data answered");
+        proto::GetChallengePeakDataScRsp peakData;
+        check(parseBody(packet, peakData), "arbitration data parses");
+        check(peakData.challenge_peak_groups.size() >= 10, "with every season in it");
+        check(peakData.current_peak_group_id == 10, "and the newest on show");
+
+        proto::SetChallengePeakMobLineupAvatarCsReq teams;
+        teams.peak_group_id = 9;
+        proto::ChallengePeakLineup knightTeam;
+        knightTeam.peak_id = 901;
+        knightTeam.peak_avatar_id_list = {8001, 1001};
+        teams.lineup_list.push_back(knightTeam);
+        client.send(cmd::SetChallengePeakMobLineupAvatarCsReq, teams);
+        check(client.await(cmd::SetChallengePeakMobLineupAvatarScRsp, packet),
+              "setting a knight's team answers");
+        net::Packet groupPacket;
+        check(client.await(cmd::ChallengePeakGroupDataUpdateScNotify, groupPacket),
+              "and re-sends the season");
+        proto::ChallengePeakGroupDataUpdateScNotify groupUpdate;
+        check(parseBody(groupPacket, groupUpdate), "the season parses");
+        bool teamKept = false;
+        if (groupUpdate.challenge_peak_group) {
+            for (const proto::ChallengePeak& peak : groupUpdate.challenge_peak_group->peaks) {
+                if (peak.peak_id == 901 && peak.peak_avatar_id_list.size() == 2) teamKept = true;
+            }
+        }
+        check(teamKept, "with the team in the knight's slot");
+
+        // Sent without a team, the start falls back on the one just set.
+        proto::StartChallengePeakCsReq start;
+        start.peak_id = 901;
+        client.send(cmd::StartChallengePeakCsReq, start);
+        check(client.await(cmd::StartChallengePeakScRsp, packet), "starting a knight answers");
+        proto::StartChallengePeakScRsp startRsp;
+        check(parseBody(packet, startRsp), "the start parses");
+        check(startRsp.retcode == 0, "and was accepted");
+
+        auto arenaOf = [&](const char* what, uint32_t& monster, size_t& monsters, size_t& actors,
+                           uint32_t& entryId) {
+            net::Packet arenaPacket;
+            check(client.await(cmd::EnterSceneByServerScNotify, arenaPacket), what);
+            proto::EnterSceneByServerScNotify arena;
+            check(parseBody(arenaPacket, arena), "the arena parses");
+            monster = 0;
+            monsters = actors = 0;
+            entryId = arena.scene ? arena.scene->entry_id : 0;
+            if (!arena.scene) return;
+            for (const proto::SceneEntityGroupInfo& group : arena.scene->entity_group_list) {
+                for (const proto::SceneEntityInfo& entity : group.entity_list) {
+                    if (entity.actor) ++actors;
+                    if (!entity.npc_monster) continue;
+                    ++monsters;
+                    monster = entity.entity_id;
+                }
+            }
+        };
+        uint32_t knight = 0;
+        size_t monsters = 0;
+        size_t actors = 0;
+        uint32_t entryId = 0;
+        arenaOf("the arena went out before the response", knight, monsters, actors, entryId);
+        check(entryId == 3014501, "on the season's own arena");
+        check(monsters == 1, "with the knight and nothing else in it");
+        check(actors == 2, "and the fight's team standing in it, not the squad");
+
+        auto fight = [&](uint32_t monster, uint32_t rounds, proto::SceneBattleInfo& battle) {
+            proto::SceneCastSkillCsReq cast;
+            cast.cast_entity_id = 1;
+            cast.hit_target_entity_id_list.push_back(monster);
+            client.send(cmd::SceneCastSkillCsReq, cast);
+            check(client.await(cmd::SceneCastSkillScRsp, packet), "the fight answers");
+            proto::SceneCastSkillScRsp castRsp;
+            check(parseBody(packet, castRsp), "the fight parses");
+            check(castRsp.battle_info.has(), "a fight was started");
+            if (!castRsp.battle_info) return false;
+            battle = *castRsp.battle_info;
+
+            proto::PVEBattleResultCsReq result;
+            result.battle_id = battle.battle_id;
+            result.stage_id = battle.stage_id;
+            result.end_status = proto::BattleEndStatus::BATTLE_END_WIN;
+            result.stt.emplace().round_cnt = rounds;
+            client.send(cmd::PVEBattleResultCsReq, result);
+            check(client.await(cmd::PVEBattleResultScRsp, packet), "the result answers");
+            return true;
+        };
+        auto targetsIn = [](const proto::SceneBattleInfo& battle) {
+            auto slot = battle.battle_target_info.find(5);
+            return slot == battle.battle_target_info.end() ? size_t{0}
+                                                           : slot->second.battle_target_list.size();
+        };
+
+        proto::SceneBattleInfo battle;
+        if (knight != 0 && fight(knight, 3, battle)) {
+            check(battle.stage_id == 30509011, "against the knight's own stage");
+            check(battle.battle_avatar_list.size() == 2, "with the knight's team");
+            check(targetsIn(battle) == 3, "and its three targets");
+
+            net::Packet settlePacket;
+            check(client.await(cmd::ChallengePeakSettleScNotify, settlePacket),
+                  "winning settles the knight");
+            proto::ChallengePeakSettleScNotify settle;
+            check(parseBody(settlePacket, settle), "the settle parses");
+            check(settle.is_win && settle.peak_id == 901, "as a win for that knight");
+            // Four cycles or fewer, two or fewer, and nobody lost: three cycles meets two.
+            check(settle.finished_target_list.size() == 2, "three cycles meets two targets of three");
+        }
+
+        client.sendEmpty(cmd::GetCurChallengePeakCsReq);
+        check(client.await(cmd::GetCurChallengePeakScRsp, packet), "the fight is queryable");
+        proto::GetCurChallengePeakScRsp cur;
+        check(parseBody(packet, cur), "the fight parses");
+        check(cur.peak_id == 901, "and it is the knight");
+
+        client.sendEmpty(cmd::ReStartChallengePeakCsReq);
+        check(client.await(cmd::ReStartChallengePeakScRsp, packet), "retrying answers");
+        proto::ReStartChallengePeakScRsp restart;
+        check(parseBody(packet, restart), "the retry parses");
+        check(restart.retcode == 0, "and was accepted");
+        arenaOf("the arena went out again", knight, monsters, actors, entryId);
+        check(monsters == 1, "with the knight standing again");
+
+        client.sendEmpty(cmd::LeaveChallengePeakCsReq);
+        check(client.await(cmd::LeaveChallengePeakScRsp, packet), "leaving answers");
+        check(client.await(cmd::EnterSceneByServerScNotify, packet), "and puts the player back");
+
+        proto::SetChallengePeakBossHardModeCsReq hardMode;
+        hardMode.peak_group_id = 10;
+        hardMode.is_hard_mode = true;
+        client.send(cmd::SetChallengePeakBossHardModeCsReq, hardMode);
+        check(client.await(cmd::SetChallengePeakBossHardModeScRsp, packet), "hard mode answers");
+        proto::SetChallengePeakBossHardModeScRsp hardRsp;
+        check(parseBody(packet, hardRsp), "hard mode parses");
+        check(hardRsp.is_hard_mode && hardRsp.peak_group_id == 10, "and is echoed");
+
+        proto::StartChallengePeakCsReq bossStart;
+        bossStart.peak_id = 1004;
+        bossStart.peak_avatar_id_list = {8001, 1001};
+        client.send(cmd::StartChallengePeakCsReq, bossStart);
+        check(client.await(cmd::StartChallengePeakScRsp, packet), "starting the boss answers");
+        check(parseBody(packet, startRsp) && startRsp.retcode == 0, "and was accepted");
+        uint32_t boss = 0;
+        arenaOf("the boss arena went out", boss, monsters, actors, entryId);
+        check(entryId == 3013501, "borrowing season one's arena");
+        check(monsters == 1, "with the boss alone in it");
+
+        if (boss != 0 && fight(boss, 1, battle)) {
+            check(battle.stage_id == 30510022, "against the boss's hard stage");
+            check(targetsIn(battle) == 1, "judged by the hard target alone");
+
+            net::Packet settlePacket;
+            check(client.await(cmd::ChallengePeakSettleScNotify, settlePacket),
+                  "winning settles the boss");
+            proto::ChallengePeakSettleScNotify settle;
+            check(parseBody(settlePacket, settle), "the settle parses");
+            check(settle.is_win && settle.hard_mode_has_passed, "as a hard clear");
+        }
+
+        client.sendEmpty(cmd::LeaveChallengePeakCsReq);
+        check(client.await(cmd::LeaveChallengePeakScRsp, packet), "leaving the boss answers");
+        check(client.await(cmd::EnterSceneByServerScNotify, packet), "and puts the player back");
+
+        client.sendEmpty(cmd::GetCurChallengePeakCsReq);
+        check(client.await(cmd::GetCurChallengePeakScRsp, packet), "the run is queryable");
+        proto::GetCurChallengePeakScRsp after;
+        check(parseBody(packet, after), "the run parses");
+        check(after.peak_id == 0, "and there is no longer one going");
     }
 
     // Every way out of a fight answers. None of these did before, which left the

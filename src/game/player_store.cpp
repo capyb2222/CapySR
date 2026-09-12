@@ -27,6 +27,16 @@ bool boolOr(const json& j, const char* key, bool fallback) {
     return (it != j.end() && it->is_boolean()) ? it->get<bool>() : fallback;
 }
 
+std::vector<uint32_t> u32Array(const json& j, const char* key) {
+    std::vector<uint32_t> out;
+    auto it = j.find(key);
+    if (it == j.end() || !it->is_array()) return out;
+    for (const json& entry : *it) {
+        if (entry.is_number()) out.push_back(entry.get<uint32_t>());
+    }
+    return out;
+}
+
 }  // namespace
 
 bool loadPlayerState(Player& player) {
@@ -104,6 +114,63 @@ bool loadPlayerState(Player& player) {
     }
     book.setCurIndex(u32(j, "cur_squad", book.curIndex()));
     book.setMp(u32(j, "mp", book.maxMp()));
+
+    if (auto peak = j.find("peak"); peak != j.end() && peak->is_object()) {
+        PeakProgress& progress = player.peakProgress();
+        auto ids = [](const json& entry, const char* key) {
+            std::vector<uint32_t> out;
+            auto it = entry.find(key);
+            if (it == entry.end() || !it->is_array()) return out;
+            for (const json& id : *it) {
+                if (id.is_number()) out.push_back(id.get<uint32_t>());
+            }
+            return out;
+        };
+        for (uint32_t groupId : ids(*peak, "hard")) progress.hardGroups.insert(groupId);
+        if (auto fights = peak->find("fights"); fights != peak->end() && fights->is_array()) {
+            for (const json& fight : *fights) {
+                uint32_t id = fight.is_object() ? u32(fight, "id", 0) : 0;
+                if (id == 0) continue;
+                progress.teams[id] = ids(fight, "team");
+                if (uint32_t buff = u32(fight, "buff", 0); buff != 0) progress.bossBuffs[id] = buff;
+            }
+        }
+        if (auto records = peak->find("records"); records != peak->end() && records->is_array()) {
+            for (const json& entry : *records) {
+                uint32_t id = entry.is_object() ? u32(entry, "id", 0) : 0;
+                if (id == 0) continue;
+                PeakRecord& record =
+                    progress.records[PeakProgress::key(id, boolOr(entry, "hard", false))];
+                record.cycles = u32(entry, "cycles", 0);
+                record.targets = ids(entry, "targets");
+                record.team = ids(entry, "team");
+                record.buffId = u32(entry, "buff", 0);
+            }
+        }
+    }
+
+    // The three-node floors: what the team editor last held, and how far each got.
+    if (auto tierce = j.find("tierce"); tierce != j.end() && tierce->is_array()) {
+        for (const json& entry : *tierce) {
+            uint32_t id = entry.is_object() ? u32(entry, "id", 0) : 0;
+            if (id == 0) continue;
+            TierceProgress& progress = player.tierceHistory()[id];
+            progress.passed = boolOr(entry, "passed", false);
+            progress.targets = u32Array(entry, "targets");
+            auto nodes = entry.find("nodes");
+            if (nodes == entry.end() || !nodes->is_array()) continue;
+            for (size_t stage = 0; stage < nodes->size() && stage < 3; ++stage) {
+                const json& node = (*nodes)[stage];
+                if (!node.is_object()) continue;
+                progress.party[stage] = u32Array(node, "team");
+                progress.buffs[stage] = u32(node, "buff", 0);
+                progress.scores[stage] = u32(node, "score", 0);
+                progress.cycles[stage] = u32(node, "cycles", 0);
+                progress.deaths[stage] = u32(node, "deaths", 0);
+                progress.cleared[stage] = boolOr(node, "cleared", false);
+            }
+        }
+    }
     return true;
 }
 
@@ -139,6 +206,43 @@ bool savePlayerState(const Player& player) {
           {"floor_id", player.location().floorId},
           {"entry_id", player.location().entryId}}},
     };
+
+    const PeakProgress& progress = player.peakProgress();
+    json fights = json::array();
+    for (const auto& [id, team] : progress.teams) {
+        auto buff = progress.bossBuffs.find(id);
+        fights.push_back({{"id", id},
+                          {"team", team},
+                          {"buff", buff != progress.bossBuffs.end() ? buff->second : 0u}});
+    }
+    json records = json::array();
+    for (const auto& [key, record] : progress.records) {
+        records.push_back({{"id", key / 2},
+                           {"hard", key % 2 == 1},
+                           {"cycles", record.cycles},
+                           {"targets", record.targets},
+                           {"team", record.team},
+                           {"buff", record.buffId}});
+    }
+    j["peak"] = {{"hard", progress.hardGroups}, {"fights", fights}, {"records", records}};
+
+    json tierce = json::array();
+    for (const auto& [id, floor] : player.tierceHistory()) {
+        json nodes = json::array();
+        for (uint32_t stage = 0; stage < 3; ++stage) {
+            nodes.push_back({{"team", floor.party[stage]},
+                             {"buff", floor.buffs[stage]},
+                             {"score", floor.scores[stage]},
+                             {"cycles", floor.cycles[stage]},
+                             {"deaths", floor.deaths[stage]},
+                             {"cleared", floor.cleared[stage]}});
+        }
+        tierce.push_back({{"id", id},
+                          {"passed", floor.passed},
+                          {"targets", floor.targets},
+                          {"nodes", nodes}});
+    }
+    j["tierce"] = tierce;
 
     const std::string& path = core::Config::get().paths.playerFile;
     if (!util::writeFile(path, j.dump(2))) {

@@ -19,7 +19,10 @@ void registerLineupHandlers();
 void registerSceneHandlers();
 void registerBattleHandlers();
 void registerMissionHandlers();
+void registerTalkHandlers();
 void registerChallengeHandlers();
+void registerTierceHandlers();
+void registerPeakHandlers();
 void registerModuleHandlers();
 void registerMiscHandlers();
 

@@ -18,6 +18,7 @@
 #include "game/roster.h"
 #include "game/scene.h"
 #include "game/srtools.h"
+#include "game/tierce.h"
 #include "net/packet.h"
 #include "tests/harness.h"
 
@@ -213,6 +214,27 @@ void testChallengeHistory() {
     check(rsp.max_level_list.size() == 3, "one max level per mode");
     check(rsp.serialize().size() + net::kPacketOverhead < net::kMaxKcpMessage,
           "the challenge history fits in one kcp message");
+
+    // Anomaly Arbitration. Production rows have no arena, so the beta dump fills it in,
+    // and places season ten, which production does not have at all.
+    check(tables.peakGroups().size() >= 10, "every arbitration season loaded");
+    const data::PeakInfo* knight = tables.peak(101);
+    check(knight != nullptr && knight->mapEntranceId == 3013501 && knight->eventId == 30501011,
+          "a production knight gets its arena from the beta dump");
+    check(knight != nullptr && knight->monsters.size() == 1 &&
+              knight->monsters[0].configId == data::kPeakMarkerId,
+          "and plants one monster over the arena's marker");
+    const data::PeakInfo* boss = tables.peak(1004);
+    check(boss != nullptr && boss->boss && boss->groupId == 10, "1004 is season ten's boss");
+    check(boss != nullptr && boss->mapEntranceId == 3014601 && boss->mazeGroupId == 7,
+          "on its own arena");
+    check(boss != nullptr && boss->hardEventId == 30510022 && boss->hardTarget == 3007,
+          "with a hard stage and target of its own");
+    const data::BattleTargetInfo* turns = tables.battleTarget(3001);
+    check(turns != nullptr && turns->param == 4 && !turns->countsDeaths,
+          "target 3001 is four cycles or fewer");
+    const data::BattleTargetInfo* deaths = tables.battleTarget(3000);
+    check(deaths != nullptr && deaths->countsDeaths, "target 3000 counts avatars lost");
 }
 
 void testSceneRes() {
@@ -500,7 +522,6 @@ void testBattleBuild() {
     request.casterEntityId = 1;
     request.skillIndex = 0;
     request.monsterEntityIds = {monsterEntity};
-    request.allowSrToolsOverride = false;
 
     proto::SceneBattleInfo info = game::battle::create(player, request);
     check(info.battle_id != 0, "the fight got an id");
@@ -563,6 +584,115 @@ void testBattleBuild() {
         if (buff.id == 140703) stillThere = true;
     }
     check(!stillThere, "and can be switched off");
+}
+
+// The third node 4.6 bolts onto a floor: its own arena and monster, everything else
+// borrowed from the floor it extends.
+void testTierceRun() {
+    if (!data::SceneRes::get().loaded() || !data::Tables::get().loaded()) return;
+    const data::Tables& tables = data::Tables::get();
+
+    const data::ChallengeTierceInfo* config = tables.challengeTierce(5213);
+    check(config != nullptr, "the tierce table is loaded");
+    if (config == nullptr) return;
+    check(config->preChallengeId == 5212, "5213 extends Memory of Chaos floor 5212");
+    check(config->roundLimit == 45, "with a cycle pool for the whole floor");
+    check(config->mazeGroupId == 11, "its node is scene group 11");
+    check(config->monsters.size() == 1, "holding one planted monster");
+    check(config->targetIds.size() == 3, "and three star targets");
+    check(tables.challengeTierceFor(5212) == config, "the floor finds it the other way too");
+
+    const data::ChallengeInfo* floor = tables.challenge(config->preChallengeId);
+    check(floor != nullptr, "the floor it extends is loaded");
+    if (floor == nullptr) return;
+
+    game::Player player = makeTestPlayer();
+    std::vector<proto::ChallengeTierceStageLineupInfo> stages(3);
+    for (uint32_t stage = 0; stage < 3; ++stage) {
+        proto::AvatarIdentifier one;
+        one.id = 8001 + stage;
+        stages[stage].lineup.push_back(one);
+        stages[stage].buff_id = 1000 + stage;
+    }
+
+    proto::SceneInfo scene;
+    uint32_t retcode = game::tierce::start(player, 5213, false, 0, stages, scene);
+    check(retcode == 0, "the floor starts");
+    if (retcode != 0) return;
+    check(player.tierce().active, "the run is recorded on the player");
+    check(player.tierce().stage == 0, "on its first node");
+    check(player.tierce().roundsLeft == 45, "with the whole cycle pool");
+    check(player.location().entryId == floor->mapEntranceId,
+          "and the first node is the floor's own arena");
+
+    // The third node is the one the tierce row plants, not one of the floor's two.
+    player.tierce().stage = 2;
+    game::ChallengeArena storage;
+    const game::ChallengeArena* arena = game::tierce::arena(player, storage);
+    check(arena != nullptr && arena->mazeGroupId == config->mazeGroupId,
+          "the last node fights in the tierce's own group");
+    check(arena != nullptr && arena->monsters == &config->monsters,
+          "with the tierce's own monster");
+    player.tierce().stage = 0;
+
+    // What the node brings to a fight comes from both rows.
+    game::BattleRequest request;
+    game::tierce::prepareBattle(player, request);
+    check(request.party.size() == 1, "the node fights with its own team");
+    check(request.mazeBuffId == floor->mazeBuffId, "under the floor's maze buff");
+    check(request.stageBuffId == 1000, "and the buff picked for this node");
+    check(request.roundsLimit == 45, "with the cycles left in the pool");
+
+    // Starting again keeps the spot the first attempt left from.
+    game::SceneLocation origin = player.tierce().origin;
+    proto::SceneInfo again;
+    check(game::tierce::start(player, 5213, false, 0, stages, again) == 0, "a retry starts");
+    check(player.tierce().origin.entryId == origin.entryId, "and goes back to the same place");
+
+    // Every floor with a third node shows up in the history, under the tierce's id.
+    proto::GetChallengeTierceDataScRsp history = game::tierce::history(player);
+    bool found = false;
+    for (const proto::ChallengeTierceData& entry : history.challenge_info_list) {
+        if (entry.challenge_id != 5213) continue;
+        found = true;
+        check(entry.stage_info_list.size() == 3, "with a slot for each of its three nodes");
+    }
+    check(found, "the floor is in the history");
+}
+
+// "auto" hands a calyx over to the srtools build and leaves every other fight on the
+// stage the client named. See gameplay.battle_source.
+void testBattleSourceSplit() {
+    if (!data::Tables::get().loaded()) return;
+    if (core::Config::get().gameplay.battleSource != "auto") return;
+
+    game::Player player = makeTestPlayer();
+    game::Roster roster = player.roster();
+    const game::BattleConfig& build = roster.data().battle;
+    if (build.waves.empty() || build.stageId == 0) {
+        std::printf("SKIP battle source split (the build on disk names no fight)\n");
+        return;
+    }
+    const data::CocoonInfo* cocoon = data::Tables::get().cocoon(1001, player.worldLevel());
+    if (cocoon == nullptr || cocoon->stageIds.empty()) {
+        std::printf("SKIP battle source split (calyx 1001 is not in the tables)\n");
+        return;
+    }
+    uint32_t calyxStage = cocoon->stageIds.front();
+    check(calyxStage != build.stageId, "the calyx and the build name different stages");
+
+    game::BattleRequest calyx;
+    calyx.cocoonId = 1001;
+    calyx.wave = 1;
+    calyx.stageIds.push_back(calyxStage);
+    calyx.allowSrToolsOverride = true;
+    proto::SceneBattleInfo run = game::battle::create(player, calyx);
+    check(run.stage_id == build.stageId, "a calyx fights the srtools build");
+
+    game::BattleRequest shadow;
+    shadow.stageIds.push_back(calyxStage);
+    proto::SceneBattleInfo other = game::battle::create(player, shadow);
+    check(other.stage_id == calyxStage, "every other fight keeps its own stage");
 }
 
 // Writing an equip change back must not drop the parts of the build we do not
@@ -672,6 +802,9 @@ void runGameTests() {
     std::string root = util::findRootDir("config/config.json");
     if (!root.empty()) util::setCurrentDir(root);
     core::Config::get().load("config/config.json");
+    // Anything that saves goes to a scratch file: a test must never write the save a
+    // real client is using.
+    core::Config::get().paths.playerFile = "build/test-player.json";
     data::Tables::get().load(core::Config::get().paths.dataSources);
     data::SceneRes::get().load(core::Config::get().paths.sceneRes);
     data::SceneRes::get().loadAnchors(core::Config::get().paths.anchors);
@@ -688,8 +821,10 @@ void runGameTests() {
     testRosterProtos();
     testSceneBuild();
     testChallengeRun();
+    testTierceRun();
     testEveryScenePacketFits();
     testBattleBuild();
+    testBattleSourceSplit();
     testPropInteraction();
     testSrToolsRoundTrip();
 }

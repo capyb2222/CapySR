@@ -226,6 +226,23 @@ const T* findById(const std::vector<T>& sorted, uint32_t id) {
 
 const ChallengeInfo* Tables::challenge(uint32_t id) const { return findById(challenges_, id); }
 
+const PeakGroupInfo* Tables::peakGroup(uint32_t id) const { return findById(peakGroups_, id); }
+
+const PeakInfo* Tables::peak(uint32_t id) const {
+    auto it = peaks_.find(id);
+    return it == peaks_.end() ? nullptr : &it->second;
+}
+
+const std::vector<uint32_t>* Tables::peakRewards(uint32_t rewardGroupId) const {
+    auto it = peakRewards_.find(rewardGroupId);
+    return it == peakRewards_.end() ? nullptr : &it->second;
+}
+
+const BattleTargetInfo* Tables::battleTarget(uint32_t id) const {
+    auto it = battleTargets_.find(id);
+    return it == battleTargets_.end() ? nullptr : &it->second;
+}
+
 const ChallengeGroupInfo* Tables::challengeGroup(uint32_t groupId) const {
     return findById(challengeGroups_, groupId);
 }
@@ -233,6 +250,18 @@ const ChallengeGroupInfo* Tables::challengeGroup(uint32_t groupId) const {
 const ChallengeTarget* Tables::challengeTarget(uint32_t id) const {
     auto it = challengeTargets_.find(id);
     return it == challengeTargets_.end() ? nullptr : &it->second;
+}
+
+const ChallengeTierceInfo* Tables::challengeTierce(uint32_t id) const {
+    auto it = challengeTierces_.find(id);
+    return it == challengeTierces_.end() ? nullptr : &it->second;
+}
+
+const ChallengeTierceInfo* Tables::challengeTierceFor(uint32_t challengeId) const {
+    for (const auto& [id, info] : challengeTierces_) {
+        if (info.preChallengeId == challengeId) return &info;
+    }
+    return nullptr;
 }
 
 uint64_t Tables::challengeRewardStars(uint32_t rewardLineGroupId) const {
@@ -545,6 +574,31 @@ bool Tables::load(const std::vector<std::string>& sources) {
         challengeFloors("ChallengeStoryMazeConfig.json", ChallengeKind::Story);
         challengeFloors("ChallengeBossMazeConfig.json", ChallengeKind::Boss);
 
+        // The third node, beta-only so far. GNOOAGPBNLD is the floor-wide cycle limit;
+        // only the Memory rows carry one.
+        for (const json* row : table("ChallengeMazeTierceConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0 || challengeTierces_.count(id) != 0) continue;
+            ChallengeTierceInfo info;
+            info.id = id;
+            info.preChallengeId = u32(*row, "PreChallengeMazeID");
+            info.mapEntranceId = u32(*row, "MapEntranceID");
+            info.mazeGroupId = u32(*row, "MazeGroupID");
+            info.roundLimit = u32(*row, "GNOOAGPBNLD");
+            info.targetIds = u32List(*row, "ChallengeTargetID");
+            std::vector<uint32_t> configs = u32List(*row, "ConfigList");
+            std::vector<uint32_t> npcs = u32List(*row, "NpcMonsterIDList");
+            std::vector<uint32_t> events = u32List(*row, "EventIDList");
+            for (size_t i = 0; i < configs.size(); ++i) {
+                ChallengeMonster monster;
+                monster.configId = configs[i];
+                monster.npcMonsterId = i < npcs.size() ? npcs[i] : 0;
+                monster.eventId = i < events.size() ? events[i] : 0;
+                info.monsters.push_back(monster);
+            }
+            if (info.preChallengeId != 0) challengeTierces_.emplace(id, std::move(info));
+        }
+
         // Pure Fiction keeps its turn limit and its score targets one table over.
         for (const json* row : table("ChallengeStoryMazeExtra.json")) {
             uint32_t id = u32(*row, "ID");
@@ -594,6 +648,61 @@ bool Tables::load(const std::vector<std::string>& sources) {
         challengeRewards("ChallengeStoryRewardLine.json");
         challengeRewards("ChallengeBossRewardLine.json");
 
+        // Anomaly Arbitration. Only the beta dump places the fights -- production rows
+        // have no arena columns -- so a later source fills what an earlier one left
+        // empty rather than losing the row to it. The last entry of each list is the
+        // encounter itself.
+        for (const json* row : table("ChallengePeakConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0) continue;
+            PeakInfo& peak = peaks_[id];
+            peak.id = id;
+            if (peak.mapEntranceId == 0) peak.mapEntranceId = u32(*row, "MapEntranceID");
+            if (peak.mazeGroupId == 0) peak.mazeGroupId = u32(*row, "MazeGroupID");
+            if (peak.npcMonsterId == 0) {
+                std::vector<uint32_t> npcs = u32List(*row, "NpcMonsterIDList");
+                if (!npcs.empty()) peak.npcMonsterId = npcs.back();
+            }
+            if (peak.eventId == 0) {
+                std::vector<uint32_t> events = u32List(*row, "EventIDList");
+                if (!events.empty()) peak.eventId = events.back();
+            }
+            if (peak.targetIds.empty()) peak.targetIds = u32List(*row, "NormalTargetList");
+            if (peak.tagBuffs.empty()) peak.tagBuffs = u32List(*row, "TagList");
+        }
+        for (const json* row : table("ChallengePeakBossConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0) continue;
+            PeakInfo& peak = peaks_[id];
+            if (peak.boss) continue;
+            peak.id = id;
+            peak.boss = true;
+            peak.bossBuffs = u32List(*row, "BuffList");
+            peak.hardTarget = u32(*row, "HardTarget");
+            std::vector<uint32_t> events = u32List(*row, "HardEventIDList");
+            if (!events.empty()) peak.hardEventId = events.back();
+            peak.hardTagBuffs = u32List(*row, "HardTagList");
+        }
+        for (const json* row : table("ChallengePeakGroupConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0) continue;
+            peakGroups_.push_back({id, u32List(*row, "PreLevelIDList"), u32(*row, "BossLevelID"),
+                                   u32(*row, "RewardGroupID")});
+        }
+        for (const json* row : table("ChallengePeakReward.json")) {
+            uint32_t id = u32(*row, "ID");
+            uint32_t group = u32(*row, "RewardGroupID");
+            if (id == 0 || group == 0) continue;
+            std::vector<uint32_t>& ids = peakRewards_[group];
+            if (std::find(ids.begin(), ids.end(), id) == ids.end()) ids.push_back(id);
+        }
+        for (const json* row : table("BattleTargetConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0 || battleTargets_.count(id) != 0) continue;
+            bool deaths = str(*row, "AbilityName").find("DeathCount") != std::string::npos;
+            battleTargets_.emplace(id, BattleTargetInfo{id, u32(*row, "TargetParam"), deaths});
+        }
+
         for (const json* row : table("InteractConfig.json")) {
             uint32_t id = u32(*row, "InteractID");
             if (id == 0 || interacts_.count(id) != 0) continue;
@@ -634,6 +743,21 @@ bool Tables::load(const std::vector<std::string>& sources) {
     };
     sortById(challenges_);
     sortById(challengeGroups_);
+    sortById(peakGroups_);
+
+    // Each fight learns its season, and plants its one monster over the arena's marker.
+    for (const PeakGroupInfo& group : peakGroups_) {
+        for (uint32_t id : group.mobIds) {
+            if (auto it = peaks_.find(id); it != peaks_.end()) it->second.groupId = group.id;
+        }
+        if (auto it = peaks_.find(group.bossId); it != peaks_.end()) it->second.groupId = group.id;
+    }
+    for (auto& [id, peak] : peaks_) {
+        if (peak.eventId != 0) peak.monsters = {{kPeakMarkerId, peak.npcMonsterId, peak.eventId}};
+        if (peak.hardEventId != 0) {
+            peak.hardMonsters = {{kPeakMarkerId, peak.npcMonsterId, peak.hardEventId}};
+        }
+    }
 
     for (ChallengeInfo& floor : challenges_) {
         auto extra = challengeExtras_.find(floor.id);
@@ -653,8 +777,8 @@ bool Tables::load(const std::vector<std::string>& sources) {
                   "{} plane events from {} source(s) in {} ms",
                   avatars_.size(), skillPointCount_, stages_.size(), monsters_.size(),
                   entrances_.size(), planeEvents_.size(), used, util::nowMs() - started);
-    logging::info("data", "{} challenge floors in {} seasons",
-                  challenges_.size(), challengeGroups_.size());
+    logging::info("data", "{} challenge floors in {} seasons, {} of them with a third node",
+                  challenges_.size(), challengeGroups_.size(), challengeTierces_.size());
     logging::info("data", "{} main missions, {} tutorials, {} guides, {} quests",
                   mainMissions_.size(), tutorials_.size(), tutorialGuides_.size(),
                   quests_.size());

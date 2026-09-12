@@ -20,8 +20,9 @@ struct BattleRequest {
     std::vector<uint32_t> stageIds;
     uint32_t cocoonId = 0;
     uint32_t wave = 0;
-    // Calyx and challenges keep their own stage even when a srtools build is loaded.
-    bool allowSrToolsOverride = true;
+    // Only a calyx hands its fight over to a srtools build; everything else keeps the
+    // stage it named. See gameplay.battle_source.
+    bool allowSrToolsOverride = false;
 
     // ---- challenges ----------------------------------------------------------
     // The team fighting this node, when it is not the squad the player walks around
@@ -30,10 +31,12 @@ struct BattleRequest {
     // The floor's own maze buff, and the one the player picked for this half.
     uint32_t mazeBuffId = 0;
     uint32_t stageBuffId = 0;
+    // Anomaly Arbitration's enemy tags and the boss buff the player picked.
+    std::vector<uint32_t> floorBuffIds;
     // MoC's cycle limit, counted down across the whole floor.
     uint32_t roundsLimit = 0;
-    // "PF" or "AS": the two scored modes need a win condition of their own or the
-    // client hangs on the last turn with nothing to settle.
+    // "PF", "AS" or "AA": modes that need a win condition of their own, or the client
+    // hangs on the last turn with nothing to settle.
     std::string battleType;
     // Score carried in from the first half, and Pure Fiction's per-wave targets.
     uint32_t scoreSoFar = 0;

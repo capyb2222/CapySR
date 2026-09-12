@@ -81,15 +81,15 @@ proto::GetChallengeScRsp history() {
     return rsp;
 }
 
-proto::LineupInfo lineup(const Player& player, uint32_t stage) {
-    const std::vector<uint32_t>& party = player.challenge().party[half(stage)];
+proto::LineupInfo extraLineup(const Player& player, const std::vector<uint32_t>& party,
+                              proto::ExtraLineupType type) {
     Roster roster = player.roster();
 
     proto::LineupInfo info;
-    info.extra_lineup_type = lineupTypeOf(stage);
+    info.extra_lineup_type = type;
     // An extra lineup is addressed as its type plus ten, which is how the client keeps
     // it out of the six ordinary squads.
-    info.index = static_cast<uint32_t>(info.extra_lineup_type) + 10;
+    info.index = static_cast<uint32_t>(type) + 10;
     info.max_mp = maxMp(party);
     info.mp = info.max_mp;
     info.leader_slot = 0;
@@ -99,6 +99,10 @@ proto::LineupInfo lineup(const Player& player, uint32_t stage) {
         info.avatar_list.push_back(roster.toLineupAvatar(avatarId, slot++));
     }
     return info;
+}
+
+proto::LineupInfo lineup(const Player& player, uint32_t stage) {
+    return extraLineup(player, player.challenge().party[half(stage)], lineupTypeOf(stage));
 }
 
 proto::CurChallenge current(const Player& player) {
@@ -124,9 +128,10 @@ proto::CurChallenge current(const Player& player) {
 const ChallengeArena* arena(const Player& player, ChallengeArena& storage) {
     const data::ChallengeInfo* config = configOf(player);
     if (config == nullptr) return nullptr;
-    const data::ChallengeStage& stage = config->stages[half(player.challenge().stage)];
-    storage.mazeGroupId = stage.mazeGroupId;
-    storage.monsters = &stage.monsters;
+    uint32_t stage = player.challenge().stage;
+    storage.mazeGroupId = config->stages[half(stage)].mazeGroupId;
+    storage.monsters = &config->stages[half(stage)].monsters;
+    storage.party = &player.challenge().party[half(stage)];
     return &storage;
 }
 
@@ -288,14 +293,7 @@ bool nextPhase(net::Session& session, Player& player, proto::SceneInfo& out) {
     return true;
 }
 
-void leave(net::Session& session, Player& player) {
-    ChallengeRun& run = player.challenge();
-    if (!run.active) return;
-
-    uint32_t entryId = run.origin.entryId;
-    Position at = run.originPos;
-    run = ChallengeRun{};
-
+void putBack(net::Session& session, Player& player, uint32_t entryId, const Position& at) {
     proto::SceneInfo scene;
     if (!scene::load(player, entryId, 0, true, scene)) {
         logging::warn("challenge", "cannot put the player back at entry {}", entryId);
@@ -313,6 +311,16 @@ void leave(net::Session& session, Player& player) {
     sync.lineup = scene::lineupInfo(player);
     session.send(cmd::SyncLineupNotify, sync);
     player.saveNow();
+}
+
+void leave(net::Session& session, Player& player) {
+    ChallengeRun& run = player.challenge();
+    if (!run.active) return;
+
+    uint32_t entryId = run.origin.entryId;
+    Position at = run.originPos;
+    run = ChallengeRun{};
+    putBack(session, player, entryId, at);
 }
 
 }  // namespace challenge

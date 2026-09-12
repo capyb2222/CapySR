@@ -1,7 +1,9 @@
 #pragma once
 
 #include <cstdint>
+#include <map>
 #include <memory>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -47,6 +49,81 @@ struct ChallengeRun {
     const std::vector<uint32_t>& curParty() const { return party[stage > 1 ? 1 : 0]; }
 };
 
+// An Anomaly Arbitration fight in progress: one team, one monster, no second node.
+struct PeakRun {
+    bool active = false;
+    uint32_t peakId = 0;
+    uint32_t groupId = 0;
+    bool hard = false;
+    uint32_t buffId = 0;  // the boss buff the player picked
+    std::vector<uint32_t> party;
+    // The arena actually entered; a season newer than the scene dump borrows another.
+    uint32_t entryId = 0;
+    uint32_t mazeGroupId = 0;
+    SceneLocation origin;
+    Position originPos;
+};
+
+// The three-node run 4.6 replaced Memory of Chaos's two with. Each node brings its own
+// team and its own buff, and the cycle pool is spent across all three.
+struct TierceRun {
+    bool active = false;
+    uint32_t tierceId = 0;
+    uint32_t stage = 0;  // 0..2
+    // Replaying one cleared node rather than walking the whole floor.
+    bool singleStage = false;
+    bool passed = false;
+    uint32_t roundsLeft = 0;
+    uint32_t deaths[3] = {0, 0, 0};
+    uint32_t cycles[3] = {0, 0, 0};
+    uint32_t scores[3] = {0, 0, 0};
+    // proto::BattleEndStatus per node, as the result list reports it.
+    uint32_t endStatus[3] = {0, 0, 0};
+    uint32_t buffs[3] = {0, 0, 0};
+    std::vector<uint32_t> party[3];
+    SceneLocation origin;
+    Position originPos;
+
+    uint32_t totalScore() const { return scores[0] + scores[1] + scores[2]; }
+    const std::vector<uint32_t>& curParty() const { return party[stage < 3 ? stage : 2]; }
+};
+
+// What the three-node history remembers between runs: the teams and buffs the player
+// last set per floor, and how far they got.
+struct TierceProgress {
+    std::vector<uint32_t> party[3];
+    uint32_t buffs[3] = {0, 0, 0};
+    uint32_t scores[3] = {0, 0, 0};
+    uint32_t cycles[3] = {0, 0, 0};
+    uint32_t deaths[3] = {0, 0, 0};
+    bool cleared[3] = {false, false, false};
+    bool passed = false;
+    std::vector<uint32_t> targets;
+};
+
+// A cleared Anomaly Arbitration fight, as the overview shows it.
+struct PeakRecord {
+    uint32_t cycles = 0;
+    std::vector<uint32_t> targets;
+    std::vector<uint32_t> team;
+    uint32_t buffId = 0;
+};
+
+// What the Anomaly Arbitration overview remembers between fights and restarts: the
+// last team and boss buff per fight, the seasons on hard, and the best clears.
+struct PeakProgress {
+    std::map<uint32_t, std::vector<uint32_t>> teams;
+    std::map<uint32_t, uint32_t> bossBuffs;
+    std::set<uint32_t> hardGroups;
+    std::map<uint32_t, PeakRecord> records;  // by key()
+
+    static uint32_t key(uint32_t peakId, bool hard) { return peakId * 2 + (hard ? 1 : 0); }
+    const PeakRecord* record(uint32_t peakId, bool hard) const {
+        auto it = records.find(key(peakId, hard));
+        return it == records.end() ? nullptr : &it->second;
+    }
+};
+
 // One logged-in account: identity, party, position and the current fight.
 class Player {
 public:
@@ -83,6 +160,14 @@ public:
     const BattleContext& battle() const { return battle_; }
     ChallengeRun& challenge() { return challenge_; }
     const ChallengeRun& challenge() const { return challenge_; }
+    PeakRun& peak() { return peak_; }
+    const PeakRun& peak() const { return peak_; }
+    TierceRun& tierce() { return tierce_; }
+    const TierceRun& tierce() const { return tierce_; }
+    std::map<uint32_t, TierceProgress>& tierceHistory() { return tierceHistory_; }
+    const std::map<uint32_t, TierceProgress>& tierceHistory() const { return tierceHistory_; }
+    PeakProgress& peakProgress() { return peakProgress_; }
+    const PeakProgress& peakProgress() const { return peakProgress_; }
 
     uint32_t mainCharacter() const { return mainCharacter_; }
     void setMainCharacter(uint32_t value) { mainCharacter_ = value; }
@@ -120,6 +205,10 @@ private:
     SceneState sceneState_;
     BattleContext battle_;
     ChallengeRun challenge_;
+    PeakRun peak_;
+    PeakProgress peakProgress_;
+    TierceRun tierce_;
+    std::map<uint32_t, TierceProgress> tierceHistory_;
 
     uint32_t mainCharacter_ = 8008;
     uint32_t marchType_ = 1224;

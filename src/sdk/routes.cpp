@@ -1,5 +1,8 @@
 #include "sdk/routes.h"
 
+#include <mutex>
+#include <string>
+
 #include <nlohmann/json.hpp>
 
 #include "core/config.h"
@@ -13,6 +16,9 @@ using json = nlohmann::json;
 
 namespace sdk {
 namespace {
+
+std::mutex versionMutex;
+std::string lastVersion;
 
 json accountBlock(const std::string& uid, const std::string& token) {
     return json{{"uid", uid},
@@ -101,6 +107,11 @@ std::string gatewayBody(const std::string& version) {
 
 }  // namespace
 
+std::string lastClientVersion() {
+    std::lock_guard<std::mutex> lock(versionMutex);
+    return lastVersion;
+}
+
 void registerRoutes(http::Server& server) {
     server.get("/query_dispatch", [](const http::Request&, http::Response& res) {
         res.text(dispatchBody());
@@ -108,6 +119,10 @@ void registerRoutes(http::Server& server) {
 
     server.get("/query_gateway", [](const http::Request& req, http::Response& res) {
         std::string version = req.queryValue("version");
+        {
+            std::lock_guard<std::mutex> lock(versionMutex);
+            lastVersion = version;
+        }
         logging::info("dispatch", "query_gateway version={} seed={}", version,
                   req.queryValue("dispatch_seed"));
         res.text(gatewayBody(version));

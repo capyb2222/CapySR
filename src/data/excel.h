@@ -127,6 +127,20 @@ struct ChallengeInfo {
     ChallengeStage stages[2];
 };
 
+// The third node 4.6 bolts onto a challenge floor. It brings its own arena, monster and
+// star targets; the buff, the mode and the first two nodes come from the floor it
+// extends. The client starts the whole floor through this once a row exists for it.
+struct ChallengeTierceInfo {
+    uint32_t id = 0;
+    uint32_t preChallengeId = 0;  // PreChallengeMazeID, the floor this extends
+    uint32_t mapEntranceId = 0;
+    uint32_t mazeGroupId = 0;
+    // Cycles for the whole floor, MoC only; the other two keep the floor's own limit.
+    uint32_t roundLimit = 0;
+    std::vector<uint32_t> targetIds;
+    std::vector<ChallengeMonster> monsters;
+};
+
 // How one star is earned. MoC counts cycles left and deaths; the other two only score.
 struct ChallengeTarget {
     uint32_t id = 0;
@@ -140,6 +154,47 @@ struct ChallengeGroupInfo {
     uint32_t id = 0;
     uint32_t rewardLineGroupId = 0;
     ChallengeKind kind = ChallengeKind::Memory;
+};
+
+// Every Anomaly Arbitration arena keeps its one monster at this instance id.
+constexpr uint32_t kPeakMarkerId = 200001;
+
+// One Anomaly Arbitration fight: a knight, or the season's boss. Like the other
+// challenges it is fought on an ordinary floor cut down to one maze group, where a
+// single monster starts the stage its event names.
+struct PeakInfo {
+    uint32_t id = 0;
+    uint32_t groupId = 0;
+    uint32_t mapEntranceId = 0;
+    uint32_t mazeGroupId = 0;
+    uint32_t npcMonsterId = 0;
+    uint32_t eventId = 0;
+    std::vector<uint32_t> targetIds;  // NormalTargetList
+    std::vector<uint32_t> tagBuffs;   // the enemy tags, TagList
+    std::vector<ChallengeMonster> monsters;
+    // The boss only: the buffs the player picks one of, and what hard mode swaps in.
+    bool boss = false;
+    std::vector<uint32_t> bossBuffs;
+    uint32_t hardTarget = 0;
+    uint32_t hardEventId = 0;
+    std::vector<uint32_t> hardTagBuffs;
+    std::vector<ChallengeMonster> hardMonsters;
+};
+
+// One Anomaly Arbitration season: three knights and a boss.
+struct PeakGroupInfo {
+    uint32_t id = 0;
+    std::vector<uint32_t> mobIds;
+    uint32_t bossId = 0;
+    uint32_t rewardGroupId = 0;
+};
+
+// BattleTargetConfig, as far as a result is judged by it: a ceiling on the cycles used,
+// or on the avatars lost.
+struct BattleTargetInfo {
+    uint32_t id = 0;
+    uint32_t param = 0;
+    bool countsDeaths = false;
 };
 
 // MazePlane.PlaneType strings, in the numbering SceneInfo.game_mode_type uses.
@@ -205,12 +260,23 @@ public:
 
     // Every floor and season of the three challenge modes, in id order.
     const std::vector<ChallengeInfo>& challenges() const { return challenges_; }
+    // Keyed by the tierce's own id, and by the floor it extends.
+    const ChallengeTierceInfo* challengeTierce(uint32_t id) const;
+    const ChallengeTierceInfo* challengeTierceFor(uint32_t challengeId) const;
     const std::vector<ChallengeGroupInfo>& challengeGroups() const { return challengeGroups_; }
     const ChallengeInfo* challenge(uint32_t id) const;
     const ChallengeGroupInfo* challengeGroup(uint32_t groupId) const;
     const ChallengeTarget* challengeTarget(uint32_t id) const;
     // Bit n set for every star count the reward line of that group pays out at.
     uint64_t challengeRewardStars(uint32_t rewardLineGroupId) const;
+
+    // Anomaly Arbitration seasons in id order, and the fights they are made of.
+    const std::vector<PeakGroupInfo>& peakGroups() const { return peakGroups_; }
+    const PeakGroupInfo* peakGroup(uint32_t id) const;
+    const PeakInfo* peak(uint32_t id) const;
+    // ChallengePeakReward rows paid out by one reward group.
+    const std::vector<uint32_t>* peakRewards(uint32_t rewardGroupId) const;
+    const BattleTargetInfo* battleTarget(uint32_t id) const;
 
     const std::unordered_map<uint32_t, AvatarInfo>& avatars() const { return avatars_; }
     const std::unordered_map<uint32_t, EntranceInfo>& entrances() const { return entrances_; }
@@ -240,6 +306,7 @@ private:
     std::vector<uint32_t> tutorialGuides_;
     std::vector<uint32_t> quests_;
     std::vector<ChallengeInfo> challenges_;
+    std::unordered_map<uint32_t, ChallengeTierceInfo> challengeTierces_;
     std::vector<ChallengeGroupInfo> challengeGroups_;
     std::unordered_map<uint32_t, ChallengeTarget> challengeTargets_;
     // ChallengeStoryMazeExtra, held only until load() folds it into the floors.
@@ -249,6 +316,10 @@ private:
     };
     std::unordered_map<uint32_t, ChallengeExtra> challengeExtras_;
     std::unordered_map<uint32_t, uint64_t> challengeRewardStars_;
+    std::vector<PeakGroupInfo> peakGroups_;
+    std::unordered_map<uint32_t, PeakInfo> peaks_;
+    std::unordered_map<uint32_t, std::vector<uint32_t>> peakRewards_;
+    std::unordered_map<uint32_t, BattleTargetInfo> battleTargets_;
     size_t skillPointCount_ = 0;
     bool loaded_ = false;
 };

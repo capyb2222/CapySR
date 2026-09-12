@@ -1,8 +1,16 @@
 {
   "server": {
     "name": "CapySR",
-    "http": { "bind": "0.0.0.0", "port": 21000, "public_host": "127.0.0.1" },
-    "game": { "bind": "0.0.0.0", "port": 23301, "public_host": "127.0.0.1" }
+    "http": {
+      "bind": "0.0.0.0",
+      "port": 21000,
+      "public_host": "127.0.0.1"
+    },
+    "game": {
+      "bind": "0.0.0.0",
+      "port": 23301,
+      "public_host": "127.0.0.1"
+    }
   },
   "log": {
     "level": "debug",
@@ -35,7 +43,8 @@
     "global_buffs": true,
     "unlock_all_challenges": true,
     "main_character": 8008,
-    "march_type": 1224
+    "march_type": 1224,
+    "skip_missions": []
   },
   "paths": {
     "srtools_file": "data/freesr-data.json",
