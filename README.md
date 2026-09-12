@@ -24,7 +24,7 @@ Then find the outputs at `build\bin\`
 
 ## Running it
 
-Supports both `CN` and `OS` client. You can get the latest client here: [CN](https://gofile.io/d/vtV5JfkO) or [OS](https://gofile.io/d/wAT1UiJj). Recommends you use 7z to extract.
+Supports both `CN` and `OS` client. You can get the latest client here: [CN](https://gofile.io/d/vtV5JfkO) or [OS](https://gofile.io/d/ZgH1t8NP). Recommends you use 7z to extract.
 
 1. Copy `launcher.exe` and `hkrpg.dll` from launcher folder inside CapySR and paste them inside your client folder (Thank you Reversed Rooms)
 2. Start the server: `build\bin\capysr.exe`.
