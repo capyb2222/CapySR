@@ -173,7 +173,8 @@ proto::SceneBattleInfo create(Player& player, const BattleRequest& request) {
     }
 
     // ---- what they are fighting ----------------------------------------------
-    if (useSrToolsBattle(config, request.allowSrToolsOverride)) {
+    bool srtools = useSrToolsBattle(config, request.allowSrToolsOverride);
+    if (srtools) {
         info.stage_id = config.stageId;
         info.rounds_limit = config.cycleCount;
         // A calyx sweep buys several runs, one fight each, so the build's waves repeat.
@@ -289,10 +290,20 @@ proto::SceneBattleInfo create(Player& player, const BattleRequest& request) {
     context.cocoonId = request.cocoonId;
     context.wave = request.wave;
     context.monsterEntityIds = request.monsterEntityIds;
+    // A srtools build fighting in the calyx's place is not a farming run.
+    context.staminaCost = srtools ? 0 : request.staminaCost;
+    context.mappingInfoId = srtools ? 0 : request.mappingInfoId;
+    context.worldLevel = request.worldLevel != 0 ? request.worldLevel : player.worldLevel();
+    context.runs = std::max(1u, request.wave);
 
     logging::debug("battle", "battle {} stage {} with {} wave(s) and {} buff(s)", info.battle_id,
                    info.stage_id, info.monster_wave_list.size(), info.buff_list.size());
     return info;
+}
+
+bool srToolsTakesOver(const Player& player, const BattleRequest& request) {
+    Roster roster = player.roster();
+    return useSrToolsBattle(roster.data().battle, request.allowSrToolsOverride);
 }
 
 }  // namespace battle

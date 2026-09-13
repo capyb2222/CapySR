@@ -23,6 +23,24 @@ struct BattleContext {
     uint32_t wave = 0;
     std::vector<uint32_t> monsterEntityIds;
     bool active = false;
+    // A calyx or shadow run: what a win costs and which drop table it pays from.
+    uint32_t staminaCost = 0;
+    uint32_t mappingInfoId = 0;
+    uint32_t worldLevel = 0;
+    uint32_t runs = 1;
+};
+
+// Stamina, the wallet and the bag. Saved.
+struct Inventory {
+    uint32_t stamina = 240;
+    uint32_t reserveStamina = 0;
+    int64_t staminaUpdatedAt = 0;  // unix seconds stamina was last brought up to date
+    uint32_t purchasesToday = 0;
+    int64_t purchaseDay = 0;  // the local date of those purchases, as yyyymmdd
+    uint32_t hcoin = 0;
+    uint32_t scoin = 0;
+    uint32_t mcoin = 0;
+    std::map<uint32_t, uint32_t> items;
 };
 
 // A challenge run in progress. Not persisted: leaving the client mid-floor drops the
@@ -137,12 +155,14 @@ public:
     void setSignature(std::string value) { signature_ = std::move(value); }
     uint32_t level() const { return level_; }
     uint32_t worldLevel() const { return worldLevel_; }
-    uint32_t stamina() const { return stamina_; }
+    uint32_t stamina() const { return inventory_.stamina; }
     uint32_t headIcon() const { return headIcon_; }
     void setHeadIcon(uint32_t value) { headIcon_ = value; }
-    uint32_t hcoin() const { return hcoin_; }
-    uint32_t scoin() const { return scoin_; }
-    uint32_t mcoin() const { return mcoin_; }
+    uint32_t hcoin() const { return inventory_.hcoin; }
+    uint32_t scoin() const { return inventory_.scoin; }
+    uint32_t mcoin() const { return inventory_.mcoin; }
+    Inventory& inventory() { return inventory_; }
+    const Inventory& inventory() const { return inventory_; }
     uint64_t loginRandom() const { return loginRandom_; }
     void setLoginRandom(uint64_t value) { loginRandom_ = value; }
 
@@ -195,12 +215,9 @@ private:
     std::string signature_;
     uint32_t level_ = 1;
     uint32_t worldLevel_ = 0;
-    uint32_t stamina_ = 240;
     uint32_t headIcon_ = 201001;
-    uint32_t hcoin_ = 0;
-    uint32_t scoin_ = 0;
-    uint32_t mcoin_ = 0;
     uint64_t loginRandom_ = 0;
+    Inventory inventory_;
 
     LineupBook lineups_;
     Position position_;

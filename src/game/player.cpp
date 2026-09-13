@@ -90,11 +90,11 @@ Player::Player(uint32_t uid) : uid_(uid) {
     signature_ = defaults.signature;
     level_ = defaults.level;
     worldLevel_ = defaults.worldLevel;
-    stamina_ = defaults.stamina;
     headIcon_ = defaults.headIcon;
-    hcoin_ = defaults.hcoin;
-    scoin_ = defaults.scoin;
-    mcoin_ = defaults.mcoin;
+    inventory_.stamina = defaults.stamina;
+    inventory_.hcoin = defaults.hcoin;
+    inventory_.scoin = defaults.scoin;
+    inventory_.mcoin = defaults.mcoin;
 }
 
 uint32_t Player::gender() const {

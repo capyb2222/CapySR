@@ -20,6 +20,10 @@ struct BattleRequest {
     std::vector<uint32_t> stageIds;
     uint32_t cocoonId = 0;
     uint32_t wave = 0;
+    // A calyx or shadow run: what a win costs, and which drop table pays out.
+    uint32_t staminaCost = 0;
+    uint32_t mappingInfoId = 0;
+    uint32_t worldLevel = 0;
     // Only a calyx hands its fight over to a srtools build; everything else keeps the
     // stage it named. See gameplay.battle_source.
     bool allowSrToolsOverride = false;
@@ -48,6 +52,9 @@ namespace battle {
 // Assembles the SceneBattleInfo the client simulates, and records the fight on the
 // player so PVEBattleResult can be answered.
 proto::SceneBattleInfo create(Player& player, const BattleRequest& request);
+
+// Whether a srtools build takes this fight over, which makes it cost and pay nothing.
+bool srToolsTakesOver(const Player& player, const BattleRequest& request);
 
 }  // namespace battle
 }  // namespace game

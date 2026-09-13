@@ -6,6 +6,7 @@
 #include "game/battle.h"
 #include "game/challenge.h"
 #include "game/handlers.h"
+#include "game/inventory.h"
 #include "game/notify.h"
 #include "game/peak.h"
 #include "game/player.h"
@@ -181,26 +182,57 @@ void onSceneCastSkillCostMp(net::Session& session, const proto::SceneCastSkillCo
     session.send(cmd::SceneCastSkillCostMpScRsp, rsp);
 }
 
+int64_t now() { return static_cast<int64_t>(util::nowSec()); }
+
 // Calyx: the one fight a srtools build is allowed to take over, monsters, blessings and
 // all. `wave` is how many runs were bought, one stage each.
-proto::SceneBattleInfo cocoonBattle(Player& player, uint32_t cocoonId, uint32_t wave,
-                                    uint32_t worldLevel) {
+BattleRequest cocoonRequest(uint32_t cocoonId, uint32_t wave, uint32_t worldLevel) {
     BattleRequest request;
     request.cocoonId = cocoonId;
     request.wave = std::max(1u, wave);
     request.allowSrToolsOverride = true;
+    request.worldLevel = worldLevel;
 
     const data::CocoonInfo* cocoon = data::Tables::get().cocoon(cocoonId, worldLevel);
     if (cocoon == nullptr || cocoon->stageIds.empty()) {
         logging::warn("battle", "cocoon {} has no stage at world level {}", cocoonId, worldLevel);
-        return battle::create(player, request);
+        return request;
     }
+    request.staminaCost = cocoon->staminaCost * request.wave;
+    request.mappingInfoId = cocoon->mappingInfoId;
     // Each run draws one of the calyx's stage variants, as the real server does.
     for (uint32_t run = 0; run < request.wave; ++run) {
         uint32_t pick = util::randomRange(0, static_cast<uint32_t>(cocoon->stageIds.size()) - 1);
         request.stageIds.push_back(cocoon->stageIds[pick]);
     }
-    return battle::create(player, request);
+    return request;
+}
+
+// A run the stamina does not cover is refused before it starts. A srtools build fighting
+// in its place costs nothing.
+bool affordable(Player& player, const BattleRequest& request) {
+    if (request.staminaCost == 0 || battle::srToolsTakesOver(player, request)) return true;
+    inventory::refreshStamina(player, now());
+    return player.stamina() >= request.staminaCost;
+}
+
+// Charges `cost`, rolls `runs` runs of the drop table into the bag and tells the client.
+std::vector<data::ItemStack> payOut(net::Session& session, Player& player, uint32_t mappingInfoId,
+                                    uint32_t worldLevel, uint32_t runs, uint32_t cost) {
+    std::vector<data::ItemStack> drops;
+    if (const data::MappingInfo* table = inventory::dropTable(mappingInfoId, worldLevel)) {
+        for (uint32_t run = 0; run < runs; ++run) {
+            std::vector<data::ItemStack> rolled = inventory::rollDrops(*table, gachaRoll);
+            drops.insert(drops.end(), rolled.begin(), rolled.end());
+        }
+    }
+    drops = inventory::merged(drops);
+    inventory::chargeStamina(player, cost, now());
+    inventory::grant(player, drops);
+    session.send(cmd::PlayerSyncScNotify, inventory::sync(player, drops));
+    session.send(cmd::StaminaInfoScNotify, inventory::staminaInfo(player));
+    player.saveNow();
+    return drops;
 }
 
 void onStartCocoonStage(net::Session& session, const proto::StartCocoonStageCsReq& req) {
@@ -208,11 +240,16 @@ void onStartCocoonStage(net::Session& session, const proto::StartCocoonStageCsRe
     if (player == nullptr) return;
 
     proto::StartCocoonStageScRsp rsp;
-    rsp.retcode = 0;
     rsp.cocoon_id = req.cocoon_id;
     rsp.prop_entity_id = req.prop_entity_id;
     rsp.wave = req.wave;
-    rsp.battle_info = cocoonBattle(*player, req.cocoon_id, req.wave, player->worldLevel());
+    BattleRequest request = cocoonRequest(req.cocoon_id, req.wave, player->worldLevel());
+    if (!affordable(*player, request)) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
+    } else {
+        rsp.retcode = 0;
+        rsp.battle_info = battle::create(*player, request);
+    }
     session.send(cmd::StartCocoonStageScRsp, rsp);
 }
 
@@ -223,12 +260,17 @@ void onQuickStartCocoonStage(net::Session& session,
 
     uint32_t worldLevel = req.world_level != 0 ? req.world_level : player->worldLevel();
     proto::QuickStartCocoonStageScRsp rsp;
-    rsp.retcode = 0;
     rsp.cocoon_id = req.cocoon_id;
     rsp.wave = req.wave;
-    auto& info = rsp.battle_info.emplace();
-    info = cocoonBattle(*player, req.cocoon_id, req.wave, worldLevel);
-    info.world_level = worldLevel;
+    BattleRequest request = cocoonRequest(req.cocoon_id, req.wave, worldLevel);
+    if (!affordable(*player, request)) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
+    } else {
+        rsp.retcode = 0;
+        auto& info = rsp.battle_info.emplace();
+        info = battle::create(*player, request);
+        info.world_level = worldLevel;
+    }
     session.send(cmd::QuickStartCocoonStageScRsp, rsp);
 }
 
@@ -239,10 +281,16 @@ void onQuickStartFarmElement(net::Session& session,
     Player* player = playerOf(session, "QuickStartFarmElement");
     if (player == nullptr) return;
 
+    const data::Tables& tables = data::Tables::get();
     uint32_t worldLevel = req.world_level != 0 ? req.world_level : player->worldLevel();
     BattleRequest request;
-    uint32_t stageId = data::Tables::get().farmElementStage(req.PAOFHFLFFHD, worldLevel);
+    request.worldLevel = worldLevel;
+    uint32_t stageId = tables.farmElementStage(req.PAOFHFLFFHD, worldLevel);
     if (stageId != 0) request.stageIds.push_back(stageId);
+    if (const data::FarmElementInfo* element = tables.farmElement(stageId)) {
+        request.staminaCost = element->staminaCost;
+        request.mappingInfoId = element->mappingInfoId;
+    }
 
     proto::QuickStartFarmElementScRsp rsp;
     rsp.PAOFHFLFFHD = req.PAOFHFLFFHD;
@@ -250,6 +298,8 @@ void onQuickStartFarmElement(net::Session& session,
     if (request.stageIds.empty()) {
         logging::warn("battle", "farm element {} has no stage", req.PAOFHFLFFHD);
         rsp.retcode = fail(proto::Retcode::RET_STAGE_NOT_FOUND);
+    } else if (!affordable(*player, request)) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
     } else {
         rsp.retcode = 0;
         auto& info = rsp.battle_info.emplace();
@@ -323,11 +373,18 @@ void onReEnterLastElementStage(net::Session& session,
     // The retry button names the stage it wants replayed.
     BattleRequest request;
     if (req.stage_id != 0) request.stageIds.push_back(req.stage_id);
+    if (const data::FarmElementInfo* element = data::Tables::get().farmElement(req.stage_id)) {
+        request.staminaCost = element->staminaCost;
+        request.mappingInfoId = element->mappingInfoId;
+        request.worldLevel = element->worldLevel;
+    }
 
     proto::ReEnterLastElementStageScRsp rsp;
     rsp.stage_id = req.stage_id;
     if (request.stageIds.empty()) {
         rsp.retcode = fail(proto::Retcode::RET_STAGE_NOT_FOUND);
+    } else if (!affordable(*player, request)) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
     } else {
         rsp.retcode = 0;
         rsp.battle_info = battle::create(*player, request);
@@ -335,14 +392,73 @@ void onReEnterLastElementStage(net::Session& session,
     session.send(cmd::ReEnterLastElementStageScRsp, rsp);
 }
 
+// Clears the calyx as many times as the stamina covers, in one go.
+void onCocoonSweep(net::Session& session, const proto::CocoonSweepCsReq& req) {
+    Player* player = playerOf(session, "CocoonSweep");
+    if (player == nullptr) return;
+
+    uint32_t worldLevel = req.world_level != 0 ? req.world_level : player->worldLevel();
+    const data::CocoonInfo* cocoon = data::Tables::get().cocoon(req.cocoon_id, worldLevel);
+    inventory::refreshStamina(*player, now());
+
+    proto::CocoonSweepScRsp rsp;
+    rsp.cocoon_id = req.cocoon_id;
+    if (cocoon == nullptr || cocoon->staminaCost == 0) {
+        rsp.retcode = fail(proto::Retcode::RET_STAGE_NOT_FOUND);
+    } else if (player->stamina() < cocoon->staminaCost) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
+    } else {
+        uint32_t runs = player->stamina() / cocoon->staminaCost;
+        std::vector<data::ItemStack> drops = payOut(session, *player, cocoon->mappingInfoId, worldLevel,
+                                                    runs, runs * cocoon->staminaCost);
+        rsp.retcode = 0;
+        rsp.NCEFJFOHGBI = runs;
+        rsp.multiple_drop_data = inventory::itemList(drops);
+    }
+    session.send(cmd::CocoonSweepScRsp, rsp);
+}
+
+// The same for a Stagnant Shadow, named the way QuickStartFarmElement names it.
+void onFarmElementSweep(net::Session& session, const proto::FarmElementSweepCsReq& req) {
+    Player* player = playerOf(session, "FarmElementSweep");
+    if (player == nullptr) return;
+
+    const data::Tables& tables = data::Tables::get();
+    uint32_t worldLevel = req.world_level != 0 ? req.world_level : player->worldLevel();
+    const data::FarmElementInfo* element =
+        tables.farmElement(tables.farmElementStage(req.PAOFHFLFFHD, worldLevel));
+    inventory::refreshStamina(*player, now());
+
+    proto::FarmElementSweepScRsp rsp;
+    rsp.PAOFHFLFFHD = req.PAOFHFLFFHD;
+    if (element == nullptr || element->staminaCost == 0) {
+        rsp.retcode = fail(proto::Retcode::RET_STAGE_NOT_FOUND);
+    } else if (player->stamina() < element->staminaCost) {
+        rsp.retcode = fail(proto::Retcode::RET_LACK_STAMINA);
+    } else {
+        uint32_t runs = player->stamina() / element->staminaCost;
+        uint32_t level = element->worldLevel != 0 ? element->worldLevel : worldLevel;
+        std::vector<data::ItemStack> drops = payOut(session, *player, element->mappingInfoId, level,
+                                                    runs, runs * element->staminaCost);
+        rsp.retcode = 0;
+        rsp.multiple_drop_data = inventory::itemList(drops);
+    }
+    session.send(cmd::FarmElementSweepScRsp, rsp);
+}
+
 void onPveBattleResult(net::Session& session, const proto::PVEBattleResultCsReq& req) {
     Player* player = playerOf(session, "PVEBattleResult");
     if (player == nullptr) return;
 
     BattleContext& context = player->battle();
-    if (req.end_status == proto::BattleEndStatus::BATTLE_END_WIN && context.active &&
-        context.battleId == req.battle_id) {
-        notify::monstersRemoved(session, *player, context.monsterEntityIds);
+    bool won = req.end_status == proto::BattleEndStatus::BATTLE_END_WIN && context.active &&
+               context.battleId == req.battle_id;
+    if (won) notify::monstersRemoved(session, *player, context.monsterEntityIds);
+    // A farming run costs and pays only when it is won; losing or fleeing is free.
+    std::vector<data::ItemStack> drops;
+    if (won && (context.staminaCost != 0 || context.mappingInfoId != 0)) {
+        drops = payOut(session, *player, context.mappingInfoId, context.worldLevel, context.runs,
+                       context.staminaCost);
     }
     context.active = false;
     context.monsterEntityIds.clear();
@@ -360,6 +476,7 @@ void onPveBattleResult(net::Session& session, const proto::PVEBattleResultCsReq&
     rsp.stage_id = req.stage_id;
     rsp.end_status = req.end_status;
     rsp.check_identical = true;
+    if (!drops.empty()) rsp.drop_data = inventory::itemList(drops);
     session.send(cmd::PVEBattleResultScRsp, rsp);
 }
 
@@ -382,6 +499,8 @@ void registerBattleHandlers() {
                                                   onSceneReviveAfterRebattle);
     net::on<proto::ReEnterLastElementStageCsReq>(cmd::ReEnterLastElementStageCsReq,
                                                  onReEnterLastElementStage);
+    net::on<proto::CocoonSweepCsReq>(cmd::CocoonSweepCsReq, onCocoonSweep);
+    net::on<proto::FarmElementSweepCsReq>(cmd::FarmElementSweepCsReq, onFarmElementSweep);
 }
 
 }  // namespace game

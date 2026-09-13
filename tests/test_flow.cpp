@@ -3,6 +3,7 @@
 #include <chrono>
 #include <cstdio>
 #include <cstring>
+#include <filesystem>
 #include <string>
 #include <thread>
 #include <vector>
@@ -211,8 +212,11 @@ bool parseBody(const net::Packet& packet, T& out) {
 }  // namespace
 
 void runFlowTests() {
-    // Keep the test off the real save file.
+    // Keep the test off the real save file, and start it fresh: stamina and claimed
+    // rewards carry over between runs otherwise.
     core::Config::get().paths.playerFile = "build/test-player.json";
+    std::error_code ec;
+    std::filesystem::remove(core::Config::get().paths.playerFile, ec);
     game::registerAllHandlers();
 
     net::Gateway gateway;
@@ -1060,6 +1064,37 @@ void runFlowTests() {
               decideRsp.retcode != 0 && decideRsp.NBLOJLDLBEB.has(),
           "a custom 50/50 pool is refused with a body");
     core::Config::get().gameplay.limitedWarpPools = configuredPools;
+
+    // Stamina, farming and the bag.
+    client.sendEmpty(cmd::ExchangeStaminaCsReq);
+    proto::ExchangeStaminaScRsp exchange;
+    check(client.await(cmd::ExchangeStaminaScRsp, packet) && parseBody(packet, exchange) &&
+              exchange.retcode == 0 && exchange.stamina_add == 60 && exchange.item_cost_list.size() == 1,
+          "stamina can be bought with jade");
+
+    proto::CocoonSweepCsReq sweep;
+    sweep.cocoon_id = 1001;
+    sweep.world_level = 6;
+    client.send(cmd::CocoonSweepCsReq, sweep);
+    proto::CocoonSweepScRsp swept;
+    check(client.await(cmd::CocoonSweepScRsp, packet) && parseBody(packet, swept) && swept.retcode == 0 &&
+              swept.NCEFJFOHGBI > 0 && swept.multiple_drop_data.has() &&
+              !swept.multiple_drop_data->item_list.empty(),
+          "a calyx sweep spends the stamina and drops items");
+    check(client.sawNotify(cmd::StaminaInfoScNotify) && client.sawNotify(cmd::PlayerSyncScNotify),
+          "and tells the client about both");
+
+    client.send(cmd::CocoonSweepCsReq, sweep);
+    proto::CocoonSweepScRsp dry;
+    check(client.await(cmd::CocoonSweepScRsp, packet) && parseBody(packet, dry) &&
+              dry.retcode == static_cast<uint32_t>(proto::Retcode::RET_LACK_STAMINA),
+          "with no stamina left the next sweep is refused");
+
+    client.sendEmpty(cmd::GetBagCsReq);
+    proto::GetBagScRsp bagAfter;
+    check(client.await(cmd::GetBagScRsp, packet) && parseBody(packet, bagAfter) &&
+              bagAfter.material_list.size() > 2,
+          "the drops are in the bag");
 
     // An unimplemented request still has to complete, or the client hangs on it. This
     // one has no handler at all, so it exercises the name-derived fallback.

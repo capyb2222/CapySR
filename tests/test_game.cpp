@@ -17,6 +17,7 @@
 #include "game/battle.h"
 #include "game/challenge.h"
 #include "game/gacha.h"
+#include "game/inventory.h"
 #include "game/lineup.h"
 #include "game/player.h"
 #include "game/player_store.h"
@@ -410,6 +411,93 @@ void testGacha() {
     const game::GachaPity& back = loaded.gacha().character;
     check(back.sinceFive == 12 && back.sinceFour == 3 && back.guaranteed && back.total == 345,
           "unchanged");
+    core::Config::get().paths.playerFile = realPath;
+}
+
+void testInventory() {
+    const data::Tables& tables = data::Tables::get();
+    if (!tables.loaded()) {
+        std::printf("SKIP inventory (no data source configured)\n");
+        return;
+    }
+    namespace inventory = game::inventory;
+
+    const data::StaminaRules& rules = tables.staminaRules();
+    check(rules.max == 300 && rules.recoverSeconds == 360 && rules.reserveMax == 2400 &&
+              rules.reserveRecoverSeconds == 1080,
+          "stamina rules come from the tables");
+    check(tables.staminaPrices().size() == 8 && tables.staminaPrices()[0] == 50 &&
+              tables.staminaPerPurchase() == 60,
+          "and the stamina prices");
+
+    game::Player player(1);
+    game::Inventory& bag = player.inventory();
+    bag.stamina = 100;
+    bag.staminaUpdatedAt = 1000;
+    inventory::refreshStamina(player, 1000 + 360 * 5 + 10);
+    check(bag.stamina == 105 && bag.staminaUpdatedAt == 1000 + 360 * 5,
+          "stamina recovers a point every six minutes");
+    check(inventory::nextRecoverTime(player) == 1000 + 360 * 6, "and says when the next is due");
+
+    bag.stamina = 299;
+    bag.staminaUpdatedAt = 5000;
+    bag.reserveStamina = 0;
+    inventory::refreshStamina(player, 5000 + 360 + 1080 * 2);
+    check(bag.stamina == 300 && bag.reserveStamina == 2, "once full, time runs into reserve stamina");
+    check(inventory::nextRecoverTime(player) == 0, "and nothing more is due");
+
+    inventory::chargeStamina(player, 40, 9000);
+    check(bag.stamina == 260 && bag.staminaUpdatedAt == 9000, "spending from full starts the clock");
+
+    uint32_t jade = bag.hcoin;
+    uint32_t credits = bag.scoin;
+    inventory::grant(player, {{1, 50}, {2, 1000}, {211, 3}, {22, 150}, {11, 60}});
+    check(bag.hcoin == jade + 50 && bag.scoin == credits + 1000, "jade and credits go to the wallet");
+    check(bag.items[211] == 3 && bag.stamina == 320, "materials to the bag, stamina to stamina");
+    check(bag.items.count(22) == 0, "and trailblaze exp nowhere");
+
+    const data::MappingInfo* calyx = inventory::dropTable(1001, 6);
+    check(calyx != nullptr && !calyx->display.empty(), "a calyx has a drop table at world level 6");
+    if (calyx != nullptr) {
+        bool credit = false;
+        for (const data::ItemStack& drop : inventory::rollDrops(*calyx, [] { return 0.5; })) {
+            credit |= drop.id == 2 && drop.num > 0;
+        }
+        check(credit, "and a run drops credits");
+    }
+    const data::MappingInfo* shadow = inventory::dropTable(1101, 6);
+    check(shadow != nullptr && shadow->worldLevel == 5, "a shadow's empty level falls back a level");
+    if (shadow != nullptr) {
+        bool boss = false;
+        for (const data::ItemStack& drop : inventory::rollDrops(*shadow, [] { return 0.5; })) {
+            boss |= drop.id == 110406 && drop.num == 5;
+        }
+        check(boss, "and its boss material scales with the world level");
+    }
+    check(inventory::dropTable(0, 6) == nullptr, "no table, no drops");
+
+    const data::RewardInfo* reward = tables.reward(101101);
+    check(reward != nullptr, "RewardData loads");
+    if (reward != nullptr) {
+        std::vector<data::ItemStack> items = inventory::rewardItems(*reward);
+        check(items.size() == 2 && items[0].id == 1 && items[0].num == 200 && items[1].id == 2 &&
+                  items[1].num == 20000,
+              "a reward carries its jade and items");
+    }
+    std::vector<data::ItemStack> merged = inventory::merged({{2, 10}, {211, 1}, {2, 5}});
+    check(merged.size() == 2 && merged[0].num == 15, "repeats merge");
+    proto::PlayerSyncScNotify sync = inventory::sync(player, {{211, 3}, {1, 50}});
+    check(sync.material_list.size() == 1 && sync.material_list[0].tid == 211 &&
+              sync.material_list[0].num == 3 && sync.basic_info.has(),
+          "a sync names bag totals and carries the wallet");
+
+    std::string realPath = core::Config::get().paths.playerFile;
+    core::Config::get().paths.playerFile = "build/test-inventory-player.json";
+    check(game::savePlayerState(player), "the inventory saves");
+    game::Player loaded(1);
+    check(game::loadPlayerState(loaded), "and loads");
+    check(loaded.inventory().items[211] == 3 && loaded.inventory().reserveStamina == bag.reserveStamina,
+          "the bag survives a restart");
     core::Config::get().paths.playerFile = realPath;
 }
 
@@ -1046,6 +1134,7 @@ void runGameTests() {
     testElementBuffs();
     testTables();
     testGacha();
+    testInventory();
     testChallengeHistory();
     testSceneRes();
     testRosterProtos();

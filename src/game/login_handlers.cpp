@@ -2,6 +2,7 @@
 #include "core/logger.h"
 #include "core/util.h"
 #include "game/handlers.h"
+#include "game/inventory.h"
 #include "game/player.h"
 #include "net/cmd_ids.h"
 #include "net/handler.h"
@@ -21,13 +22,7 @@ constexpr uint32_t kUnlockedContentPackages[] = {
     140006, 171002};
 
 void fillBasicInfo(proto::PlayerBasicInfo& info, const Player& player) {
-    info.nickname = player.name();
-    info.level = player.level();
-    info.world_level = player.worldLevel();
-    info.stamina = player.stamina();
-    info.hcoin = player.hcoin();
-    info.scoin = player.scoin();
-    info.mcoin = player.mcoin();
+    info = inventory::basicInfo(player);
 }
 
 void onGetToken(net::Session& session, const proto::PlayerGetTokenCsReq& req) {
@@ -40,6 +35,7 @@ void onGetToken(net::Session& session, const proto::PlayerGetTokenCsReq& req) {
     player->setMarchType(core::Config::get().gameplay.marchType);
     player->setGlobalBuffs(core::Config::get().gameplay.globalBuffs);
     player->load();
+    inventory::refreshStamina(*player, static_cast<int64_t>(util::nowSec()));
     session.setPlayer(player);
     session.setState(net::SessionState::WaitingForLogin);
 
@@ -85,6 +81,7 @@ void onLoginFinish(net::Session& session, const proto::PlayerLoginFinishCsReq&) 
             data.content_package_list.push_back(info);
         }
         session.send(cmd::ContentPackageSyncDataScNotify, notify);
+        session.send(cmd::StaminaInfoScNotify, inventory::staminaInfo(*player));
     }
 
     proto::PlayerLoginFinishScRsp rsp;
@@ -110,7 +107,7 @@ void onGetBasicInfo(net::Session& session, const proto::GetBasicInfoCsReq&) {
     rsp.is_gender_set = true;
     rsp.gender = player != nullptr ? player->gender() : 2;
     rsp.cur_day = 1;
-    rsp.next_recover_time = static_cast<int64_t>(util::nowSec() + 300);
+    rsp.next_recover_time = player != nullptr ? inventory::nextRecoverTime(*player) : 0;
     session.send(cmd::GetBasicInfoScRsp, rsp);
 }
 

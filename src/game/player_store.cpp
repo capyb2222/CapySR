@@ -1,5 +1,6 @@
 #include "game/player_store.h"
 
+#include <cstdlib>
 #include <nlohmann/json.hpp>
 
 #include "core/config.h"
@@ -21,6 +22,11 @@ uint32_t u32(const json& j, const char* key, uint32_t fallback) {
 int32_t i32(const json& j, const char* key, int32_t fallback) {
     auto it = j.find(key);
     return (it != j.end() && it->is_number()) ? it->get<int32_t>() : fallback;
+}
+
+int64_t i64(const json& j, const char* key, int64_t fallback) {
+    auto it = j.find(key);
+    return (it != j.end() && it->is_number()) ? it->get<int64_t>() : fallback;
 }
 
 bool boolOr(const json& j, const char* key, bool fallback) {
@@ -188,6 +194,26 @@ bool loadPlayerState(Player& player) {
         readPity("character", player.gacha().character);
         readPity("lightcone", player.gacha().lightcone);
     }
+
+    if (auto saved = j.find("inventory"); saved != j.end() && saved->is_object()) {
+        Inventory& bag = player.inventory();
+        bag.stamina = u32(*saved, "stamina", bag.stamina);
+        bag.reserveStamina = u32(*saved, "reserve_stamina", 0);
+        bag.staminaUpdatedAt = i64(*saved, "stamina_updated_at", 0);
+        bag.purchasesToday = u32(*saved, "stamina_purchases", 0);
+        bag.purchaseDay = i64(*saved, "stamina_purchase_day", 0);
+        bag.hcoin = u32(*saved, "hcoin", bag.hcoin);
+        bag.scoin = u32(*saved, "scoin", bag.scoin);
+        bag.mcoin = u32(*saved, "mcoin", bag.mcoin);
+        if (auto items = saved->find("items"); items != saved->end() && items->is_object()) {
+            for (const auto& entry : items->items()) {
+                auto id = static_cast<uint32_t>(std::strtoul(entry.key().c_str(), nullptr, 10));
+                if (id != 0 && entry.value().is_number_unsigned()) {
+                    bag.items[id] = entry.value().get<uint32_t>();
+                }
+            }
+        }
+    }
     return true;
 }
 
@@ -271,6 +297,21 @@ std::string playerStateJson(const Player& player) {
     j["gacha"] = {{"standard", pity(gacha.standard)},
                   {"character", pity(gacha.character)},
                   {"lightcone", pity(gacha.lightcone)}};
+
+    const Inventory& bag = player.inventory();
+    json items = json::object();
+    for (const auto& [id, count] : bag.items) {
+        if (count != 0) items[std::to_string(id)] = count;
+    }
+    j["inventory"] = {{"stamina", bag.stamina},
+                      {"reserve_stamina", bag.reserveStamina},
+                      {"stamina_updated_at", bag.staminaUpdatedAt},
+                      {"stamina_purchases", bag.purchasesToday},
+                      {"stamina_purchase_day", bag.purchaseDay},
+                      {"hcoin", bag.hcoin},
+                      {"scoin", bag.scoin},
+                      {"mcoin", bag.mcoin},
+                      {"items", items}};
 
     return j.dump(2);
 }
