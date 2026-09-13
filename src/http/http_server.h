@@ -1,8 +1,11 @@
 #pragma once
 
 #include <atomic>
+#include <condition_variable>
 #include <functional>
 #include <map>
+#include <mutex>
+#include <set>
 #include <string>
 #include <thread>
 #include <vector>
@@ -73,6 +76,10 @@ private:
     uintptr_t listener_ = static_cast<uintptr_t>(-1);
     std::thread thread_;
     std::atomic<bool> running_{false};
+    // Open connections, each on its own thread; stop() waits for them.
+    std::mutex connectionsMutex_;
+    std::condition_variable connectionsDone_;
+    std::set<uintptr_t> connections_;
 };
 
 std::string urlDecode(std::string_view s);

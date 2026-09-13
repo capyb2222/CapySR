@@ -121,6 +121,15 @@ void closeSocket(uintptr_t socket) {
     closesocket(static_cast<int>(socket));
 }
 
+void shutdownSocket(uintptr_t socket) {
+    if (socket == kInvalidSocket) return;
+#ifdef _WIN32
+    ::shutdown(static_cast<SOCKET>(socket), SD_BOTH);
+#else
+    ::shutdown(static_cast<int>(socket), SHUT_RDWR);
+#endif
+}
+
 uintptr_t tcpConnect(const std::string& host, uint16_t port) {
     initSockets();
     uintptr_t s = static_cast<uintptr_t>(socket(AF_INET, SOCK_STREAM, IPPROTO_TCP));

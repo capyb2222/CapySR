@@ -62,8 +62,13 @@ void Gateway::stop() {
     socket_ = kInvalidSocket;
     if (receiver_.joinable()) receiver_.join();
     if (updater_.joinable()) updater_.join();
-    std::lock_guard lock(mutex_);
-    sessions_.clear();
+    std::map<uint32_t, std::shared_ptr<Session>> closing;
+    {
+        std::lock_guard lock(mutex_);
+        closing.swap(sessions_);
+    }
+    // Each saves on its way out, the way an idle timeout would have.
+    for (auto& [conv, session] : closing) session->close();
 }
 
 bool Gateway::sendUdp(const char* data, size_t size, const UdpAddress& to) {

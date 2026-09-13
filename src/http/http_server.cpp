@@ -1,6 +1,7 @@
 #include "http/http_server.h"
 
 #include <algorithm>
+#include <chrono>
 #include <cstring>
 
 #include "core/logger.h"
@@ -109,6 +110,15 @@ void Server::stop() {
     net::closeSocket(listener_);
     listener_ = net::kInvalidSocket;
     if (thread_.joinable()) thread_.join();
+
+    // Wake the connections blocked in a read and wait them out, so none outlives the
+    // server it points into.
+    std::unique_lock lock(connectionsMutex_);
+    for (uintptr_t socket : connections_) net::shutdownSocket(socket);
+    if (!connectionsDone_.wait_for(lock, std::chrono::seconds(5),
+                                   [this] { return connections_.empty(); })) {
+        logging::warn("http", "{} connection(s) still busy at shutdown", connections_.size());
+    }
 }
 
 void Server::acceptLoop() {
@@ -119,6 +129,14 @@ void Server::acceptLoop() {
             if (!running_) break;
             continue;
         }
+        {
+            std::lock_guard lock(connectionsMutex_);
+            if (!running_) {
+                net::closeSocket(client);
+                break;
+            }
+            connections_.insert(client);
+        }
         std::thread([this, client, remote] {
             try {
                 serve(client, remote);
@@ -127,7 +145,11 @@ void Server::acceptLoop() {
             } catch (...) {
                 logging::error("http", "connection crashed");
             }
+            // Closed under the lock, so stop() never shuts down a handle already reused.
+            std::lock_guard lock(connectionsMutex_);
+            connections_.erase(client);
             net::closeSocket(client);
+            connectionsDone_.notify_all();
         }).detach();
     }
 }

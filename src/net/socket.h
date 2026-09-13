@@ -20,6 +20,8 @@ int tcpRecv(uintptr_t socket, char* buffer, size_t size);
 bool tcpSendAll(uintptr_t socket, const char* data, size_t size);
 void setRecvTimeout(uintptr_t socket, int ms);
 void closeSocket(uintptr_t socket);
+// Wakes a thread blocked reading the socket without freeing the handle under it.
+void shutdownSocket(uintptr_t socket);
 
 struct UdpAddress {
     uint32_t ip = 0;  // network byte order
