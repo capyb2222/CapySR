@@ -1,11 +1,13 @@
 #include "game/challenge.h"
 
 #include <algorithm>
+#include <bit>
 #include <utility>
 
 #include "core/config.h"
 #include "core/logger.h"
 #include "data/excel.h"
+#include "game/inventory.h"
 #include "game/player.h"
 #include "net/cmd_ids.h"
 #include "net/session.h"
@@ -20,6 +22,19 @@ namespace {
 constexpr std::pair<uint32_t, uint32_t> kMaxLevels[] = {{1, 12}, {2, 4}, {3, 4}};
 
 uint32_t half(uint32_t stage) { return stage > 1 ? 1u : 0u; }
+
+uint32_t fullStars(const data::ChallengeInfo& floor) {
+    return floor.targetIds.empty() ? 0 : (uint32_t{1} << floor.targetIds.size()) - 1;
+}
+
+// The floor's stars as the history reports them: all of them under
+// unlock_all_challenges, otherwise the best the player has cleared it with.
+uint32_t floorStars(const Player* player, const data::ChallengeInfo& floor) {
+    if (core::Config::get().gameplay.unlockAllChallenges) return fullStars(floor);
+    if (player == nullptr) return 0;
+    auto it = player->challengeRecords().find(floor.id);
+    return it == player->challengeRecords().end() ? 0 : it->second.stars;
+}
 
 const data::ChallengeInfo* configOf(const Player& player) {
     const ChallengeRun& run = player.challenge();
@@ -42,11 +57,39 @@ proto::ExtraLineupType lineupTypeOf(uint32_t stage) {
                      : proto::ExtraLineupType::ExtraLineupType_LineupChallenge;
 }
 
+// Keeps the run as the floor's record when it beats the one there: more stars first, then
+// fewer cycles for Memory of Chaos or a higher score for the other two.
+void recordClear(Player& player) {
+    const data::ChallengeInfo* config = configOf(player);
+    if (config == nullptr) return;
+    const ChallengeRun& run = player.challenge();
+
+    ChallengeRecord candidate;
+    candidate.stars = run.stars;
+    candidate.roundsUsed = config->roundLimit > run.roundsLeft ? config->roundLimit - run.roundsLeft : 0;
+    candidate.score = run.totalScore();
+    for (uint32_t i = 0; i < 2; ++i) {
+        candidate.buffs[i] = run.buffs[i];
+        candidate.teams[i] = run.party[i];
+    }
+
+    auto [it, fresh] = player.challengeRecords().try_emplace(config->id, candidate);
+    if (fresh) return;
+    const ChallengeRecord& best = it->second;
+    int have = std::popcount(best.stars);
+    int got = std::popcount(candidate.stars);
+    bool better = got > have ||
+                  (got == have && (config->kind == data::ChallengeKind::Memory
+                                       ? candidate.roundsUsed < best.roundsUsed
+                                       : candidate.score > best.score));
+    if (better) it->second = candidate;
+}
+
 }  // namespace
 
 namespace challenge {
 
-proto::GetChallengeScRsp history() {
+proto::GetChallengeScRsp history(const Player* player) {
     const data::Tables& tables = data::Tables::get();
     bool cleared = core::Config::get().gameplay.unlockAllChallenges;
 
@@ -56,17 +99,20 @@ proto::GetChallengeScRsp history() {
     for (const data::ChallengeInfo& floor : tables.challenges()) {
         proto::Challenge entry;
         entry.challenge_id = floor.id;
-        if (cleared && !floor.targetIds.empty()) {
-            entry.star = (uint32_t{1} << floor.targetIds.size()) - 1;
-            entry.taken_reward = entry.star;
-        }
+        entry.star = floorStars(player, floor);
+        entry.taken_reward = entry.star;
         rsp.challenge_list.push_back(entry);
     }
 
     for (const data::ChallengeGroupInfo& season : tables.challengeGroups()) {
         proto::ChallengeGroup group;
         group.group_id = season.id;
-        if (cleared) {
+        if (player != nullptr) {
+            // Only what has actually been claimed; the rest shows as a reward to collect.
+            const auto& taken = player->challengeRewardsTaken();
+            auto it = taken.find(season.id);
+            group.taken_stars_count_reward = it == taken.end() ? 0 : it->second;
+        } else if (cleared) {
             group.taken_stars_count_reward = tables.challengeRewardStars(season.rewardLineGroupId);
         }
         rsp.challenge_group_list.push_back(group);
@@ -149,6 +195,146 @@ bool enterArena(Player& player, proto::SceneInfo& out) {
     return scene::load(player, entryId, 0, true, out, filter);
 }
 
+proto::TakeChallengeRewardScRsp takeRewards(Player& player, uint32_t groupId,
+                                            std::vector<data::ItemStack>& granted) {
+    const data::Tables& tables = data::Tables::get();
+    proto::TakeChallengeRewardScRsp rsp;
+    rsp.retcode = 0;
+    rsp.group_id = groupId;
+    granted.clear();
+
+    const data::ChallengeGroupInfo* season = tables.challengeGroup(groupId);
+    const std::vector<data::ChallengeRewardLine>* line =
+        season != nullptr ? tables.challengeRewardLine(season->rewardLineGroupId) : nullptr;
+    if (line == nullptr) {
+        rsp.OAKNHADPLJD.emplace();
+        return rsp;
+    }
+
+    uint32_t earned = 0;
+    for (const data::ChallengeInfo& floor : tables.challenges()) {
+        if (floor.groupId == groupId) earned += std::popcount(floorStars(&player, floor));
+    }
+
+    uint64_t& taken = player.challengeRewardsTaken()[groupId];
+    std::vector<data::ItemStack> all;
+    for (const data::ChallengeRewardLine& step : *line) {
+        uint64_t bit = uint64_t{1} << step.stars;
+        if (step.stars > earned || (taken & bit) != 0) continue;
+        taken |= bit;
+        std::vector<data::ItemStack> items;
+        if (const data::RewardInfo* reward = tables.reward(step.rewardId)) {
+            items = inventory::rewardItems(*reward);
+        }
+        proto::TakenChallengeRewardInfo info;
+        info.star_count = step.stars;
+        info.reward.emplace() = inventory::itemList(items);
+        rsp.taken_reward_list.push_back(std::move(info));
+        all.insert(all.end(), items.begin(), items.end());
+    }
+
+    granted = inventory::merged(all);
+    inventory::grant(player, granted);
+    rsp.OAKNHADPLJD.emplace() = inventory::itemList(granted);
+    return rsp;
+}
+
+proto::GetChallengeGroupStatisticsScRsp statistics(const Player& player, uint32_t groupId) {
+    const data::Tables& tables = data::Tables::get();
+    proto::GetChallengeGroupStatisticsScRsp rsp;
+    rsp.retcode = 0;
+    rsp.group_id = groupId;
+
+    const data::ChallengeGroupInfo* season = tables.challengeGroup(groupId);
+    data::ChallengeKind kind = season != nullptr ? season->kind : data::ChallengeKind::Memory;
+
+    // The highest floor cleared, then the most stars, then the fewest cycles or best score.
+    const data::ChallengeInfo* bestFloor = nullptr;
+    const ChallengeRecord* best = nullptr;
+    for (const data::ChallengeInfo& floor : tables.challenges()) {
+        if (floor.groupId != groupId) continue;
+        auto it = player.challengeRecords().find(floor.id);
+        if (it == player.challengeRecords().end() || it->second.stars == 0) continue;
+        const ChallengeRecord& record = it->second;
+        bool better = best == nullptr || floor.floor > bestFloor->floor;
+        if (!better && floor.floor == bestFloor->floor) {
+            int have = std::popcount(best->stars);
+            int got = std::popcount(record.stars);
+            better = got > have || (got == have && (kind == data::ChallengeKind::Memory
+                                                        ? record.roundsUsed < best->roundsUsed
+                                                        : record.score > best->score));
+        }
+        if (better) {
+            best = &record;
+            bestFloor = &floor;
+        }
+    }
+
+    Roster roster = player.roster();
+    auto lineups = [&](std::vector<proto::ChallengeLineupList>& out) {
+        for (const std::vector<uint32_t>& team : best->teams) {
+            proto::ChallengeLineupList list;
+            uint32_t index = 0;
+            for (uint32_t avatarId : team) {
+                proto::ChallengeAvatarInfo avatar;
+                avatar.avatar_type = proto::AvatarType::AvatarType_AvatarFormalType;
+                avatar.id = avatarId;
+                const Avatar* source = roster.find(roster.resolvePath(avatarId));
+                avatar.level = source != nullptr ? source->level : 1;
+                avatar.index = index++;
+                list.avatar_list.push_back(avatar);
+            }
+            out.push_back(std::move(list));
+        }
+    };
+
+    // The oneof has to be set to the arm that matches the season, or the client reads the
+    // wrong one and throws; the record inside stays absent until a floor is cleared.
+    switch (kind) {
+        case data::ChallengeKind::Story: {
+            auto& stats = rsp.challenge_story.emplace();
+            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_story;
+            if (best == nullptr) break;
+            stats.record_id = bestFloor->id;
+            auto& record = stats.PPBHLLOJNEK.emplace();
+            record.level = bestFloor->floor;
+            record.EEJCPNAEKLJ = static_cast<uint32_t>(std::popcount(best->stars));
+            record.buff_one = best->buffs[0];
+            record.buff_two = best->buffs[1];
+            record.score_id = best->score;
+            lineups(record.lineup_list);
+            break;
+        }
+        case data::ChallengeKind::Boss: {
+            auto& stats = rsp.challenge_boss.emplace();
+            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_boss;
+            if (best == nullptr) break;
+            stats.record_id = bestFloor->id;
+            auto& record = stats.PPBHLLOJNEK.emplace();
+            record.level = bestFloor->floor;
+            record.EEJCPNAEKLJ = static_cast<uint32_t>(std::popcount(best->stars));
+            record.buff_one = best->buffs[0];
+            record.buff_two = best->buffs[1];
+            record.score_id = best->score;
+            lineups(record.lineup_list);
+            break;
+        }
+        case data::ChallengeKind::Memory: {
+            auto& stats = rsp.challenge_default.emplace();
+            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_default;
+            if (best == nullptr) break;
+            stats.record_id = bestFloor->id;
+            auto& record = stats.PPBHLLOJNEK.emplace();
+            record.level = bestFloor->floor;
+            record.EEJCPNAEKLJ = static_cast<uint32_t>(std::popcount(best->stars));
+            record.round_count = best->roundsUsed;
+            lineups(record.lineup_list);
+            break;
+        }
+    }
+    return rsp;
+}
+
 uint32_t stars(const Player& player) {
     const data::ChallengeInfo* config = configOf(player);
     if (config == nullptr) return 0;
@@ -195,6 +381,10 @@ void settle(net::Session& session, Player& player, bool win) {
     run.status = win ? proto::ChallengeStatus::CHALLENGE_FINISH
                      : proto::ChallengeStatus::CHALLENGE_FAILED;
     run.stars = win ? stars(player) : 0;
+    if (win) {
+        recordClear(player);
+        player.saveNow();
+    }
 
     proto::ChallengeSettleNotify notify;
     notify.challenge_id = run.challengeId;

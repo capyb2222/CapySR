@@ -214,6 +214,35 @@ bool loadPlayerState(Player& player) {
             }
         }
     }
+
+    if (auto floors = j.find("challenge_records"); floors != j.end() && floors->is_array()) {
+        for (const json& entry : *floors) {
+            uint32_t id = entry.is_object() ? u32(entry, "id", 0) : 0;
+            if (id == 0) continue;
+            ChallengeRecord& record = player.challengeRecords()[id];
+            record.stars = u32(entry, "stars", 0);
+            record.roundsUsed = u32(entry, "rounds_used", 0);
+            record.score = u32(entry, "score", 0);
+            std::vector<uint32_t> buffs = u32Array(entry, "buffs");
+            for (size_t i = 0; i < buffs.size() && i < 2; ++i) record.buffs[i] = buffs[i];
+            if (auto teams = entry.find("teams"); teams != entry.end() && teams->is_array()) {
+                for (size_t i = 0; i < teams->size() && i < 2; ++i) {
+                    for (const json& avatar : (*teams)[i]) {
+                        if (avatar.is_number_unsigned()) record.teams[i].push_back(avatar.get<uint32_t>());
+                    }
+                }
+            }
+        }
+    }
+
+    if (auto taken = j.find("challenge_rewards_taken"); taken != j.end() && taken->is_array()) {
+        for (const json& entry : *taken) {
+            uint32_t group = entry.is_object() ? u32(entry, "group", 0) : 0;
+            auto stars = entry.is_object() ? entry.find("stars") : entry.end();
+            if (group == 0 || stars == entry.end() || !stars->is_number_unsigned()) continue;
+            player.challengeRewardsTaken()[group] = stars->get<uint64_t>();
+        }
+    }
     return true;
 }
 
@@ -312,6 +341,23 @@ std::string playerStateJson(const Player& player) {
                       {"scoin", bag.scoin},
                       {"mcoin", bag.mcoin},
                       {"items", items}};
+
+    json floors = json::array();
+    for (const auto& [id, record] : player.challengeRecords()) {
+        floors.push_back({{"id", id},
+                          {"stars", record.stars},
+                          {"rounds_used", record.roundsUsed},
+                          {"score", record.score},
+                          {"buffs", json::array({record.buffs[0], record.buffs[1]})},
+                          {"teams", json::array({record.teams[0], record.teams[1]})}});
+    }
+    j["challenge_records"] = floors;
+
+    json taken = json::array();
+    for (const auto& [group, stars] : player.challengeRewardsTaken()) {
+        taken.push_back({{"group", group}, {"stars", stars}});
+    }
+    j["challenge_rewards_taken"] = taken;
 
     return j.dump(2);
 }

@@ -1,7 +1,9 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 
+#include "data/excel.h"
 #include "game/scene.h"
 #include "proto/gen/protos.h"
 
@@ -20,7 +22,16 @@ namespace challenge {
 
 // The player's challenge history: every floor of every mode, with its stars and its
 // season's rewards. Reports a full clear when gameplay.unlock_all_challenges is set.
-proto::GetChallengeScRsp history();
+// Without a player every reward reads as claimed.
+proto::GetChallengeScRsp history(const Player* player = nullptr);
+
+// Pays out every star reward of the season that is earned and not yet claimed, returning
+// what was granted in `granted` so the caller can sync it.
+proto::TakeChallengeRewardScRsp takeRewards(Player& player, uint32_t groupId,
+                                            std::vector<data::ItemStack>& granted);
+
+// The season panel: the best cleared floor of `groupId`, with the teams that cleared it.
+proto::GetChallengeGroupStatisticsScRsp statistics(const Player& player, uint32_t groupId);
 
 // The run in progress, as the client models it. Meaningless when none is.
 proto::CurChallenge current(const Player& player);

@@ -2,9 +2,8 @@
 //
 // The history goes out as a full clear: star is a bitmask over the floor's
 // ChallengeTargetID entries, and the client locks a floor whose predecessor has none, so
-// an empty GetChallengeScRsp leaves every mode showing floor 1 and nothing else. Rewards
-// are reported as already taken -- there is no inventory to pay them into, and a
-// claimable reward would be a button that does nothing.
+// an empty GetChallengeScRsp leaves every mode showing floor 1 and nothing else. A
+// season's star rewards are claimable once earned and pay out into the inventory.
 //
 // Running a floor is the rest of this file. The client sends both teams with the start
 // request, so there is no separate lineup to edit: the run holds them, the arena is the
@@ -14,6 +13,7 @@
 #include "data/excel.h"
 #include "game/challenge.h"
 #include "game/handlers.h"
+#include "game/inventory.h"
 #include "game/player.h"
 #include "game/scene.h"
 #include "net/cmd_ids.h"
@@ -47,7 +47,7 @@ std::vector<uint32_t> teamOf(const std::vector<proto::AvatarIdentifier>& identif
 }
 
 void onGetChallenge(net::Session& session, const proto::GetChallengeCsReq&) {
-    session.send(cmd::GetChallengeScRsp, challenge::history());
+    session.send(cmd::GetChallengeScRsp, challenge::history(session.player()));
 }
 
 void onStartChallenge(net::Session& session, const proto::StartChallengeCsReq& req) {
@@ -183,37 +183,21 @@ void onLeaveChallenge(net::Session& session, const proto::LeaveChallengeCsReq&) 
 
 void onGetChallengeGroupStatistics(net::Session& session,
                                    const proto::GetChallengeGroupStatisticsCsReq& req) {
-    // Nobody's records are kept, but the oneof has to be set to the shape that matches
-    // the season or the client reads the wrong arm of it and throws.
-    proto::GetChallengeGroupStatisticsScRsp rsp;
-    rsp.retcode = 0;
-    rsp.group_id = req.group_id;
-
-    const data::ChallengeGroupInfo* season = data::Tables::get().challengeGroup(req.group_id);
-    data::ChallengeKind kind = season != nullptr ? season->kind : data::ChallengeKind::Memory;
-    switch (kind) {
-        case data::ChallengeKind::Story:
-            rsp.challenge_story.emplace();
-            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_story;
-            break;
-        case data::ChallengeKind::Boss:
-            rsp.challenge_boss.emplace();
-            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_boss;
-            break;
-        case data::ChallengeKind::Memory:
-            rsp.challenge_default.emplace();
-            rsp.EDKOHAAMONH_case = proto::GetChallengeGroupStatisticsScRsp::k_challenge_default;
-            break;
-    }
-    session.send(cmd::GetChallengeGroupStatisticsScRsp, rsp);
+    Player* player = playerOf(session, "GetChallengeGroupStatistics");
+    if (player == nullptr) return;
+    session.send(cmd::GetChallengeGroupStatisticsScRsp, challenge::statistics(*player, req.group_id));
 }
 
 void onTakeChallengeReward(net::Session& session, const proto::TakeChallengeRewardCsReq& req) {
-    // The history already reports every reward as taken, so there is nothing left to
-    // hand over -- but the request still has to complete or the screen hangs.
-    proto::TakeChallengeRewardScRsp rsp;
-    rsp.retcode = 0;
-    rsp.group_id = req.group_id;
+    Player* player = playerOf(session, "TakeChallengeReward");
+    if (player == nullptr) return;
+
+    std::vector<data::ItemStack> granted;
+    proto::TakeChallengeRewardScRsp rsp = challenge::takeRewards(*player, req.group_id, granted);
+    if (!granted.empty()) {
+        session.send(cmd::PlayerSyncScNotify, inventory::sync(*player, granted));
+        player->saveNow();
+    }
     session.send(cmd::TakeChallengeRewardScRsp, rsp);
 }
 

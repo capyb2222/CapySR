@@ -43,6 +43,15 @@ struct Inventory {
     std::map<uint32_t, uint32_t> items;
 };
 
+// The best clear of one challenge floor. Saved; the season statistics panel shows it.
+struct ChallengeRecord {
+    uint32_t stars = 0;  // bitmask over the floor's targets
+    uint32_t roundsUsed = 0;
+    uint32_t score = 0;
+    uint32_t buffs[2] = {0, 0};
+    std::vector<uint32_t> teams[2];
+};
+
 // A challenge run in progress. Not persisted: leaving the client mid-floor drops the
 // run, which is what the real server does with an expired season anyway.
 struct ChallengeRun {
@@ -191,6 +200,12 @@ public:
     const PeakProgress& peakProgress() const { return peakProgress_; }
     GachaProgress& gacha() { return gacha_; }
     const GachaProgress& gacha() const { return gacha_; }
+    // Keyed by floor id.
+    std::map<uint32_t, ChallengeRecord>& challengeRecords() { return challengeRecords_; }
+    const std::map<uint32_t, ChallengeRecord>& challengeRecords() const { return challengeRecords_; }
+    // Season id -> bitmask over the star counts whose reward has been claimed.
+    std::map<uint32_t, uint64_t>& challengeRewardsTaken() { return challengeRewardsTaken_; }
+    const std::map<uint32_t, uint64_t>& challengeRewardsTaken() const { return challengeRewardsTaken_; }
 
     uint32_t mainCharacter() const { return mainCharacter_; }
     void setMainCharacter(uint32_t value) { mainCharacter_ = value; }
@@ -230,6 +245,8 @@ private:
     TierceRun tierce_;
     std::map<uint32_t, TierceProgress> tierceHistory_;
     GachaProgress gacha_;
+    std::map<uint32_t, ChallengeRecord> challengeRecords_;
+    std::map<uint32_t, uint64_t> challengeRewardsTaken_;
 
     uint32_t mainCharacter_ = 8008;
     uint32_t marchType_ = 1224;

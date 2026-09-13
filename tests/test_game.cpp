@@ -491,13 +491,53 @@ void testInventory() {
               sync.material_list[0].num == 3 && sync.basic_info.has(),
           "a sync names bag totals and carries the wallet");
 
+    // Season rewards: paid once, and the history marks them.
+    bool unlocked = core::Config::get().gameplay.unlockAllChallenges;
+    core::Config::get().gameplay.unlockAllChallenges = true;
+    uint32_t before = bag.hcoin;
+    std::vector<data::ItemStack> granted;
+    proto::TakeChallengeRewardScRsp first = game::challenge::takeRewards(player, 100, granted);
+    check(!first.taken_reward_list.empty() && !granted.empty() && bag.hcoin > before,
+          "a cleared season's rewards pay out");
+    std::vector<data::ItemStack> again;
+    proto::TakeChallengeRewardScRsp second = game::challenge::takeRewards(player, 100, again);
+    check(second.taken_reward_list.empty() && again.empty(), "and only once");
+    const data::ChallengeGroupInfo* season = tables.challengeGroup(100);
+    uint64_t line = season != nullptr ? tables.challengeRewardStars(season->rewardLineGroupId) : 0;
+    uint64_t marked = 0;
+    for (const proto::ChallengeGroup& group : game::challenge::history(&player).challenge_group_list) {
+        if (group.group_id == 100) marked = group.taken_stars_count_reward;
+    }
+    check(marked != 0 && (marked & ~line) == 0, "the history marks what was claimed");
+    core::Config::get().gameplay.unlockAllChallenges = unlocked;
+
+    // A cleared floor shows in its season's statistics.
+    game::ChallengeRecord& record = player.challengeRecords()[1];
+    record.stars = 7;
+    record.roundsUsed = 12;
+    record.teams[0] = {1001, 1002};
+    record.teams[1] = {1003, 1004};
+    proto::GetChallengeGroupStatisticsScRsp stats = game::challenge::statistics(player, 100);
+    check(stats.challenge_default.has() && stats.challenge_default->record_id == 1 &&
+              stats.challenge_default->PPBHLLOJNEK.has() &&
+              stats.challenge_default->PPBHLLOJNEK->EEJCPNAEKLJ == 3 &&
+              stats.challenge_default->PPBHLLOJNEK->round_count == 12 &&
+              stats.challenge_default->PPBHLLOJNEK->lineup_list.size() == 2,
+          "a season's best clear shows in its statistics");
+    proto::GetChallengeGroupStatisticsScRsp none = game::challenge::statistics(player, 101);
+    check(none.challenge_default.has() && !none.challenge_default->PPBHLLOJNEK.has(),
+          "and a season with no clear shows none");
+
     std::string realPath = core::Config::get().paths.playerFile;
     core::Config::get().paths.playerFile = "build/test-inventory-player.json";
     check(game::savePlayerState(player), "the inventory saves");
     game::Player loaded(1);
     check(game::loadPlayerState(loaded), "and loads");
-    check(loaded.inventory().items[211] == 3 && loaded.inventory().reserveStamina == bag.reserveStamina,
-          "the bag survives a restart");
+    check(loaded.inventory().items[211] == 3 && loaded.inventory().reserveStamina == bag.reserveStamina &&
+              loaded.challengeRecords().count(1) == 1 &&
+              loaded.challengeRecords().at(1).teams[1].size() == 2 &&
+              !loaded.challengeRewardsTaken().empty(),
+          "bag, records and claimed rewards survive a restart");
     core::Config::get().paths.playerFile = realPath;
 }
 

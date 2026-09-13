@@ -1096,6 +1096,14 @@ void runFlowTests() {
               bagAfter.material_list.size() > 2,
           "the drops are in the bag");
 
+    proto::TakeChallengeRewardCsReq claim;
+    claim.group_id = 100;
+    client.send(cmd::TakeChallengeRewardCsReq, claim);
+    proto::TakeChallengeRewardScRsp claimed;
+    check(client.await(cmd::TakeChallengeRewardScRsp, packet) && parseBody(packet, claimed) &&
+              claimed.retcode == 0 && !claimed.taken_reward_list.empty(),
+          "season rewards can be claimed");
+
     // An unimplemented request still has to complete, or the client hangs on it. This
     // one has no handler at all, so it exercises the name-derived fallback.
     client.sendEmpty(cmd::GetStarFightDataCsReq);
