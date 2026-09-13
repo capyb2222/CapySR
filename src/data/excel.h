@@ -95,7 +95,60 @@ struct CocoonInfo {
     uint32_t worldLevel = 0;
     uint32_t propId = 0;
     uint32_t staminaCost = 0;
+    uint32_t mappingInfoId = 0;
     std::vector<uint32_t> stageIds;
+};
+
+// A Stagnant Shadow at one world level, addressed by its stage id.
+struct FarmElementInfo {
+    uint32_t id = 0;
+    uint32_t worldLevel = 0;
+    uint32_t stageId = 0;
+    uint32_t staminaCost = 0;
+    uint32_t mappingInfoId = 0;
+};
+
+struct ItemStack {
+    uint32_t id = 0;
+    uint32_t num = 0;
+};
+
+// ItemConfig, as far as drops and the bag need it.
+struct ItemInfo {
+    uint32_t id = 0;
+    std::string mainType;
+    std::string subType;
+    uint32_t rarity = 0;  // 1 Normal .. 5 SuperRare
+    uint32_t purposeType = 0;
+    uint32_t pileLimit = 0;
+};
+
+// What a farming spot shows it drops, at one world level. An item with no count only
+// names the kind of reward; how many drop is worked out when it drops.
+struct MappingInfo {
+    uint32_t id = 0;
+    uint32_t worldLevel = 0;
+    uint32_t farmType = 0;  // 1 calyx, 3 shadow, 4 cavern
+    std::vector<ItemStack> display;
+};
+
+struct RewardInfo {
+    uint32_t id = 0;
+    uint32_t hcoin = 0;
+    std::vector<ItemStack> items;
+};
+
+struct ChallengeRewardLine {
+    uint32_t stars = 0;
+    uint32_t rewardId = 0;
+};
+
+// ConstValueCommon's stamina numbers; the defaults are the table's own.
+struct StaminaRules {
+    uint32_t max = 300;
+    uint32_t recoverSeconds = 360;
+    uint32_t reserveMax = 2400;
+    uint32_t reserveRecoverSeconds = 1080;
 };
 
 // The standard warp: GachaBasicInfo's Normal pool, and GachaCeiling's pick at 300 pulls.
@@ -261,6 +314,15 @@ public:
     // FarmElementConfig, the Stagnant Shadows. The client names one by its stage id; a
     // bare element id is resolved at `worldLevel`.
     uint32_t farmElementStage(uint32_t idOrStage, uint32_t worldLevel) const;
+    const FarmElementInfo* farmElement(uint32_t stageId) const;
+
+    const ItemInfo* item(uint32_t id) const;
+    const MappingInfo* mappingInfo(uint32_t id, uint32_t worldLevel) const;
+    const RewardInfo* reward(uint32_t id) const;
+    const StaminaRules& staminaRules() const { return staminaRules_; }
+    // Stellar Jade per stamina purchase, in order; the length is the daily limit.
+    const std::vector<uint32_t>& staminaPrices() const { return staminaPrices_; }
+    uint32_t staminaPerPurchase() const { return staminaPerPurchase_; }
 
     const StandardGacha& standardGacha() const { return standardGacha_; }
     // The standard pool, then the limited ones in id order.
@@ -295,6 +357,7 @@ public:
     const ChallengeTarget* challengeTarget(uint32_t id) const;
     // Bit n set for every star count the reward line of that group pays out at.
     uint64_t challengeRewardStars(uint32_t rewardLineGroupId) const;
+    const std::vector<ChallengeRewardLine>* challengeRewardLine(uint32_t rewardLineGroupId) const;
 
     // Anomaly Arbitration seasons in id order, and the fights they are made of.
     const std::vector<PeakGroupInfo>& peakGroups() const { return peakGroups_; }
@@ -325,6 +388,13 @@ private:
     std::unordered_map<uint64_t, uint32_t> planeEvents_;  // eventId * 10 + worldLevel -> stage
     std::unordered_map<uint64_t, uint32_t> farmElements_;  // id * 100 + worldLevel -> stage
     std::unordered_set<uint32_t> farmStages_;
+    std::unordered_map<uint32_t, FarmElementInfo> farmElementsByStage_;
+    std::unordered_map<uint32_t, ItemInfo> items_;
+    std::unordered_map<uint64_t, MappingInfo> mappingInfos_;  // id * 10 + world level
+    std::unordered_map<uint32_t, RewardInfo> rewards_;
+    StaminaRules staminaRules_;
+    std::vector<uint32_t> staminaPrices_;
+    uint32_t staminaPerPurchase_ = 60;
     StandardGacha standardGacha_;
     std::vector<GachaPool> gachaPools_;
     uint32_t avatarUpChance_ = 50;
@@ -348,6 +418,7 @@ private:
     };
     std::unordered_map<uint32_t, ChallengeExtra> challengeExtras_;
     std::unordered_map<uint32_t, uint64_t> challengeRewardStars_;
+    std::unordered_map<uint32_t, std::vector<ChallengeRewardLine>> challengeRewardLines_;
     std::vector<PeakGroupInfo> peakGroups_;
     std::unordered_map<uint32_t, PeakInfo> peaks_;
     std::unordered_map<uint32_t, std::vector<uint32_t>> peakRewards_;

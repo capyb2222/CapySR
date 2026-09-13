@@ -48,6 +48,12 @@ GetVideoVersionKeyCsReq
 GetVideoVersionKeyScRsp
 ExchangeStaminaCsReq
 ExchangeStaminaScRsp
+ReserveStaminaExchangeCsReq
+ReserveStaminaExchangeScRsp
+CocoonSweepCsReq
+CocoonSweepScRsp
+FarmElementSweepCsReq
+FarmElementSweepScRsp
 GetPlayerBoardDataCsReq
 GetPlayerBoardDataScRsp
 GetPlayerDetailInfoCsReq

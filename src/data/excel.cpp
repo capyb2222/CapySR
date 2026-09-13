@@ -107,6 +107,15 @@ uint32_t featuredFromPrefab(const std::string& path, std::string_view stem) {
     return static_cast<uint32_t>(std::strtoul(std::string(digits).c_str(), nullptr, 10));
 }
 
+uint32_t itemRarity(const std::string& name) {
+    if (name == "Normal") return 1;
+    if (name == "NotNormal") return 2;
+    if (name == "Rare") return 3;
+    if (name == "VeryRare") return 4;
+    if (name == "SuperRare") return 5;
+    return 0;
+}
+
 // AvatarSkillTreeConfig.AnchorType is "Point07"; the client wants the number.
 uint32_t anchorNumber(const std::string& anchor) {
     size_t i = 0;
@@ -225,6 +234,31 @@ uint32_t Tables::gachaUpChance(GachaType type) const {
             break;
     }
     return 0;
+}
+
+const FarmElementInfo* Tables::farmElement(uint32_t stageId) const {
+    auto it = farmElementsByStage_.find(stageId);
+    return it == farmElementsByStage_.end() ? nullptr : &it->second;
+}
+
+const ItemInfo* Tables::item(uint32_t id) const {
+    auto it = items_.find(id);
+    return it == items_.end() ? nullptr : &it->second;
+}
+
+const MappingInfo* Tables::mappingInfo(uint32_t id, uint32_t worldLevel) const {
+    auto it = mappingInfos_.find(uint64_t{id} * 10 + worldLevel);
+    return it == mappingInfos_.end() ? nullptr : &it->second;
+}
+
+const RewardInfo* Tables::reward(uint32_t id) const {
+    auto it = rewards_.find(id);
+    return it == rewards_.end() ? nullptr : &it->second;
+}
+
+const std::vector<ChallengeRewardLine>* Tables::challengeRewardLine(uint32_t rewardLineGroupId) const {
+    auto it = challengeRewardLines_.find(rewardLineGroupId);
+    return it == challengeRewardLines_.end() ? nullptr : &it->second;
 }
 
 const StageInfo* Tables::stage(uint32_t id) const {
@@ -535,6 +569,7 @@ bool Tables::load(const std::vector<std::string>& sources) {
             cocoon.worldLevel = worldLevel;
             cocoon.propId = u32(*row, "PropID");
             cocoon.staminaCost = u32(*row, "StaminaCost");
+            cocoon.mappingInfoId = u32(*row, "MappingInfoID");
             cocoon.stageIds = u32List(*row, "StageIDList");
             if (cocoon.stageIds.empty()) {
                 uint32_t single = u32(*row, "StageID");
@@ -550,6 +585,88 @@ bool Tables::load(const std::vector<std::string>& sources) {
             farmElements_.emplace(static_cast<uint64_t>(id) * 100 + u32(*row, "WorldLevel"),
                                   stageId);
             farmStages_.insert(stageId);
+            FarmElementInfo element;
+            element.id = id;
+            element.worldLevel = u32(*row, "WorldLevel");
+            element.stageId = stageId;
+            element.staminaCost = u32(*row, "StaminaCost");
+            element.mappingInfoId = u32(*row, "MappingInfoID");
+            farmElementsByStage_.emplace(stageId, element);
+        }
+
+        for (const json* row : table("ItemConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0 || items_.count(id) != 0) continue;
+            ItemInfo item;
+            item.id = id;
+            item.mainType = str(*row, "ItemMainType");
+            item.subType = str(*row, "ItemSubType");
+            item.rarity = itemRarity(str(*row, "Rarity"));
+            item.purposeType = u32(*row, "PurposeType");
+            item.pileLimit = u32(*row, "PileLimit");
+            items_.emplace(id, std::move(item));
+        }
+
+        for (const json* row : table("MappingInfo.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0) continue;
+            MappingInfo info;
+            info.id = id;
+            info.worldLevel = u32(*row, "WorldLevel");
+            uint64_t key = uint64_t{id} * 10 + info.worldLevel;
+            if (mappingInfos_.count(key) != 0) continue;
+            std::string farm = str(*row, "FarmType");
+            info.farmType = farm == "COCOON"                        ? 1
+                            : farm == "COCOON2" || farm == "ELEMENT" ? 3
+                            : farm == "RELIC"                        ? 4
+                                                                     : 0;
+            if (auto list = row->find("DisplayItemList"); list != row->end() && list->is_array()) {
+                for (const json& entry : *list) {
+                    uint32_t item = u32(entry, "ItemID");
+                    if (item != 0) info.display.push_back({item, u32(entry, "ItemNum")});
+                }
+            }
+            mappingInfos_.emplace(key, std::move(info));
+        }
+
+        for (const json* row : table("RewardData.json")) {
+            uint32_t id = u32(*row, "RewardID");
+            if (id == 0 || rewards_.count(id) != 0) continue;
+            RewardInfo reward;
+            reward.id = id;
+            reward.hcoin = u32(*row, "Hcoin");
+            for (int n = 1; n <= 6; ++n) {
+                std::string suffix = std::to_string(n);
+                uint32_t item = u32(*row, ("ItemID_" + suffix).c_str());
+                uint32_t count = u32(*row, ("Count_" + suffix).c_str());
+                if (item != 0 && count != 0) reward.items.push_back({item, count});
+            }
+            rewards_.emplace(id, std::move(reward));
+        }
+
+        for (const json* row : table("ConstValueCommon.json")) {
+            auto value = row->find("Value");
+            if (value == row->end() || !value->is_object()) continue;
+            uint32_t n = u32(*value, "IntValue");
+            if (n == 0) continue;
+            std::string name = str(*row, "ConstValueName");
+            if (name == "Stamina_Maximum_Num") staminaRules_.max = n;
+            if (name == "Stamina_Auto_Recover_Interval") staminaRules_.recoverSeconds = n;
+            if (name == "ReserveStamina_Maximum_Num") staminaRules_.reserveMax = n;
+            if (name == "ReserveStamina_Auto_Recover_Interval") staminaRules_.reserveRecoverSeconds = n;
+        }
+
+        std::vector<std::pair<uint32_t, uint32_t>> sales;  // purchase number -> jade
+        for (const json* row : table("StaminaSaleConfig.json")) {
+            uint32_t times = u32(*row, "Times");
+            auto price = row->find("Price");
+            if (times == 0 || price == row->end() || !price->is_object()) continue;
+            sales.emplace_back(times, u32(*price, "1"));
+            if (uint32_t to = u32(*row, "ToStamina"); to != 0) staminaPerPurchase_ = to;
+        }
+        if (!sales.empty() && staminaPrices_.empty()) {
+            std::sort(sales.begin(), sales.end());
+            for (const auto& [times, jade] : sales) staminaPrices_.push_back(jade);
         }
 
         for (const json* row : table("GachaTypeBasicInfo.json")) {
@@ -736,7 +853,10 @@ bool Tables::load(const std::vector<std::string>& sources) {
                 uint32_t line = u32(*row, "GroupID");
                 uint32_t stars = u32(*row, "StarCount");
                 if (line == 0 || stars == 0 || stars >= 64) continue;
-                challengeRewardStars_[line] |= uint64_t{1} << stars;
+                uint64_t bit = uint64_t{1} << stars;
+                if ((challengeRewardStars_[line] & bit) != 0) continue;
+                challengeRewardStars_[line] |= bit;
+                challengeRewardLines_[line].push_back({stars, u32(*row, "RewardID")});
             }
         };
         challengeRewards("ChallengeMazeRewardLine.json");
@@ -894,6 +1014,8 @@ bool Tables::load(const std::vector<std::string>& sources) {
     logging::info("data", "{} challenge floors in {} seasons, {} of them with a third node",
                   challenges_.size(), challengeGroups_.size(), challengeTierces_.size());
     logging::info("data", "{} lightcones, {} warp pools", lightcones_.size(), gachaPools_.size());
+    logging::info("data", "{} items, {} drop tables, {} rewards", items_.size(), mappingInfos_.size(),
+                  rewards_.size());
     logging::info("data", "{} main missions, {} tutorials, {} guides, {} quests",
                   mainMissions_.size(), tutorials_.size(), tutorialGuides_.size(),
                   quests_.size());
