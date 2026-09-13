@@ -274,6 +274,23 @@ GetMarkItemListScRsp
 GetBigDataAllRecommendCsReq
 GetBigDataAllRecommendScRsp
 
+# ---- friends / chat: the CapySR console ----
+GetFriendListInfoCsReq
+GetFriendListInfoScRsp
+GetFriendLoginInfoCsReq
+GetFriendLoginInfoScRsp
+GetChatEmojiListCsReq
+GetChatEmojiListScRsp
+GetChatFriendHistoryCsReq
+GetChatFriendHistoryScRsp
+GetLoginChatInfoCsReq
+GetLoginChatInfoScRsp
+GetPrivateChatHistoryCsReq
+GetPrivateChatHistoryScRsp
+SendMsgCsReq
+SendMsgScRsp
+RevcMsgScNotify
+
 # ---- mission / tutorial ----
 GetMissionStatusCsReq
 GetMissionStatusScRsp

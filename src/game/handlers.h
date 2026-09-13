@@ -26,6 +26,7 @@ void registerPeakHandlers();
 void registerGachaHandlers();
 void registerShopHandlers();
 void registerCollectionHandlers();
+void registerChatHandlers();
 void registerModuleHandlers();
 void registerMiscHandlers();
 

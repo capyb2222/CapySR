@@ -12,12 +12,16 @@
 
 #include "core/config.h"
 #include "core/util.h"
+#include "game/command.h"
 #include "game/handlers.h"
+#include "game/inventory.h"
 #include "game/lineup.h"
+#include "game/player.h"
 #include "net/cmd_ids.h"
 #include "http/http_server.h"
 #include "net/gateway.h"
 #include "net/packet.h"
+#include "net/session.h"
 #include "net/socket.h"
 #include "proto/gen/protos.h"
 #include "sdk/admin.h"
@@ -1176,6 +1180,106 @@ void runFlowTests() {
               conversations.message_group_list[0].status ==
                   proto::MessageGroupStatus::MessageGroupStatus_MessageGroupFinish,
           "phone conversations read as finished");
+
+    // The CapySR console: a friend to type commands at.
+    client.sendEmpty(cmd::GetFriendListInfoCsReq);
+    proto::GetFriendListInfoScRsp friends;
+    check(client.await(cmd::GetFriendListInfoScRsp, packet) && parseBody(packet, friends) &&
+              friends.friend_list.size() == 1 && friends.friend_list[0].player_info &&
+              friends.friend_list[0].player_info->uid == game::command::kConsoleUid &&
+              friends.friend_list[0].player_info->nickname == "CapySR",
+          "the CapySR console is in the friend list");
+
+    proto::GetPrivateChatHistoryCsReq history;
+    history.contact_side = game::command::kConsoleUid;
+    client.send(cmd::GetPrivateChatHistoryCsReq, history);
+    proto::GetPrivateChatHistoryScRsp opened;
+    check(client.await(cmd::GetPrivateChatHistoryScRsp, packet) && parseBody(packet, opened) &&
+              opened.retcode == 0 && !opened.chat_message_list.empty(),
+          "and opening the thread shows how to use it");
+
+    // Says what the console answered, one line per RevcMsgScNotify. `lastSaid` keeps the
+    // envelope of the final one so the routing fields can be checked too.
+    proto::RevcMsgScNotify lastSaid;
+    proto::RevcMsgScNotify echoed;
+    auto typed = [&](const std::string& text) {
+        proto::SendMsgCsReq msg;
+        msg.target_list.push_back(game::command::kConsoleUid);
+        msg.chat_type = proto::ChatType::ChatType_Private;
+        proto::MessageChatData& data = msg.message_datas.emplace();
+        data.message_type = proto::MsgType::MsgType_CustomText;
+        proto::ChatData& chat = data.chat_data.emplace();
+        chat.message_text = text;
+        chat.PGBLIFDKBHK_case = proto::ChatData::k_message_text;
+        client.send(cmd::SendMsgCsReq, msg);
+
+        std::vector<std::string> lines;
+        net::Packet reply;
+        proto::SendMsgScRsp sent;
+        if (!client.await(cmd::SendMsgScRsp, reply) || !parseBody(reply, sent) || sent.retcode != 0) {
+            return lines;
+        }
+        while (client.sawNotify(cmd::RevcMsgScNotify)) {
+            proto::RevcMsgScNotify said;
+            if (!client.await(cmd::RevcMsgScNotify, reply) || !parseBody(reply, said)) break;
+            if (said.recv_message_data && !said.recv_message_data->message_datas.empty() &&
+                said.recv_message_data->message_datas[0].chat_data) {
+                // The player's own line comes back too, so the client can draw it; only
+                // the console's own answers are counted here.
+                bool fromConsole = said.recv_message_data->BKOALKHDLOB &&
+                                   said.recv_message_data->BKOALKHDLOB->role_id == game::command::kConsoleUid;
+                if (fromConsole) {
+                    lines.push_back(said.recv_message_data->message_datas[0].chat_data->message_text);
+                    lastSaid = said;
+                } else {
+                    echoed = said;
+                }
+            }
+        }
+        return lines;
+    };
+
+    std::vector<std::string> helped = typed("/help");
+    check(helped.size() == game::command::list().size() + 1 &&
+              helped[0].find("CapySR console") != std::string::npos,
+          "/help answers with every command");
+
+    // The three fields that decide whether the client shows the line at all. `source_uid`
+    // is the side the message is for -- the player -- and both unnamed role fields have
+    // to name the sender. Get any of them wrong and the reply arrives and renders
+    // nothing, which is exactly what happened in game while this test still passed.
+    check(lastSaid.source_uid == core::Config::get().player.uid && lastSaid.recv_message_data &&
+              lastSaid.recv_message_data->CKHPFFENOBE && lastSaid.recv_message_data->BKOALKHDLOB &&
+              lastSaid.recv_message_data->CKHPFFENOBE->role_id == game::command::kConsoleUid &&
+              lastSaid.recv_message_data->BKOALKHDLOB->role_id == game::command::kConsoleUid,
+          "and addresses them to the player, from the console");
+
+    check(echoed.source_uid == game::command::kConsoleUid && echoed.recv_message_data &&
+              echoed.recv_message_data->BKOALKHDLOB &&
+              echoed.recv_message_data->BKOALKHDLOB->role_id == core::Config::get().player.uid &&
+              !echoed.recv_message_data->message_datas.empty() &&
+              echoed.recv_message_data->message_datas[0].chat_data &&
+              echoed.recv_message_data->message_datas[0].chat_data->message_text == "/help",
+          "the player's own line is handed back so the client can draw it");
+
+    auto bagCount = [&](uint32_t itemId) -> uint32_t {
+        std::vector<std::shared_ptr<net::Session>> live = gateway.sessions();
+        if (live.empty() || live[0]->player() == nullptr) return 0;
+        return static_cast<uint32_t>(game::inventory::held(*live[0]->player(), itemId));
+    };
+    uint32_t heldBefore = bagCount(101);
+    std::vector<std::string> gave = typed("/give 101 7");
+    check(gave.size() == 1 && gave[0].find("gave 7") != std::string::npos &&
+              bagCount(101) == heldBefore + 7,
+          "/give puts the items in the bag");
+
+    std::vector<std::string> nowhere = typed("/nope");
+    check(nowhere.size() == 1 && nowhere[0].find("no command") != std::string::npos,
+          "and an unknown command says so instead of going quiet");
+
+    std::vector<std::string> chatter = typed("hello");
+    check(chatter.size() == 1 && chatter[0].find("/help") != std::string::npos,
+          "plain chat is nudged towards /help");
 
     // An unimplemented request still has to complete, or the client hangs on it. This
     // one has no handler at all, so it exercises the name-derived fallback.

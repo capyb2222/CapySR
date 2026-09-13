@@ -25,12 +25,8 @@ constexpr uint16_t kEmptyReplies[] = {
     cmd::GetAllServerPrefsDataCsReq,
     cmd::GetQuestRecordCsReq,
     cmd::GetRogueInfoCsReq,
-    cmd::GetFriendListInfoCsReq,
     cmd::GetFriendApplyListInfoCsReq,
-    cmd::GetFriendLoginInfoCsReq,
     cmd::GetFriendRecommendListInfoCsReq,
-    cmd::GetChatEmojiListCsReq,
-    cmd::GetPrivateChatHistoryCsReq,
     cmd::GetPhoneDataCsReq,
     cmd::GetMailCsReq,
     cmd::GetSecretKeyInfoCsReq,
@@ -47,7 +43,6 @@ constexpr uint16_t kEmptyReplies[] = {
     cmd::GetRaidInfoCsReq,
     cmd::GetMuseumInfoCsReq,
     cmd::TextJoinQueryCsReq,
-    cmd::GetLoginChatInfoCsReq,
     cmd::QueryProductInfoCsReq,
     cmd::GetLoginActivityCsReq,
     cmd::GetTrialActivityDataCsReq,
@@ -209,6 +204,7 @@ void registerAllHandlers() {
     registerGachaHandlers();
     registerShopHandlers();
     registerCollectionHandlers();
+    registerChatHandlers();
     registerModuleHandlers();
     registerMiscHandlers();
     logging::info("game", "{} packet handlers registered, {} answered empty",
