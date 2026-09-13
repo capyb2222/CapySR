@@ -88,6 +88,8 @@ void Session::dispatch(const Packet& packet) {
             (*fn)(*this, packet);
         } catch (const std::exception& e) {
             logging::error("net", "{} handler threw: {}", cmd::name(packet.cmdId), e.what());
+        } catch (...) {
+            logging::error("net", "{} handler threw", cmd::name(packet.cmdId));
         }
         return;
     }

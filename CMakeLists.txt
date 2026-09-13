@@ -93,7 +93,7 @@ target_include_directories(capysr_core PUBLIC
 
 target_link_libraries(capysr_core PUBLIC ikcp)
 if(WIN32)
-    target_link_libraries(capysr_core PUBLIC ws2_32 mswsock)
+    target_link_libraries(capysr_core PUBLIC ws2_32 mswsock dbghelp)
 else()
     find_package(Threads REQUIRED)
     target_link_libraries(capysr_core PUBLIC Threads::Threads)

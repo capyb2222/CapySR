@@ -5,6 +5,7 @@
 #include <thread>
 
 #include "core/config.h"
+#include "core/crash.h"
 #include "core/logger.h"
 #include "core/util.h"
 #include "data/excel.h"
@@ -47,6 +48,7 @@ int main(int argc, char** argv) {
     auto& config = core::Config::get();
     config.load(configPath);
     logging::init(logging::parseLevel(config.log.level), config.log.color, config.log.file);
+    crash::install("logs");
 
     logging::info("capysr", "CapySR starting ({})", config.serverName);
     if (!root.empty()) logging::debug("capysr", "working directory: {}", root);

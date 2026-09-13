@@ -124,6 +124,8 @@ void Server::acceptLoop() {
                 serve(client, remote);
             } catch (const std::exception& e) {
                 logging::error("http", "connection crashed: {}", e.what());
+            } catch (...) {
+                logging::error("http", "connection crashed");
             }
             net::closeSocket(client);
         }).detach();

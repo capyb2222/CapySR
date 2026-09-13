@@ -126,17 +126,23 @@ void Gateway::receiveLoop() {
             continue;
         }
         size_t size = static_cast<size_t>(n);
-        if (size == kControlSize) {
-            handleControl(buffer.data(), size, from);
-            continue;
-        }
-        if (size < 28) continue;
+        // Whatever one datagram does, it costs that datagram and never the server.
+        try {
+            if (size == kControlSize) {
+                handleControl(buffer.data(), size, from);
+                continue;
+            }
+            if (size < 28) continue;
 
-        uint32_t conv = readLE32(buffer.data());
-        auto session = find(conv);
-        if (!session) continue;
-        if (!(session->remote() == from)) continue;
-        session->onUdp(buffer.data(), size);
+            uint32_t conv = readLE32(buffer.data());
+            auto session = find(conv);
+            if (!session || !(session->remote() == from)) continue;
+            session->onUdp(buffer.data(), size);
+        } catch (const std::exception& e) {
+            logging::error("net", "a datagram from {} threw: {}", from.str(), e.what());
+        } catch (...) {
+            logging::error("net", "a datagram from {} threw", from.str());
+        }
     }
 }
 
@@ -151,8 +157,14 @@ void Gateway::updateLoop() {
             for (auto& [conv, session] : sessions_) snapshot.push_back(session);
         }
         for (auto& session : snapshot) {
-            session->update(static_cast<uint32_t>(now));
-            if (session->expired(now)) drop(session->conv(), "idle timeout");
+            try {
+                session->update(static_cast<uint32_t>(now));
+                if (session->expired(now)) drop(session->conv(), "idle timeout");
+            } catch (const std::exception& e) {
+                logging::error("net", "conv {} update threw: {}", session->conv(), e.what());
+            } catch (...) {
+                logging::error("net", "conv {} update threw", session->conv());
+            }
         }
     }
 }
