@@ -538,11 +538,11 @@ void runFlowTests() {
         check(client.await(cmd::GetActivityScheduleConfigScRsp, packet), "activity schedule answered");
         proto::GetActivityScheduleConfigScRsp scheduleRsp;
         check(parseBody(packet, scheduleRsp), "activity schedule parses");
-        bool petChroma = false;
+        bool gridFight = false;
         for (const proto::ActivityScheduleData& data : scheduleRsp.schedule_data) {
-            if (data.activity_id == 7100501 && data.end_time > data.begin_time) petChroma = true;
+            gridFight |= data.activity_id == 7100101 || data.activity_id == 7100501;
         }
-        check(petChroma, "with 7100501 in it");
+        check(!scheduleRsp.schedule_data.empty() && !gridFight, "without Grid Fight in it");
     }
 
     // The CapySR watermark rides on every pause toggle.

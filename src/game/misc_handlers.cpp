@@ -83,11 +83,11 @@ struct ScheduledActivity {
     int64_t begin;
     int64_t end;
 };
+// Grid Fight (71001, 71005) stays off: its data request goes unanswered, and a scheduled
+// Grid Fight makes the red dot check throw inside GridFightActivityData.
 constexpr ScheduledActivity kSchedule[] = {
     {5010601, 50106, 1664355600, 4294967295},
     {5011101, 50111, 1664355600, 4294967295},
-    {7100101, 71001, 1762113600, 1794351599},
-    {7100501, 71005, 1783886400, 1794348000},
 };
 
 void onGetActivityScheduleConfig(net::Session& session,
