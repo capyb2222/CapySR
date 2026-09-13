@@ -243,6 +243,16 @@ bool loadPlayerState(Player& player) {
             player.challengeRewardsTaken()[group] = stars->get<uint64_t>();
         }
     }
+
+    if (auto bought = j.find("goods_purchases"); bought != j.end() && bought->is_array()) {
+        for (const json& entry : *bought) {
+            uint32_t goods = entry.is_object() ? u32(entry, "goods", 0) : 0;
+            if (goods == 0) continue;
+            GoodsPurchase& purchase = player.goodsPurchases()[goods];
+            purchase.times = u32(entry, "times", 0);
+            purchase.period = i64(entry, "period", 0);
+        }
+    }
     return true;
 }
 
@@ -358,6 +368,13 @@ std::string playerStateJson(const Player& player) {
         taken.push_back({{"group", group}, {"stars", stars}});
     }
     j["challenge_rewards_taken"] = taken;
+
+    json bought = json::array();
+    for (const auto& [goods, purchase] : player.goodsPurchases()) {
+        if (purchase.times == 0) continue;
+        bought.push_back({{"goods", goods}, {"times", purchase.times}, {"period", purchase.period}});
+    }
+    j["goods_purchases"] = bought;
 
     return j.dump(2);
 }

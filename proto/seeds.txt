@@ -251,6 +251,10 @@ ChallengePeakSettleScNotify
 # ---- inventory ----
 GetBagCsReq
 GetBagScRsp
+GetShopListCsReq
+GetShopListScRsp
+BuyGoodsCsReq
+BuyGoodsScRsp
 UseItemCsReq
 UseItemScRsp
 SellItemCsReq

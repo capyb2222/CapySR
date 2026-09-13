@@ -31,6 +31,10 @@ void chargeStamina(Player& player, uint32_t cost, int64_t now);
 // Puts items where they go: the wallet, stamina, or the bag up to each item's pile limit.
 // Trailblaze EXP has nowhere to go while the level is fixed.
 void grant(Player& player, const std::vector<data::ItemStack>& items);
+// How many of `id` the player holds, wherever it is kept.
+uint64_t held(const Player& player, uint32_t id);
+// Takes every stack, or nothing at all when any of them is short.
+bool spend(Player& player, const std::vector<data::ItemStack>& items);
 
 // A farming spot's drop table at `worldLevel`, or at the nearest world level that lists
 // any drops: the tables leave some levels empty.

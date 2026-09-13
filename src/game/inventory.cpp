@@ -123,6 +123,41 @@ void grant(Player& player, const std::vector<data::ItemStack>& items) {
     }
 }
 
+uint64_t held(const Player& player, uint32_t id) {
+    const Inventory& bag = player.inventory();
+    switch (id) {
+        case kStellarJade: return bag.hcoin;
+        case kCredit: return bag.scoin;
+        case kOneiricShard: return bag.mcoin;
+        case kStamina: return bag.stamina;
+        case kReserveStamina: return bag.reserveStamina;
+        default: {
+            auto it = bag.items.find(id);
+            return it == bag.items.end() ? 0 : it->second;
+        }
+    }
+}
+
+bool spend(Player& player, const std::vector<data::ItemStack>& items) {
+    std::vector<data::ItemStack> total = merged(items);
+    for (const data::ItemStack& stack : total) {
+        if (held(player, stack.id) < stack.num) return false;
+    }
+    Inventory& bag = player.inventory();
+    for (const data::ItemStack& stack : total) {
+        switch (stack.id) {
+            case kStellarJade: bag.hcoin -= stack.num; break;
+            case kCredit: bag.scoin -= stack.num; break;
+            case kOneiricShard: bag.mcoin -= stack.num; break;
+            case kStamina: bag.stamina -= stack.num; break;
+            case kReserveStamina: bag.reserveStamina -= stack.num; break;
+            default:
+                if ((bag.items[stack.id] -= stack.num) == 0) bag.items.erase(stack.id);
+        }
+    }
+    return true;
+}
+
 const data::MappingInfo* dropTable(uint32_t mappingInfoId, uint32_t worldLevel) {
     if (mappingInfoId == 0) return nullptr;
     const data::Tables& tables = data::Tables::get();

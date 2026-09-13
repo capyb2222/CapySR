@@ -24,6 +24,7 @@ void registerChallengeHandlers();
 void registerTierceHandlers();
 void registerPeakHandlers();
 void registerGachaHandlers();
+void registerShopHandlers();
 void registerModuleHandlers();
 void registerMiscHandlers();
 

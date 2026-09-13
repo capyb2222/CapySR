@@ -2,6 +2,7 @@
 // present; the data-driven checks are skipped (and reported) when they are not.
 #include <algorithm>
 #include <cstdio>
+#include <ctime>
 #include <map>
 #include <optional>
 #include <string>
@@ -23,6 +24,7 @@
 #include "game/player_store.h"
 #include "game/roster.h"
 #include "game/scene.h"
+#include "game/shop.h"
 #include "game/srtools.h"
 #include "game/tierce.h"
 #include "net/packet.h"
@@ -538,6 +540,142 @@ void testInventory() {
               loaded.challengeRecords().at(1).teams[1].size() == 2 &&
               !loaded.challengeRewardsTaken().empty(),
           "bag, records and claimed rewards survive a restart");
+    core::Config::get().paths.playerFile = realPath;
+}
+
+void testShop() {
+    const data::Tables& tables = data::Tables::get();
+    if (!tables.loaded()) {
+        std::printf("SKIP shop (no data source configured)\n");
+        return;
+    }
+    namespace inventory = game::inventory;
+    namespace shop = game::shop;
+    using data::GoodsRefresh;
+
+    // Noon, local time. 2026-09-14 is a Monday.
+    auto at = [](int year, int month, int day) {
+        std::tm tm{};
+        tm.tm_year = year - 1900;
+        tm.tm_mon = month - 1;
+        tm.tm_mday = day;
+        tm.tm_hour = 12;
+        tm.tm_isdst = -1;
+        return static_cast<int64_t>(std::mktime(&tm));
+    };
+    int64_t monday = at(2026, 9, 14);
+    int64_t sunday = at(2026, 9, 20);
+    int64_t nextMonday = at(2026, 9, 21);
+    check(shop::periodOf(GoodsRefresh::Daily, monday) == 20260914 &&
+              shop::periodOf(GoodsRefresh::Monthly, sunday) == 202609 &&
+              shop::periodOf(GoodsRefresh::Never, monday) == 0,
+          "goods refresh by day and by month, or never");
+    check(shop::periodOf(GoodsRefresh::Weekly, sunday) == 20260914 &&
+              shop::periodOf(GoodsRefresh::Weekly, nextMonday) == 20260921 &&
+              shop::periodOf(GoodsRefresh::Weekly, at(2026, 10, 2)) == 20260928,
+          "and by the week, from Monday, across a month end");
+
+    // A material sold for credits, a few at a time.
+    const data::GoodsInfo* pick = nullptr;
+    const data::GoodsInfo* locked = nullptr;
+    for (const auto& [shopId, info] : tables.shops()) {
+        for (uint32_t goodsId : info.goods) {
+            const data::GoodsInfo* goods = tables.goods(goodsId);
+            const data::ItemInfo* item = goods != nullptr ? tables.item(goods->itemId) : nullptr;
+            if (goods == nullptr) continue;
+            if (item == nullptr && (locked == nullptr || goods->id < locked->id)) locked = goods;
+            bool credits = goods->cost.size() == 1 && goods->cost[0].id == inventory::kCredit;
+            if (item != nullptr && item->mainType == "Material" && credits && goods->limitTimes >= 2 &&
+                goods->itemCount * goods->limitTimes <= 999 && (pick == nullptr || goods->id < pick->id)) {
+                pick = goods;
+            }
+        }
+    }
+    check(pick != nullptr && locked != nullptr, "the shops stock materials for credits, and gear");
+    if (pick == nullptr || locked == nullptr) return;
+
+    // Rotating stock is what a client on another patch has no row for: its shop module
+    // throws part way through building the shelf and the rest of that shop is lost. So
+    // nothing paid for with Oneiric Shards, and no recharge page, ever goes out.
+    size_t paid = 0;
+    for (const auto& [shopId, info] : tables.shops()) {
+        for (uint32_t goodsId : info.goods) {
+            const data::GoodsInfo* goods = tables.goods(goodsId);
+            if (goods == nullptr) continue;
+            for (const data::ItemStack& cost : goods->cost) {
+                if (cost.id == inventory::kOneiricShard) ++paid;
+            }
+        }
+    }
+    check(paid == 0, "and never real-money bundles, which rotate every patch");
+
+    game::Player player(1);
+    player.inventory().scoin = 0;
+    std::vector<data::ItemStack> changed;
+    proto::BuyGoodsCsReq req;
+    req.shop_id = pick->shopId;
+    req.goods_id = pick->id;
+    req.goods_num = pick->limitTimes;
+    check(shop::buy(player, req, monday, changed).retcode ==
+                  static_cast<uint32_t>(proto::Retcode::RET_ITEM_NOT_ENOUGH) &&
+              inventory::held(player, pick->itemId) == 0 && changed.empty(),
+          "without the credits nothing is bought");
+
+    uint32_t price = pick->cost[0].num * pick->limitTimes;
+    player.inventory().scoin = price;
+    proto::BuyGoodsScRsp bought = shop::buy(player, req, monday, changed);
+    check(bought.retcode == 0 && bought.goods_buy_times == pick->limitTimes && player.inventory().scoin == 0,
+          "buying up to the limit takes the whole price");
+    check(inventory::held(player, pick->itemId) == uint64_t{pick->itemCount} * pick->limitTimes &&
+              bought.return_item_list.has() && changed.size() == 2,
+          "and puts the goods in the bag");
+
+    proto::GetShopListScRsp listed = shop::list(player, tables.shop(pick->shopId)->type, monday);
+    uint32_t shown = 0;
+    for (const proto::Shop& entry : listed.shop_list) {
+        for (const proto::Goods& goods : entry.goods_list) {
+            if (goods.goods_id == pick->id) shown = goods.buy_times;
+        }
+    }
+    check(shown == pick->limitTimes, "the shelf shows how many were bought");
+
+    req.goods_num = 1;
+    player.inventory().scoin = pick->cost[0].num;
+    check(shop::buy(player, req, monday, changed).retcode ==
+              static_cast<uint32_t>(proto::Retcode::RET_BUY_TIMES_LIMIT),
+          "one more is over the limit");
+    if (pick->refresh != GoodsRefresh::Never) {
+        int64_t later = pick->refresh == GoodsRefresh::Daily    ? at(2026, 9, 15)
+                        : pick->refresh == GoodsRefresh::Weekly ? nextMonday
+                                                                : at(2026, 10, 1);
+        check(shop::buy(player, req, later, changed).retcode == 0, "until the next period");
+    }
+
+    proto::BuyGoodsCsReq gear;
+    gear.shop_id = locked->shopId;
+    gear.goods_id = locked->id;
+    gear.goods_num = 1;
+    player.inventory().hcoin = 1000000;
+    player.inventory().scoin = 1000000;
+    player.inventory().mcoin = 1000000;
+    check(shop::buy(player, gear, monday, changed).retcode ==
+                  static_cast<uint32_t>(proto::Retcode::RET_GOODS_NOT_OPEN) &&
+              player.inventory().hcoin == 1000000 && player.inventory().scoin == 1000000,
+          "gear the srtools build keeps is not sold");
+
+    player.inventory().items = {{101, 5}};
+    check(!inventory::spend(player, {{101, 3}, {inventory::kCredit, 2000000}}) &&
+              player.inventory().items[101] == 5,
+          "spending is all or nothing");
+    check(inventory::spend(player, {{101, 5}}) && player.inventory().items.count(101) == 0,
+          "and an emptied stack leaves the bag");
+
+    std::string realPath = core::Config::get().paths.playerFile;
+    core::Config::get().paths.playerFile = "build/test-shop-player.json";
+    game::savePlayerState(player);
+    game::Player loaded(1);
+    game::loadPlayerState(loaded);
+    check(loaded.goodsPurchases().count(pick->id) == 1, "purchases survive a restart");
     core::Config::get().paths.playerFile = realPath;
 }
 
@@ -1175,6 +1313,7 @@ void runGameTests() {
     testTables();
     testGacha();
     testInventory();
+    testShop();
     testChallengeHistory();
     testSceneRes();
     testRosterProtos();

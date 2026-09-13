@@ -52,6 +52,12 @@ struct ChallengeRecord {
     std::vector<uint32_t> teams[2];
 };
 
+// How often one goods was bought in the refresh period `period` names. Saved.
+struct GoodsPurchase {
+    uint32_t times = 0;
+    int64_t period = 0;
+};
+
 // A challenge run in progress. Not persisted: leaving the client mid-floor drops the
 // run, which is what the real server does with an expired season anyway.
 struct ChallengeRun {
@@ -206,6 +212,9 @@ public:
     // Season id -> bitmask over the star counts whose reward has been claimed.
     std::map<uint32_t, uint64_t>& challengeRewardsTaken() { return challengeRewardsTaken_; }
     const std::map<uint32_t, uint64_t>& challengeRewardsTaken() const { return challengeRewardsTaken_; }
+    // Keyed by goods id.
+    std::map<uint32_t, GoodsPurchase>& goodsPurchases() { return goodsPurchases_; }
+    const std::map<uint32_t, GoodsPurchase>& goodsPurchases() const { return goodsPurchases_; }
 
     uint32_t mainCharacter() const { return mainCharacter_; }
     void setMainCharacter(uint32_t value) { mainCharacter_ = value; }
@@ -247,6 +256,7 @@ private:
     GachaProgress gacha_;
     std::map<uint32_t, ChallengeRecord> challengeRecords_;
     std::map<uint32_t, uint64_t> challengeRewardsTaken_;
+    std::map<uint32_t, GoodsPurchase> goodsPurchases_;
 
     uint32_t mainCharacter_ = 8008;
     uint32_t marchType_ = 1224;
