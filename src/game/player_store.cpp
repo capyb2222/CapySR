@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 
 #include "core/config.h"
+#include "core/files.h"
 #include "core/logger.h"
 #include "core/util.h"
 #include "game/player.h"
@@ -40,6 +41,8 @@ std::vector<uint32_t> u32Array(const json& j, const char* key) {
 }  // namespace
 
 bool loadPlayerState(Player& player) {
+    // A session that just ended may still have its save queued.
+    files::flush();
     const std::string& path = core::Config::get().paths.playerFile;
     bool ok = false;
     std::string text = util::readFile(path, &ok);
@@ -188,7 +191,7 @@ bool loadPlayerState(Player& player) {
     return true;
 }
 
-bool savePlayerState(const Player& player) {
+std::string playerStateJson(const Player& player) {
     const LineupBook& book = player.lineups();
     json squads = json::array();
     for (uint32_t i = 0; i < kSquadCount; ++i) {
@@ -269,8 +272,12 @@ bool savePlayerState(const Player& player) {
                   {"character", pity(gacha.character)},
                   {"lightcone", pity(gacha.lightcone)}};
 
+    return j.dump(2);
+}
+
+bool savePlayerState(const Player& player) {
     const std::string& path = core::Config::get().paths.playerFile;
-    if (!util::writeFile(path, j.dump(2))) {
+    if (!util::writeFile(path, playerStateJson(player))) {
         logging::warn("player", "could not write {}", path);
         return false;
     }

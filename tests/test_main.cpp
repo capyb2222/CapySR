@@ -4,6 +4,7 @@
 #include <string_view>
 #include <vector>
 
+#include "core/files.h"
 #include "core/logger.h"
 #include "core/util.h"
 #include "net/cmd_ids.h"
@@ -318,6 +319,15 @@ void testSafeWrite() {
     bool ok = false;
     check(util::readFile(path, &ok) == "second, and longer" && ok, "with the new content whole");
     check(!util::fileExists(path + ".tmp"), "leaving no temp file behind");
+
+    // Queued writes: the newest one for a path wins, and flush waits for it to land.
+    const std::string queued = "build/test-queued-write.json";
+    files::writeLater(queued, "older");
+    files::writeLater(queued, "newest");
+    files::flush();
+    check(util::readFile(queued, &ok) == "newest" && ok, "a queued write lands, newest first");
+    files::flush();
+    check(true, "flushing an empty queue returns");
 }
 
 }  // namespace

@@ -6,6 +6,7 @@
 
 #include "core/config.h"
 #include "core/crash.h"
+#include "core/files.h"
 #include "core/logger.h"
 #include "core/util.h"
 #include "data/excel.h"
@@ -92,6 +93,7 @@ int main(int argc, char** argv) {
     logging::info("capysr", "shutting down");
     gateway.stop();
     web.stop();
+    files::flush();
     logging::shutdown();
     return 0;
 }

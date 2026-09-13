@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 
 #include "core/config.h"
+#include "core/files.h"
 #include "core/logger.h"
 #include "core/util.h"
 
@@ -275,7 +276,9 @@ void SrTools::mutate(const std::function<void(SrToolsData&)>& edit, bool persist
 
 bool SrTools::writeToDisk(const SrToolsData& data) const {
     try {
-        return util::writeFile(core::Config::get().paths.srtoolsFile, toJson(data).dump(2));
+        // Queued: edits come in on the packet thread, and the file is only read at startup.
+        files::writeLater(core::Config::get().paths.srtoolsFile, toJson(data).dump(2));
+        return true;
     } catch (const std::exception& e) {
         logging::warn("srtools", "could not serialise the build: {}", e.what());
         return false;
@@ -311,6 +314,8 @@ std::string SrTools::upload(const std::string& body) {
     try {
         json j = json::parse(body, nullptr, true, true);
         if (auto wrapper = j.find("data"); wrapper != j.end() && wrapper->is_object()) j = *wrapper;
+        // An edit still queued must not land on top of the build replacing it.
+        files::flush();
         if (!util::writeFile(path, j.dump(2))) return "could not write " + path;
     } catch (const std::exception& e) {
         return std::string("could not store the build: ") + e.what();

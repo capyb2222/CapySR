@@ -1,6 +1,7 @@
 #include "game/player.h"
 
 #include "core/config.h"
+#include "core/files.h"
 #include "core/logger.h"
 #include "core/util.h"
 #include "data/excel.h"
@@ -125,7 +126,8 @@ void Player::save() {
 
 void Player::saveNow() {
     lastSaveMs_ = util::nowMs();
-    savePlayerState(*this);
+    // Built here, where the state is consistent; written off the packet thread.
+    files::writeLater(core::Config::get().paths.playerFile, playerStateJson(*this));
 }
 
 }  // namespace game
