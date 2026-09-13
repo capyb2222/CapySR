@@ -58,6 +58,13 @@ struct GoodsPurchase {
     int64_t period = 0;
 };
 
+// The Stagnant Shadow the client last activated. Only for this visit, so not saved.
+struct FarmElementActivation {
+    uint32_t entityId = 0;
+    uint32_t elementId = 0;  // ActiveFarmElementCsReq.HECCOBFBJFI, taken to be the shadow's id
+    uint32_t worldLevel = 0;
+};
+
 // A challenge run in progress. Not persisted: leaving the client mid-floor drops the
 // run, which is what the real server does with an expired season anyway.
 struct ChallengeRun {
@@ -215,6 +222,8 @@ public:
     // Keyed by goods id.
     std::map<uint32_t, GoodsPurchase>& goodsPurchases() { return goodsPurchases_; }
     const std::map<uint32_t, GoodsPurchase>& goodsPurchases() const { return goodsPurchases_; }
+    FarmElementActivation& farmElement() { return farmElement_; }
+    const FarmElementActivation& farmElement() const { return farmElement_; }
 
     uint32_t pamSkin() const { return pamSkin_; }
     void setPamSkin(uint32_t value) { pamSkin_ = value; }
@@ -262,6 +271,7 @@ private:
     std::map<uint32_t, ChallengeRecord> challengeRecords_;
     std::map<uint32_t, uint64_t> challengeRewardsTaken_;
     std::map<uint32_t, GoodsPurchase> goodsPurchases_;
+    FarmElementActivation farmElement_;
     uint32_t pamSkin_ = 252000;
     uint32_t music_ = 210000;
 

@@ -77,6 +77,8 @@ void applyChallenge(const Player& player, BattleRequest& request) {
     }
 }
 
+void applyFarmElement(Player& player, BattleRequest& request);
+
 void onSceneCastSkill(net::Session& session, const proto::SceneCastSkillCsReq& req) {
     Player* player = playerOf(session, "SceneCastSkill");
     if (player == nullptr) return;
@@ -155,6 +157,7 @@ void onSceneCastSkill(net::Session& session, const proto::SceneCastSkillCsReq& r
     request.skillIndex = req.skill_index;
     request.monsterEntityIds = monsters;
     applyChallenge(*player, request);
+    applyFarmElement(*player, request);
     tierce::prepareBattle(*player, request);
     peak::prepareBattle(*player, request);
     rsp.battle_info = battle::create(*player, request);
@@ -191,6 +194,7 @@ std::vector<uint32_t> defeated(const Player& player, const std::vector<uint32_t>
     for (uint32_t entityId : entityIds) {
         const SceneEntity* entity = player.sceneState().find(entityId);
         if (entity == nullptr || entity->kind != EntityKind::Monster) continue;
+        if (entityId == player.farmElement().entityId) continue;
         uint32_t stage = entity->stageId != 0
                              ? entity->stageId
                              : tables.stageForEvent(entity->eventId, player.worldLevel());
@@ -249,6 +253,33 @@ std::vector<data::ItemStack> payOut(net::Session& session, Player& player, uint3
     session.send(cmd::StaminaInfoScNotify, inventory::staminaInfo(player));
     player.saveNow();
     return drops;
+}
+
+// A fight with the Stagnant Shadow the client activated costs and pays like one started
+// from the Survival Index. Its id comes from a field the protos leave unnamed, so one
+// that names no shadow leaves the fight free.
+void applyFarmElement(Player& player, BattleRequest& request) {
+    const FarmElementActivation& active = player.farmElement();
+    const std::vector<uint32_t>& ids = request.monsterEntityIds;
+    if (active.entityId == 0 || std::find(ids.begin(), ids.end(), active.entityId) == ids.end()) return;
+
+    const data::Tables& tables = data::Tables::get();
+    uint32_t worldLevel = active.worldLevel != 0 ? active.worldLevel : player.worldLevel();
+    const data::FarmElementInfo* element =
+        tables.farmElement(tables.farmElementStage(active.elementId, worldLevel));
+    if (element == nullptr) {
+        logging::warn("battle", "activated farm element {} names no shadow at world level {}",
+                      active.elementId, worldLevel);
+        return;
+    }
+    request.staminaCost = element->staminaCost;
+    request.mappingInfoId = element->mappingInfoId;
+    request.worldLevel = element->worldLevel != 0 ? element->worldLevel : worldLevel;
+    if (!affordable(player, request)) {
+        logging::info("battle", "not enough stamina for shadow {}, the fight pays nothing", element->id);
+        request.staminaCost = 0;
+        request.mappingInfoId = 0;
+    }
 }
 
 void onStartCocoonStage(net::Session& session, const proto::StartCocoonStageCsReq& req) {

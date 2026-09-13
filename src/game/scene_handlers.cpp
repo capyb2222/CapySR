@@ -187,8 +187,15 @@ void onInteractProp(net::Session& session, const proto::InteractPropCsReq& req) 
 }
 
 // A Stagnant Shadow in the overworld. The fight itself then comes through
-// SceneCastSkill like any other; these only have to hand the entity back.
+// SceneCastSkill like any other.
 void onActiveFarmElement(net::Session& session, const proto::ActiveFarmElementCsReq& req) {
+    // Remembered so the fight with it costs and pays like a shadow run, and so winning
+    // leaves it standing.
+    if (Player* player = session.player()) {
+        player->farmElement() = {req.entity_id, req.HECCOBFBJFI, req.world_level};
+        logging::debug("scene", "farm element entity {} activated: element {} at world level {}",
+                       req.entity_id, req.HECCOBFBJFI, req.world_level);
+    }
     proto::ActiveFarmElementScRsp rsp;
     rsp.retcode = 0;
     rsp.entity_id = req.entity_id;
@@ -198,6 +205,9 @@ void onActiveFarmElement(net::Session& session, const proto::ActiveFarmElementCs
 
 void onDeactivateFarmElement(net::Session& session,
                              const proto::DeactivateFarmElementCsReq& req) {
+    if (Player* player = session.player(); player != nullptr && player->farmElement().entityId == req.entity_id) {
+        player->farmElement() = {};
+    }
     proto::DeactivateFarmElementScRsp rsp;
     rsp.retcode = 0;
     rsp.entity_id = req.entity_id;
