@@ -10,6 +10,7 @@
 #include <nlohmann/json.hpp>
 
 #include "core/config.h"
+#include "core/files.h"
 #include "core/util.h"
 #include "data/excel.h"
 #include "data/scene_res.h"
@@ -945,6 +946,8 @@ void testSrToolsRoundTrip() {
         }
     });
 
+    // The write is queued; wait for it before reading.
+    files::flush();
     std::string written = util::readFile(scratch, &ok);
     check(ok, "the build was written back");
     if (ok) {
