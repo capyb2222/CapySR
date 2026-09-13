@@ -239,6 +239,18 @@ void registerRoutes(http::Server& server) {
     });
 
     // ---- srtools ----
+    // The login SDK throws in its callback on the generic stub, which has no data list.
+    server.any("/data_abtest_api/config/experiment/list", [](const http::Request&, http::Response& res) {
+        json experiment{{"code", 1000},
+                        {"type", 2},
+                        {"config_id", "14"},
+                        {"period_id", "6125_197"},
+                        {"version", "1"},
+                        {"configs", json{{"cardType", "direct"}}}};
+        res.json(json{{"retcode", 0}, {"success", true}, {"message", ""}, {"data", json::array({experiment})}}
+                     .dump());
+    });
+
     server.post("/srtools", [](const http::Request& req, http::Response& res) {
         std::string message = game::SrTools::instance().upload(req.body);
         bool good = message == "OK";

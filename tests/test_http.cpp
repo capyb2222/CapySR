@@ -107,6 +107,11 @@ void runHttpTests() {
         }
     }
 
+    // The login SDK's experiment list needs a data list, not the catch-all stub.
+    std::string experiments = request(kTestPort, "POST", "/data_abtest_api/config/experiment/list", "{}");
+    check(succeeded(experiments) && experiments.find("\"data\":[{") != std::string::npos,
+          "the a/b test list carries its experiments");
+
     // Dispatch itself: base64 protobuf, and the gateway carries the hotfix urls.
     std::string dispatch = request(kTestPort, "GET", "/query_dispatch");
     check(statusOf(dispatch) == 200, "query_dispatch answers");
