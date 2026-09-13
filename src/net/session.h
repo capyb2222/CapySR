@@ -54,6 +54,9 @@ public:
     void sendRaw(uint16_t cmdId, std::string_view body);
     void sendEmpty(uint16_t cmdId);
 
+    // Drops every other session logged in as `uid`; each saves on its way out.
+    void dropOtherLogins(uint32_t uid);
+
     template <class T>
     void send(uint16_t cmdId, const T& message) {
         sendRaw(cmdId, message.serialize());

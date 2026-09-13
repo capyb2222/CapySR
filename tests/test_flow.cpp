@@ -1073,5 +1073,18 @@ void runFlowTests() {
     check(!client.await(cmd::ChessRogueQueryScRsp, packet, 600),
           "a silenced module gets no reply");
 
+    // The same account logging in from a new port replaces the old session, instead of
+    // leaving it to write its stale copy over the new login's save when it times out.
+    {
+        TestClient second;
+        check(second.connect(kTestPort), "a second client connects");
+        proto::PlayerGetTokenCsReq again;
+        again.account_uid = "capybara";
+        second.send(cmd::PlayerGetTokenCsReq, again);
+        net::Packet secondPacket;
+        check(second.await(cmd::PlayerGetTokenScRsp, secondPacket), "and logs in");
+        check(gateway.sessions().size() == 1, "leaving one session for the account");
+    }
+
     gateway.stop();
 }

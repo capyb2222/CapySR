@@ -24,6 +24,9 @@ public:
     // `why` is logged: knowing whether the client hung up, timed out or handshook
     // again is most of the diagnosis when a session ends unexpectedly.
     void drop(uint32_t conv, const char* why);
+    // A restarted client comes from a new port, so its old session outlives it; this drops
+    // that one before the new login reads the save it would otherwise overwrite later.
+    void dropOthers(const Session& keep, uint32_t uid);
     std::shared_ptr<Session> find(uint32_t conv);
     // Every session still connected, in conv order. The admin routes act on these.
     std::vector<std::shared_ptr<Session>> sessions();

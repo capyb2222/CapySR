@@ -5,6 +5,7 @@
 
 #include "core/logger.h"
 #include "core/util.h"
+#include "game/player.h"
 
 namespace net {
 namespace {
@@ -100,6 +101,19 @@ void Gateway::drop(uint32_t conv, const char* why) {
     sendControl(kDisconnect, session->conv(), session->token(), 1, kDisconnectTail,
                 session->remote());
     logging::info("game", "conv {} from {} disconnected ({})", conv, session->remote().str(), why);
+}
+
+void Gateway::dropOthers(const Session& keep, uint32_t uid) {
+    std::vector<uint32_t> stale;
+    {
+        std::lock_guard lock(mutex_);
+        for (const auto& [conv, session] : sessions_) {
+            if (session.get() == &keep) continue;
+            const game::Player* player = session->player();
+            if (player != nullptr && player->uid() == uid) stale.push_back(conv);
+        }
+    }
+    for (uint32_t conv : stale) drop(conv, "the account logged in again");
 }
 
 void Gateway::receiveLoop() {

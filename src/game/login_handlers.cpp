@@ -32,6 +32,9 @@ void fillBasicInfo(proto::PlayerBasicInfo& info, const Player& player) {
 
 void onGetToken(net::Session& session, const proto::PlayerGetTokenCsReq& req) {
     uint32_t uid = core::Config::get().player.uid;
+    // Before the save is read: a session this login replaces saves its newest state on the
+    // way out, and cannot write a stale copy over this one's later.
+    session.dropOtherLogins(uid);
     auto player = std::make_shared<Player>(uid);
     player->setMainCharacter(core::Config::get().gameplay.mainCharacter);
     player->setMarchType(core::Config::get().gameplay.marchType);

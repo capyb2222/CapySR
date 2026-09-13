@@ -143,6 +143,8 @@ void Session::sendRaw(uint16_t cmdId, std::string_view body) {
 
 void Session::sendEmpty(uint16_t cmdId) { sendRaw(cmdId, {}); }
 
+void Session::dropOtherLogins(uint32_t uid) { gateway_.dropOthers(*this, uid); }
+
 void Session::flushOutbound() {
     if (!kcp_) return;
     // ikcp_flush stamps every segment from kcp->current, and only ikcp_update ever
