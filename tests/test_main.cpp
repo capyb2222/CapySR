@@ -311,6 +311,15 @@ void testLogFormat() {
           "the banner names its rows");
 }
 
+void testSafeWrite() {
+    const std::string path = "build/test-safe-write.json";
+    check(util::writeFile(path, "first"), "a file writes");
+    check(util::writeFile(path, "second, and longer"), "and overwrites");
+    bool ok = false;
+    check(util::readFile(path, &ok) == "second, and longer" && ok, "with the new content whole");
+    check(!util::fileExists(path + ".tmp"), "leaving no temp file behind");
+}
+
 }  // namespace
 
 int main() {
@@ -324,6 +333,7 @@ int main() {
     testLineupCmdIds();
     testIdleTimeout();
     testLogFormat();
+    testSafeWrite();
     testFillPresence();
     testLargeMessage();
     testAgainstProtoc();

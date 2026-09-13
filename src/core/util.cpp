@@ -175,15 +175,34 @@ std::string readFile(const std::string& path, bool* ok) {
 }
 
 bool writeFile(const std::string& path, std::string_view data) {
-    std::filesystem::path p(path);
-    if (p.has_parent_path()) {
-        std::error_code ec;
-        std::filesystem::create_directories(p.parent_path(), ec);
+    std::filesystem::path target(path);
+    std::error_code ec;
+    if (target.has_parent_path()) std::filesystem::create_directories(target.parent_path(), ec);
+
+    auto writeTo = [data](const std::filesystem::path& file) {
+        std::ofstream out(file, std::ios::binary | std::ios::trunc);
+        if (!out) return false;
+        out.write(data.data(), static_cast<std::streamsize>(data.size()));
+        out.close();
+        return !out.fail();
+    };
+
+    // Written beside the target and moved over it in one step, so a crash mid-write leaves
+    // the old file whole instead of cut short.
+    std::filesystem::path temp = target;
+    temp += ".tmp";
+    if (writeTo(temp)) {
+#ifdef _WIN32
+        if (MoveFileExW(temp.c_str(), target.c_str(), MOVEFILE_REPLACE_EXISTING)) return true;
+#else
+        std::filesystem::rename(temp, target, ec);
+        if (!ec) return true;
+#endif
     }
-    std::ofstream out(path, std::ios::binary | std::ios::trunc);
-    if (!out) return false;
-    out.write(data.data(), static_cast<std::streamsize>(data.size()));
-    return out.good();
+    std::filesystem::remove(temp, ec);
+    // Something is holding the target in a way that blocks the move; a direct write still
+    // beats dropping the save.
+    return writeTo(target);
 }
 
 std::string executableDir() {
