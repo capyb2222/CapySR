@@ -208,6 +208,7 @@ void registerAllHandlers() {
     registerPeakHandlers();
     registerGachaHandlers();
     registerShopHandlers();
+    registerCollectionHandlers();
     registerModuleHandlers();
     registerMiscHandlers();
     logging::info("game", "{} packet handlers registered, {} answered empty",

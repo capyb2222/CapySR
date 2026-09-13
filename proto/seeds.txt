@@ -255,6 +255,16 @@ GetShopListCsReq
 GetShopListScRsp
 BuyGoodsCsReq
 BuyGoodsScRsp
+GetPamSkinDataCsReq
+GetPamSkinDataScRsp
+SelectPamSkinCsReq
+SelectPamSkinScRsp
+GetJukeboxDataCsReq
+GetJukeboxDataScRsp
+PlayBackGroundMusicCsReq
+PlayBackGroundMusicScRsp
+GetNpcMessageGroupCsReq
+GetNpcMessageGroupScRsp
 UseItemCsReq
 UseItemScRsp
 SellItemCsReq

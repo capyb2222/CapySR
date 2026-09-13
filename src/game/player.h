@@ -216,6 +216,11 @@ public:
     std::map<uint32_t, GoodsPurchase>& goodsPurchases() { return goodsPurchases_; }
     const std::map<uint32_t, GoodsPurchase>& goodsPurchases() const { return goodsPurchases_; }
 
+    uint32_t pamSkin() const { return pamSkin_; }
+    void setPamSkin(uint32_t value) { pamSkin_ = value; }
+    uint32_t music() const { return music_; }
+    void setMusic(uint32_t value) { music_ = value; }
+
     uint32_t mainCharacter() const { return mainCharacter_; }
     void setMainCharacter(uint32_t value) { mainCharacter_ = value; }
     uint32_t marchType() const { return marchType_; }
@@ -257,6 +262,8 @@ private:
     std::map<uint32_t, ChallengeRecord> challengeRecords_;
     std::map<uint32_t, uint64_t> challengeRewardsTaken_;
     std::map<uint32_t, GoodsPurchase> goodsPurchases_;
+    uint32_t pamSkin_ = 252000;
+    uint32_t music_ = 210000;
 
     uint32_t mainCharacter_ = 8008;
     uint32_t marchType_ = 1224;

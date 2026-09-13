@@ -25,6 +25,7 @@ void registerTierceHandlers();
 void registerPeakHandlers();
 void registerGachaHandlers();
 void registerShopHandlers();
+void registerCollectionHandlers();
 void registerModuleHandlers();
 void registerMiscHandlers();
 

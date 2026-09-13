@@ -244,6 +244,8 @@ bool loadPlayerState(Player& player) {
         }
     }
 
+    player.setPamSkin(u32(j, "pam_skin", player.pamSkin()));
+    player.setMusic(u32(j, "music", player.music()));
     if (auto bought = j.find("goods_purchases"); bought != j.end() && bought->is_array()) {
         for (const json& entry : *bought) {
             uint32_t goods = entry.is_object() ? u32(entry, "goods", 0) : 0;
@@ -369,6 +371,8 @@ std::string playerStateJson(const Player& player) {
     }
     j["challenge_rewards_taken"] = taken;
 
+    j["pam_skin"] = player.pamSkin();
+    j["music"] = player.music();
     json bought = json::array();
     for (const auto& [goods, purchase] : player.goodsPurchases()) {
         if (purchase.times == 0) continue;

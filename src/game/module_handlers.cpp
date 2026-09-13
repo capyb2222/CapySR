@@ -43,14 +43,11 @@ constexpr uint16_t kSilent[] = {
     cmd::ChimeraDuelGetDataCsReq,
     cmd::ChenLingGetDataCsReq,
     cmd::GetEvolveBuildQueryInfoCsReq,
-    cmd::GetJukeboxDataCsReq,
     // Second round, from the OS 4.5.53 client's own log: CycleScore.Sync,
-    // PetMarbleModule._OnPetMarbleGetDataScRsp, ArchiveModule._OnGetArchiveDataScRsp
-    // (through AvatarArchiveData.Sync) and DrinkMakerBar._UpdateGameplayData all
+    // PetMarbleModule._OnPetMarbleGetDataScRsp and DrinkMakerBar._UpdateGameplayData
     // dereference their way through an empty body.
     cmd::CycleScoreRewardGetDataCsReq,
     cmd::PetMarbleGetDataCsReq,
-    cmd::GetArchiveDataCsReq,
     cmd::GetDrinkMakerDataCsReq,
 };
 

@@ -672,10 +672,13 @@ void testShop() {
 
     std::string realPath = core::Config::get().paths.playerFile;
     core::Config::get().paths.playerFile = "build/test-shop-player.json";
+    player.setPamSkin(252003);
+    player.setMusic(210001);
     game::savePlayerState(player);
     game::Player loaded(1);
     game::loadPlayerState(loaded);
-    check(loaded.goodsPurchases().count(pick->id) == 1, "purchases survive a restart");
+    check(loaded.goodsPurchases().count(pick->id) == 1 && loaded.pamSkin() == 252003 && loaded.music() == 210001,
+          "purchases, the outfit and the music survive a restart");
     core::Config::get().paths.playerFile = realPath;
 }
 

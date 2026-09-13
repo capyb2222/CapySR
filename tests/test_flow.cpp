@@ -1122,7 +1122,7 @@ void runFlowTests() {
               claimed.retcode == 0 && !claimed.taken_reward_list.empty(),
           "season rewards can be claimed");
 
-    // Shops.
+    // Shops, Pom-Pom's outfits, the Jukebox, the Data Bank and phone messages.
     proto::GetShopListCsReq shops;
     shops.shop_type = 1;
     client.send(cmd::GetShopListCsReq, shops);
@@ -1130,6 +1130,52 @@ void runFlowTests() {
     check(client.await(cmd::GetShopListScRsp, packet) && parseBody(packet, shopList) && shopList.retcode == 0 &&
               !shopList.shop_list.empty() && !shopList.shop_list[0].goods_list.empty(),
           "a shop lists its goods");
+
+    client.sendEmpty(cmd::GetPamSkinDataCsReq);
+    proto::GetPamSkinDataScRsp skins;
+    check(client.await(cmd::GetPamSkinDataScRsp, packet) && parseBody(packet, skins) &&
+              skins.unlock_skin_list.size() >= 5 && skins.cur_skin == 252000,
+          "every Pom-Pom outfit is unlocked");
+    proto::SelectPamSkinCsReq outfit;
+    outfit.pam_skin = 252001;
+    client.send(cmd::SelectPamSkinCsReq, outfit);
+    proto::SelectPamSkinScRsp worn;
+    check(client.await(cmd::SelectPamSkinScRsp, packet) && parseBody(packet, worn) && worn.retcode == 0 &&
+              worn.cur_skin == 252001,
+          "and one can be worn");
+
+    client.sendEmpty(cmd::GetJukeboxDataCsReq);
+    proto::GetJukeboxDataScRsp jukebox;
+    check(client.await(cmd::GetJukeboxDataScRsp, packet) && parseBody(packet, jukebox) &&
+              jukebox.IOKAJIBHLMP.size() > 200 && jukebox.GFFOBALDBPM.has(),
+          "the Jukebox lists its tracks and what is playing");
+    if (jukebox.IOKAJIBHLMP.size() > 1) {
+        proto::PlayBackGroundMusicCsReq play;
+        play.IKJNIKIGFLF.emplace().JKNLCEEDAHJ.emplace().id = jukebox.IOKAJIBHLMP[1].id;
+        client.send(cmd::PlayBackGroundMusicCsReq, play);
+        proto::PlayBackGroundMusicScRsp playing;
+        check(client.await(cmd::PlayBackGroundMusicScRsp, packet) && parseBody(packet, playing) &&
+                  playing.retcode == 0 && playing.GFFOBALDBPM && playing.GFFOBALDBPM->JKNLCEEDAHJ &&
+                  playing.GFFOBALDBPM->JKNLCEEDAHJ->id == jukebox.IOKAJIBHLMP[1].id,
+              "and plays a pick");
+    }
+
+    client.sendEmpty(cmd::GetArchiveDataCsReq);
+    proto::GetArchiveDataScRsp archive;
+    check(client.await(cmd::GetArchiveDataScRsp, packet) && parseBody(packet, archive) && archive.archive_data &&
+              !archive.archive_data->kill_monster_list.empty() && !archive.archive_data->relic_list.empty() &&
+              !archive.archive_data->archive_equipment_id_list.empty(),
+          "the Data Bank is filled");
+
+    proto::GetNpcMessageGroupCsReq contacts;
+    contacts.BJIPBBFIBPD = {1002};
+    client.send(cmd::GetNpcMessageGroupCsReq, contacts);
+    proto::GetNpcMessageGroupScRsp conversations;
+    check(client.await(cmd::GetNpcMessageGroupScRsp, packet) && parseBody(packet, conversations) &&
+              !conversations.message_group_list.empty() &&
+              conversations.message_group_list[0].status ==
+                  proto::MessageGroupStatus::MessageGroupStatus_MessageGroupFinish,
+          "phone conversations read as finished");
 
     // An unimplemented request still has to complete, or the client hangs on it. This
     // one has no handler at all, so it exercises the name-derived fallback.
