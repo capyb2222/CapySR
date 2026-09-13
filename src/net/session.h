@@ -61,6 +61,7 @@ public:
 
 private:
     void flushOutbound();
+    void flushEmptyReplies();
     static int kcpOutput(const char* buf, int len, IKCPCB* kcp, void* user);
     void dispatch(const Packet& packet);
 
@@ -75,6 +76,10 @@ private:
     std::vector<char> recvBuffer_;
     // Written by the receive thread, read by the updater thread.
     std::atomic<uint64_t> lastActivity_{0};
+    // Unimplemented requests answered empty since the last summary line; under mutex_.
+    std::vector<std::string> emptyReplies_;
+    uint32_t emptyReplyCount_ = 0;
+    uint64_t lastEmptyReplyMs_ = 0;
 };
 
 }  // namespace net

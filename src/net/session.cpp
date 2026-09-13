@@ -1,5 +1,8 @@
 #include "net/session.h"
 
+#include <algorithm>
+#include <format>
+
 #include <ikcp.h>
 
 #include "core/config.h"
@@ -14,6 +17,7 @@ namespace net {
 namespace {
 
 constexpr uint64_t kIdleTimeoutMs = 60000;
+constexpr uint64_t kEmptyReplyQuietMs = 1000;
 
 }  // namespace
 
@@ -104,7 +108,15 @@ void Session::dispatch(const Packet& packet) {
         return;
     }
     if (!handlers.isEmptyReply(packet.cmdId)) {
-        logging::debug("net", "{} is unimplemented, replying empty", name);
+        logging::trace("net", "{} is unimplemented, replying empty", name);
+        // A login fires dozens of these; they go out as one line once they stop.
+        if (logging::enabled(logging::Level::Debug)) {
+            ++emptyReplyCount_;
+            if (std::find(emptyReplies_.begin(), emptyReplies_.end(), name) == emptyReplies_.end()) {
+                emptyReplies_.push_back(name);
+            }
+            lastEmptyReplyMs_ = util::nowMs();
+        }
     }
     sendEmpty(rspId);
 }
@@ -145,6 +157,25 @@ void Session::flushOutbound() {
 void Session::update(uint32_t nowMs) {
     std::lock_guard lock(mutex_);
     if (kcp_) ikcp_update(kcp_, nowMs);
+    if (emptyReplyCount_ != 0 && util::nowMs() >= lastEmptyReplyMs_ + kEmptyReplyQuietMs) {
+        flushEmptyReplies();
+    }
+}
+
+void Session::flushEmptyReplies() {
+    constexpr size_t kNamed = 4;
+    std::string names;
+    for (size_t i = 0; i < emptyReplies_.size() && i < kNamed; ++i) {
+        if (i != 0) names += ", ";
+        names += emptyReplies_[i];
+    }
+    if (emptyReplies_.size() > kNamed) {
+        names += std::format(" and {} more", emptyReplies_.size() - kNamed);
+    }
+    logging::debug("net", "{} unimplemented request{} answered empty ({}); log level trace names each",
+                   emptyReplyCount_, emptyReplyCount_ == 1 ? "" : "s", names);
+    emptyReplies_.clear();
+    emptyReplyCount_ = 0;
 }
 
 bool Session::expired(uint64_t nowMs) const {
@@ -155,6 +186,7 @@ void Session::close() {
     std::lock_guard lock(mutex_);
     if (state_ == SessionState::Closed) return;
     state_ = SessionState::Closed;
+    if (emptyReplyCount_ != 0) flushEmptyReplies();
     // The periodic save is throttled, so the last few seconds of walking would be
     // lost without this.
     if (player_) player_->saveNow();
