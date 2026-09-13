@@ -72,12 +72,16 @@ int main(int argc, char** argv) {
     sdk::registerRoutes(web);
     sdk::registerAdminRoutes(web, gateway);
     if (!web.start(config.http.bind, config.http.port)) return 1;
-    logging::info("capysr", "dispatch listening on {}:{}", config.http.bind, config.http.port);
-
     if (!gateway.start(config.game.bind, config.game.port)) return 1;
-    logging::info("capysr", "game listening on {}:{} (udp/kcp)", config.game.bind, config.game.port);
-    logging::info("capysr", "black screen? http://{}:{}/unstick", config.http.publicHost,
-                  config.http.port);
+
+    std::string http = std::format("http://{}:{}", config.http.publicHost, config.http.port);
+    logging::banner(
+        "capysr", config.serverName + " is ready",
+        {{"dispatch", http},
+         {"game", std::format("{}:{} udp/kcp", config.game.publicHost, config.game.port)},
+         {"unstick", http + "/unstick  (black screen?)"},
+         {"log", std::format("{} at {}", config.log.file.empty() ? "console only" : config.log.file,
+                             config.log.level)}});
 
     std::signal(SIGINT, onSignal);
     std::signal(SIGTERM, onSignal);

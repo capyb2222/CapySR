@@ -1,7 +1,10 @@
 // Small assert-based tests; the wire codec is hand written so it gets the most cover.
 #include <cstdio>
 #include <string>
+#include <string_view>
+#include <vector>
 
+#include "core/logger.h"
 #include "core/util.h"
 #include "net/cmd_ids.h"
 #include "net/packet.h"
@@ -268,6 +271,46 @@ void testAgainstProtoc() {
     check(again == std::string(kBytes, size), "re-encoded bytes match protoc");
 }
 
+void testLogFormat() {
+    using logging::Level;
+    namespace detail = logging::detail;
+    const char* t = "12:00:00.000";
+
+    check(detail::consoleLine(Level::Info, t, "game", "hello", false) ==
+              "12:00:00.000  INFO   game      hello\n",
+          "console lines keep their columns");
+    check(detail::consoleLine(Level::Info, t, "challenge", "x", false) ==
+              "12:00:00.000  INFO   challenge x\n",
+          "the longest tag still leaves a gap");
+    check(detail::consoleLine(Level::Debug, t, "recv", "DoGachaCsReq (1905) 5 bytes", false) ==
+              "12:00:00.000  DEBUG  recv      <- DoGachaCsReq (1905) 5 bytes\n",
+          "packets get a direction arrow");
+    check(detail::consoleLine(Level::Warn, t, "net", "first\nsecond", false) ==
+              "12:00:00.000  WARN   net       first\n" + std::string(31, ' ') + "second\n",
+          "a second line lines up under the first");
+    check(detail::fileLine(Level::Info, t, "game", "hello") == "12:00:00.000 INFO  game hello\n",
+          "the file keeps its plain format");
+
+    std::string colored = detail::consoleLine(Level::Debug, t, "send", "X (1) 0 bytes", true);
+    check(colored.find("\033[") != std::string::npos && colored.find("→") != std::string::npos,
+          "the console gets colour and arrows");
+
+    std::string box = detail::bannerBox("CapySR is ready",
+                                        {{"dispatch", "http://127.0.0.1:21000"}, {"game", "x"}}, false);
+    std::vector<std::string> lines;
+    for (std::string_view rest = box; !rest.empty();) {
+        size_t end = rest.find('\n');
+        lines.emplace_back(rest.substr(0, end));
+        rest.remove_prefix(end + 1);
+    }
+    bool even = lines.size() == 4;
+    for (const std::string& line : lines) even &= line.size() == lines[0].size();
+    check(even, "every banner line is the same width");
+    check(box.rfind("+- CapySR is ready -", 0) == 0 &&
+              box.find("| dispatch  http://127.0.0.1:21000 |") != std::string::npos,
+          "the banner names its rows");
+}
+
 }  // namespace
 
 int main() {
@@ -280,6 +323,7 @@ int main() {
     testCmdIds();
     testLineupCmdIds();
     testIdleTimeout();
+    testLogFormat();
     testFillPresence();
     testLargeMessage();
     testAgainstProtoc();
