@@ -138,6 +138,45 @@ struct RewardInfo {
     std::vector<ItemStack> items;
 };
 
+// ShopGoodsConfig.RefreshType. CYCLE rows follow a schedule the tables do not carry, so
+// they are treated as never refreshing.
+enum class GoodsRefresh { Never, Daily, Weekly, Monthly };
+
+// One item on a shelf: what it gives, what it costs, and how often it can be bought.
+struct GoodsInfo {
+    uint32_t id = 0;
+    uint32_t shopId = 0;
+    uint32_t itemId = 0;
+    uint32_t itemCount = 1;
+    std::vector<ItemStack> cost;
+    uint32_t limitTimes = 0;  // 0 for no limit
+    GoodsRefresh refresh = GoodsRefresh::Never;
+};
+
+struct ShopInfo {
+    uint32_t id = 0;
+    uint32_t type = 0;
+    std::vector<uint32_t> goods;  // in id order
+};
+
+// BackGroundMusic: a track the Jukebox can play.
+struct MusicInfo {
+    uint32_t id = 0;
+    uint32_t groupId = 0;
+};
+
+// One piece of a relic set, by slot (1 head .. 6 link rope), as the Data Bank lists it.
+struct RelicSetPiece {
+    uint32_t setId = 0;
+    uint32_t type = 0;
+};
+
+// MessageGroupConfig: one phone conversation and its sections in order.
+struct MessageGroupInfo {
+    uint32_t id = 0;
+    std::vector<uint32_t> sections;
+};
+
 struct ChallengeRewardLine {
     uint32_t stars = 0;
     uint32_t rewardId = 0;
@@ -324,6 +363,19 @@ public:
     const std::vector<uint32_t>& staminaPrices() const { return staminaPrices_; }
     uint32_t staminaPerPurchase() const { return staminaPerPurchase_; }
 
+    const ShopInfo* shop(uint32_t id) const;
+    const GoodsInfo* goods(uint32_t id) const;
+    const std::unordered_map<uint32_t, ShopInfo>& shops() const { return shops_; }
+    // The shops of one ShopConfig.ShopType, in id order.
+    std::vector<const ShopInfo*> shopsOfType(uint32_t type) const;
+
+    const std::vector<uint32_t>& pamSkins() const { return pamSkins_; }
+    const std::vector<MusicInfo>& music() const { return music_; }
+    const MusicInfo* musicTrack(uint32_t id) const;
+    const std::vector<RelicSetPiece>& relicSetPieces() const { return relicSetPieces_; }
+    // A contact's conversations, or nullptr for a contact with none.
+    const std::vector<MessageGroupInfo>* messageGroups(uint32_t contactId) const;
+
     const StandardGacha& standardGacha() const { return standardGacha_; }
     // The standard pool, then the limited ones in id order.
     const std::vector<GachaPool>& gachaPools() const { return gachaPools_; }
@@ -368,6 +420,7 @@ public:
     const BattleTargetInfo* battleTarget(uint32_t id) const;
 
     const std::unordered_map<uint32_t, AvatarInfo>& avatars() const { return avatars_; }
+    const std::unordered_map<uint32_t, MonsterInfo>& monsters() const { return monsters_; }
     const std::unordered_map<uint32_t, EntranceInfo>& entrances() const { return entrances_; }
 
     size_t stageCount() const { return stages_.size(); }
@@ -395,6 +448,12 @@ private:
     StaminaRules staminaRules_;
     std::vector<uint32_t> staminaPrices_;
     uint32_t staminaPerPurchase_ = 60;
+    std::unordered_map<uint32_t, ShopInfo> shops_;
+    std::unordered_map<uint32_t, GoodsInfo> goods_;
+    std::vector<uint32_t> pamSkins_;
+    std::vector<MusicInfo> music_;
+    std::vector<RelicSetPiece> relicSetPieces_;
+    std::unordered_map<uint32_t, std::vector<MessageGroupInfo>> messageGroups_;
     StandardGacha standardGacha_;
     std::vector<GachaPool> gachaPools_;
     uint32_t avatarUpChance_ = 50;

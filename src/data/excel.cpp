@@ -116,6 +116,15 @@ uint32_t itemRarity(const std::string& name) {
     return 0;
 }
 
+// RelicConfig.Type in slot order, which is also the last digit of a relic's id.
+uint32_t relicTypeFromName(const std::string& name) {
+    static const char* const kSlots[] = {"HEAD", "HAND", "BODY", "FOOT", "NECK", "OBJECT"};
+    for (uint32_t i = 0; i < 6; ++i) {
+        if (name == kSlots[i]) return i + 1;
+    }
+    return 0;
+}
+
 // AvatarSkillTreeConfig.AnchorType is "Point07"; the client wants the number.
 uint32_t anchorNumber(const std::string& anchor) {
     size_t i = 0;
@@ -644,6 +653,91 @@ bool Tables::load(const std::vector<std::string>& sources) {
             rewards_.emplace(id, std::move(reward));
         }
 
+        for (const json* row : table("ShopConfig.json")) {
+            uint32_t id = u32(*row, "ShopID");
+            if (id == 0 || shops_.count(id) != 0) continue;
+            // A shelf the tables call closed, and the real-money recharge pages, are
+            // skipped: the client throws reading a shop id its own tables lack, and the
+            // paid shelves are exactly the ones that rotate out between patches.
+            if (row->contains("IsOpen") && !boolOf(*row, "IsOpen")) continue;
+            if (str(*row, "ShopBar").find("Recharge") != std::string::npos) continue;
+            ShopInfo shop;
+            shop.id = id;
+            shop.type = u32(*row, "ShopType");
+            shops_.emplace(id, std::move(shop));
+        }
+
+        for (const json* row : table("ShopGoodsConfig.json")) {
+            uint32_t id = u32(*row, "GoodsID");
+            uint32_t itemId = u32(*row, "ItemID");
+            if (id == 0 || itemId == 0 || goods_.count(id) != 0) continue;
+            // Same reason: limited-time and activity stock is rotated every patch, so a
+            // client on a different one has no row for it and its shop module throws
+            // ("商品配表读取失败, ShopGoodsID: ...") part way through building the shelf.
+            if (boolOf(*row, "IsLimitedTimePurchase") || u32(*row, "ActivityModuleID") != 0) continue;
+            GoodsInfo goods;
+            goods.id = id;
+            goods.shopId = u32(*row, "ShopID");
+            goods.itemId = itemId;
+            goods.itemCount = u32(*row, "ItemCount", 1);
+            // Read side by side rather than through u32List, which drops zeroes and would
+            // pair a currency with the wrong price.
+            auto currencies = row->find("CurrencyList");
+            auto prices = row->find("CurrencyCostList");
+            if (currencies != row->end() && prices != row->end() && currencies->is_array() &&
+                prices->is_array()) {
+                for (size_t i = 0; i < currencies->size() && i < prices->size(); ++i) {
+                    auto currency = static_cast<uint32_t>(numberOf((*currencies)[i]));
+                    auto price = static_cast<uint32_t>(numberOf((*prices)[i]));
+                    if (currency != 0) goods.cost.push_back({currency, price});
+                }
+            }
+            // Paid with Oneiric Shards: a real-money bundle. Nothing here can sell one,
+            // and they rotate with the store, so they go too.
+            if (std::any_of(goods.cost.begin(), goods.cost.end(),
+                            [](const ItemStack& cost) { return cost.id == 3; })) {
+                continue;
+            }
+            goods.limitTimes = u32(*row, "LimitTimes");
+            std::string refresh = str(*row, "RefreshType");
+            goods.refresh = refresh == "DAILY"   ? GoodsRefresh::Daily
+                            : refresh == "WEEK"  ? GoodsRefresh::Weekly
+                            : refresh == "MONTH" ? GoodsRefresh::Monthly
+                                                 : GoodsRefresh::Never;
+            goods_.emplace(id, std::move(goods));
+        }
+
+        for (const json* row : table("PamSkinConfig.json")) {
+            uint32_t id = u32(*row, "SkinID");
+            if (id != 0 && std::find(pamSkins_.begin(), pamSkins_.end(), id) == pamSkins_.end()) {
+                pamSkins_.push_back(id);
+            }
+        }
+
+        for (const json* row : table("BackGroundMusic.json")) {
+            uint32_t id = u32(*row, "ID");
+            if (id == 0 || musicTrack(id) != nullptr) continue;
+            music_.push_back({id, u32(*row, "GroupID")});
+        }
+
+        for (const json* row : table("RelicConfig.json")) {
+            uint32_t setId = u32(*row, "SetID");
+            uint32_t type = relicTypeFromName(str(*row, "Type"));
+            if (setId == 0 || type == 0) continue;
+            auto same = [&](const RelicSetPiece& piece) { return piece.setId == setId && piece.type == type; };
+            if (std::none_of(relicSetPieces_.begin(), relicSetPieces_.end(), same)) {
+                relicSetPieces_.push_back({setId, type});
+            }
+        }
+
+        std::unordered_set<uint32_t> messageGroupIds;
+        for (const json* row : table("MessageGroupConfig.json")) {
+            uint32_t id = u32(*row, "ID");
+            uint32_t contact = u32(*row, "MessageContactsID");
+            if (id == 0 || contact == 0 || !messageGroupIds.insert(id).second) continue;
+            messageGroups_[contact].push_back({id, u32List(*row, "MessageSectionIDList")});
+        }
+
         for (const json* row : table("ConstValueCommon.json")) {
             auto value = row->find("Value");
             if (value == row->end() || !value->is_object()) continue;
@@ -1016,10 +1110,50 @@ bool Tables::load(const std::vector<std::string>& sources) {
     logging::info("data", "{} lightcones, {} warp pools", lightcones_.size(), gachaPools_.size());
     logging::info("data", "{} items, {} drop tables, {} rewards", items_.size(), mappingInfos_.size(),
                   rewards_.size());
+    logging::info("data", "{} shops with {} goods, {} music tracks, {} relic set pieces", shops_.size(),
+                  goods_.size(), music_.size(), relicSetPieces_.size());
     logging::info("data", "{} main missions, {} tutorials, {} guides, {} quests",
                   mainMissions_.size(), tutorials_.size(), tutorialGuides_.size(),
                   quests_.size());
+
+    // Shelves list their goods; done once every source has had its say.
+    for (auto& [shopId, shop] : shops_) shop.goods.clear();
+    for (const auto& [goodsId, goods] : goods_) {
+        if (auto shop = shops_.find(goods.shopId); shop != shops_.end()) shop->second.goods.push_back(goodsId);
+    }
+    for (auto& [shopId, shop] : shops_) std::sort(shop.goods.begin(), shop.goods.end());
     return true;
+}
+
+const ShopInfo* Tables::shop(uint32_t id) const {
+    auto it = shops_.find(id);
+    return it == shops_.end() ? nullptr : &it->second;
+}
+
+const GoodsInfo* Tables::goods(uint32_t id) const {
+    auto it = goods_.find(id);
+    return it == goods_.end() ? nullptr : &it->second;
+}
+
+std::vector<const ShopInfo*> Tables::shopsOfType(uint32_t type) const {
+    std::vector<const ShopInfo*> out;
+    for (const auto& [id, shop] : shops_) {
+        if (shop.type == type && !shop.goods.empty()) out.push_back(&shop);
+    }
+    std::sort(out.begin(), out.end(), [](const ShopInfo* a, const ShopInfo* b) { return a->id < b->id; });
+    return out;
+}
+
+const MusicInfo* Tables::musicTrack(uint32_t id) const {
+    for (const MusicInfo& track : music_) {
+        if (track.id == id) return &track;
+    }
+    return nullptr;
+}
+
+const std::vector<MessageGroupInfo>* Tables::messageGroups(uint32_t contactId) const {
+    auto it = messageGroups_.find(contactId);
+    return it == messageGroups_.end() ? nullptr : &it->second;
 }
 
 }  // namespace data

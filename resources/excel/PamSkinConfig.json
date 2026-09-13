@@ -1,0 +1,37 @@
+[
+  {
+    "SkinID": 252000,
+    "SkinIcon": "SpriteOutput/AvatarShopIcon/Pam/252000.png",
+    "ConfigEntityPath": "Config/ConfigEntity/NPC/Special/NPC_Special_Pam_00_Entity.json",
+    "JsonPath": "Config/ConfigCharacter/NPC/Special/NPC_Special_Pam_00_Config.json",
+    "ManikinPrefab": "Characters/CharacterPrefabs/Manikin/Special/Pam_00/Manikin_Special_Pam_00.prefab"
+  },
+  {
+    "SkinID": 252001,
+    "SkinIcon": "SpriteOutput/AvatarShopIcon/Pam/252001.png",
+    "ConfigEntityPath": "Config/ConfigEntity/NPC/Special/NPC_Special_PamChef_00_Entity.json",
+    "JsonPath": "Config/ConfigCharacter/NPC/Special/NPC_Special_Pam_00_Config.json",
+    "ManikinPrefab": "Characters/CharacterPrefabs/Manikin/Special/PamChef_00/Manikin_Special_PamChef_00.prefab"
+  },
+  {
+    "SkinID": 252002,
+    "SkinIcon": "SpriteOutput/AvatarShopIcon/Pam/252002.png",
+    "ConfigEntityPath": "Config/ConfigEntity/NPC/Special/NPC_Special_PamNighty_00_Entity.json",
+    "JsonPath": "Config/ConfigCharacter/NPC/Special/NPC_Special_Pam_00_Config.json",
+    "ManikinPrefab": "Characters/CharacterPrefabs/Manikin/Special/PamNighty_00/Manikin_Special_PamNighty_00.prefab"
+  },
+  {
+    "SkinID": 252003,
+    "SkinIcon": "SpriteOutput/AvatarShopIcon/Pam/252003.png",
+    "ConfigEntityPath": "Config/ConfigEntity/NPC/Special/NPC_Special_PamGentle_00_Entity.json",
+    "JsonPath": "Config/ConfigCharacter/NPC/Special/NPC_Special_Pam_00_Config.json",
+    "ManikinPrefab": "Characters/CharacterPrefabs/Manikin/Special/PamGentle_00/Manikin_Special_PamGentle_00.prefab"
+  },
+  {
+    "SkinID": 252004,
+    "SkinIcon": "SpriteOutput/AvatarShopIcon/Pam/252004.png",
+    "ConfigEntityPath": "Config/ConfigEntity/NPC/Special/NPC_Special_PamGentle_01_Entity.json",
+    "JsonPath": "Config/ConfigCharacter/NPC/Special/NPC_Special_Pam_00_Config.json",
+    "ManikinPrefab": "Characters/CharacterPrefabs/Manikin/Special/PamGentle_01/Manikin_Special_PamGentle_01.prefab"
+  }
+]
