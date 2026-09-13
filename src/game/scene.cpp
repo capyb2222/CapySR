@@ -291,6 +291,8 @@ bool load(Player& player, uint32_t entryId, uint32_t teleportId, bool commit,
         const core::GameplayConfig& gameplay = core::Config::get().gameplay;
         for (uint32_t mission : group.finishedMainMissions) {
             if (gameplay.missionSkipped(mission)) continue;
+            // The dump comes from production data, which has missions this client does not.
+            if (!data::Tables::get().knowsMainMission(mission)) continue;
             missions.finished_main_mission_id_list.push_back(mission);
         }
         for (uint32_t mission : group.finishedSubMissions) {

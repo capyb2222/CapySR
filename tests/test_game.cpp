@@ -188,6 +188,14 @@ void testTables() {
 
     check(tables.entrance(1000001) != nullptr, "map entrance 1000001 is loaded");
     check(tables.plane(10000) != nullptr, "plane 10000 is loaded");
+
+    // Main missions come from the client's own (beta) table, which lacks 2031101.
+    const std::vector<uint32_t>& missions = tables.mainMissions();
+    check(!tables.knowsMainMission(2031101) &&
+              std::find(missions.begin(), missions.end(), 2031101u) == missions.end(),
+          "a mission the client lacks is not reported");
+    check(tables.knowsMainMission(1054600) && tables.knowsMainMission(1000101),
+          "beta and production missions both are");
 }
 
 bool contains(const std::vector<uint32_t>& ids, uint32_t id) {

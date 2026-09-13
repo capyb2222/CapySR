@@ -611,7 +611,17 @@ bool Tables::load(const std::vector<std::string>& sources) {
                 if (std::find(into.begin(), into.end(), id) == into.end()) into.push_back(id);
             }
         };
-        ids("MainMission.json", "MainMissionID", mainMissions_);
+        // The client logs "can't find MainMissionRow" for a mission its own table lacks, and
+        // the beta table is the client's, so the last source with this table wins.
+        const std::vector<const json*>& missionRows = table("MainMission.json");
+        if (!missionRows.empty()) mainMissions_.clear();
+        for (const json* row : missionRows) {
+            uint32_t id = u32(*row, "MainMissionID");
+            if (id == 0) continue;
+            if (std::find(mainMissions_.begin(), mainMissions_.end(), id) == mainMissions_.end()) {
+                mainMissions_.push_back(id);
+            }
+        }
         ids("TutorialData.json", "TutorialID", tutorials_);
         ids("TutorialGuideGroup.json", "GroupID", tutorialGuides_);
         ids("QuestData.json", "QuestID", quests_);
@@ -869,6 +879,7 @@ bool Tables::load(const std::vector<std::string>& sources) {
         floor.battleTargetIds = extra->second.battleTargetIds;
     }
     challengeExtras_.clear();
+    mainMissionIds_.insert(mainMissions_.begin(), mainMissions_.end());
 
     loaded_ = !avatars_.empty() && !stages_.empty();
     if (!loaded_) {

@@ -279,6 +279,7 @@ public:
     // Reported wholesale as already done, which is what keeps the client out of the
     // prologue -- with nothing finished it waits for the intro to drive it.
     const std::vector<uint32_t>& mainMissions() const { return mainMissions_; }
+    bool knowsMainMission(uint32_t id) const { return mainMissionIds_.count(id) != 0; }
     const std::vector<uint32_t>& tutorials() const { return tutorials_; }
     const std::vector<uint32_t>& tutorialGuides() const { return tutorialGuides_; }
     const std::vector<uint32_t>& quests() const { return quests_; }
@@ -332,6 +333,7 @@ private:
     std::unordered_set<uint32_t> battlePassRewards_;
     std::vector<uint32_t> globalMazeBuffs_;
     std::vector<uint32_t> mainMissions_;
+    std::unordered_set<uint32_t> mainMissionIds_;
     std::vector<uint32_t> tutorials_;
     std::vector<uint32_t> tutorialGuides_;
     std::vector<uint32_t> quests_;
