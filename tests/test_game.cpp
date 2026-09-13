@@ -2,6 +2,8 @@
 // present; the data-driven checks are skipped (and reported) when they are not.
 #include <algorithm>
 #include <cstdio>
+#include <map>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -13,8 +15,10 @@
 #include "data/scene_res.h"
 #include "game/battle.h"
 #include "game/challenge.h"
+#include "game/gacha.h"
 #include "game/lineup.h"
 #include "game/player.h"
+#include "game/player_store.h"
 #include "game/roster.h"
 #include "game/scene.h"
 #include "game/srtools.h"
@@ -184,6 +188,220 @@ void testTables() {
 
     check(tables.entrance(1000001) != nullptr, "map entrance 1000001 is loaded");
     check(tables.plane(10000) != nullptr, "plane 10000 is loaded");
+}
+
+bool contains(const std::vector<uint32_t>& ids, uint32_t id) {
+    return std::find(ids.begin(), ids.end(), id) != ids.end();
+}
+
+uint32_t tokenCount(const proto::GachaItem& result, uint32_t itemId) {
+    uint32_t total = 0;
+    if (!result.token_item.has()) return 0;
+    for (const proto::Item& item : result.token_item->item_list) {
+        if (item.item_id == itemId) total += item.num;
+    }
+    return total;
+}
+
+void testGacha() {
+    const data::Tables& tables = data::Tables::get();
+    if (!tables.loaded()) {
+        std::printf("SKIP gacha (no data source configured)\n");
+        return;
+    }
+
+    check(tables.avatar(1001) != nullptr && tables.avatar(1001)->rarity == 4, "March is a 4*");
+    check(tables.avatar(1003) != nullptr && tables.avatar(1003)->rarity == 5, "Himeko is a 5*");
+    check(tables.lightcone(23000) != nullptr && tables.lightcone(23000)->rarity == 5,
+          "light cone rarity is read");
+    check(tables.lightcone(20000) != nullptr && tables.lightcone(20000)->rarity == 3,
+          "down to the 3* ones");
+    check(tables.battlePassReward(21028) && !tables.battlePassReward(21000),
+          "battle pass light cones are known");
+
+    // The beta client's own table has six pools, and it throws on any other.
+    check(tables.gachaPools().size() == 5, "the client's pools, less the beginner one");
+    std::vector<data::GachaPool> standardOnly = game::offeredGachaPools(tables, {});
+    check(standardOnly.size() == 1 && standardOnly[0].id == 1001,
+          "only the standard pool unless limited ones are configured");
+    const std::vector<core::WarpBanner> limited{{2002, 0}, {3002, 0}, {2002, 0},
+                                                {2138, 0}, {1001, 0}, {4001, 0}};
+    std::vector<data::GachaPool> offered = game::offeredGachaPools(tables, limited);
+    check(offered.size() == 3, "each configured pool once, if the table has it");
+    check(!offered.empty() && offered[0].id == 1001, "standard first");
+    std::optional<data::GachaPool> character = game::offeredGachaPool(tables, limited, 2002);
+    check(character && character->type == data::GachaType::AvatarUp &&
+              character->featured == 1204 && character->upChance == 50,
+          "2002 features 1204 at 50%");
+    std::optional<data::GachaPool> lightcone = game::offeredGachaPool(tables, limited, 3002);
+    check(lightcone && lightcone->type == data::GachaType::WeaponUp &&
+              lightcone->featured == 23010 && lightcone->upChance == 75,
+          "3002 features 23010 at 75%");
+    check(!game::offeredGachaPool(tables, limited, 2138), "a pool the client lacks is not offered");
+    check(!game::offeredGachaPool(tables, limited, 4001), "nor the beginner pool");
+    check(!game::offeredGachaPool(tables, {}, 2002), "nor an unconfigured one");
+
+    game::GachaItemPools items = game::gachaItemPools(tables);
+    check(items.complete(), "every rarity has something to draw");
+    check(items.fiveStarAvatars.size() == 7 && items.fiveStarLightcones.size() == 7,
+          "seven standard 5* of each");
+    check(contains(items.fourStarAvatars, 1001) && !contains(items.fourStarAvatars, 1224),
+          "4* characters without March's second form");
+    check(!contains(items.fourStarAvatars, 1003), "and without 5*s");
+    check(contains(items.fourStarLightcones, 21000) && !contains(items.fourStarLightcones, 21028) &&
+              !contains(items.fourStarLightcones, 22000),
+          "4* light cones without pass or event ones");
+    check(items.threeStarLightcones.size() == 25, "all 25 3* light cones");
+    if (!items.complete() || !character || !lightcone || offered.empty()) return;
+
+    auto unlucky = [] { return 0.999999; };
+    auto lucky = [] { return 0.0; };
+
+    game::GachaPity pity;
+    std::vector<game::GachaPull> pulls = game::pullGacha(offered[0], items, pity, 91, unlucky);
+    bool early = false;
+    for (size_t i = 0; i < 89; ++i) early |= pulls[i].rarity == 5;
+    check(!early && pulls[89].rarity == 5, "the 90th standard pull is a 5*");
+    check(pulls[9].rarity == 4 && pulls[19].rarity == 4 && pulls[8].rarity == 3,
+          "every tenth pull is a 4*");
+    check(pulls[90].rarity == 4, "a 5* pushes the due 4* to the next pull");
+    check(pity.sinceFive == 1 && pity.sinceFour == 0 && pity.total == 91, "pity is counted");
+
+    game::GachaPity lcPity;
+    pulls = game::pullGacha(*lightcone, items, lcPity, 80, unlucky);
+    early = false;
+    for (size_t i = 0; i < 79; ++i) early |= pulls[i].rarity == 5;
+    check(!early && pulls[79].rarity == 5, "the 80th light cone pull is a 5*");
+
+    game::GachaPity charPity;
+    pulls = game::pullGacha(*character, items, charPity, 90, unlucky);
+    check(pulls[89].rarity == 5 && pulls[89].avatar && pulls[89].itemId != 1204 &&
+              contains(items.fiveStarAvatars, pulls[89].itemId),
+          "losing the 50/50 gives a standard 5*");
+    check(charPity.guaranteed, "and guarantees the next one");
+    pulls = game::pullGacha(*character, items, charPity, 90, unlucky);
+    check(pulls[89].itemId == 1204 && !charPity.guaranteed, "which is the featured 5*");
+
+    game::GachaPity luckyPity;
+    pulls = game::pullGacha(*character, items, luckyPity, 10, lucky);
+    bool allFeatured = pulls.size() == 10;
+    for (const game::GachaPull& pull : pulls) allFeatured &= pull.rarity == 5 && pull.itemId == 1204;
+    check(allFeatured, "winning every roll gives the featured 5* every time");
+    pulls = game::pullGacha(offered[0], items, luckyPity, 1, lucky);
+    check(pulls[0].rarity == 5 && pulls[0].itemId == items.fiveStarAvatars[0], "standard draws too");
+
+    game::SrToolsData roster;
+    game::Avatar maxed;
+    maxed.avatarId = 1003;
+    maxed.rank = 6;
+    roster.avatars[1003] = maxed;
+    game::Avatar fresh;
+    fresh.avatarId = 1004;
+    roster.avatars[1004] = fresh;
+
+    proto::GachaItem result = game::gachaResult({20000, 3, false}, roster);
+    check(result.gacha_item.has() && result.gacha_item->item_id == 20000 && result.gacha_item->num == 1,
+          "the card names the item");
+    check(result.transfer_item_list.has() && result.token_item.has(), "both lists are present");
+    check(tokenCount(result, 251) == 20 && !result.is_new, "a 3* light cone is 20 embers");
+    check(tokenCount(game::gachaResult({23000, 5, false}, roster), 252) == 40, "a 5* one 40 starlight");
+    check(tokenCount(game::gachaResult({21000, 4, false}, roster), 252) == 8, "a 4* one 8");
+    result = game::gachaResult({1003, 5, true}, roster);
+    check(tokenCount(result, 252) == 100 && result.transfer_item_list->item_list.empty(),
+          "a 5* past E6 is 100 starlight");
+    result = game::gachaResult({1004, 5, true}, roster);
+    check(tokenCount(result, 252) == 40 && result.transfer_item_list->item_list.size() == 1 &&
+              result.transfer_item_list->item_list[0].item_id == 11004,
+          "below E6 it is 40 and an eidolon");
+    result = game::gachaResult({1101, 5, true}, roster);
+    check(result.is_new && tokenCount(result, 252) == 0, "a character not in the build is new");
+
+    // A configured featured 5* replaces the pool's own, if it is of the pool's kind.
+    std::optional<data::GachaPool> pearl = game::offeredGachaPool(tables, {{2001, 1503}}, 2001);
+    check(pearl && pearl->type == data::GachaType::AvatarUp && pearl->featured == 1503 &&
+              pearl->upChance == 50,
+          "2001 can feature Pearl at 50%");
+    std::optional<data::GachaPool> fourStar = game::offeredGachaPool(tables, {{2001, 1001}}, 2001);
+    check(fourStar && fourStar->featured == 1102, "a 4* cannot be featured");
+    std::optional<data::GachaPool> wrongKind = game::offeredGachaPool(tables, {{3001, 1503}}, 3001);
+    check(wrongKind && wrongKind->featured == 23001, "nor a character on a light cone pool");
+    if (pearl) {
+        game::GachaPity pearlPity;
+        pulls = game::pullGacha(*pearl, items, pearlPity, 10, lucky);
+        bool allPearl = pulls.size() == 10;
+        for (const game::GachaPull& pull : pulls) {
+            allPearl &= pull.rarity == 5 && pull.avatar && pull.itemId == 1503;
+        }
+        check(allPearl, "winning the 50/50 draws her");
+        pulls = game::pullGacha(*pearl, items, pearlPity, 90, unlucky);
+        check(pulls[89].rarity == 5 && pulls[89].avatar && pulls[89].itemId != 1503 &&
+                  contains(items.fiveStarAvatars, pulls[89].itemId) && pearlPity.guaranteed,
+              "losing it gives a standard 5* character and the guarantee");
+    }
+
+    // Stellar Warp standing in for Pearl's banner.
+    data::GachaPool standardPearl = game::effectiveGachaPool(offered[0], tables, 1503);
+    check(standardPearl.id == 1001 && standardPearl.type == data::GachaType::AvatarUp &&
+              standardPearl.featured == 1503 && standardPearl.upChance == 50,
+          "Stellar Warp can feature Pearl at 50%");
+    check(game::effectiveGachaPool(offered[0], tables, 0).type == data::GachaType::Normal,
+          "0 keeps it the standard pool");
+    check(game::effectiveGachaPool(offered[0], tables, 1001).type == data::GachaType::Normal,
+          "a 4* cannot be featured on it");
+    check(game::effectiveGachaPool(*character, tables, 1503).featured == 1204,
+          "a limited pool is left alone");
+    game::GachaPity standardPearlPity;
+    pulls = game::pullGacha(standardPearl, items, standardPearlPity, 10, lucky);
+    bool allStandardPearl = pulls.size() == 10;
+    for (const game::GachaPull& pull : pulls) {
+        allStandardPearl &= pull.rarity == 5 && pull.avatar && pull.itemId == 1503;
+    }
+    check(allStandardPearl, "and it draws her on a won 50/50");
+
+    // The real dice, 200000 pulls: no two lost 50/50s in a row, and the losses spread evenly.
+    game::GachaPity simPity;
+    std::map<uint32_t, uint32_t> lostTo;
+    uint32_t fiveStars = 0, owed = 0, lost = 0;
+    bool lostTwice = false, lastLost = false;
+    for (int batch = 0; batch < 20000; ++batch) {
+        for (const game::GachaPull& pull :
+             game::pullGacha(standardPearl, items, simPity, 10, game::gachaRoll)) {
+            if (pull.rarity != 5) continue;
+            ++fiveStars;
+            if (pull.featured) {
+                if (pull.guaranteed) ++owed;
+                lastLost = false;
+                continue;
+            }
+            ++lost;
+            ++lostTo[pull.itemId];
+            lostTwice |= lastLost;
+            lastLost = true;
+        }
+    }
+    check(!lostTwice, "a lost 50/50 is never followed by another");
+    check(owed == lost || owed + 1 == lost, "every loss is paid back by the next 5*");
+    double rate = static_cast<double>(fiveStars) / 200000.0;
+    check(rate > 0.013 && rate < 0.019, "about 1.6% of pulls are 5*");
+    bool even = lostTo.size() == items.fiveStarAvatars.size();
+    for (const auto& [id, count] : lostTo) even &= count > lost * 8 / 100 && count < lost * 20 / 100;
+    check(even, "a lost 50/50 lands evenly on the seven standard 5*s");
+    std::printf("      warp simulation: %u 5* (%.2f%%), %u lost, spread:", fiveStars, rate * 100, lost);
+    for (const auto& [id, count] : lostTo) std::printf(" %u=%u", id, count);
+    std::printf("\n");
+
+    // Pity outlives a restart.
+    std::string realPath = core::Config::get().paths.playerFile;
+    core::Config::get().paths.playerFile = "build/test-gacha-player.json";
+    game::Player saved(1);
+    saved.gacha().character = {12, 3, true, 345};
+    check(game::savePlayerState(saved), "pity saves");
+    game::Player loaded(1);
+    check(game::loadPlayerState(loaded), "and loads");
+    const game::GachaPity& back = loaded.gacha().character;
+    check(back.sinceFive == 12 && back.sinceFour == 3 && back.guaranteed && back.total == 345,
+          "unchanged");
+    core::Config::get().paths.playerFile = realPath;
 }
 
 void testChallengeHistory() {
@@ -816,6 +1034,7 @@ void runGameTests() {
     testItemUniqueIds();
     testElementBuffs();
     testTables();
+    testGacha();
     testChallengeHistory();
     testSceneRes();
     testRosterProtos();

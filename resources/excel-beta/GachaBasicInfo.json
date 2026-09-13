@@ -1,0 +1,134 @@
+[
+  {
+    "GachaID": 1001,
+    "GachaType": "Normal",
+    "SortID": 99,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanel/StandardGacha_1001.prefab",
+    "PoolName": {
+      "Hash": 12642828881931173103
+    },
+    "PoolDesc": {
+      "Hash": 1121704090967857799
+    },
+    "PoolDescFTC": {
+      "Hash": 6970163302865048869
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIcon/TabIcon_Standard.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIcon/TabIcon_Standard_Selected.png",
+    "TypeTitle": {
+      "Hash": 10012362747660649297
+    }
+  },
+  {
+    "GachaID": 4001,
+    "GachaType": "Newbie",
+    "SortID": 1,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanel/NoviceGacha_4001.prefab",
+    "PoolName": {
+      "Hash": 16076008841484912183
+    },
+    "PoolDesc": {
+      "Hash": 13113094041792250269
+    },
+    "PoolDescFTC": {
+      "Hash": 6682982103413155220
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIcon/TabIcon_Novice.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIcon/TabIcon_Novice_Selected.png",
+    "TypeTitle": {
+      "Hash": 12992035607736039415
+    }
+  },
+  {
+    "GachaID": 2001,
+    "GachaType": "AvatarUp",
+    "SortID": 2,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanelLimited/AvatarGacha_1102.prefab",
+    "PoolName": {
+      "Hash": 10466444443325460861
+    },
+    "PoolDesc": {
+      "Hash": 12575760539773716760
+    },
+    "PoolDescFTC": {
+      "Hash": 9461473220466468630
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_1102.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_1102_Selected.png",
+    "TypeTitle": {
+      "Hash": 16335421618088345187
+    }
+  },
+  {
+    "GachaID": 3001,
+    "GachaType": "WeaponUp",
+    "SortID": 4,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanelLimited/LightConeGacha_23001.prefab",
+    "PoolName": {
+      "Hash": 10051276577110162368
+    },
+    "PoolDesc": {
+      "Hash": 13567216986870304529
+    },
+    "PoolDescFTC": {
+      "Hash": 12441093686588219336
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_LightCone_23001.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_LightCone_23001_Selected.png",
+    "TypeTitle": {
+      "Hash": 689370920993170148
+    }
+  },
+  {
+    "GachaID": 2002,
+    "GachaType": "AvatarUp",
+    "SortID": 3,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanelLimited/AvatarGacha_1204.prefab",
+    "PoolName": {
+      "Hash": 9253952357381402356
+    },
+    "PoolDesc": {
+      "Hash": 12575760539773716760
+    },
+    "PoolDescFTC": {
+      "Hash": 9461473220466468630
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_1204.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_1204_Selected.png",
+    "TypeTitle": {
+      "Hash": 16335421618088345187
+    }
+  },
+  {
+    "GachaID": 3002,
+    "GachaType": "WeaponUp",
+    "SortID": 5,
+    "StartTime": "",
+    "EndTime": "",
+    "PrefabPath": "UI/Drawcard/GachaPanelLimited/LightConeGacha_23010.prefab",
+    "PoolName": {
+      "Hash": 3268726668422334764
+    },
+    "PoolDesc": {
+      "Hash": 13567216986870304529
+    },
+    "PoolDescFTC": {
+      "Hash": 12441093686588219336
+    },
+    "PoolLabelIcon": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_LightCone_23010.png",
+    "PoolLabelIconSelected": "SpriteOutput/DrawCardPic/GachaTabIconLimited/TabIcon_LightCone_23010_Selected.png",
+    "TypeTitle": {
+      "Hash": 689370920993170148
+    }
+  }
+]

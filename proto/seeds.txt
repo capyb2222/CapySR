@@ -297,6 +297,12 @@ GetActivityScheduleConfigCsReq
 GetActivityScheduleConfigScRsp
 DoGachaCsReq
 DoGachaScRsp
+GetGachaCeilingCsReq
+GetGachaCeilingScRsp
+ExchangeGachaCeilingCsReq
+ExchangeGachaCeilingScRsp
+SetGachaDecideItemCsReq
+SetGachaDecideItemScRsp
 GetMailCsReq
 GetMailScRsp
 GetPhoneDataCsReq

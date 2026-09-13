@@ -982,6 +982,85 @@ void runFlowTests() {
         }
     }
 
+    // Warp: results only, and every refusal still answers.
+    std::vector<core::WarpBanner> configuredPools = core::Config::get().gameplay.limitedWarpPools;
+    core::Config::get().gameplay.limitedWarpPools.clear();
+    client.sendEmpty(cmd::GetGachaInfoCsReq);
+    check(client.await(cmd::GetGachaInfoScRsp, packet), "warp pools answered");
+    proto::GetGachaInfoScRsp standardInfo;
+    check(parseBody(packet, standardInfo) && standardInfo.gacha_info_list.size() == 1 &&
+              standardInfo.gacha_info_list[0].gacha_id == 1001,
+          "only the standard pool by default");
+
+    core::Config::get().gameplay.limitedWarpPools = {{2002, 0}, {3002, 0}};
+    client.sendEmpty(cmd::GetGachaInfoCsReq);
+    check(client.await(cmd::GetGachaInfoScRsp, packet), "and again with limited pools configured");
+    proto::GetGachaInfoScRsp gachaInfo;
+    check(parseBody(packet, gachaInfo), "the pools parse");
+    check(gachaInfo.gacha_info_list.size() == 3, "the standard pool and the two configured ones");
+    check(!gachaInfo.gacha_info_list.empty() && gachaInfo.gacha_info_list[0].gacha_ceiling.has() &&
+              gachaInfo.gacha_info_list[0].gacha_ceiling->avatar_list.size() == 7,
+          "the standard pool carries its ceiling");
+    uint32_t limitedId = 0;
+    if (gachaInfo.gacha_info_list.size() > 1) {
+        limitedId = gachaInfo.gacha_info_list[1].gacha_id;
+        check(gachaInfo.gacha_info_list[1].prize_item_list.size() == 1,
+              "a limited pool names its featured 5*");
+    }
+
+    proto::DoGachaCsReq tenPull;
+    tenPull.gacha_id = limitedId;
+    tenPull.gacha_num = 10;
+    tenPull.gacha_random = gachaInfo.gacha_random;
+    client.send(cmd::DoGachaCsReq, tenPull);
+    check(client.await(cmd::DoGachaScRsp, packet), "a ten pull answers");
+    proto::DoGachaScRsp tenRsp;
+    check(parseBody(packet, tenRsp) && tenRsp.retcode == 0, "and succeeds");
+    check(tenRsp.gacha_id == limitedId && tenRsp.gacha_num == 10 &&
+              tenRsp.gacha_item_list.size() == 10,
+          "with ten results");
+    bool cardsWhole = !tenRsp.gacha_item_list.empty();
+    for (const proto::GachaItem& card : tenRsp.gacha_item_list) {
+        cardsWhole &= card.gacha_item.has() && card.gacha_item->item_id != 0 &&
+                      card.transfer_item_list.has() && card.token_item.has();
+    }
+    check(cardsWhole, "every card is filled in");
+
+    proto::DoGachaCsReq oddPull = tenPull;
+    oddPull.gacha_num = 5;
+    client.send(cmd::DoGachaCsReq, oddPull);
+    proto::DoGachaScRsp oddRsp;
+    check(client.await(cmd::DoGachaScRsp, packet) && parseBody(packet, oddRsp) &&
+              oddRsp.retcode == static_cast<uint32_t>(proto::Retcode::RET_GACHA_NUM_INVALID) &&
+              oddRsp.gacha_item_list.empty(),
+          "a five pull is refused");
+
+    proto::DoGachaCsReq oldPool;
+    oldPool.gacha_id = 2138;
+    oldPool.gacha_num = 1;
+    client.send(cmd::DoGachaCsReq, oldPool);
+    proto::DoGachaScRsp oldRsp;
+    check(client.await(cmd::DoGachaScRsp, packet) && parseBody(packet, oldRsp) &&
+              oldRsp.retcode == static_cast<uint32_t>(proto::Retcode::RET_GACHA_ID_NOT_EXIST),
+          "a pool that is not offered is refused");
+
+    proto::GetGachaCeilingCsReq ceilingReq;
+    ceilingReq.DDMCNOJFGON = 1;
+    client.send(cmd::GetGachaCeilingCsReq, ceilingReq);
+    proto::GetGachaCeilingScRsp ceilingRsp;
+    check(client.await(cmd::GetGachaCeilingScRsp, packet) && parseBody(packet, ceilingRsp) &&
+              ceilingRsp.gacha_ceiling.has() && ceilingRsp.gacha_ceiling->is_claimed,
+          "the ceiling answers, claimed");
+
+    proto::SetGachaDecideItemCsReq decideReq;
+    decideReq.gacha_id = limitedId;
+    client.send(cmd::SetGachaDecideItemCsReq, decideReq);
+    proto::SetGachaDecideItemScRsp decideRsp;
+    check(client.await(cmd::SetGachaDecideItemScRsp, packet) && parseBody(packet, decideRsp) &&
+              decideRsp.retcode != 0 && decideRsp.NBLOJLDLBEB.has(),
+          "a custom 50/50 pool is refused with a body");
+    core::Config::get().gameplay.limitedWarpPools = configuredPools;
+
     // An unimplemented request still has to complete, or the client hangs on it. This
     // one has no handler at all, so it exercises the name-derived fallback.
     client.sendEmpty(cmd::GetStarFightDataCsReq);

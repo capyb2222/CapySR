@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 
+#include "game/gacha.h"
 #include "game/lineup.h"
 #include "game/roster.h"
 #include "game/scene.h"
@@ -168,6 +169,8 @@ public:
     const std::map<uint32_t, TierceProgress>& tierceHistory() const { return tierceHistory_; }
     PeakProgress& peakProgress() { return peakProgress_; }
     const PeakProgress& peakProgress() const { return peakProgress_; }
+    GachaProgress& gacha() { return gacha_; }
+    const GachaProgress& gacha() const { return gacha_; }
 
     uint32_t mainCharacter() const { return mainCharacter_; }
     void setMainCharacter(uint32_t value) { mainCharacter_ = value; }
@@ -209,6 +212,7 @@ private:
     PeakProgress peakProgress_;
     TierceRun tierce_;
     std::map<uint32_t, TierceProgress> tierceHistory_;
+    GachaProgress gacha_;
 
     uint32_t mainCharacter_ = 8008;
     uint32_t marchType_ = 1224;

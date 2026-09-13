@@ -171,6 +171,20 @@ bool loadPlayerState(Player& player) {
             }
         }
     }
+
+    if (auto gacha = j.find("gacha"); gacha != j.end() && gacha->is_object()) {
+        auto readPity = [&gacha](const char* key, GachaPity& pity) {
+            auto it = gacha->find(key);
+            if (it == gacha->end() || !it->is_object()) return;
+            pity.sinceFive = u32(*it, "since_five", 0);
+            pity.sinceFour = u32(*it, "since_four", 0);
+            pity.guaranteed = boolOr(*it, "guaranteed", false);
+            pity.total = u32(*it, "total", 0);
+        };
+        readPity("standard", player.gacha().standard);
+        readPity("character", player.gacha().character);
+        readPity("lightcone", player.gacha().lightcone);
+    }
     return true;
 }
 
@@ -243,6 +257,17 @@ bool savePlayerState(const Player& player) {
                           {"nodes", nodes}});
     }
     j["tierce"] = tierce;
+
+    auto pity = [](const GachaPity& p) {
+        return json{{"since_five", p.sinceFive},
+                    {"since_four", p.sinceFour},
+                    {"guaranteed", p.guaranteed},
+                    {"total", p.total}};
+    };
+    const GachaProgress& gacha = player.gacha();
+    j["gacha"] = {{"standard", pity(gacha.standard)},
+                  {"character", pity(gacha.character)},
+                  {"lightcone", pity(gacha.lightcone)}};
 
     const std::string& path = core::Config::get().paths.playerFile;
     if (!util::writeFile(path, j.dump(2))) {

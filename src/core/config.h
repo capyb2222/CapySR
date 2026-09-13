@@ -58,6 +58,11 @@ struct PathsConfig {
     std::string resources = "resources";
 };
 
+struct WarpBanner {
+    uint32_t id = 0;
+    uint32_t featured = 0;  // 0 keeps the pool's own
+};
+
 struct GameplayConfig {
     // auto = a srtools build replaces calyx fights and nothing else; srtools = it
     // replaces every fight; stage = never, always use the stage the client asked for.
@@ -74,6 +79,13 @@ struct GameplayConfig {
     // loading screen when entering at login, a fade that rolls straight back otherwise.
     // Main and sub mission ids both go here.
     std::vector<uint32_t> skipMissions;
+    // Limited warp pools offered next to the standard one, each optionally featuring another
+    // 5*. The beta clients list 2001, 2002, 3001 and 3002 but ship no banner art for any of
+    // them, and one pool without art turns the whole warp page black, so leave it empty there.
+    std::vector<WarpBanner> limitedWarpPools;
+    // A 5* character Stellar Warp features, 50/50 and guarantee included, standing in for
+    // the current banner the beta clients have no art for. 0 keeps it the standard pool.
+    uint32_t standardWarpFeatured = 0;
 
     bool missionSkipped(uint32_t id) const {
         return std::find(skipMissions.begin(), skipMissions.end(), id) != skipMissions.end();

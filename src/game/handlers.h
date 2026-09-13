@@ -23,6 +23,7 @@ void registerTalkHandlers();
 void registerChallengeHandlers();
 void registerTierceHandlers();
 void registerPeakHandlers();
+void registerGachaHandlers();
 void registerModuleHandlers();
 void registerMiscHandlers();
 

@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <string_view>
 
 #include <nlohmann/json.hpp>
 
@@ -75,6 +76,35 @@ std::vector<uint32_t> u32List(const json& j, const char* key) {
         if (v > 0) out.push_back(static_cast<uint32_t>(v));
     }
     return out;
+}
+
+// "CombatPowerAvatarRarityType5", "CombatPowerLightconeRarity4": the stars are the last digit.
+uint32_t rarityOf(const json& row) {
+    auto it = row.find("Rarity");
+    if (it == row.end()) return 0;
+    if (it->is_number()) return static_cast<uint32_t>(numberOf(*it));
+    if (!it->is_string()) return 0;
+    const std::string& name = it->get_ref<const std::string&>();
+    char last = name.empty() ? '\0' : name.back();
+    return (last >= '1' && last <= '9') ? static_cast<uint32_t>(last - '0') : 0;
+}
+
+// ".../AvatarGacha_1102.prefab" -> 1102. The Sub* prefabs belong to a grouped pool and
+// give 0.
+uint32_t featuredFromPrefab(const std::string& path, std::string_view stem) {
+    size_t slash = path.find_last_of('/');
+    std::string_view file(path);
+    if (slash != std::string::npos) file.remove_prefix(slash + 1);
+    constexpr std::string_view suffix = ".prefab";
+    if (file.size() <= stem.size() + suffix.size() || file.substr(0, stem.size()) != stem ||
+        file.substr(file.size() - suffix.size()) != suffix) {
+        return 0;
+    }
+    std::string_view digits = file.substr(stem.size(), file.size() - stem.size() - suffix.size());
+    if (digits.size() > 9 || digits.find_first_not_of("0123456789") != std::string_view::npos) {
+        return 0;
+    }
+    return static_cast<uint32_t>(std::strtoul(std::string(digits).c_str(), nullptr, 10));
 }
 
 // AvatarSkillTreeConfig.AnchorType is "Point07"; the client wants the number.
@@ -178,6 +208,23 @@ Tables& Tables::get() {
 const AvatarInfo* Tables::avatar(uint32_t id) const {
     auto it = avatars_.find(id);
     return it == avatars_.end() ? nullptr : &it->second;
+}
+
+const LightconeInfo* Tables::lightcone(uint32_t id) const {
+    auto it = lightcones_.find(id);
+    return it == lightcones_.end() ? nullptr : &it->second;
+}
+
+uint32_t Tables::gachaUpChance(GachaType type) const {
+    switch (type) {
+        case GachaType::AvatarUp:
+            return avatarUpChance_;
+        case GachaType::WeaponUp:
+            return weaponUpChance_;
+        case GachaType::Normal:
+            break;
+    }
+    return 0;
 }
 
 const StageInfo* Tables::stage(uint32_t id) const {
@@ -331,6 +378,7 @@ bool Tables::load(const std::vector<std::string>& sources) {
     uint64_t started = util::nowMs();
     size_t used = 0;
     bool standardGachaFound = false;
+    std::unordered_map<std::string, uint32_t> upChances;
 
     for (const std::string& dir : sources) {
         json doc;
@@ -356,6 +404,7 @@ bool Tables::load(const std::vector<std::string>& sources) {
             info.baseType = str(*row, "AvatarBaseType");
             info.maxPromotion = u32(*row, "MaxPromotion", 6);
             info.maxRank = u32(*row, "MaxRank", 6);
+            info.rarity = rarityOf(*row);
             // SPNeed is in whole points; SpBarInfo counts hundredths.
             uint32_t spNeed = u32(*row, "SPNeed");
             info.spNeed = spNeed != 0 ? spNeed * 100 : 10000;
@@ -503,12 +552,48 @@ bool Tables::load(const std::vector<std::string>& sources) {
             farmStages_.insert(stageId);
         }
 
-        for (const json* row : table("GachaBasicInfo.json")) {
-            if (standardGachaFound || str(*row, "GachaType") != "Normal") continue;
+        for (const json* row : table("GachaTypeBasicInfo.json")) {
+            std::string type = str(*row, "GachaTypeID");
+            if (!type.empty()) upChances.emplace(type, u32(*row, "UpPropability"));
+        }
+        // The client throws on a pool its own table lacks, and the beta table is a six-row
+        // stub, so here the last source with the table wins instead of the first.
+        const std::vector<const json*>& gachaRows = table("GachaBasicInfo.json");
+        if (!gachaRows.empty()) {
+            gachaPools_.clear();
+            standardGachaFound = false;
+        }
+        for (const json* row : gachaRows) {
             uint32_t id = u32(*row, "GachaID");
             if (id == 0) continue;
-            standardGacha_.gachaId = id;
-            standardGachaFound = true;
+            std::string type = str(*row, "GachaType");
+            GachaPool pool;
+            pool.id = id;
+            if (type == "Normal") {
+                if (standardGachaFound && id != standardGacha_.gachaId) continue;
+                standardGacha_.gachaId = id;
+                standardGachaFound = true;
+            } else if (type == "AvatarUp") {
+                pool.type = GachaType::AvatarUp;
+                pool.featured = featuredFromPrefab(str(*row, "PrefabPath"), "AvatarGacha_");
+            } else if (type == "WeaponUp") {
+                pool.type = GachaType::WeaponUp;
+                pool.featured = featuredFromPrefab(str(*row, "PrefabPath"), "LightConeGacha_");
+            } else {
+                continue;
+            }
+            if (pool.type != GachaType::Normal && pool.featured == 0) continue;
+            gachaPools_.push_back(pool);
+        }
+
+        for (const json* row : table("EquipmentConfig.json")) {
+            uint32_t id = u32(*row, "EquipmentID");
+            if (id == 0 || lightcones_.count(id) != 0) continue;
+            lightcones_.emplace(id, LightconeInfo{id, rarityOf(*row)});
+        }
+        for (const json* row : table("BattlePassReward.json")) {
+            uint32_t item = u32(*row, "RewardItem");
+            if (item != 0) battlePassRewards_.insert(item);
         }
         for (const json* row : table("GachaCeiling.json")) {
             if (!standardGacha_.ceilingAvatars.empty() || str(*row, "GachaType") != "Normal") {
@@ -744,6 +829,24 @@ bool Tables::load(const std::vector<std::string>& sources) {
     sortById(challenges_);
     sortById(challengeGroups_);
     sortById(peakGroups_);
+    sortById(gachaPools_);
+
+    // The defaults are GachaTypeBasicInfo's own numbers, for when the table is missing.
+    if (auto it = upChances.find("AvatarUp"); it != upChances.end()) avatarUpChance_ = it->second;
+    if (auto it = upChances.find("WeaponUp"); it != upChances.end()) weaponUpChance_ = it->second;
+    for (GachaPool& pool : gachaPools_) pool.upChance = gachaUpChance(pool.type);
+    // A featured 5* the tables do not have cannot be drawn.
+    std::erase_if(gachaPools_, [&](const GachaPool& pool) {
+        if (pool.type == GachaType::AvatarUp) {
+            const AvatarInfo* info = avatar(pool.featured);
+            return info == nullptr || info->rarity != 5;
+        }
+        if (pool.type == GachaType::WeaponUp) {
+            const LightconeInfo* info = lightcone(pool.featured);
+            return info == nullptr || info->rarity != 5;
+        }
+        return false;
+    });
 
     // Each fight learns its season, and plants its one monster over the arena's marker.
     for (const PeakGroupInfo& group : peakGroups_) {
@@ -779,6 +882,7 @@ bool Tables::load(const std::vector<std::string>& sources) {
                   entrances_.size(), planeEvents_.size(), used, util::nowMs() - started);
     logging::info("data", "{} challenge floors in {} seasons, {} of them with a third node",
                   challenges_.size(), challengeGroups_.size(), challengeTierces_.size());
+    logging::info("data", "{} lightcones, {} warp pools", lightcones_.size(), gachaPools_.size());
     logging::info("data", "{} main missions, {} tutorials, {} guides, {} quests",
                   mainMissions_.size(), tutorials_.size(), tutorialGuides_.size(),
                   quests_.size());

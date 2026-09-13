@@ -6,7 +6,6 @@
 
 #include "core/logger.h"
 #include "core/util.h"
-#include "data/excel.h"
 #include "game/handlers.h"
 #include "net/cmd_ids.h"
 #include "net/handler.h"
@@ -75,24 +74,6 @@ void onSyncClientResVersion(net::Session& session, const proto::SyncClientResVer
     rsp.retcode = 0;
     rsp.client_res_version = req.client_res_version;
     session.send(cmd::SyncClientResVersionScRsp, rsp);
-}
-
-// The warp pools. Only the standard pool is offered, and its ceiling as already
-// claimed: nothing can pay a warp out yet.
-void onGetGachaInfo(net::Session& session, const proto::GetGachaInfoCsReq&) {
-    const data::StandardGacha& standard = data::Tables::get().standardGacha();
-    proto::GetGachaInfoScRsp rsp;
-    rsp.retcode = 0;
-    auto& pool = rsp.gacha_info_list.emplace_back();
-    pool.gacha_id = standard.gachaId;
-    auto& ceiling = pool.gacha_ceiling.emplace();
-    ceiling.is_claimed = true;
-    for (uint32_t avatarId : standard.ceilingAvatars) {
-        proto::GachaCeilingAvatar avatar;
-        avatar.avatar_id = avatarId;
-        ceiling.avatar_list.push_back(avatar);
-    }
-    session.send(cmd::GetGachaInfoScRsp, rsp);
 }
 
 // Activities reported as scheduled: module id, panel and window.
@@ -207,7 +188,6 @@ void registerMiscHandlers() {
     for (uint16_t cmdId : kEmptyReplies) net::Handlers::get().addEmpty(cmdId);
     for (const auto& [req, rsp] : kResponseAliases) net::Handlers::get().addAlias(req, rsp);
     net::on<proto::SetClientPausedCsReq>(cmd::SetClientPausedCsReq, onSetClientPaused);
-    net::on<proto::GetGachaInfoCsReq>(cmd::GetGachaInfoCsReq, onGetGachaInfo);
     net::on<proto::GetActivityScheduleConfigCsReq>(cmd::GetActivityScheduleConfigCsReq,
                                                    onGetActivityScheduleConfig);
     net::on<proto::SyncClientResVersionCsReq>(cmd::SyncClientResVersionCsReq,
@@ -226,6 +206,7 @@ void registerAllHandlers() {
     registerChallengeHandlers();
     registerTierceHandlers();
     registerPeakHandlers();
+    registerGachaHandlers();
     registerModuleHandlers();
     registerMiscHandlers();
     logging::info("game", "{} packet handlers registered, {} answered empty",

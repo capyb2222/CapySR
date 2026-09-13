@@ -105,6 +105,25 @@ bool Config::load(const std::string& path) {
         pick(*it, "main_character", gameplay.mainCharacter);
         pick(*it, "march_type", gameplay.marchType);
         pick(*it, "skip_missions", gameplay.skipMissions);
+        // Each entry is a pool id, or {"id": pool, "featured": 5* id}.
+        if (auto pools = it->find("limited_warp_pools"); pools != it->end() && pools->is_array()) {
+            gameplay.limitedWarpPools.clear();
+            for (const json& entry : *pools) {
+                WarpBanner banner;
+                if (entry.is_number_unsigned()) {
+                    banner.id = entry.get<uint32_t>();
+                } else if (entry.is_object()) {
+                    pick(entry, "id", banner.id);
+                    pick(entry, "featured", banner.featured);
+                }
+                if (banner.id == 0) {
+                    logging::warn("config", "a limited_warp_pools entry has no pool id");
+                    continue;
+                }
+                gameplay.limitedWarpPools.push_back(banner);
+            }
+        }
+        pick(*it, "standard_warp_featured", gameplay.standardWarpFeatured);
     }
     return true;
 }

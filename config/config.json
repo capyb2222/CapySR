@@ -44,7 +44,9 @@
     "unlock_all_challenges": true,
     "main_character": 8008,
     "march_type": 1224,
-    "skip_missions": []
+    "skip_missions": [],
+    "limited_warp_pools": [],
+    "standard_warp_featured": 1503
   },
   "paths": {
     "srtools_file": "data/freesr-data.json",

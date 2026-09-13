@@ -18,11 +18,27 @@ struct AvatarInfo {
     uint32_t spNeed = 10000;  // hundredths, as the SpBarInfo wants it
     uint32_t maxPromotion = 6;
     uint32_t maxRank = 6;
+    uint32_t rarity = 0;
     uint32_t enhancedId = 0;
     uint32_t attackBuffId = 0;
     // AvatarDefaultMazeBuff; falls back to id * 100 + 1 when the row is missing.
     std::vector<uint32_t> techniqueBuffs;
     uint32_t techniqueSkillIndex = 2;
+};
+
+struct LightconeInfo {
+    uint32_t id = 0;
+    uint32_t rarity = 0;
+};
+
+enum class GachaType { Normal, AvatarUp, WeaponUp };
+
+// A warp pool. A limited one is named after its featured 5* in its prefab.
+struct GachaPool {
+    uint32_t id = 0;
+    GachaType type = GachaType::Normal;
+    uint32_t featured = 0;
+    uint32_t upChance = 0;  // percent
 };
 
 struct SkillTreePoint {
@@ -247,6 +263,15 @@ public:
     uint32_t farmElementStage(uint32_t idOrStage, uint32_t worldLevel) const;
 
     const StandardGacha& standardGacha() const { return standardGacha_; }
+    // The standard pool, then the limited ones in id order.
+    const std::vector<GachaPool>& gachaPools() const { return gachaPools_; }
+    // GachaTypeBasicInfo.UpPropability, in percent; 0 for the standard pool.
+    uint32_t gachaUpChance(GachaType type) const;
+
+    const LightconeInfo* lightcone(uint32_t id) const;
+    const std::unordered_map<uint32_t, LightconeInfo>& lightcones() const { return lightcones_; }
+    // BattlePassReward: paid out by the pass, never by a warp.
+    bool battlePassReward(uint32_t itemId) const { return battlePassRewards_.count(itemId) != 0; }
 
     // AvatarMazeBuff rows named ADV_GlobalSkill_Maze*: Castorice and Silver Wolf.
     const std::vector<uint32_t>& globalMazeBuffs() const { return globalMazeBuffs_; }
@@ -300,6 +325,11 @@ private:
     std::unordered_map<uint64_t, uint32_t> farmElements_;  // id * 100 + worldLevel -> stage
     std::unordered_set<uint32_t> farmStages_;
     StandardGacha standardGacha_;
+    std::vector<GachaPool> gachaPools_;
+    uint32_t avatarUpChance_ = 50;
+    uint32_t weaponUpChance_ = 75;
+    std::unordered_map<uint32_t, LightconeInfo> lightcones_;
+    std::unordered_set<uint32_t> battlePassRewards_;
     std::vector<uint32_t> globalMazeBuffs_;
     std::vector<uint32_t> mainMissions_;
     std::vector<uint32_t> tutorials_;
