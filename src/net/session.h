@@ -5,6 +5,7 @@
 #include <memory>
 #include <mutex>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "net/packet.h"
@@ -56,6 +57,13 @@ public:
 
     // Drops every other session logged in as `uid`; each saves on its way out.
     void dropOtherLogins(uint32_t uid);
+
+    // Runs `fn` holding the session, the way a packet handler runs. For other threads.
+    template <class Fn>
+    decltype(auto) locked(Fn&& fn) {
+        std::lock_guard lock(mutex_);
+        return std::forward<Fn>(fn)();
+    }
 
     template <class T>
     void send(uint16_t cmdId, const T& message) {

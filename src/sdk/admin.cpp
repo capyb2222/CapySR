@@ -33,7 +33,9 @@ void registerAdminRoutes(http::Server& server, net::Gateway& gateway) {
         out["sessions"] = json::array();
         for (const std::shared_ptr<net::Session>& session : gateway.sessions()) {
             if (session == nullptr) continue;
-            out["sessions"].push_back(game::rescue::unstick(*session, entryId));
+            // Held like a packet handler: the receive thread may be busy with this player.
+            out["sessions"].push_back(
+                session->locked([&] { return game::rescue::unstick(*session, entryId); }));
         }
         if (out["sessions"].empty() && entryId != 0) {
             // Nobody is connected, so move the saved spot instead. A client that cannot
