@@ -402,6 +402,24 @@ void runFlowTests() {
                     check(resultRsp.battle_id == result.battle_id, "battle id echoed");
                     check(resultRsp.end_status == proto::BattleEndStatus::BATTLE_END_WIN,
                           "end status echoed");
+
+                    // LOADED here throws in the client and leaves the monster standing.
+                    // Earlier refreshes (the lineup edit's) are still queued, so skip to
+                    // the one that deletes.
+                    bool deleted = false;
+                    net::Packet refreshPacket;
+                    while (!deleted && client.await(cmd::SceneGroupRefreshScNotify, refreshPacket, 500)) {
+                        proto::SceneGroupRefreshScNotify refresh;
+                        if (!parseBody(refreshPacket, refresh)) break;
+                        for (const proto::GroupRefreshInfo& group : refresh.group_refresh_list) {
+                            for (const proto::SceneEntityRefreshInfo& change : group.refresh_entity) {
+                                if (change.delete_entity != monsters[0]) continue;
+                                deleted = group.refresh_type ==
+                                          proto::SceneGroupRefreshType::SCENE_GROUP_REFRESH_TYPE_AFIBFMAFNCC;
+                            }
+                        }
+                    }
+                    check(deleted, "the beaten monster is deleted the way the client accepts");
                 }
             }
 

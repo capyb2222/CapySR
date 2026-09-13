@@ -85,7 +85,9 @@ void monstersRemoved(net::Session& session, Player& player,
     for (uint32_t groupId : groups) {
         auto& group = refresh.group_refresh_list.emplace_back();
         group.group_id = groupId;
-        group.refresh_type = proto::SceneGroupRefreshType::SCENE_GROUP_REFRESH_TYPE_LOADED;
+        // Deletes go out as type 3. LOADED sends the client down a legacy path that
+        // throws, leaving the monster alive on its side but gone from ours.
+        group.refresh_type = proto::SceneGroupRefreshType::SCENE_GROUP_REFRESH_TYPE_AFIBFMAFNCC;
         for (uint32_t entityId : entityIds) {
             const SceneEntity* entity = player.sceneState().find(entityId);
             if (entity == nullptr || entity->groupId != groupId) continue;

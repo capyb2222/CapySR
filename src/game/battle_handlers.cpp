@@ -184,6 +184,22 @@ void onSceneCastSkillCostMp(net::Session& session, const proto::SceneCastSkillCo
 
 int64_t now() { return static_cast<int64_t>(util::nowSec()); }
 
+// The monsters a won fight removes. A Stagnant Shadow stays, to be farmed again.
+std::vector<uint32_t> defeated(const Player& player, const std::vector<uint32_t>& entityIds) {
+    const data::Tables& tables = data::Tables::get();
+    std::vector<uint32_t> out;
+    for (uint32_t entityId : entityIds) {
+        const SceneEntity* entity = player.sceneState().find(entityId);
+        if (entity == nullptr || entity->kind != EntityKind::Monster) continue;
+        uint32_t stage = entity->stageId != 0
+                             ? entity->stageId
+                             : tables.stageForEvent(entity->eventId, player.worldLevel());
+        if (stage != 0 && tables.farmElement(stage) != nullptr) continue;
+        out.push_back(entityId);
+    }
+    return out;
+}
+
 // Calyx: the one fight a srtools build is allowed to take over, monsters, blessings and
 // all. `wave` is how many runs were bought, one stage each.
 BattleRequest cocoonRequest(uint32_t cocoonId, uint32_t wave, uint32_t worldLevel) {
@@ -453,7 +469,7 @@ void onPveBattleResult(net::Session& session, const proto::PVEBattleResultCsReq&
     BattleContext& context = player->battle();
     bool won = req.end_status == proto::BattleEndStatus::BATTLE_END_WIN && context.active &&
                context.battleId == req.battle_id;
-    if (won) notify::monstersRemoved(session, *player, context.monsterEntityIds);
+    if (won) notify::monstersRemoved(session, *player, defeated(*player, context.monsterEntityIds));
     // A farming run costs and pays only when it is won; losing or fleeing is free.
     std::vector<data::ItemStack> drops;
     if (won && (context.staminaCost != 0 || context.mappingInfoId != 0)) {
