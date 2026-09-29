@@ -1,8 +1,12 @@
 # CapySR - WIP
 
-A server reimplementation written in C++ for a certain anime game with star and rails. Targets the `4.5.5x beta` (usually the latest). This server is in WIP, but you can still use it.
+A server reimplementation written in C++ for a certain anime game with star and rails. Targets the `4.6.5x beta` (usually the latest). This server is in WIP, but you can still use it.
 
-![Screenshot](pearl.png)
+![Screenshot](aha.png)
+
+## Prebuilt
+
+Don't want to build it yourself? You can grab the prebuilt from [Releases](https://github.com/capyb2222/CapySR/releases), and skip to [Running it](#running-it).
 
 ## Requirements
 
@@ -24,10 +28,10 @@ Then find the outputs at `build\bin\`
 
 ## Running it
 
-Supports both `CN` and `OS` client. You can get the latest client here: [CN](https://gofile.io/d/vtV5JfkO) or [OS](https://gofile.io/d/ZgH1t8NP). Recommends you use 7z to extract.
+Supports both `CN` and `OS` client. You can get the latest client here: [CN](https://gofile.io/d/cZx9oACJ) or [OS](https://gofile.io/d/R5Lo3clo). Recommends you use 7z to extract.
 
 1. Copy `launcher.exe` and `hkrpg.dll` from launcher folder inside CapySR and paste them inside your client folder (Thank you Reversed Rooms)
-2. Start the server: `build\bin\capysr.exe`.
+2. Start the server: `build\bin\capysr.exe` (`capysr.exe` if you use a prebuilt).
 3. Run the `launcher.exe` **as administrator**.
 4. Log in with any account name and password; the SDK routes accept anything.
 

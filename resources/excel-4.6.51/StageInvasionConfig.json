@@ -1,0 +1,322 @@
+{
+  "stage_invasion_config": [
+    {
+      "StageID": 30509012,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5013010,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5014010,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 420503,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 202206017,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 202303203,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 420504,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 202206018,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 202303204,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30324032,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 2032020,
+          "LMEBOHHDIAG": [1, 0, 0]
+        },
+        {
+          "DBLDCKODNEN": 2002030,
+          "LMEBOHHDIAG": [1, 0]
+        },
+        {
+          "DBLDCKODNEN": 8012020,
+          "LMEBOHHDIAG": [1, 0, 0]
+        }
+      ]
+    },
+    {
+      "StageID": 30324042,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5012100,
+          "LMEBOHHDIAG": [1, 0, 0]
+        },
+        {
+          "DBLDCKODNEN": 4062020,
+          "LMEBOHHDIAG": [1, 0]
+        },
+        {
+          "DBLDCKODNEN": 2012010,
+          "LMEBOHHDIAG": [1, 0, 1, 0, 0]
+        }
+      ]
+    },
+    {
+      "StageID": 30510011,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5014020,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5013040,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 420533,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 800302201,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 300301401,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 420534,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 800302201,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 300301401,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30325032,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 300305007,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 1002030,
+          "LMEBOHHDIAG": [1, 0, 1, 0, 0]
+        },
+        {
+          "DBLDCKODNEN": 2002030,
+          "LMEBOHHDIAG": [1, 0, 1, 0]
+        }
+      ]
+    },
+    {
+      "StageID": 30325042,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 300302007,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5012120,
+          "LMEBOHHDIAG": [1, 0, 1, 0, 0]
+        },
+        {
+          "DBLDCKODNEN": 2032010,
+          "LMEBOHHDIAG": [1, 0, 1, 0]
+        }
+      ]
+    },
+    {
+      "StageID": 30125112,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 4063010,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30125121,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5014010,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 8003010,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30126112,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 802401106,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30126123,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 4064010,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 4062010,
+          "LMEBOHHDIAG": [1, 0]
+        },
+        {
+          "DBLDCKODNEN": 4063010,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30127112,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 1003010,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 4034010,
+          "LMEBOHHDIAG": []
+        }
+      ]
+    },
+    {
+      "StageID": 30127123,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5014020,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5012120,
+          "LMEBOHHDIAG": [1, 0, 0, 1]
+        }
+      ]
+    },
+    {
+      "StageID": 30511012,
+      "InvasionID": 4,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5014030,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5023020,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 502302001,
+          "LMEBOHHDIAG": [0, 0, 1]
+        }
+      ]
+    },
+    {
+      "StageID": 420563,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5013052,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5013042,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5013072,
+          "LMEBOHHDIAG": [0, 1]
+        }
+      ]
+    },
+    {
+      "StageID": 420564,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 5013052,
+          "LMEBOHHDIAG": [1, 0]
+        },
+        {
+          "DBLDCKODNEN": 5013042,
+          "LMEBOHHDIAG": []
+        },
+        {
+          "DBLDCKODNEN": 5013072,
+          "LMEBOHHDIAG": [0, 1]
+        }
+      ]
+    },
+    {
+      "StageID": 30326032,
+      "InvasionID": 2,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 8032020,
+          "LMEBOHHDIAG": [1, 0, 0]
+        },
+        {
+          "DBLDCKODNEN": 2032010,
+          "LMEBOHHDIAG": [1, 0, 0]
+        }
+      ]
+    },
+    {
+      "StageID": 30326043,
+      "InvasionID": 3,
+      "MonsterInvasionList": [
+        {
+          "DBLDCKODNEN": 8012040,
+          "LMEBOHHDIAG": [1, 0]
+        },
+        {
+          "DBLDCKODNEN": 5012020,
+          "LMEBOHHDIAG": [1, 0]
+        }
+      ]
+    }
+  ]
+}

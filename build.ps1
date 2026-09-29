@@ -1,7 +1,8 @@
 param(
     [string]$Config = "Release",
     [switch]$Clean,
-    [switch]$Test
+    [switch]$Test,
+    [switch]$Package
 )
 
 $ErrorActionPreference = "Stop"
@@ -36,6 +37,22 @@ if ($LASTEXITCODE -ne 0) { throw "build failed" }
 if ($Test) {
     & (Join-Path $build "bin\capysr_tests.exe")
     if ($LASTEXITCODE -ne 0) { throw "tests failed" }
+}
+
+# A folder that runs as is: the exe finds config\ next to itself.
+if ($Package) {
+    $dist = Join-Path $build "dist\CapySR-win64"
+    if (Test-Path $dist) { Remove-Item -Recurse -Force $dist }
+    New-Item -ItemType Directory -Force -Path (Join-Path $dist "data") | Out-Null
+    Copy-Item (Join-Path $build "bin\capysr.exe") $dist
+    foreach ($dir in "config", "resources", "launcher") {
+        Copy-Item -Recurse (Join-Path $root $dir) (Join-Path $dist $dir)
+    }
+    Copy-Item (Join-Path $root "data\freesr-data.json") (Join-Path $dist "data")
+    $zip = "$dist.zip"
+    if (Test-Path $zip) { Remove-Item -Force $zip }
+    Compress-Archive -Path "$dist\*" -DestinationPath $zip
+    Write-Host "packaged $zip"
 }
 
 Write-Host "built $build\bin\capysr.exe" -ForegroundColor Green

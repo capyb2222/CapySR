@@ -53,6 +53,7 @@
     "player_file": "data/player.json",
     "data_sources": [
       "resources/excel",
+      "resources/excel-4.6.51",
       "resources/excel-beta"
     ],
     "scene_res": "resources/res.json",

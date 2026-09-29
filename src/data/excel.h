@@ -418,6 +418,8 @@ public:
     // ChallengePeakReward rows paid out by one reward group.
     const std::vector<uint32_t>* peakRewards(uint32_t rewardGroupId) const;
     const BattleTargetInfo* battleTarget(uint32_t id) const;
+    // StageInvasionConfig: the Voracity Corrosion a stage brings, 0 for none.
+    uint32_t stageInvasion(uint32_t stageId) const;
 
     const std::unordered_map<uint32_t, AvatarInfo>& avatars() const { return avatars_; }
     const std::unordered_map<uint32_t, MonsterInfo>& monsters() const { return monsters_; }
@@ -482,6 +484,7 @@ private:
     std::unordered_map<uint32_t, PeakInfo> peaks_;
     std::unordered_map<uint32_t, std::vector<uint32_t>> peakRewards_;
     std::unordered_map<uint32_t, BattleTargetInfo> battleTargets_;
+    std::unordered_map<uint32_t, uint32_t> stageInvasions_;
     size_t skillPointCount_ = 0;
     bool loaded_ = false;
 };

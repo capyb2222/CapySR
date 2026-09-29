@@ -52,7 +52,8 @@ struct PathsConfig {
     std::string playerFile = "data/player.json";
     // Priority ordered: the first source to define a row id keeps it, later ones
     // only fill gaps. Beta dumps are trimmed extracts, so they go last.
-    std::vector<std::string> dataSources{"resources/excel", "resources/excel-beta"};
+    std::vector<std::string> dataSources{"resources/excel", "resources/excel-4.6.51",
+                                         "resources/excel-beta"};
     std::string sceneRes = "resources/res.json";
     std::string anchors = "resources/Anchor.json";
     std::string resources = "resources";

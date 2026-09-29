@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-
-enum CmdFightCakeRaceType {
-	CmdFightCakeRaceType_NLCDGIPGFDJ = 0;
-}

@@ -167,17 +167,16 @@ void testCmdIds() {
 }
 
 void testLineupCmdIds() {
-    // 716 is JoinLineupScRsp and 719 ReplaceLineupScRsp; the dump's own table had them
-    // mislabelled. Answering a join on 719 leaves the party UI waiting forever, so the
-    // names are corrected in proto/cmdids.txt.
-    check(cmd::JoinLineupScRsp == 716, "JoinLineupScRsp is 716");
-    check(cmd::ReplaceLineupScRsp == 719, "ReplaceLineupScRsp is 719");
-    check(cmd::name(716) == "JoinLineupScRsp", "716 names itself");
-    check(cmd::name(719) == "ReplaceLineupScRsp", "719 names itself");
+    // The two replies are easy to swap: answering a join on the replace id leaves the
+    // party UI waiting forever. 4.6.51 has them at 771 and 715.
+    check(cmd::JoinLineupScRsp == 771, "JoinLineupScRsp is 771");
+    check(cmd::ReplaceLineupScRsp == 715, "ReplaceLineupScRsp is 715");
+    check(cmd::name(771) == "JoinLineupScRsp", "771 names itself");
+    check(cmd::name(715) == "ReplaceLineupScRsp", "715 names itself");
     // The generic fallback derives the response name from the request name, so
     // ReplaceLineupCsReq now resolves even without a handler.
-    check(cmd::id("ReplaceLineupScRsp") == 719, "the reverse lookup agrees");
-    check(cmd::id("JoinLineupScRsp") == 716, "and for the join");
+    check(cmd::id("ReplaceLineupScRsp") == 715, "the reverse lookup agrees");
+    check(cmd::id("JoinLineupScRsp") == 771, "and for the join");
 }
 
 void testIdleTimeout() {

@@ -133,6 +133,18 @@ uint32_t anchorNumber(const std::string& anchor) {
     return static_cast<uint32_t>(std::strtoul(anchor.c_str() + i, nullptr, 10));
 }
 
+// Seasons are numbered 1xxx (Memory of Chaos), 2xxx (Pure Fiction), 3xxx (Apocalyptic
+// Shadow); the early Memory seasons are 100..999.
+ChallengeKind kindOfGroup(uint32_t groupId, ChallengeKind fallback) {
+    switch (groupId / 1000) {
+        case 0:
+        case 1: return groupId != 0 ? ChallengeKind::Memory : fallback;
+        case 2: return ChallengeKind::Story;
+        case 3: return ChallengeKind::Boss;
+        default: return fallback;
+    }
+}
+
 // StageConfig.MonsterList is [{"Monster0":id,...}] in production dumps and [[id,...]]
 // in the beta extracts. Either way, one entry per wave.
 std::vector<std::vector<uint32_t>> readWaves(const json& row) {
@@ -326,6 +338,11 @@ const PeakInfo* Tables::peak(uint32_t id) const {
 const std::vector<uint32_t>* Tables::peakRewards(uint32_t rewardGroupId) const {
     auto it = peakRewards_.find(rewardGroupId);
     return it == peakRewards_.end() ? nullptr : &it->second;
+}
+
+uint32_t Tables::stageInvasion(uint32_t stageId) const {
+    auto it = stageInvasions_.find(stageId);
+    return it == stageInvasions_.end() ? 0 : it->second;
 }
 
 const BattleTargetInfo* Tables::battleTarget(uint32_t id) const {
@@ -846,8 +863,10 @@ bool Tables::load(const std::vector<std::string>& sources) {
                 if (id == 0) continue;
                 ChallengeInfo info;
                 info.id = id;
-                info.kind = kind;
                 info.groupId = u32(*row, "GroupID");
+                // The beta dumps put all three modes in ChallengeMazeConfig; the season
+                // number says which one a floor belongs to.
+                info.kind = kindOfGroup(info.groupId, kind);
                 info.floor = u32(*row, "Floor");
                 info.stageNum = u32(*row, "StageNum", 1);
                 info.mapEntranceId = u32(*row, "MapEntranceID");
@@ -1005,6 +1024,10 @@ bool Tables::load(const std::vector<std::string>& sources) {
             std::vector<uint32_t>& ids = peakRewards_[group];
             if (std::find(ids.begin(), ids.end(), id) == ids.end()) ids.push_back(id);
         }
+        for (const json* row : table("StageInvasionConfig.json")) {
+            uint32_t stageId = u32(*row, "StageID");
+            if (stageId != 0) stageInvasions_.emplace(stageId, u32(*row, "InvasionID"));
+        }
         for (const json* row : table("BattleTargetConfig.json")) {
             uint32_t id = u32(*row, "ID");
             if (id == 0 || battleTargets_.count(id) != 0) continue;
@@ -1052,6 +1075,25 @@ bool Tables::load(const std::vector<std::string>& sources) {
     };
     sortById(challenges_);
     sortById(challengeGroups_);
+    // A season the group tables don't have yet (the beta dumps carry floors only) takes
+    // the reward line of the newest season of its mode; every season of a mode shares one.
+    std::vector<ChallengeGroupInfo> added;
+    for (const ChallengeInfo& floor : challenges_) {
+        if (floor.groupId == 0 || findById(challengeGroups_, floor.groupId) != nullptr) continue;
+        if (std::any_of(added.begin(), added.end(),
+                        [&](const ChallengeGroupInfo& g) { return g.id == floor.groupId; })) {
+            continue;
+        }
+        uint32_t line = 0;
+        for (const ChallengeGroupInfo& season : challengeGroups_) {
+            if (season.kind == floor.kind) line = season.rewardLineGroupId;
+        }
+        added.push_back({floor.groupId, line, floor.kind});
+    }
+    if (!added.empty()) {
+        challengeGroups_.insert(challengeGroups_.end(), added.begin(), added.end());
+        sortById(challengeGroups_);
+    }
     sortById(peakGroups_);
     sortById(gachaPools_);
 
@@ -1086,11 +1128,25 @@ bool Tables::load(const std::vector<std::string>& sources) {
         }
     }
 
+    // Pure Fiction floors the extra table doesn't reach yet borrow the newest season's
+    // extras for the same floor number; they have been identical every season so far.
+    std::unordered_map<uint32_t, const ChallengeExtra*> byFloor;
+    for (const ChallengeInfo& floor : challenges_) {
+        auto extra = challengeExtras_.find(floor.id);
+        if (floor.kind == ChallengeKind::Story && extra != challengeExtras_.end()) {
+            byFloor[floor.floor] = &extra->second;
+        }
+    }
     for (ChallengeInfo& floor : challenges_) {
         auto extra = challengeExtras_.find(floor.id);
-        if (extra == challengeExtras_.end()) continue;
-        if (extra->second.turnLimit != 0) floor.roundLimit = extra->second.turnLimit;
-        floor.battleTargetIds = extra->second.battleTargetIds;
+        const ChallengeExtra* use = extra != challengeExtras_.end() ? &extra->second : nullptr;
+        if (use == nullptr && floor.kind == ChallengeKind::Story) {
+            auto it = byFloor.find(floor.floor);
+            if (it != byFloor.end()) use = it->second;
+        }
+        if (use == nullptr) continue;
+        if (use->turnLimit != 0) floor.roundLimit = use->turnLimit;
+        floor.battleTargetIds = use->battleTargetIds;
     }
     challengeExtras_.clear();
     mainMissionIds_.insert(mainMissions_.begin(), mainMissions_.end());

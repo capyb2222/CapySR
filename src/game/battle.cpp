@@ -17,6 +17,8 @@ constexpr uint32_t kNoOwner = 0xFFFFFFFFu;
 constexpr uint32_t kAmbushBuffId = 1000102;
 constexpr uint32_t kIgnoreWeaknessBuffId = 1000119;
 constexpr uint32_t kLeaderCheckBuffId = 1000121;
+constexpr uint32_t kInvasionAttackBuffBase = 3034000;
+constexpr uint32_t kInvasionSupportBuffBase = 3034010;
 // A relic to hang the srtools stat overrides on when an avatar wears none.
 constexpr uint32_t kPlaceholderRelicId = 61011;
 
@@ -247,6 +249,16 @@ proto::SceneBattleInfo create(Player& player, const BattleRequest& request) {
     }
     for (uint32_t buffId : request.floorBuffIds) {
         if (buffId != 0) info.buff_list.push_back(makeBuff(buffId, 1, kNoOwner));
+    }
+    // Voracity Corrosion: the stage's invasion comes as an attack and a support buff,
+    // both held by the leader.
+    if (uint32_t invasion = tables.stageInvasion(info.stage_id)) {
+        for (uint32_t base : {kInvasionAttackBuffBase, kInvasionSupportBuffBase}) {
+            proto::BattleBuff buff = makeBuff(base + invasion, 1, leaderIndex);
+            buff.target_index_list.push_back(0);
+            buff.dynamic_values["SkillIndex"] = 1.0f;
+            info.buff_list.push_back(std::move(buff));
+        }
     }
     if (!request.battleType.empty()) {
         addBattleTargets(info, request.battleType, request.battleTargetIds, request.scoreSoFar);

@@ -54,6 +54,10 @@ public:
 
     void sendRaw(uint16_t cmdId, std::string_view body);
     void sendEmpty(uint16_t cmdId);
+    // Sent from update() once util::nowMs() reaches atMs. One per cmd id: a newer call
+    // replaces the pending one.
+    void sendLater(uint16_t cmdId, std::string body, uint64_t atMs);
+    void cancelLater(uint16_t cmdId);
 
     // Drops every other session logged in as `uid`; each saves on its way out.
     void dropOtherLogins(uint32_t uid);
@@ -91,6 +95,12 @@ private:
     std::vector<std::string> emptyReplies_;
     uint32_t emptyReplyCount_ = 0;
     uint64_t lastEmptyReplyMs_ = 0;
+    struct Delayed {
+        uint16_t cmdId;
+        std::string body;
+        uint64_t atMs;
+    };
+    std::vector<Delayed> delayed_;  // under mutex_
 };
 
 }  // namespace net

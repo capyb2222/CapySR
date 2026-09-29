@@ -1,11 +1,10 @@
-#include <atomic>
 #include <cstdio>
 #include <string>
 #include <string_view>
 #include <utility>
 
 #include "core/logger.h"
-#include "core/util.h"
+#include "game/client_lua.h"
 #include "game/handlers.h"
 #include "net/cmd_ids.h"
 #include "net/handler.h"
@@ -158,14 +157,7 @@ std::string watermarkLua(std::string_view version) {
 }
 
 void sendWatermark(net::Session& session) {
-    // Every push gets a fresh version.
-    static std::atomic<uint32_t> version{static_cast<uint32_t>(util::nowMs() / 1000)};
-    proto::ClientDownloadDataScNotify notify;
-    auto& download = notify.download_data.emplace();
-    download.version = ++version;
-    download.time = static_cast<int64_t>(util::nowMs() / 1000);
-    download.data = watermarkLua(sdk::lastClientVersion());
-    session.send(cmd::ClientDownloadDataScNotify, notify);
+    session.send(cmd::ClientDownloadDataScNotify, lua::push(watermarkLua(sdk::lastClientVersion())));
 }
 
 void onSetClientPaused(net::Session& session, const proto::SetClientPausedCsReq& req) {

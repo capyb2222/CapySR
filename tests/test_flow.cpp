@@ -783,8 +783,8 @@ void runFlowTests() {
         check(client.await(cmd::GetChallengePeakDataScRsp, packet), "arbitration data answered");
         proto::GetChallengePeakDataScRsp peakData;
         check(parseBody(packet, peakData), "arbitration data parses");
-        check(peakData.challenge_peak_groups.size() >= 10, "with every season in it");
-        check(peakData.current_peak_group_id == 10, "and the newest on show");
+        check(peakData.challenge_peak_groups.size() >= 11, "with every season in it");
+        check(peakData.current_peak_group_id == 11, "and the newest on show");
 
         proto::SetChallengePeakMobLineupAvatarCsReq teams;
         teams.peak_group_id = 9;
@@ -1276,6 +1276,27 @@ void runFlowTests() {
     std::vector<std::string> nowhere = typed("/nope");
     check(nowhere.size() == 1 && nowhere[0].find("no command") != std::string::npos,
           "and an unknown command says so instead of going quiet");
+
+    // The chat box is hidden with everything else, so the UI has to come back by itself.
+    // Watermark pushes share the notify and are skipped.
+    auto awaitLua = [&](const std::string& marker, int timeoutMs) {
+        uint64_t deadline = util::nowMs() + static_cast<uint64_t>(timeoutMs);
+        net::Packet pushedPacket;
+        while (util::nowMs() < deadline) {
+            proto::ClientDownloadDataScNotify pushed;
+            if (!client.await(cmd::ClientDownloadDataScNotify, pushedPacket, timeoutMs)) return false;
+            if (parseBody(pushedPacket, pushed) && pushed.download_data &&
+                pushed.download_data->data.find(marker) != std::string::npos) {
+                return true;
+            }
+        }
+        return false;
+    };
+    std::vector<std::string> hidden = typed("/hideui 1");
+    check(hidden.size() == 1 && hidden[0].find("hidden for 1s") != std::string::npos,
+          "/hideui says for how long");
+    check(awaitLua("canvas.enabled = false", 2000), "the hide goes out at once");
+    check(awaitLua("canvas.enabled = true", 3000), "and the UI comes back after the delay");
 
     std::vector<std::string> chatter = typed("hello");
     check(chatter.size() == 1 && chatter[0].find("/help") != std::string::npos,

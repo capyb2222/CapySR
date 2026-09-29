@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-
-enum CmdFightTeamTowersType {
-	CmdFightTeamTowersType_NLCDGIPGFDJ = 0;
-}

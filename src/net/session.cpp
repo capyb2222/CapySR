@@ -164,6 +164,27 @@ void Session::update(uint32_t nowMs) {
     if (emptyReplyCount_ != 0 && util::nowMs() >= lastEmptyReplyMs_ + kEmptyReplyQuietMs) {
         flushEmptyReplies();
     }
+    if (!delayed_.empty()) {
+        uint64_t now = util::nowMs();
+        std::vector<Delayed> due;
+        std::erase_if(delayed_, [&](Delayed& d) {
+            if (d.atMs > now) return false;
+            due.push_back(std::move(d));
+            return true;
+        });
+        for (const Delayed& d : due) sendRaw(d.cmdId, d.body);
+    }
+}
+
+void Session::sendLater(uint16_t cmdId, std::string body, uint64_t atMs) {
+    std::lock_guard lock(mutex_);
+    cancelLater(cmdId);
+    delayed_.push_back({cmdId, std::move(body), atMs});
+}
+
+void Session::cancelLater(uint16_t cmdId) {
+    std::lock_guard lock(mutex_);
+    std::erase_if(delayed_, [&](const Delayed& d) { return d.cmdId == cmdId; });
 }
 
 void Session::flushEmptyReplies() {

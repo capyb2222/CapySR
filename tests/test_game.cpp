@@ -713,7 +713,7 @@ void testChallengeHistory() {
 
     // Anomaly Arbitration. Production rows have no arena, so the beta dump fills it in,
     // and places season ten, which production does not have at all.
-    check(tables.peakGroups().size() >= 10, "every arbitration season loaded");
+    check(tables.peakGroups().size() >= 11, "every arbitration season loaded");
     const data::PeakInfo* knight = tables.peak(101);
     check(knight != nullptr && knight->mapEntranceId == 3013501 && knight->eventId == 30501011,
           "a production knight gets its arena from the beta dump");
@@ -778,8 +778,9 @@ void testRosterProtos() {
 
     const std::vector<uint32_t>& ids = game::Roster::baseAvatarIds();
     check(!ids.empty(), "the roster has base ids");
-    // Derived from AvatarConfig; the 4.5 + 4.6-beta merge comes to exactly 88 base ids.
-    check(ids.size() == 88, "the derived roster has all 88 base ids");
+    // Derived from AvatarConfig; 4.5 + 4.6-beta + the 4.6.51 overlay come to 89 base ids.
+    check(ids.size() == 89, "the derived roster has all 89 base ids");
+    check(std::find(ids.begin(), ids.end(), 1511u) != ids.end(), "Aha from the 4.6.51 overlay");
     check(std::find(ids.begin(), ids.end(), 6022u) == ids.end(), "story-only units are excluded");
     check(std::find(ids.begin(), ids.end(), 1503u) != ids.end(), "beta-only avatars are included");
     check(ids.size() >= 2 && ids[0] == 8001 && ids[1] == 1001, "Trailblazer and March lead");
@@ -802,9 +803,15 @@ void testRosterProtos() {
     check(battle.hp == 10000, "hp is a percentage in hundredths");
     check(battle.sp_bar && battle.sp_bar->max_sp >= 10000, "sp is scaled to hundredths");
     check(!battle.skilltree_list.empty(), "traces are filled in");
-    check(!buffs.empty(), "a technique buff was produced");
-    check(buffs[0].wave_flag == 0xFFFFFFFFu, "technique buffs apply to every wave");
-    check(buffs[0].owner_index == 0, "owned by the avatar that brought it");
+    // A build may switch every technique off; then there is nothing to check.
+    auto build = game::SrTools::instance().data();
+    auto it = build->avatars.find(8008);
+    bool techniquesOff = it != build->avatars.end() && it->second.techniques.empty();
+    check(techniquesOff || !buffs.empty(), "a technique buff was produced");
+    if (!buffs.empty()) {
+        check(buffs[0].wave_flag == 0xFFFFFFFFu, "technique buffs apply to every wave");
+        check(buffs[0].owner_index == 0, "owned by the avatar that brought it");
+    }
 }
 
 void testSceneBuild() {
@@ -991,6 +998,39 @@ void testEveryScenePacketFits() {
     }
     check(bag.serialize().size() + net::kPacketOverhead < net::kMaxKcpMessage,
           "the bag fits in one kcp message");
+}
+
+// 4.6.51 seasons come from the beta dump alone: floors with no group rows, all three
+// modes in one table, Pure Fiction floors with no extras.
+void testNewSeasons() {
+    const data::Tables& tables = data::Tables::get();
+    if (!tables.loaded()) return;
+    const data::ChallengeInfo* story = tables.challenge(20281);
+    const data::ChallengeInfo* boss = tables.challenge(30231);
+    const data::ChallengeInfo* memory = tables.challenge(5601);
+    check(story && story->kind == data::ChallengeKind::Story, "a 2xxx season is Pure Fiction");
+    check(boss && boss->kind == data::ChallengeKind::Boss, "a 3xxx season is Apocalyptic Shadow");
+    check(memory && memory->kind == data::ChallengeKind::Memory, "a 1xxx season is Memory");
+    const data::ChallengeGroupInfo* season = tables.challengeGroup(2028);
+    const data::ChallengeGroupInfo* previous = tables.challengeGroup(2026);
+    check(season && season->kind == data::ChallengeKind::Story, "the new season is listed");
+    check(season && previous && season->rewardLineGroupId == previous->rewardLineGroupId,
+          "with its mode's reward line");
+    check(tables.challengeGroup(1037) && tables.challengeGroup(3023), "and the other two modes'");
+    check(story && story->roundLimit == 5 && story->battleTargetIds == std::vector<uint32_t>{2001, 2002},
+          "Pure Fiction extras come from the same floor of an earlier season");
+
+    check(tables.stageInvasion(30127112) == 2, "a stage's invasion is loaded");
+    check(tables.stageInvasion(1) == 0, "and most stages have none");
+    game::Player player = makeTestPlayer();
+    game::BattleRequest request;
+    request.stageIds = {30127112};
+    proto::SceneBattleInfo info = game::battle::create(player, request);
+    int invasion = 0;
+    for (const proto::BattleBuff& buff : info.buff_list) {
+        if (buff.id == 3034002 || buff.id == 3034012) ++invasion;
+    }
+    check(invasion == 2, "the fight carries the invasion's attack and support buffs");
 }
 
 void testBattleBuild() {
@@ -1324,6 +1364,7 @@ void runGameTests() {
     testChallengeRun();
     testTierceRun();
     testEveryScenePacketFits();
+    testNewSeasons();
     testBattleBuild();
     testBattleSourceSplit();
     testPropInteraction();

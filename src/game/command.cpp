@@ -6,6 +6,7 @@
 #include "core/logger.h"
 #include "core/util.h"
 #include "data/excel.h"
+#include "game/client_lua.h"
 #include "game/inventory.h"
 #include "game/player.h"
 #include "game/rescue.h"
@@ -114,6 +115,26 @@ Reply onWhere(net::Session&, Player& player, const Args&) {
                 std::to_string(pos.z / 1000)};
 }
 
+// The chat box goes with the rest of the UI, so hiding always comes back on its own.
+constexpr uint32_t kHideUiDefaultSec = 30;
+constexpr uint32_t kHideUiMaxSec = 600;
+
+Reply onHideUi(net::Session& session, Player&, const Args& args) {
+    uint32_t seconds = kHideUiDefaultSec;
+    if (!args.empty() && !number(args[0], seconds)) return {"usage: /hideui [seconds]"};
+    seconds = std::clamp<uint32_t>(seconds, 1, kHideUiMaxSec);
+    session.send(cmd::ClientDownloadDataScNotify, lua::push(lua::hideUi()));
+    session.sendLater(cmd::ClientDownloadDataScNotify, lua::push(lua::showUi()).serialize(),
+                      util::nowMs() + uint64_t{seconds} * 1000);
+    return {"UI hidden for " + std::to_string(seconds) + "s"};
+}
+
+Reply onShowUi(net::Session& session, Player&, const Args&) {
+    session.cancelLater(cmd::ClientDownloadDataScNotify);
+    session.send(cmd::ClientDownloadDataScNotify, lua::push(lua::showUi()));
+    return {"UI back"};
+}
+
 using Handler = Reply (*)(net::Session&, Player&, const Args&);
 
 struct Command {
@@ -128,6 +149,8 @@ const Command kCommands[] = {
     {{"unstuck", "", "end whatever the client is waiting on and redraw the scene"}, onUnstuck},
     {{"tp", "<entrance id>", "move to an entrance"}, onTp},
     {{"where", "", "uid, world level and where you are standing"}, onWhere},
+    {{"hideui", "[seconds]", "hide the UI for a while (30s by default) to take screenshots"}, onHideUi},
+    {{"showui", "", "bring the UI back early"}, onShowUi},
 };
 
 }  // namespace
