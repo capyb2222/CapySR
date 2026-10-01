@@ -189,7 +189,7 @@ void onMarkPresetLineup(net::Session& session, const proto::MarkPresetLineupCsRe
     Player* player = playerOf(session, "MarkPresetLineup");
     if (player == nullptr) return;
 
-    proto::SetTeamFavourite rsp;
+    proto::MarkPresetLineupScRsp rsp;
     rsp.index = req.index;
     rsp._is_favourite = req._is_favourite;
     if (req.index >= kSquadCount) {
@@ -199,9 +199,7 @@ void onMarkPresetLineup(net::Session& session, const proto::MarkPresetLineupCsRe
         player->saveNow();
         rsp.retcode = 0;
     }
-    // The dump never names a MarkPresetLineupScRsp; 773 is it, under the name the
-    // client's own symbols use.
-    session.send(cmd::SetTeamFavourite, rsp);
+    session.send(cmd::MarkPresetLineupScRsp, rsp);
 }
 
 }  // namespace

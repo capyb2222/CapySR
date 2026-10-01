@@ -17188,7 +17188,7 @@ message MarkPresetLineupCsReq {
 	bool _is_favourite = 8;
 	uint32 index = 10;
 }
-message SetTeamFavourite {
+message MarkPresetLineupScRsp {
 	bool _is_favourite = 2;
 	uint32 index = 9;
 	uint32 retcode = 14;

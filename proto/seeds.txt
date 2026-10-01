@@ -117,7 +117,7 @@ GetLineupAvatarDataScRsp
 RecoverAllLineupCsReq
 RecoverAllLineupScRsp
 MarkPresetLineupCsReq
-SetTeamFavourite
+MarkPresetLineupScRsp
 SyncLineupNotify
 
 # ---- scene ----

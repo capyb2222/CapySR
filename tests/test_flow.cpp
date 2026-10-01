@@ -979,8 +979,8 @@ void runFlowTests() {
     mark.index = 0;
     mark._is_favourite = true;
     client.send(cmd::MarkPresetLineupCsReq, mark);
-    check(client.await(cmd::SetTeamFavourite, packet), "marking a preset answers on 773");
-    proto::SetTeamFavourite markRsp;
+    check(client.await(cmd::MarkPresetLineupScRsp, packet), "marking a preset answers on 780");
+    proto::MarkPresetLineupScRsp markRsp;
     check(parseBody(packet, markRsp), "the mark parses");
     check(markRsp.retcode == 0 && markRsp._is_favourite, "the squad is now a favourite");
 
